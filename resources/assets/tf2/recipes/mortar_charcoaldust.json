@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:mortar"
+		},
+		{
+			"item": "minecraft:coal",
+			"data": 1
+		}
+	],
+	"result": {
+		"item": "tf:powder",
+		"data": 3
+	}
+}

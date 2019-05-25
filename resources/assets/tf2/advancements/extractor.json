@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:extractor"
+		},
+		"title": {
+			"translate": "advancement.craftExtractor"
+		},
+		"description": {
+			"translate": "advancement.craftExtractor.desc"
+		}
+	},
+	"parent": "tf:ceramic",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:extractor"
+                    }
+                ]
+            }
+        }
+    },
+   "rewards": {
+        "recipes": ["tf:energydrink","tf:adv_pulverizer","tf:adv_extractor","tf:cokechamber"]
+    }
+}

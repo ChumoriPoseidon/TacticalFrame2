@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"YXY",
+		"X#X",
+		"YXY"
+	],
+	"key": {
+		"#": {
+			"item": "minecraft:chest"
+		},
+		"X": {
+			 "item": "minecraft:iron_ingot"
+		},
+		"Y": {
+			"item": "tf:ironframe",
+            "data": 32767
+		}
+	},
+	"result": {
+		"item": "tf:containerbox"
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:powder",
+			"data": 9
+		},
+		{
+            "item": "tf:powder",
+            "data": 5
+        },
+		{
+			"type": "forge:ore_dict",
+             "ore": "dustCoal"
+		},
+		{
+			"item": "tf:workkit",
+			"data": 32767
+		}
+	],
+	"result": {
+		"item": "tf:ceramic_tempered",
+		"count": 1
+	}
+}

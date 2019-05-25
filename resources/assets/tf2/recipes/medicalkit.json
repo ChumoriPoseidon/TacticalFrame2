@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XZX",
+		"Y#Y",
+		"XZX"
+	],
+	"key": {
+		"X": {
+			 "item": "tf:firstaidpotion"
+		},
+		"Y": {
+			"item": "tf:phenol"
+		},
+		"Z": {
+            "item": "tf:nitroglycerine"
+        },
+        "#": {
+            "item": "tf:firstaidkit"
+        }
+	},
+	"result": {
+		"item": "tf:medicalkit"
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XXX",
+		"XYX",
+		"Z#Z"
+	],
+	"key": {
+		"#": {
+			"item": "tf:diesel"
+		},
+		"X": {
+			 "type": "forge:ore_dict",
+             "ore": "ingotSteel"
+		},
+		"Y": {
+			"item": "tf:workkit",
+            "data": 32767
+		},
+		"Z": {
+             "type": "forge:ore_dict",
+             "ore": "gearIron"
+        }
+	},
+	"result": {
+		"item": "tf:biogenerator"
+	}
+}

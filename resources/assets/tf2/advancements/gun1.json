@@ -1,0 +1,152 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:m16a1"
+		},
+		"title": {
+			"translate": "advancement.craftGuns"
+		},
+		"description": {
+			"translate": "advancement.craftGuns.desc"
+		}
+	},
+	"parent": "tf:guncraft",
+    "criteria": {
+        "1": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:ak47"
+                    }
+                ]
+            }
+        },
+         "2": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:m16a1"
+                    }
+                ]
+            }
+        },
+         "3": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:spas12"
+                    }
+                ]
+            }
+        },
+         "4": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:saiga12"
+                    }
+                ]
+            }
+        },
+         "5": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:m24"
+                    }
+                ]
+            }
+        },
+         "6": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:svd"
+                    }
+                ]
+            }
+        },
+         "7": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:uzi"
+                    }
+                ]
+            }
+        },
+         "8": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:evo3"
+                    }
+                ]
+            }
+        },
+         "9": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:ppsh41"
+                    }
+                ]
+            }
+        },
+         "10": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:m1911"
+                    }
+                ]
+            }
+        },
+         "11": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:deserteagle"
+                    }
+                ]
+            }
+        },
+         "12": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:m1a1"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+        ]
+    ]
+}

@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:cokechamber"
+		},
+		"title": {
+			"translate": "advancement.craftCokechamber"
+		},
+		"description": {
+			"translate": "advancement.craftCokechamber.desc"
+		},
+		"frame": "goal"
+	},
+	"parent": "tf:extractor",
+    "criteria": {
+        "1": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:cokechamber"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "experience": 50
+    }
+}

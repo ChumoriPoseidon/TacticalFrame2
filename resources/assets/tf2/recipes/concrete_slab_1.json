@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "tf:concrete",
+            "data": 1
+        }
+    },
+    "result": {
+        "item": "tf:concrete_slab_1",
+        "count": 6
+    }
+}

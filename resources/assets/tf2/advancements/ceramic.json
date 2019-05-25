@@ -1,0 +1,26 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:ceramic"
+		},
+		"title": {
+			"translate": "advancement.craftCeramic"
+		},
+		"description": {
+			"translate": "advancement.craftCeramic.desc"
+		}
+	},
+	"parent": "tf:pulverizer",
+    "criteria": {
+        "ingot": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [{"item": "tf:ceramic"}]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": ["tf:rigidofurnace", "tf:extractor", "tf:shield_riot", "tf:shield_riotmk2"
+        , "tf:temperedglass_0", "tf:temperedglass_1", "tf:temperedglass_2"]
+    }
+}

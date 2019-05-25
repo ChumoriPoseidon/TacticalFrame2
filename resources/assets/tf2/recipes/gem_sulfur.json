@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "tf:oreblock",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "tf:sulfur",
+        "count": 9
+    }
+}

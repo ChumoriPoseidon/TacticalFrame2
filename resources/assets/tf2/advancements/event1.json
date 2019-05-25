@@ -1,0 +1,27 @@
+{
+    "display": {
+        "icon": {
+            "item": "tf:gem",
+             "data": 0
+        },
+        "title": {
+            "translate": "advancement.event1"
+        },
+        "description": {
+            "translate": "advancement.event1.desc"
+        }
+    },
+    "parent": "tf:root",
+    "criteria": {
+        "ingot": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [{"item": "tf:gem" ,"data": 0}]
+            }
+        }
+    },
+    "rewards": {
+        "experience": 100,
+        "recipes": ["tf:mission2"]
+    }
+}

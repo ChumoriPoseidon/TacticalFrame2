@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" X ",
+		"XYX",
+		" X "
+	],
+	"key": {
+		"X": {
+			 "item": "minecraft:paper"
+		},
+		"Y": {
+			"item": "tf:mission_2"
+		}
+	},
+	"result": {
+		"item": "tf:mission_3"
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:rigidoplate"
+		},
+		"title": {
+			"translate": "advancement.getRigidoplate"
+		},
+		"description": {
+			"translate": "advancement.getRigidoplate.desc"
+		}
+	},
+	"parent": "tf:kill_tm",
+    "criteria": {
+        "plate": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [{"item": "tf:rigidoplate"}]
+            }
+        },
+        "ingot": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [{"item": "tf:rigidoingot"}]
+            }
+        }
+    },
+    "requirements": [
+        ["plate", "ingot"]
+    ],
+    "rewards": {
+        "recipes": ["tf:rigidoplate", "tf:rigidoblock", "tf:mechaparts"]
+    }
+}

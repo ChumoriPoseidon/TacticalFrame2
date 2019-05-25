@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:mortar"
+		},
+		{
+			"item": "minecraft:wool",
+			"data": 32767
+		}
+	],
+	"result": {
+		"item": "minecraft:string",
+		"count": 2
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+            "item": "tf:workkit",
+            "data": 32767
+        },
+		{
+			"item": "tf:boxrifle"
+		},
+		{
+            "item": "tf:boxrifle"
+        },
+        {
+            "item": "tf:boxrifle"
+        },
+		{
+			"item": "tf:boxrifle"
+		}
+	],
+	"result": {
+		"item": "tf:boxrifle_large",
+		"count": 1
+	}
+}

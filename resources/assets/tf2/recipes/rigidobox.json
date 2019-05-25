@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"YXY",
+		"X#X",
+		"YXY"
+	],
+	"key": {
+		"#": {
+			"item": "tf:containerbox"
+		},
+		"X": {
+			 "item": "tf:rigidoingot"
+		},
+		"Y": {
+			"item": "minecraft:gold_ingot"
+		}
+	},
+	"result": {
+		"item": "tf:rigidobox"
+	}
+}

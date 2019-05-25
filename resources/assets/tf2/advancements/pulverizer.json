@@ -1,0 +1,31 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:pulverizer"
+		},
+		"title": {
+			"translate": "advancement.craftPulverizer"
+		},
+		"description": {
+			"translate": "advancement.craftPulverizer.desc"
+		}
+	},
+	"parent": "tf:steel",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:pulverizer"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": ["tf:ceramic","tf:ceramic_tempered","tf:rigidoingot","tf:rigido_sword","tf:rigido_axe","tf:rigido_pickaxe","tf:rigido_shovel"
+        ,"tf:rigido_helmet","tf:rigido_body","tf:rigido_leg","tf:rigido_boot","tf:rigidobattery", "tf:rigidobox", "tf:shield_fireguard"
+        , "tf:gunpowder", "tf:hardtack", "tf:shortbread", "tf:shortbread_cocoa"]
+    }
+}

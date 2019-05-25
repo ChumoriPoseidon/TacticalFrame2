@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XX",
+		"XX",
+		"XX"
+	],
+	"key": {
+		"X": {
+			 "item": "tf:galvanised_iron",
+             "data": 32767
+		}
+	},
+	"result": {
+		"item": "tf:drum",
+		"count": 3
+	}
+}

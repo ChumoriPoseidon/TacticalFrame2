@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:purifiedwater"
+		},
+		{
+			"item": "tf:willow_extract"
+		},
+		{
+			"item": "tf:biopotion"
+		}
+	],
+	"result": {
+		"item": "tf:firstaidpotion",
+		"count": 1
+	}
+}

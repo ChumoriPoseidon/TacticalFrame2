@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"ZXZ",
+		"YYY"
+	],
+	"key": {
+	    "#": {
+             "item": "minecraft:diamond"
+        },
+		"X": {
+			 "item": "tf:mechaparts"
+		},
+		"Y": {
+			 "type": "forge:ore_dict",
+             "ore": "ingotSteel"
+		},
+		"Z": {
+             "type": "forge:ore_dict",
+             "ore": "gearGold"
+        }
+	},
+	"result": {
+		"item": "tf:particlefilter"
+	}
+}

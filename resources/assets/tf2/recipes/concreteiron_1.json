@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:concrete",
+			"data": 1
+		},
+		{
+            "item": "tf:ironframe",
+            "data": 1
+        }
+	],
+	"result": {
+		"item": "tf:concreteiron",
+		"data": 1
+	}
+}

@@ -1,0 +1,13 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "all": "tf:blocks/explosive"
+        },
+        "model": "cube_all"
+    },
+    "variants": {
+        "normal": [{}],
+    "inventory":[{}]
+    }
+}

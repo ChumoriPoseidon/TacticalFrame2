@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:vantage"
+		},
+		{
+            "item": "tf:powder",
+            "data": 12
+        },
+        {
+           "item": "tf:powder",
+            "data": 12
+        }
+	],
+	"result": {
+		"item": "tf:vantage_aid",
+		"count": 1
+	}
+}

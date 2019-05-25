@@ -1,0 +1,30 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:chocolate"
+		},
+		{
+			"item": "tf:cacaobutter"
+		},
+		{
+			"item": "minecraft:sugar"
+		},
+        {
+            "type": "forge:ore_dict",
+            "ore": "bucketMilk"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustWheat"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustWheat"
+        }
+	],
+	"result": {
+		"item": "tf:ration_chocolate",
+		"count": 1
+	}
+}

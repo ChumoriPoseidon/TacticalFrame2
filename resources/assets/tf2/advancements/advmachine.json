@@ -1,0 +1,45 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:adv_pulverizer"
+		},
+		"title": {
+			"translate": "advancement.craftAdv"
+		},
+		"description": {
+			"translate": "advancement.craftAdv.desc"
+		}
+	},
+	"parent": "tf:extractor",
+    "criteria": {
+        "1": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:adv_pulverizer"
+                    }
+                ]
+            }
+        },
+         "2": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:adv_extractor"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "1",
+            "2"
+        ]
+    ],
+    "rewards": {
+        "experience": 50
+    }
+}

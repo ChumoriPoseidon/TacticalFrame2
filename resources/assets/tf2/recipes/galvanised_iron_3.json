@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:galvanised_iron",
+            "data": 2
+		}
+	],
+	"result": {
+		"item": "tf:galvanised_iron",
+		"data": 3,
+		"count": 1
+	}
+}

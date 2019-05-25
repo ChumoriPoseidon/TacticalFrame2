@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"X#X",
+		"#Y#",
+		"XZX"
+	],
+	"key": {
+		"#": {
+			"type": "forge:ore_dict",
+			"ore": "gearIron"
+		},
+		"X": {
+			 "item": "minecraft:iron_ingot"
+		},
+		"Y": {
+			"item": "tf:workkit",
+            "data": 32767
+		},
+		"Z": {
+            "item": "minecraft:furnace"
+        }
+	},
+	"result": {
+		"item": "tf:basicgenerator"
+	}
+}

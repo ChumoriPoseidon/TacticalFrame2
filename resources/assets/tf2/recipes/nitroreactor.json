@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XXX",
+		"X#X",
+		"ZYZ"
+	],
+	"key": {
+		"#": {
+			"item": "tf:workkit",
+            "data": 32767
+		},
+		"X": {
+			"item": "tf:ceramic"
+		},
+		"Y": {
+			"item": "tf:leprechip"
+		},
+		"Z": {
+			"item": "tf:biopotion"
+		}
+	},
+	"result": {
+		"item": "tf:nitroreactor"
+	}
+}

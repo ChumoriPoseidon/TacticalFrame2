@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:aidstone",
+            "data": 11
+		}
+	],
+	"result": {
+		"item": "tf:aidstone",
+		"data": 12,
+		"count": 1
+	}
+}

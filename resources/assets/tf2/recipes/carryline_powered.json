@@ -1,0 +1,24 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XXX",
+		"ZYZ",
+		"XXX"
+	],
+	"key": {
+		"X": {
+			 "item": "minecraft:stone",
+			  "data": 0
+		},
+		"Y": {
+			 "item": "tf:carryline"
+		},
+		"Z": {
+            "item": "minecraft:gold_nugget"
+        }
+	},
+	"result": {
+		"item": "tf:carryline_powered",
+		"count": 4
+	}
+}

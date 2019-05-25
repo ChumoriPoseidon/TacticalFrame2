@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XY"
+	],
+	"key": {
+		"X": {
+			 "item": "minecraft:nether_brick_fence"
+		},
+		"Y": {
+			"item": "minecraft:glowstone"
+		}
+	},
+	"result": {
+		"item": "tf:streetlight"
+	}
+}

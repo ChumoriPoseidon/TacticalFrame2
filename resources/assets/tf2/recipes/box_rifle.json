@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+            "item": "tf:workkit",
+            "data": 32767
+        },
+		{
+			"item": "minecraft:iron_ingot"
+		},
+		{
+			"item": "minecraft:gunpowder"
+		}
+	],
+	"result": {
+		"item": "tf:boxrifle",
+		"count": 1
+	}
+}

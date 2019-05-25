@@ -1,0 +1,31 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:biogenerator"
+		},
+		"title": {
+			"translate": "advancement.craftGenerator"
+		},
+		"description": {
+			"translate": "advancement.craftGenerator.desc"
+		}
+	},
+	"parent": "tf:cokeoven",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:biogenerator"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": ["tf:nitroreactor","tf:rubberseat","tf:tire","tf:aidstone_0","tf:aidstone_1","tf:aidstone_2","tf:aidstone_3","tf:aidstone_4","tf:aidstone_5"
+        ,"tf:aidstone_6","tf:aidstone_7","tf:aidstone_8","tf:aidstone_9","tf:aidstone_10","tf:aidstone_11","tf:aidstone_12"
+        ,"tf:aidstone_13","tf:aidstone_14","tf:aidstone_15","tf:aidstone_16"]
+    }
+}

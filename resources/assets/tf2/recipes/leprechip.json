@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XZX",
+		"ZYZ",
+		"XZX"
+	],
+	"key": {
+		"X": {
+			 "item": "minecraft:redstone"
+		},
+		"Y": {
+			 "item": "tf:leprecube"
+		},
+		"Z": {
+            "item": "minecraft:gold_ingot"
+        }
+	},
+	"result": {
+		"item": "tf:leprechip"
+	}
+}

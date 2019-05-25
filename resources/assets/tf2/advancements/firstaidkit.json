@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:firstaidkit"
+		},
+		"title": {
+			"translate": "advancement.craftFirstaidkit"
+		},
+		"description": {
+			"translate": "advancement.craftFirstaidkit.desc"
+		}
+	},
+	"parent": "tf:vantage",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:firstaidkit"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": ["tf:medicalkit"]
+    }
+}

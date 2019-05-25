@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XXX",
+		"XYX",
+		"XXX"
+	],
+	"key": {
+		"X": {
+			 "item": "minecraft:iron_bars",
+			 "data": 0
+		},
+		"Y": {
+			"item": "minecraft:dye",
+			"data": 15
+		}
+	},
+	"result": {
+		"item": "tf:ornament_fence_1",
+		"count": 8
+
+	}
+}

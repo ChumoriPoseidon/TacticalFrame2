@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:workkit"
+		},
+		"title": {
+			"translate": "advancement.craftWorkkit"
+		},
+		"description": {
+			"translate": "advancement.craftWorkkit.desc"
+		},
+		"background": "tf:textures/blocks/aidstone_2.png"
+	},
+	"criteria": {
+		"craft": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "tf:workkit"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+        "recipes": ["tf:cupola", "tf:vantage"]
+    }
+}

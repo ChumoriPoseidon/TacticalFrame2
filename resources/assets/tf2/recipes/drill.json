@@ -1,0 +1,24 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" X ",
+		"X#X",
+		"XYX"
+	],
+	"key": {
+		"#": {
+			 "type": "forge:ore_dict",
+             "ore": "gearIron"
+		},
+		"X": {
+			 "type": "forge:ore_dict",
+             "ore": "ingotSteel"
+		},
+		"Y": {
+			"item": "tf:basicgenerator"
+		}
+	},
+	"result": {
+		"item": "tf:drill"
+	}
+}

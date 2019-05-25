@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:nitrocellulose"
+		},
+		{
+			"item": "tf:nitroguanidine"
+		},
+		{
+            "item": "tf:nitroglycerine"
+        }
+	],
+	"result": {
+		"item": "tf:explosive",
+		"count": 1
+	}
+}

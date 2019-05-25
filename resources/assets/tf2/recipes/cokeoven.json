@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XXX",
+		"XYX",
+		"###"
+	],
+	"key": {
+		"#": {
+			"type": "forge:ore_dict",
+			"ore": "bucketLava"
+		},
+		"X": {
+			 "type": "forge:ore_dict",
+             "ore": "ingotSteel"
+		},
+		"Y": {
+			"item": "tf:workkit",
+            "data": 32767
+		}
+	},
+	"result": {
+		"item": "tf:cokeoven"
+	}
+}

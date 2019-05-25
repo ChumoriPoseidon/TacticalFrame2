@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:cokeoven"
+		},
+		"title": {
+			"translate": "advancement.craftCokeoven"
+		},
+		"description": {
+			"translate": "advancement.craftCokeoven.desc"
+		}
+	},
+	"parent": "tf:steel",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:cokeoven"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": ["tf:coke","tf:coke_block","tf:coke_torch","tf:tallow_torch","tf:biogenerator","tf:refiner","tf:box_diesel","tf:drill","tf:drill_diamond","tf:drill2","tf:drill_diamond2"]
+    }
+}

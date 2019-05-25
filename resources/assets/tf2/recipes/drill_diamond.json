@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" X ",
+		"X#X",
+		"ZYZ"
+	],
+	"key": {
+		"#": {
+			"type": "forge:ore_dict",
+			"ore": "gearGold"
+		},
+		"X": {
+			"item": "minecraft:diamond"
+		},
+		"Y": {
+			"item": "tf:drill",
+			"data": 0
+		},
+		"Z": {
+			"item": "tf:ceramic"
+		}
+	},
+	"result": {
+		"item": "tf:drill_diamond"
+	}
+}

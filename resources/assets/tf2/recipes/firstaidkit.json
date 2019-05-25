@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XZX",
+		"YYY",
+		"XZX"
+	],
+	"key": {
+		"X": {
+			 "item": "tf:vantage_aid"
+		},
+		"Y": {
+			"item": "tf:painkiller"
+		},
+		"Z": {
+            "item": "minecraft:shears"
+        }
+	},
+	"result": {
+		"item": "tf:firstaidkit"
+	}
+}

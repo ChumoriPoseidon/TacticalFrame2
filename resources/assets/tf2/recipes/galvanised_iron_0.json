@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " X ",
+        "XYX"
+    ],
+    "key": {
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "ingotSteel"
+        },
+        "Y": {
+            "item": "minecraft:clay_ball"
+        }
+    },
+    "result": {
+        "item": "tf:galvanised_iron",
+        "data": 0,
+        "count": 6
+    }
+}

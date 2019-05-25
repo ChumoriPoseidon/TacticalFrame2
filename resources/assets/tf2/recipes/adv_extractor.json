@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XZX",
+		"AYA",
+		"X#X"
+	],
+	"key": {
+		"#": {
+			"item": "tf:basicgenerator"
+		},
+		"X": {
+			 "type": "forge:ore_dict",
+             "ore": "itemSimpleMachineChassi"
+		},
+		"Y": {
+			"item": "tf:leprechip"
+		},
+		"Z": {
+            "item": "tf:extractor"
+        },
+		"A": {
+             "item": "tf:flamchip"
+        }
+	},
+	"result": {
+		"item": "tf:adv_extractor"
+	}
+}

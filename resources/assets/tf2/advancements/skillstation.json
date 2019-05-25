@@ -1,0 +1,26 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:skillstation"
+		},
+		"title": {
+			"translate": "advancement.craftSkillstation"
+		},
+		"description": {
+			"translate": "advancement.craftSkillstation.desc"
+		}
+	},
+	"parent": "tf:guncraft",
+    "criteria": {
+        "getDiamond": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:skillstation"
+                    }
+                ]
+            }
+        }
+    }
+}

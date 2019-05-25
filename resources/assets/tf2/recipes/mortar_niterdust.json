@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "tf:mortar"
+		},
+		{
+			"item": "tf:niter"
+		}
+	],
+	"result": {
+		"item": "tf:powder_niter"
+	}
+}

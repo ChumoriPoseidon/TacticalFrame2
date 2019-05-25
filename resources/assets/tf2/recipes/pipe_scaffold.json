@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"X X",
+		"XXX",
+		"X X"
+	],
+	"key": {
+		"X": {
+			"item": "minecraft:iron_bars"
+		}
+	},
+	"result": {
+		"item": "tf:pipe_scaffold",
+		"data": 0,
+		"count": 16
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:vantage"
+		},
+		"title": {
+			"translate": "advancement.craftVantage"
+		},
+		"description": {
+			"translate": "advancement.craftVantage.desc"
+		}
+	},
+	"parent": "tf:root2",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:vantage"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": ["tf:vantage_aid", "tf:firstaidkit"]
+    }
+}

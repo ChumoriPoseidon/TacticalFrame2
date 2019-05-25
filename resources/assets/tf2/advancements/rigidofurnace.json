@@ -1,0 +1,34 @@
+{
+	"display": {
+		"icon": {
+			"item": "tf:rigidofurnace"
+		},
+		"title": {
+			"translate": "advancement.craftRigidofurnace"
+		},
+		"description": {
+			"translate": "advancement.craftRigidofurnace.desc"
+		},
+		"frame": "challenge"
+	},
+	"parent": "tf:ceramic",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf:rigidofurnace"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "experience": 100,
+         "recipes": ["tf:mortar", "tf:colorlight_0", "tf:colorlight_1", "tf:colorlight_2", "tf:colorlight_3", "tf:colorlight_4", "tf:colorlight_5"
+         , "tf:colorlight_6", "tf:colorlight_7", "tf:colorlight_8", "tf:colorlight_9", "tf:colorlight_10", "tf:colorlight_11", "tf:colorlight_12"
+         , "tf:colorlight_13", "tf:colorlight_14", "tf:colorlight_15", "tf:colorlight_16", "tf:carryline", "tf:carryline_up"
+         , "tf:carryline_down", "tf:carryline_powered", "tf:catapult"]
+    }
+}

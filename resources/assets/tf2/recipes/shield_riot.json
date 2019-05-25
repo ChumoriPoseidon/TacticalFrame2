@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XZX",
+		"XXX",
+		" X "
+	],
+	"key": {
+		"X": {
+			 "item": "tf:ceramic"
+		},
+		"Z": {
+            "item": "tf:flamchip"
+        }
+	},
+	"result": {
+		"item": "tf:riotshield"
+	}
+}

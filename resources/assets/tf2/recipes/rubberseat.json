@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XXX"
+	],
+	"key": {
+		"X": {
+			 "type": "forge:ore_dict",
+             "ore": "itemRubber"
+		}
+	},
+	"result": {
+		"item": "tf:rubberseat",
+        "count": 6
+	}
+}

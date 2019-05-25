@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_bottom_top",
+    "textures": {
+      "bottom": "tf:blocks/skillstation",
+      "top": "tf:blocks/skillstation_top",
+      "side": "tf:blocks/skillstation_side"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal":[{}],
+    "inventory":[{}]
+  }
+}

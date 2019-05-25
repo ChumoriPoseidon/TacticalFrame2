@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "tf:oreblock",
+            "data": 3
+        }
+    ],
+    "result": {
+        "item": "tf:ulexite",
+        "count": 9
+    }
+}
