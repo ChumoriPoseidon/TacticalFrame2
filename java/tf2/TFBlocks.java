@@ -18,7 +18,10 @@ import tf2.blocks.BlockCupola;
 import tf2.blocks.BlockGunCraft;
 import tf2.blocks.BlockIronFrame;
 import tf2.blocks.BlockMachineChassis;
+import tf2.blocks.BlockMachineStation;
 import tf2.blocks.BlockMechaDock;
+import tf2.blocks.BlockPulverizer;
+import tf2.blocks.BlockSkillStation;
 import tf2.blocks.BlockTFOre;
 
 public class TFBlocks
@@ -26,10 +29,13 @@ public class TFBlocks
 	public static List<Block> BLOCKS = new ArrayList<Block>();
 
 	public static final Block GUNCRAFT = new BlockGunCraft("guncraft").setHardness(2F).setResistance(20F);
+	public static final Block SKILLSTATION = new BlockSkillStation("skillstation").setHardness(2F).setResistance(20F);
+	public static final Block MACHINESTATION = new BlockMachineStation("machinestation").setHardness(2F).setResistance(20F);
 	public static final Block MECHADOCK = new BlockMechaDock("mechadock").setHardness(2F).setResistance(20F);
 	public static final Block CUPOLA = new BlockCupola("cupola").setHardness(3F).setResistance(20F);
 	public static final Block COKE_OVEN = new BlockCokeOven("cokeoven").setHardness(3F).setResistance(20F);
 	public static final Block BIO_GENERATOR = new BlockBioGenerator("biogenerator").setHardness(3F).setResistance(20F);
+	public static final Block PULVERIZER = new BlockPulverizer("pulverizer").setHardness(3F).setResistance(20F);
 
 	public static final Block ORE_NITER = new BlockTFOre("ore_niter", 1).setHardness(3F).setResistance(5F);
 	public static final Block ORE_SULFUR = new BlockTFOre("ore_sulfur", 1).setHardness(3F).setResistance(5F);

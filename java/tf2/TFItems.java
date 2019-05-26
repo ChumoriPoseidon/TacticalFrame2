@@ -14,6 +14,7 @@ import tf2.items.ItemAmmo;
 import tf2.items.ItemBase;
 import tf2.items.ItemCan;
 import tf2.items.ItemCanMilk;
+import tf2.items.ItemPowder;
 import tf2.items.ItemShieldIron;
 import tf2.items.ItemShieldRiot;
 import tf2.items.ItemSpawnFriendMecha;
@@ -75,7 +76,7 @@ public class TFItems
 	public static final Item FLAM_FRAGMENT = new ItemBase("flamfragment");
 	public static final Item COKE = new ItemBase("coke");
 	public static final Item COALTAR = new ItemBase("coaltar");
-	public static final Item BLACK_POWDER = new ItemBase("black_powder");
+	public static final Item PHENOL = new ItemBase("phenol");
 	public static final Item WASTE_OIL = new ItemBase("waste_oil");
 	public static final Item DIESEL_BOX = new ItemBase("diesel_box");
 
@@ -90,14 +91,17 @@ public class TFItems
 	public static final Item CAN_WATER = new ItemCan("can_water");
 	public static final Item CAN_LAVA = new ItemCan("can_lava");
 	public static final Item CAN_MILK = new ItemCanMilk("can_milk");
+	public static final Item EXPLOSIVE = new ItemBase("explosive");
 	public static final Item CRUSH_FILTER = new ItemBase("crushfilter");
 	public static final Item PARTICLE_FILTER = new ItemBase("particlefilter");
 
+	public static final Item POWDER = new ItemPowder("powder");
+	public static final Item POWDER_IRON = new ItemBase("powder_iron");
 	public static final Item IRON_SHIELD = new ItemShieldIron("ironshield");
 	public static final Item RIOT_SHIELD = new ItemShieldRiot("riotshield");
 
 	public static final Item WORK_KIT = new ItemWorkkit("workkit");
-	public static final Item BOX_SMALL = new ItemAmmo("boxsmall", 300);
+	public static final Item BOX_SMALL = new ItemAmmo("boxsmall", 200);
 	public static final Item BOX_RIFLE = new ItemAmmo("boxrifle", 200);
 	public static final Item BOX_SHOT = new ItemAmmo("boxshot", 50);
 	public static final Item BOX_SNIPER = new ItemAmmo("boxsniper", 30);
@@ -110,6 +114,14 @@ public class TFItems
 	public static final Item DEVELOP_CHIP_0 = new ItemBase("developchip_0");
 	public static final Item DEVELOP_CHIP_1 = new ItemBase("developchip_1");
 	public static final Item DEVELOP_CHIP_2 = new ItemBase("developchip_2");
+
+	public static final Item GUNCHIP_HG = new ItemBase("gunchip_hg");
+	public static final Item GUNCHIP_SMG = new ItemBase("gunchip_smg");
+	public static final Item GUNCHIP_AR = new ItemBase("gunchip_ar");
+	public static final Item GUNCHIP_SG = new ItemBase("gunchip_sg");
+	public static final Item GUNCHIP_SR = new ItemBase("gunchip_sr");
+	public static final Item GUNCHIP_LMG = new ItemBase("gunchip_lmg");
+	public static final Item GUNCHIP_GL = new ItemBase("gunchip_gl");
 
 	public static final Item ITEM_LOCK = new ItemBase("item_lock").setMaxStackSize(1);
 	public static final Item COORD_JUMP = new ItemCoordJump("coord_jump");

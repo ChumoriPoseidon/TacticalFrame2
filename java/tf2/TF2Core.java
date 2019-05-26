@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
@@ -48,10 +49,14 @@ import tf2.event.TFRidingRenderEvent;
 import tf2.event.TFSightEvent;
 import tf2.event.TFZoomEvent;
 import tf2.potion.TFPotionPlus;
+import tf2.recipes.guncraft.CraftingManagerGunCraft;
+import tf2.recipes.guncraft.CraftingManagerMachineStation;
+import tf2.recipes.guncraft.CraftingManagerSkillStation;
 import tf2.tile.tileentity.TileEntityBioGenerator;
 import tf2.tile.tileentity.TileEntityCokeOven;
 import tf2.tile.tileentity.TileEntityCupola;
 import tf2.tile.tileentity.TileEntityMechaDock;
+import tf2.tile.tileentity.TileEntityPulverizer;
 import tf2.util.CreativeTabsTFBlocks;
 import tf2.util.CreativeTabsTFGuns;
 import tf2.util.CreativeTabsTFMain;
@@ -82,7 +87,7 @@ public class TF2Core {
 	public static final int guiRigidobox = 6;
 	public static final int guiContainerbox = 7;
 	public static final int guiSkill = 8;
-	public static final int guiExtractor = 9;
+	public static final int guiMachine = 9;
 	public static final int guiRigidofurnace = 10;
 	public static final int guiRefiner = 11;
 	public static final int guiNitroreactor = 12;
@@ -137,11 +142,13 @@ public class TF2Core {
 		RegistryHandler.registerEntities();
 	}
 
-//	@SubscribeEvent
-//	public void registerRecipes(RegistryEvent.Register<IRecipe> event)
-//	{
-//		CraftingManagerGunCraft.init();
-//	}
+	@SubscribeEvent
+	public void registerRecipes(RegistryEvent.Register<IRecipe> event)
+	{
+		CraftingManagerGunCraft.init();
+		CraftingManagerSkillStation.init();
+		CraftingManagerMachineStation.init();
+	}
 
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
@@ -214,7 +221,7 @@ public class TF2Core {
 		GameRegistry.registerTileEntity(TileEntityCokeOven.class, "tf:tile.cokeoven");
 		GameRegistry.registerTileEntity(TileEntityBioGenerator.class, "tf:tile.biogenerator");
 //		GameRegistry.registerTileEntity(TileEntityRefiner.class, "tf:tile.refiner");
-//		GameRegistry.registerTileEntity(TileEntityPulverizer.class, "tf:tile.pulverizer");
+		GameRegistry.registerTileEntity(TileEntityPulverizer.class, "tf:tile.pulverizer");
 //		GameRegistry.registerTileEntity(TileEntityExtractor.class, "tf:tile.extractor");
 //		GameRegistry.registerTileEntity(TileEntityStoneMaker.class, "tf:tile.stonemaker");
 //		GameRegistry.registerTileEntity(TileEntityContainerBox.class, "tf:tile.containerbox");

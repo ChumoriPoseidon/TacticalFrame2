@@ -30,7 +30,7 @@ public class BioGeneratorRecipes
     private BioGeneratorRecipes()
     {
     	this.addSmelting(tf2.TFItems.WASTE_OIL, new ItemStack(tf2.TFItems.DIESEL_BOX), 0.4F);
-    	this.addSmelting(tf2.TFItems.COALTAR, new ItemStack(tf2.TFItems.BLACK_POWDER), 0.4F);
+    	this.addSmelting(tf2.TFItems.COALTAR, new ItemStack(tf2.TFItems.PHENOL), 0.4F);
 
     	this.addSmelting(Items.ROTTEN_FLESH, new ItemStack(Items.LEATHER), 0.4F);
         this.addSmelting(Items.LEATHER, new ItemStack(Items.SLIME_BALL), 0.4F);

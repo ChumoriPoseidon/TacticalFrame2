@@ -46,8 +46,8 @@ public class GuiGunCraft extends GuiContainer
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        this.fontRenderer.drawString(I18n.format("gui.guncraft", new Object[0]), 8, 6, 4210752);
-        this.fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRenderer.drawString(I18n.format("gui.guncraft", new Object[0]), 8, 6, 0xFFFFFF);
+        this.fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 0xFFFFFF);
     }
 
     @Override

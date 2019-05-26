@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tf:items/powder_7"
+    "layer0": "tf2:items/powder_7"
   }
 }

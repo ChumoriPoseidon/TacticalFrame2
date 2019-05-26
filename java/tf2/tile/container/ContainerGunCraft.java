@@ -35,26 +35,19 @@ public class ContainerGunCraft extends Container
 		this.pos = posIn;
 		this.player = playerInventory.player;
 
-        this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 0, 16, 16));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 1, 48, 16));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 2, 80, 16));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 3, 112, 16));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 4, 144, 16));
-
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 5, 16, 64));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 6, 144, 64));
-
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 7, 16, 112));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 8, 48, 112));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 9, 80, 112));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 10, 112, 112));
-		this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, 11, 144, 112));
+		 for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					 this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, j + i * 3, 80 + j * 32, 16 + i * 32));
+				}
+			}
 
         for (int i = 0; i < 3; i++)
 		{
 			for (int j = 0; j < 3; j++)
 			{
-				this.addSlotToContainer(new Slot(craftMatrix, j + i * 3, 62 + j * 18, 46 + i * 18));
+				this.addSlotToContainer(new Slot(craftMatrix, j + i * 3, 16 + j * 18, 46 + i * 18));
 			}
 		}
 

@@ -3,9 +3,9 @@
     "defaults": {
         "model": "orientable",
         "textures": {
-        "top": "tf:blocks/pulverizer_top",
-        "front": "tf:blocks/pulverizer_face",
-        "side": "tf:blocks/pulverizer_side"
+        "top": "tf2:blocks/pulverizer_top",
+        "front": "tf2:blocks/pulverizer_face",
+        "side": "tf2:blocks/pulverizer_side"
         },
         "uvlock": true
     },

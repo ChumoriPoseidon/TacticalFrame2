@@ -15,17 +15,24 @@ import tf2.tile.container.ContainerCokeOven;
 import tf2.tile.container.ContainerCupola;
 import tf2.tile.container.ContainerFriendMechaInventory;
 import tf2.tile.container.ContainerGunCraft;
+import tf2.tile.container.ContainerMachineStation;
 import tf2.tile.container.ContainerMechaDock;
+import tf2.tile.container.ContainerPulverizer;
+import tf2.tile.container.ContainerSkillStation;
 import tf2.tile.gui.GuiBioGenerator;
 import tf2.tile.gui.GuiCokeOven;
 import tf2.tile.gui.GuiCupola;
 import tf2.tile.gui.GuiEntityFriendMechaInventory;
 import tf2.tile.gui.GuiGunCraft;
+import tf2.tile.gui.GuiMachineStation;
 import tf2.tile.gui.GuiMechaDock;
+import tf2.tile.gui.GuiPulverizer;
+import tf2.tile.gui.GuiSkillStation;
 import tf2.tile.tileentity.TileEntityBioGenerator;
 import tf2.tile.tileentity.TileEntityCokeOven;
 import tf2.tile.tileentity.TileEntityCupola;
 import tf2.tile.tileentity.TileEntityMechaDock;
+import tf2.tile.tileentity.TileEntityPulverizer;
 
 public class CommonProxy implements IGuiHandler
 {
@@ -134,10 +141,10 @@ public class CommonProxy implements IGuiHandler
 		{
 			return new ContainerBioGenerator(player, (TileEntityBioGenerator) tile);
 		}
-//		if (tile instanceof TileEntityPulverizer)
-//		{
-//			return new ContainerPulverizer(player, (TileEntityPulverizer) tile);
-//		}
+		if (tile instanceof TileEntityPulverizer)
+		{
+			return new ContainerPulverizer(player, (TileEntityPulverizer) tile);
+		}
 //		if (tile instanceof TileEntityExtractor)
 //		{
 //			return new ContainerExtractor(player, (TileEntityExtractor) tile);
@@ -194,6 +201,14 @@ public class CommonProxy implements IGuiHandler
 		{
 			return world.getBlockState(new BlockPos(x, y, z)).getBlock() == TFBlocks.GUNCRAFT ? new ContainerGunCraft(player.inventory, world, new BlockPos(x, y, z)) : null;
 		}
+		if (ID == TF2Core.guiSkill)
+		{
+			return world.getBlockState(new BlockPos(x, y, z)).getBlock() == TFBlocks.SKILLSTATION ? new ContainerSkillStation(player.inventory, world, new BlockPos(x, y, z)) : null;
+		}
+		if (ID == TF2Core.guiMachine)
+		{
+			return world.getBlockState(new BlockPos(x, y, z)).getBlock() == TFBlocks.MACHINESTATION ? new ContainerMachineStation(player.inventory, world, new BlockPos(x, y, z)) : null;
+		}
 		return null;
 	}
 
@@ -236,10 +251,10 @@ public class CommonProxy implements IGuiHandler
 		{
 			return new GuiBioGenerator(player, (TileEntityBioGenerator) tile);
 		}
-//		if (tile instanceof TileEntityPulverizer)
-//		{
-//			return new GuiPulverizer(player, (TileEntityPulverizer) tile);
-//		}
+		if (tile instanceof TileEntityPulverizer)
+		{
+			return new GuiPulverizer(player, (TileEntityPulverizer) tile);
+		}
 //		if (tile instanceof TileEntityExtractor)
 //		{
 //			return new GuiExtractor(player, (TileEntityExtractor) tile);
@@ -295,6 +310,14 @@ public class CommonProxy implements IGuiHandler
 		if (ID == TF2Core.guiGun)
 		{
 			return world.getBlockState(new BlockPos(x, y, z)).getBlock() == TFBlocks.GUNCRAFT ? new GuiGunCraft(player.inventory, world, new BlockPos(x, y, z)) : null;
+		}
+		if (ID == TF2Core.guiSkill)
+		{
+			return world.getBlockState(new BlockPos(x, y, z)).getBlock() == TFBlocks.SKILLSTATION ? new GuiSkillStation(player.inventory, world, new BlockPos(x, y, z)) : null;
+		}
+		if (ID == TF2Core.guiMachine)
+		{
+			return world.getBlockState(new BlockPos(x, y, z)).getBlock() == TFBlocks.MACHINESTATION ? new GuiMachineStation(player.inventory, world, new BlockPos(x, y, z)) : null;
 		}
 		return null;
 	}

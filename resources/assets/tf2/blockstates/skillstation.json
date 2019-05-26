@@ -3,9 +3,9 @@
   "defaults": {
     "model": "cube_bottom_top",
     "textures": {
-      "bottom": "tf:blocks/skillstation",
-      "top": "tf:blocks/skillstation_top",
-      "side": "tf:blocks/skillstation_side"
+      "bottom": "tf2:blocks/skillstation",
+      "top": "tf2:blocks/skillstation_top",
+      "side": "tf2:blocks/skillstation_side"
     },
     "transform": "forge:default-block"
   },
