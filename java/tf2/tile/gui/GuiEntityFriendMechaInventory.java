@@ -18,12 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.common.MessageFriendMecha;
 import tf2.common.PacketHandler;
 import tf2.entity.mob.frend.EntityFriendMecha;
-import tf2.entity.mob.frend.EntityGynoid;
 import tf2.entity.mob.frend.EntityMobCF;
-import tf2.entity.mob.frend.EntityTF77B;
-import tf2.entity.mob.frend.EntityTF78R;
-import tf2.entity.mob.frend.EntityTF79P;
-import tf2.entity.mob.frend.EntityTF80G;
 import tf2.tile.container.ContainerFriendMechaInventory;
 
 public class GuiEntityFriendMechaInventory  extends GuiContainer
@@ -127,35 +122,35 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 		CharSequence owner = this.entityMecha.getOwnerName().length() > 14 ? this.entityMecha.getOwnerName().subSequence(0, 14) : this.entityMecha.getOwnerName();
 
 		int atk = this.entityMecha.getMechaATK();
-		if(this.entityMecha instanceof EntityGynoid)
-		{
-			if(this.entityMecha.getMechaLevel() < 14)
-			{
-				atk = 0;
-			}
-			else
-			{
-				atk = this.entityMecha.getMechaATK();
-
-				if(this.entityMecha instanceof EntityTF77B)
-				{
-					atk = this.entityMecha.getMechaATK() + 3;
-				}
-				if(this.entityMecha instanceof EntityTF78R)
-				{
-					atk = this.entityMecha.getMechaATK() + 5;
-				}
-				if(this.entityMecha instanceof EntityTF79P)
-				{
-					atk = this.entityMecha.getMechaATK() + 2;
-				}
-				if(this.entityMecha instanceof EntityTF80G)
-				{
-					atk = this.entityMecha.getMechaATK() + 4;
-				}
-
-			}
-		}
+//		if(this.entityMecha instanceof EntityGynoid)
+//		{
+//			if(this.entityMecha.getMechaLevel() < 14)
+//			{
+//				atk = 0;
+//			}
+//			else
+//			{
+//				atk = this.entityMecha.getMechaATK();
+//
+//				if(this.entityMecha instanceof EntityTF77B)
+//				{
+//					atk = this.entityMecha.getMechaATK() + 3;
+//				}
+//				if(this.entityMecha instanceof EntityTF78R)
+//				{
+//					atk = this.entityMecha.getMechaATK() + 5;
+//				}
+//				if(this.entityMecha instanceof EntityTF79P)
+//				{
+//					atk = this.entityMecha.getMechaATK() + 2;
+//				}
+//				if(this.entityMecha instanceof EntityTF80G)
+//				{
+//					atk = this.entityMecha.getMechaATK() + 4;
+//				}
+//
+//			}
+//		}
 		String mode = "";
 		switch(this.entityMecha.getMechaMode())
 		{

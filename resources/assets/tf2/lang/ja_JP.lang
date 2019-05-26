@@ -620,6 +620,7 @@ death.attack.frigid=%1$sは凍てついた
 death.attack.gravity=%1$sは重力に押しつぶされた
 death.attack.lightning=%1$sは紫電にうたれた
 death.attack.cheinsaw=%1$sは%2$sにチェーンソーでサヨナラされた
+skill.get=%1$sは %2$s を習得した
 skill.hotbar=ホットバースロット時
 skill.inventory=最上段インベントリスロット時
 skill.mechaskill=メカ専用スキル

@@ -50,7 +50,7 @@ public class EntityTF78R extends EntityGynoid
 	public void isUpLevel()
     {
     	super.isUpLevel();
-    	if(this.getMechaLevel() == 59)
+    	if(this.getMechaLevel() == 44)
     	{
     		this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
     		ItemStack stack = new ItemStack(TFItems.SKILL_ARMEDFORM_BETA);
@@ -76,7 +76,7 @@ public class EntityTF78R extends EntityGynoid
     		//this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_ARMORBREAK));
     	}
 
-    	if(this.getMechaLevel() == 44)
+    	if(this.getMechaLevel() == 59)
     	{
     		//this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_SECONDARYSHOT));
     	}
@@ -118,7 +118,7 @@ public class EntityTF78R extends EntityGynoid
     @Override
     public void onLivingUpdate()
     {
-		if(this.getMechaLevel() >= 59)
+		if(this.getMechaLevel() >= 44)
 		{
 			List<EntityLivingBase> list = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityFriendMecha.class, this.getEntityBoundingBox().grow(32.0D), Predicates.<EntityLivingBase>and(EntitySelectors.NOT_SPECTATING));
 
