@@ -26,7 +26,9 @@ import tf2.plugin.jei.category.RecipeCategorySkillStation;
 import tf2.plugin.jei.maker.RecipeMakerBioGenerator;
 import tf2.plugin.jei.maker.RecipeMakerCokeOven;
 import tf2.plugin.jei.maker.RecipeMakerGunCraft;
+import tf2.plugin.jei.maker.RecipeMakerMachineStation;
 import tf2.plugin.jei.maker.RecipeMakerPulverizer;
+import tf2.plugin.jei.maker.RecipeMakerSkillStation;
 import tf2.tile.container.ContainerBioGenerator;
 import tf2.tile.container.ContainerCokeOven;
 import tf2.tile.container.ContainerGunCraft;
@@ -82,13 +84,13 @@ public class PluginJEI implements IModPlugin {
 		registry.handleRecipes(ShapelessOreRecipe.class, recipe -> new ShapelessRecipeWrapper<>(jeiHelpers, recipe), UID_GunCraft);
 		registry.handleRecipes(ShapelessRecipes.class, recipe -> new ShapelessRecipeWrapper<>(jeiHelpers, recipe), UID_GunCraft);
 
-		registry.addRecipes(RecipeMakerGunCraft.getRecipes(jeiHelpers), UID_SKillStation);
+		registry.addRecipes(RecipeMakerSkillStation.getRecipes(jeiHelpers), UID_SKillStation);
 		registry.handleRecipes(ShapedOreRecipe.class, recipe -> new ShapedOreRecipeWrapper(jeiHelpers, recipe), UID_SKillStation);
 		registry.handleRecipes(ShapedRecipes.class, recipe -> new ShapedRecipesWrapper(jeiHelpers, recipe), UID_SKillStation);
 		registry.handleRecipes(ShapelessOreRecipe.class, recipe -> new ShapelessRecipeWrapper<>(jeiHelpers, recipe), UID_SKillStation);
 		registry.handleRecipes(ShapelessRecipes.class, recipe -> new ShapelessRecipeWrapper<>(jeiHelpers, recipe), UID_SKillStation);
 
-		registry.addRecipes(RecipeMakerGunCraft.getRecipes(jeiHelpers), UID_MachineStation);
+		registry.addRecipes(RecipeMakerMachineStation.getRecipes(jeiHelpers), UID_MachineStation);
 		registry.handleRecipes(ShapedOreRecipe.class, recipe -> new ShapedOreRecipeWrapper(jeiHelpers, recipe), UID_MachineStation);
 		registry.handleRecipes(ShapedRecipes.class, recipe -> new ShapedRecipesWrapper(jeiHelpers, recipe), UID_MachineStation);
 		registry.handleRecipes(ShapelessOreRecipe.class, recipe -> new ShapelessRecipeWrapper<>(jeiHelpers, recipe), UID_MachineStation);

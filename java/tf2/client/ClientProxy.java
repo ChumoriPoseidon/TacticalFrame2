@@ -39,6 +39,7 @@ import tf2.client.render.RenderBulletBig;
 import tf2.client.render.RenderBulletHE;
 import tf2.client.render.RenderFlat;
 import tf2.client.render.RenderFriendShell;
+import tf2.client.render.RenderGrenadeHe;
 import tf2.client.render.RenderMarkerMortar;
 import tf2.client.render.RenderShell;
 import tf2.client.render.RenderShield;
@@ -72,6 +73,7 @@ import tf2.entity.projectile.player.EntityBulletCorrosion;
 import tf2.entity.projectile.player.EntityFriendImpact;
 import tf2.entity.projectile.player.EntityFriendShell;
 import tf2.entity.projectile.player.EntityGrenade;
+import tf2.entity.projectile.player.EntityGrenadeHe;
 import tf2.entity.projectile.player.EntityShell;
 import tf2.tile.tileentity.TileEntityShield;
 import tf2.tile.tileentity.TileEntityShield2;
@@ -98,7 +100,7 @@ public class ClientProxy extends CommonProxy
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBullet::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, RenderBullet::new);
-//		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeHe.class, RenderGrenadeHe::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenadeHe.class, RenderGrenadeHe::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityShell.class, RenderShell::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAreaHeal.class, RenderAreaHeal::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityBeam.class, RenderBeam::new);

@@ -37,9 +37,11 @@ import tf2.entity.projectile.enemy.EntityEnemyMortar;
 import tf2.entity.projectile.player.EntityAreaHeal;
 import tf2.entity.projectile.player.EntityBullet;
 import tf2.entity.projectile.player.EntityBulletBig;
+import tf2.entity.projectile.player.EntityBulletCorrosion;
 import tf2.entity.projectile.player.EntityFriendImpact;
 import tf2.entity.projectile.player.EntityFriendShell;
 import tf2.entity.projectile.player.EntityGrenade;
+import tf2.entity.projectile.player.EntityGrenadeHe;
 import tf2.entity.projectile.player.EntityShell;
 
 
@@ -111,8 +113,8 @@ public class RegistryHandler
 		EntityAreaHeal.registerEntity(EntityAreaHeal.class, prefix("areaheal"), "AreaHeal", 256, 1, true);
 //		EntityBeam.registerEntity(EntityBeam.class, prefix("beam"), "Beam", 256, 1, true);
 		EntityBulletBig.registerEntity(EntityBulletBig.class, prefix("bulletbig"), "BulletBig", 256, 1, true);
-//		EntityBulletCorrosion.registerEntity(EntityBulletCorrosion.class, prefix("bulletcorrosion"), "BulletCorrosion", 128, 5, true);
-//		EntityGrenadeHe.registerEntity(EntityGrenadeHe.class, prefix("grenadehe"), "GrenadeHe", 256, 1, true);
+		EntityBulletCorrosion.registerEntity(EntityBulletCorrosion.class, prefix("bulletcorrosion"), "BulletCorrosion", 128, 5, true);
+		EntityGrenadeHe.registerEntity(EntityGrenadeHe.class, prefix("grenadehe"), "GrenadeHe", 256, 1, true);
 		EntityBarrier.registerEntity(EntityBarrier.class, prefix("barrier"), "Barrier", 128, 1, true);
 //
 //		EntityDimension.registerEntity(EntityDimension.class, prefix("dimension"), "Simension", 256, 10, true);

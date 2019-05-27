@@ -14,6 +14,7 @@ import tf2.items.ItemAmmo;
 import tf2.items.ItemBase;
 import tf2.items.ItemCan;
 import tf2.items.ItemCanMilk;
+import tf2.items.ItemDrill;
 import tf2.items.ItemPowder;
 import tf2.items.ItemShieldIron;
 import tf2.items.ItemShieldRiot;
@@ -57,6 +58,7 @@ import tf2.items.skill.ItemSuppressFormation;
 import tf2.items.skill.ItemTeamWork;
 import tf2.items.skill.friendskill.ItemMechaSkillBase;
 import tf2.items.weapon.ItemCoordJump;
+import tf2.items.weapon.ItemGrenadeHe;
 
 public class TFItems
 {
@@ -81,6 +83,8 @@ public class TFItems
 	public static final Item DIESEL_BOX = new ItemBase("diesel_box");
 
 	public static final Item SCRAP = new ItemBase("scrap");
+	public static final Item SCRAP_RUBBER = new ItemBase("scrap_rubber");
+	public static final Item RUBBER = new ItemBase("rubber");
 	public static final Item REIMETAL = new ItemBase("reimetal");
 	public static final Item RIGIDO_PLATE = new ItemBase("rigidoplate");
 	public static final Item MECHA_PARTS = new ItemBase("mechaparts");
@@ -99,6 +103,8 @@ public class TFItems
 	public static final Item POWDER_IRON = new ItemBase("powder_iron");
 	public static final Item IRON_SHIELD = new ItemShieldIron("ironshield");
 	public static final Item RIOT_SHIELD = new ItemShieldRiot("riotshield");
+	public static final Item DRILL = new ItemDrill("drill").setMaxDamage(250);
+	public static final Item DRILL_DIAMOND = new ItemDrill("drill_diamond").setMaxDamage(1000);
 
 	public static final Item WORK_KIT = new ItemWorkkit("workkit");
 	public static final Item BOX_SMALL = new ItemAmmo("boxsmall", 200);
@@ -125,24 +131,7 @@ public class TFItems
 
 	public static final Item ITEM_LOCK = new ItemBase("item_lock").setMaxStackSize(1);
 	public static final Item COORD_JUMP = new ItemCoordJump("coord_jump");
-
-	public static final Item REINFORCED_IRON_SWORD = new ItemTFSword("reinforced_ironsword", steel, new ItemStack(REINFORCED_IRON_INGOT));
-	public static final Item REINFORCED_IRON_SHOVEL = new ItemTFSpade("reinforced_ironshovel", steel, new ItemStack(REINFORCED_IRON_INGOT));
-	public static final Item REINFORCED_IRON_PICKAXE = new ItemTFPickaxe("reinforced_ironpickaxe", steel, new ItemStack(REINFORCED_IRON_INGOT));
-	public static final Item REINFORCED_IRON_AXE = new ItemTFAxe("reinforced_ironaxe", steel, 8F, -3F,new ItemStack(REINFORCED_IRON_INGOT));
-	public static final Item RIGIDO_SWORD = new ItemTFSword("rigidosword", rigido, new ItemStack(RIGIDO_INGOT));
-	public static final Item RIGIDO_SHOVEL = new ItemTFSpade("rigidoshovel", rigido, new ItemStack(RIGIDO_INGOT));
-	public static final Item RIGIDO_PICKAXE = new ItemTFPickaxe("rigidopickaxe", rigido, new ItemStack(RIGIDO_INGOT));
-	public static final Item RIGIDO_AXE = new ItemTFAxe("rigidoaxe", rigido, 9F, -3F,new ItemStack(RIGIDO_INGOT));
-
-	public static final Item REINFORCED_IRON_HELMET = new ItemSteelArmor("reinforced_ironhelmet",steelArmor, 0, EntityEquipmentSlot.HEAD);
-	public static final Item REINFORCED_IRON_BODY = new ItemSteelArmor("reinforced_ironbody",steelArmor, 0, EntityEquipmentSlot.CHEST);
-	public static final Item REINFORCED_IRON_LEG = new ItemSteelArmor("reinforced_ironleg",steelArmor, 0, EntityEquipmentSlot.LEGS);
-	public static final Item REINFORCED_IRON_BOOT = new ItemSteelArmor("reinforced_ironboot",steelArmor, 0, EntityEquipmentSlot.FEET);
-	public static final Item RIGIDO_HELMET = new ItemRigidoHelmet("rigidohelmet",rigidoArmor, 0, EntityEquipmentSlot.HEAD);
-	public static final Item RIGIDO_BODY = new ItemRigidoBody("rigidobody",rigidoArmor, 0, EntityEquipmentSlot.CHEST);
-	public static final Item RIGIDO_LEG = new ItemRigidoLeg("rigidoleg",rigidoArmor, 0, EntityEquipmentSlot.LEGS);
-	public static final Item RIGIDO_BOOT = new ItemRigidoBoot("rigidoboot",rigidoArmor, 0, EntityEquipmentSlot.FEET);
+	public static final Item GRENADE_HE = new ItemGrenadeHe("grenade_he");
 
 	public static final Item M1911 = new ItemTFGunsHG("m1911", 8, 6F, 2F, 1F, TFSoundEvents.M1911, 2F, 4F, 3, 18);
 	public static final Item DESERTEAGLE = new ItemTFGunsHG("deserteagle", 7, 15F, 2F, 1F, TFSoundEvents.DESERT, 10F, 10F, 15, 20);
@@ -238,4 +227,23 @@ public class TFItems
 
 
 	public static final Item SPAWNFM = new ItemSpawnFriendMecha("spawncore_fm").setMaxStackSize(1);
+
+	public static final Item REINFORCED_IRON_SWORD = new ItemTFSword("reinforced_ironsword", steel, new ItemStack(REINFORCED_IRON_INGOT));
+	public static final Item REINFORCED_IRON_SHOVEL = new ItemTFSpade("reinforced_ironshovel", steel, new ItemStack(REINFORCED_IRON_INGOT));
+	public static final Item REINFORCED_IRON_PICKAXE = new ItemTFPickaxe("reinforced_ironpickaxe", steel, new ItemStack(REINFORCED_IRON_INGOT));
+	public static final Item REINFORCED_IRON_AXE = new ItemTFAxe("reinforced_ironaxe", steel, 8F, -3F,new ItemStack(REINFORCED_IRON_INGOT));
+	public static final Item RIGIDO_SWORD = new ItemTFSword("rigidosword", rigido, new ItemStack(RIGIDO_INGOT));
+	public static final Item RIGIDO_SHOVEL = new ItemTFSpade("rigidoshovel", rigido, new ItemStack(RIGIDO_INGOT));
+	public static final Item RIGIDO_PICKAXE = new ItemTFPickaxe("rigidopickaxe", rigido, new ItemStack(RIGIDO_INGOT));
+	public static final Item RIGIDO_AXE = new ItemTFAxe("rigidoaxe", rigido, 9F, -3F,new ItemStack(RIGIDO_INGOT));
+
+	public static final Item REINFORCED_IRON_HELMET = new ItemSteelArmor("reinforced_ironhelmet",steelArmor, 0, EntityEquipmentSlot.HEAD);
+	public static final Item REINFORCED_IRON_BODY = new ItemSteelArmor("reinforced_ironbody",steelArmor, 0, EntityEquipmentSlot.CHEST);
+	public static final Item REINFORCED_IRON_LEG = new ItemSteelArmor("reinforced_ironleg",steelArmor, 0, EntityEquipmentSlot.LEGS);
+	public static final Item REINFORCED_IRON_BOOT = new ItemSteelArmor("reinforced_ironboot",steelArmor, 0, EntityEquipmentSlot.FEET);
+	public static final Item RIGIDO_HELMET = new ItemRigidoHelmet("rigidohelmet",rigidoArmor, 0, EntityEquipmentSlot.HEAD);
+	public static final Item RIGIDO_BODY = new ItemRigidoBody("rigidobody",rigidoArmor, 0, EntityEquipmentSlot.CHEST);
+	public static final Item RIGIDO_LEG = new ItemRigidoLeg("rigidoleg",rigidoArmor, 0, EntityEquipmentSlot.LEGS);
+	public static final Item RIGIDO_BOOT = new ItemRigidoBoot("rigidoboot",rigidoArmor, 0, EntityEquipmentSlot.FEET);
+
 }
