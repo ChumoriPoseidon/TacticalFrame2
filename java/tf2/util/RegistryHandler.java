@@ -31,6 +31,7 @@ import tf2.entity.mob.frend.EntityTF80G;
 import tf2.entity.projectile.EntityBarrier;
 import tf2.entity.projectile.enemy.EntityEnemyBullet;
 import tf2.entity.projectile.enemy.EntityEnemyBulletHE;
+import tf2.entity.projectile.enemy.EntityEnemyBulletMortar;
 import tf2.entity.projectile.enemy.EntityEnemyGrenade;
 import tf2.entity.projectile.enemy.EntityEnemyImpact;
 import tf2.entity.projectile.enemy.EntityEnemyMortar;
@@ -130,6 +131,7 @@ public class RegistryHandler
 //		EntityEnemySlashFragment.registerEntity(EntityEnemySlashFragment.class, prefix("enemyslashfragment"), "EnemySlashFragment", 256, 1, true);
 //		EntityEnemySlashWide.registerEntity(EntityEnemySlashWide.class, prefix("enemyslashwide"), "EnemySlashWide", 256, 1, true);
 		EntityEnemyMortar.registerEntity(EntityEnemyMortar.class, prefix("enemymortar"), "EnemyMortar", 256, 1, true);
+		EntityEnemyBulletMortar.registerEntity(EntityEnemyBulletMortar.class, prefix("enemybulletmortar"), "EnemyBulletMortar", 256, 1, true);
 //
 //		EntityFriendBullet.registerEntity(EntityFriendBullet.class, prefix("friendbullet"), "FriendBullet", 128, 5, true);
 //		EntityFriendGrenade.registerEntity(EntityFriendGrenade.class, prefix("friendgrenade"), "FriendGrenade", 128, 1, true);

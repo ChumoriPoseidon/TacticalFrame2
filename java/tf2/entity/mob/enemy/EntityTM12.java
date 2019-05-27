@@ -20,11 +20,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import tf2.TF2Core;
 import tf2.TFSoundEvents;
-import tf2.entity.projectile.enemy.EntityEnemyMortar;
+import tf2.entity.projectile.enemy.EntityEnemyBulletMortar;
 
 public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 {
@@ -74,8 +75,11 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 	public void attackEntityWithRangedAttack(EntityLivingBase var1, float var2)
 	{
 		double var3 = var1.posX - this.posX;
-		double var8 = var1.posY - this.posY;
 		double var5 = var1.posZ - this.posZ;
+
+		double f2 = MathHelper.sqrt(var3 * var3 + var5 * var5);
+
+		double var8 = var1.posY - this.posY;
 
 		if (this.attackTime <= 0)
 		{
@@ -85,13 +89,26 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 
 		if (this.attackTime == 1)
 		{
-			EntityEnemyMortar var7 = new EntityEnemyMortar(this.world, this);
-			var7.setDamage(var7.getDamage() + 14.0D);
-			var7.posX = var1.posX;
-			var7.posZ = var1.posZ;
-			var7.posY = var1.posY + 0.5F;
-			var7.shoot(var3, -1F, var5, 0.05F, 1.0F);
-			this.world.spawnEntity(var7);
+			for(int i = 0;i<7; i++)
+			{
+
+				EntityEnemyBulletMortar bullet = new EntityEnemyBulletMortar(this.world, this);
+				bullet.setDamage(bullet.getDamage() + 4.0D);
+				bullet.posY = this.posY + this.height * 2;
+				bullet.setRange(f2);
+				bullet.shoot(var3, 50F, var5,  1.75F, 4.0F);
+
+				this.world.spawnEntity(bullet);
+			}
+			this.playSound(TFSoundEvents.BAZOOKA, 2.3F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+
+//			EntityEnemyMortar var7 = new EntityEnemyMortar(this.world, this);
+//			var7.setDamage(var7.getDamage() + 14.0D);
+//			var7.posX = var1.posX;
+//			var7.posZ = var1.posZ;
+//			var7.posY = var1.posY + 0.5F;
+//			var7.shoot(var3, -1F, var5, 0.05F, 1.0F);
+//			this.world.spawnEntity(var7);
 		}
 	}
 

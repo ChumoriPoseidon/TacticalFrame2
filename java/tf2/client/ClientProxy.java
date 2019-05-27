@@ -63,6 +63,7 @@ import tf2.entity.mob.frend.EntityTF80G;
 import tf2.entity.projectile.EntityBarrier;
 import tf2.entity.projectile.enemy.EntityEnemyBullet;
 import tf2.entity.projectile.enemy.EntityEnemyBulletHE;
+import tf2.entity.projectile.enemy.EntityEnemyBulletMortar;
 import tf2.entity.projectile.enemy.EntityEnemyGrenade;
 import tf2.entity.projectile.enemy.EntityEnemyImpact;
 import tf2.entity.projectile.enemy.EntityEnemyMortar;
@@ -124,6 +125,7 @@ public class ClientProxy extends CommonProxy
 //		RenderingRegistry.registerEntityRenderingHandler(EntityEnemySlashFragment.class, RenderSlashFragment::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityEnemySlashWide.class, RenderSlashWide::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyMortar.class, RenderMarkerMortar::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyBulletMortar.class, RenderBulletHE::new);
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityTM02.class, RenderTM02::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTM03.class, RenderTM03::new);
