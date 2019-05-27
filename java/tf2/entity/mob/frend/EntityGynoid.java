@@ -168,19 +168,19 @@ public abstract class EntityGynoid extends EntityFriendMecha implements IRangedA
 	{
 //		if(this.getMechaLevel() >= 14)
 //		{
-			if (this.getMechaLevel() >= 59 && this instanceof EntityTF77B)
+			if (this.getMechaLevel() >= 44 && this instanceof EntityTF77B)
 			{
 				return new ItemStack(TFItems.SKILL_ARMEDFORM_ALPHA);
 			}
-			if (this.getMechaLevel() >= 59 && this instanceof EntityTF78R)
+			if (this.getMechaLevel() >= 44 && this instanceof EntityTF78R)
 			{
 				return new ItemStack(TFItems.SKILL_ARMEDFORM_BETA);
 			}
-			if (this.getMechaLevel() >= 59 && this instanceof EntityTF79P)
+			if (this.getMechaLevel() >= 44 && this instanceof EntityTF79P)
 			{
 				return new ItemStack(TFItems.SKILL_ARMEDFORM_GAMMA);
 			}
-			if (this.getMechaLevel() >= 59 && this instanceof EntityTF80G)
+			if (this.getMechaLevel() >= 44 && this instanceof EntityTF80G)
 			{
 				return new ItemStack(TFItems.SKILL_ARMEDFORM_DELTA);
 			}

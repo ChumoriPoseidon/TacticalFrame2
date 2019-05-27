@@ -128,7 +128,18 @@ public class RenderTM26D extends Render
 			GlStateManager.translate(0F, 2.364F, 0.0F);
 			GlStateManager.translate(-0.617F, 0.0F, 0.0F);
 			GlStateManager.translate(0F, 0F, -0.426F);
-			GlStateManager.rotate(-110F, 1.0F, 0.0F, 0.0F);
+			if(entity.getAnimationTime() >= 45)
+			{
+				GlStateManager.rotate((entity.getAnimationTime() - 50) * 22F, 1.0F, 0.0F, 0.0F);
+			}
+			else if(entity.getAnimationTime() >= 3)
+			{
+				GlStateManager.rotate(-110F, 1.0F, 0.0F, 0.0F);
+			}
+			else
+			{
+				GlStateManager.rotate(-entity.getAnimationTime() * 55F, 1.0F, 0.0F, 0.0F);
+			}
 			GlStateManager.translate(0F, 0F, 0.426F);
 			GlStateManager.translate(0.617F, 0F, 0.0F);
 			GlStateManager.translate(0F, -2.364F, 0F);

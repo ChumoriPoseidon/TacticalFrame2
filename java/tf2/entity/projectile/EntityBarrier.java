@@ -135,7 +135,7 @@ public class EntityBarrier extends Entity
      */
     public boolean canBeCollidedWith()
     {
-        return true;
+        return false;
     }
 
     /**

@@ -11,7 +11,6 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.util.EntitySelectors;
 import tf2.entity.mob.frend.EntityFriendMecha;
-import tf2.entity.mob.frend.EntityGynoid;
 
 public class EntityAINearestAttackbleTargetFriend<T extends EntityLivingBase> extends EntityAIBase
 {
@@ -38,10 +37,10 @@ public class EntityAINearestAttackbleTargetFriend<T extends EntityLivingBase> ex
         {
             return false;
         }
-        if(this.taskOwner instanceof EntityGynoid && this.taskOwner.getMechaLevel() < 14)
-        {
-        	return false;
-        }
+//        if(this.taskOwner instanceof EntityGynoid && this.taskOwner.getMechaLevel() < 14)
+//        {
+//        	return false;
+//        }
 
     	if(this.taskOwner.getAttackTarget() == null && this.taskOwner.getMechaMode() != 0)
     	{

@@ -237,10 +237,10 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 			GlStateManager.scale(1.0F, 2.75F, 1.05F);
 		}
 
-		if(entity.getMechaLevel() >= 14)
-		{
+//		if(entity.getMechaLevel() >= 14)
+//		{
 			this.getEntityWeaponObj().renderPart("weapon");
-		}
+//		}
 			GlStateManager.popMatrix();
 
 		if(!(entity instanceof EntityTF80G))
@@ -271,10 +271,10 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 				GlStateManager.scale(1.0F, 2.75F, 1.05F);
 			}
 
-			if(entity.getMechaLevel() >= 14)
-			{
+//			if(entity.getMechaLevel() >= 14)
+//			{
 				this.getEntityWeaponObj().renderPart("weapon");
-			}
+//			}
 			GlStateManager.popMatrix();
 		}
 	}

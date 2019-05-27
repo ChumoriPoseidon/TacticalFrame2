@@ -592,6 +592,7 @@ death.attack.frigid=%1$s was frozen
 death.attack.gravity=%1$s was squashed by gravity
 death.attack.lightning=%1$s was struck by lightning
 death.attack.cheinsaw=%1$s was goodbye to cheinsaw by a %2$s
+skill.get=%1$s have learned %2$s
 skill.hotbar=In hotbar slots
 skill.inventory=In top slots of inventory
 skill.arskill1=After reloading a assault rifle,
