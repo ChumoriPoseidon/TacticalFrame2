@@ -16,6 +16,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.CommonProxy;
 import tf2.client.mobrender.RenderCFR12;
+import tf2.client.mobrender.RenderMTT1;
+import tf2.client.mobrender.RenderMTT2;
 import tf2.client.mobrender.RenderMTT4;
 import tf2.client.mobrender.RenderTF77B;
 import tf2.client.mobrender.RenderTF78R;
@@ -57,6 +59,8 @@ import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.frend.EntityCFR12;
+import tf2.entity.mob.frend.EntityMTT1;
+import tf2.entity.mob.frend.EntityMTT2;
 import tf2.entity.mob.frend.EntityMTT4;
 import tf2.entity.mob.frend.EntityTF77B;
 import tf2.entity.mob.frend.EntityTF78R;
@@ -167,6 +171,8 @@ public class ClientProxy extends CommonProxy
 //		RenderingRegistry.registerEntityRenderingHandler(EntityZunko.class, m -> new RenderZunko<>(m, new ModelSoldier(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityNDFTank.class, RenderNDFTank::new);
 //
+		RenderingRegistry.registerEntityRenderingHandler(EntityMTT1.class, RenderMTT1::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMTT2.class, RenderMTT2::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMTT4.class, RenderMTT4::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCFR12.class, RenderCFR12::new);
 

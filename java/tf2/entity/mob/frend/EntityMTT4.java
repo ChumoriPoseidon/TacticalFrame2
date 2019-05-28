@@ -5,8 +5,6 @@ import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -56,8 +54,7 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 		this.tasks.addTask(2, new EntityAIWanderFriendMecha(this, 1.0D));
 		this.tasks.addTask(3, new EntityAIAttackRangedGun(this, 1.0D, 30.0F));
 		this.tasks.addTask(4, new EntityFriendMecha.EntityAILookAtAccessPlayer(this));
-		this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(6, new EntityAILookIdle(this));
+		this.tasks.addTask(5, new EntityAILookIdle(this));
 		this.targetTasks.addTask(2, new EntityAINearestAttackbleTargetFriend(this, 10, true));
 	}
 
@@ -162,7 +159,7 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 			}
 		}
 
-		if (this.getMechaLevel() == 19)
+		if (this.getMechaLevel() == 10)
 		{
 			//this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_ARMORBREAK));
 		}

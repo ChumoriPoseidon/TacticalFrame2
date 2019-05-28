@@ -18,6 +18,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.common.MessageFriendMecha;
 import tf2.common.PacketHandler;
 import tf2.entity.mob.frend.EntityFriendMecha;
+import tf2.entity.mob.frend.EntityMTT1;
+import tf2.entity.mob.frend.EntityMTT2;
 import tf2.entity.mob.frend.EntityMobCF;
 import tf2.tile.container.ContainerFriendMechaInventory;
 
@@ -102,6 +104,10 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 		if(entityMecha instanceof EntityMobCF)
 		{
 			scale =12;
+		}
+		if(entityMecha instanceof EntityMTT1 || entityMecha instanceof EntityMTT2)
+		{
+			scale =15;
 		}
 
 		GuiInventory.drawEntityOnScreen(entityPosX, entityPosY, scale, (float) (entityPosX - xMouse), (float) ((entityPosY / 2) - yMouse), this.entityMecha);
