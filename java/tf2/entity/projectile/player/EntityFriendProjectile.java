@@ -48,7 +48,6 @@ public class EntityFriendProjectile extends Entity implements IProjectile
 	private int ticksInGround;
 	protected int ticksInAir;
 
-	protected int knockbackStrength;
 	protected double damage;
 
 	public EntityFriendProjectile(World worldIn)
@@ -323,16 +322,6 @@ public class EntityFriendProjectile extends Entity implements IProjectile
 					{
 						EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
 
-						if (this.knockbackStrength > 0)
-						{
-							float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
-
-							if (f1 > 0.0F)
-							{
-								entitylivingbase.addVelocity(this.motionX * (double) this.knockbackStrength * 0.6000000238418579D / (double) f1, 0.1D, this.motionZ * (double) this.knockbackStrength * 0.6000000238418579D / (double) f1);
-							}
-						}
-
 						if (this.thrower instanceof EntityLivingBase)
 						{
 							EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.thrower);
@@ -568,12 +557,6 @@ public class EntityFriendProjectile extends Entity implements IProjectile
 			}
 		}
 		return this.damage + k;
-	}
-
-
-	public void setKnockbackStrength(int knockbackStrengthIn)
-	{
-		this.knockbackStrength = knockbackStrengthIn;
 	}
 
 	@SideOnly(Side.CLIENT)

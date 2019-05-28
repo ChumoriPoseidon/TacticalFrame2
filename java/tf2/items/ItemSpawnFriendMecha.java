@@ -48,6 +48,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityFriendMecha;
+import tf2.entity.mob.frend.EntityMTT4;
 import tf2.entity.mob.frend.EntityTF77B;
 import tf2.entity.mob.frend.EntityTF78R;
 import tf2.entity.mob.frend.EntityTF79P;
@@ -58,12 +59,12 @@ public class ItemSpawnFriendMecha extends ItemBase
 {
 	private static final List<UUID> warnedFails = new ArrayList<>();
 	public static Class[] spawnableEntities = {
-//			EntityNDFT01.class,
+			EntityCFR12.class,
+			EntityMTT4.class,
 			EntityTF77B.class,
 			EntityTF78R.class,
 			EntityTF79P.class,
-			EntityTF80G.class,
-			EntityCFR12.class
+			EntityTF80G.class
 	};
 
 	public ItemSpawnFriendMecha(String name)

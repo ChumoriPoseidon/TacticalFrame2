@@ -220,11 +220,11 @@ public class TFItems
 	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", false);
 
 	public static final Item SKILL_WIDESPREAD = new ItemMechaSkillBase("widespread", true);
+	public static final Item SKILL_SELFHEALING = new ItemMechaSkillBase("selfhealing", true);
 	public static final Item SKILL_ARMEDFORM_ALPHA = new ItemMechaSkillBase("armedform_alpha", true);
 	public static final Item SKILL_ARMEDFORM_BETA = new ItemMechaSkillBase("armedform_beta", true);
 	public static final Item SKILL_ARMEDFORM_GAMMA = new ItemMechaSkillBase("armedform_gamma", true);
 	public static final Item SKILL_ARMEDFORM_DELTA = new ItemMechaSkillBase("armedform_delta", true);
-
 
 	public static final Item SPAWNFM = new ItemSpawnFriendMecha("spawncore_fm").setMaxStackSize(1);
 

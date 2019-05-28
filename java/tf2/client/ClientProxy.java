@@ -16,6 +16,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.CommonProxy;
 import tf2.client.mobrender.RenderCFR12;
+import tf2.client.mobrender.RenderMTT4;
 import tf2.client.mobrender.RenderTF77B;
 import tf2.client.mobrender.RenderTF78R;
 import tf2.client.mobrender.RenderTF79P;
@@ -56,6 +57,7 @@ import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.frend.EntityCFR12;
+import tf2.entity.mob.frend.EntityMTT4;
 import tf2.entity.mob.frend.EntityTF77B;
 import tf2.entity.mob.frend.EntityTF78R;
 import tf2.entity.mob.frend.EntityTF79P;
@@ -71,6 +73,7 @@ import tf2.entity.projectile.player.EntityAreaHeal;
 import tf2.entity.projectile.player.EntityBullet;
 import tf2.entity.projectile.player.EntityBulletBig;
 import tf2.entity.projectile.player.EntityBulletCorrosion;
+import tf2.entity.projectile.player.EntityFriendBullet;
 import tf2.entity.projectile.player.EntityFriendImpact;
 import tf2.entity.projectile.player.EntityFriendShell;
 import tf2.entity.projectile.player.EntityGrenade;
@@ -107,8 +110,8 @@ public class ClientProxy extends CommonProxy
 //		RenderingRegistry.registerEntityRenderingHandler(EntityBeam.class, RenderBeam::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBulletBig.class, RenderBulletBig::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBulletCorrosion.class, RenderBullet::new);
-//
-//		RenderingRegistry.registerEntityRenderingHandler(EntityFriendBullet.class, RenderBullet::new);
+
+		RenderingRegistry.registerEntityRenderingHandler(EntityFriendBullet.class, RenderBullet::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityFriendGrenade.class, RenderBullet::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFriendShell.class, RenderFriendShell::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFriendImpact.class, RenderFlat::new);
@@ -164,7 +167,7 @@ public class ClientProxy extends CommonProxy
 //		RenderingRegistry.registerEntityRenderingHandler(EntityZunko.class, m -> new RenderZunko<>(m, new ModelSoldier(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityNDFTank.class, RenderNDFTank::new);
 //
-//		RenderingRegistry.registerEntityRenderingHandler(EntityNDFT01.class, RenderNDFT01::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMTT4.class, RenderMTT4::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCFR12.class, RenderCFR12::new);
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityTF77B.class, m -> new RenderTF77B(m, new ModelGynoid(), 0.455F));

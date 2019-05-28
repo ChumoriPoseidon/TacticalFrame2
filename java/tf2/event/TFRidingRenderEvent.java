@@ -268,22 +268,6 @@ public class TFRidingRenderEvent
 
 					int posY = (int) cf.posY;
 					fontrenderer.drawString("--" + posY + "--", (int) (i / 2) - 10, 19, 0xFFFFFF);
-
-//					if (itemstack != null && itemstack.getItem() instanceof ItemTFRidingGuns)
-//					{
-//						ItemTFRidingGuns gun = (ItemTFRidingGuns) itemstack.getItem();
-//
-//						String ads5 = "tf:textures/misc/gun_under_mecha.png";
-//						this.renderBullet(minecraft, scaledresolution, ads5, 64, 32, -50, -35);
-//
-//						String d = String.format("%1$3d", itemstack.getMaxDamage() - itemstack.getItemDamage());
-//						String d1 = String.format("%1$3d", itemstack.getMaxDamage());
-//
-//						fontrenderer.drawString(d + " /" + d1, i - 70, j - 30 + 0, 0xFFFFFF);
-//
-//						RenderItem renderitem = minecraft.getRenderItem();
-//						renderitem.renderItemIntoGUI(new ItemStack(gun), i - 60, j - 49);
-//					}
 				}
 
 				//GL11.glPopMatrix();

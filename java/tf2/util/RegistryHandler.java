@@ -24,6 +24,7 @@ import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.frend.EntityCFR12;
+import tf2.entity.mob.frend.EntityMTT4;
 import tf2.entity.mob.frend.EntityTF77B;
 import tf2.entity.mob.frend.EntityTF78R;
 import tf2.entity.mob.frend.EntityTF79P;
@@ -39,6 +40,7 @@ import tf2.entity.projectile.player.EntityAreaHeal;
 import tf2.entity.projectile.player.EntityBullet;
 import tf2.entity.projectile.player.EntityBulletBig;
 import tf2.entity.projectile.player.EntityBulletCorrosion;
+import tf2.entity.projectile.player.EntityFriendBullet;
 import tf2.entity.projectile.player.EntityFriendImpact;
 import tf2.entity.projectile.player.EntityFriendShell;
 import tf2.entity.projectile.player.EntityGrenade;
@@ -133,7 +135,7 @@ public class RegistryHandler
 		EntityEnemyMortar.registerEntity(EntityEnemyMortar.class, prefix("enemymortar"), "EnemyMortar", 256, 1, true);
 		EntityEnemyBulletMortar.registerEntity(EntityEnemyBulletMortar.class, prefix("enemybulletmortar"), "EnemyBulletMortar", 256, 1, true);
 //
-//		EntityFriendBullet.registerEntity(EntityFriendBullet.class, prefix("friendbullet"), "FriendBullet", 128, 5, true);
+		EntityFriendBullet.registerEntity(EntityFriendBullet.class, prefix("friendbullet"), "FriendBullet", 128, 5, true);
 //		EntityFriendGrenade.registerEntity(EntityFriendGrenade.class, prefix("friendgrenade"), "FriendGrenade", 128, 1, true);
 		EntityFriendShell.registerEntity(EntityFriendShell.class, prefix("friendshell"), "FriendShell", 256, 1, true);
 		EntityFriendImpact.registerEntity(EntityFriendImpact.class, prefix("friendimpact"), "FriendImpact", 256, 1, true);
@@ -176,7 +178,7 @@ public class RegistryHandler
 //		registerMob(EntityTank.class, "Tank", "Tank", 0x006400, 0xEEEEFF);
 //		registerMob(EntityNDFTank.class, "NDFTank", "NDFTank", 0x006400, 0xEEEEFF);
 //
-//		registerMob(EntityNDFT01.class, "NDFT01", "NDFT01");
+		registerMob(EntityMTT4.class, "MTT4", "MTT4");
 		registerMob(EntityCFR12.class, "CFR12", "CFR12");
 
 		registerMob(EntityTF77B.class, "TF77B", "TF77B");

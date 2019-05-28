@@ -89,26 +89,24 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 
 		if (this.attackTime == 1)
 		{
-			for(int i = 0;i<7; i++)
-			{
 
-				EntityEnemyBulletMortar bullet = new EntityEnemyBulletMortar(this.world, this);
-				bullet.setDamage(bullet.getDamage() + 4.0D);
-				bullet.posY = this.posY + this.height * 2;
-				bullet.setRange(f2);
-				bullet.shoot(var3, 50F, var5,  1.75F, 4.0F);
+			EntityEnemyBulletMortar bullet = new EntityEnemyBulletMortar(this.world, this);
+			bullet.setDamage(bullet.getDamage() + 4.0D);
+			bullet.posY = this.posY + this.height * 2;
+			bullet.setRange(f2);
+			bullet.shoot(var3, 50F, var5, 1.75F, 4.0F);
 
-				this.world.spawnEntity(bullet);
-			}
+			this.world.spawnEntity(bullet);
+
 			this.playSound(TFSoundEvents.BAZOOKA, 2.3F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 
-//			EntityEnemyMortar var7 = new EntityEnemyMortar(this.world, this);
-//			var7.setDamage(var7.getDamage() + 14.0D);
-//			var7.posX = var1.posX;
-//			var7.posZ = var1.posZ;
-//			var7.posY = var1.posY + 0.5F;
-//			var7.shoot(var3, -1F, var5, 0.05F, 1.0F);
-//			this.world.spawnEntity(var7);
+			//			EntityEnemyMortar var7 = new EntityEnemyMortar(this.world, this);
+			//			var7.setDamage(var7.getDamage() + 14.0D);
+			//			var7.posX = var1.posX;
+			//			var7.posZ = var1.posZ;
+			//			var7.posY = var1.posY + 0.5F;
+			//			var7.shoot(var3, -1F, var5, 0.05F, 1.0F);
+			//			this.world.spawnEntity(var7);
 		}
 	}
 
