@@ -18,6 +18,7 @@ import tf2.CommonProxy;
 import tf2.client.mobrender.RenderCFR12;
 import tf2.client.mobrender.RenderMTT1;
 import tf2.client.mobrender.RenderMTT2;
+import tf2.client.mobrender.RenderMTT3;
 import tf2.client.mobrender.RenderMTT4;
 import tf2.client.mobrender.RenderTF77B;
 import tf2.client.mobrender.RenderTF78R;
@@ -43,7 +44,6 @@ import tf2.client.render.RenderBulletHE;
 import tf2.client.render.RenderFlat;
 import tf2.client.render.RenderFriendShell;
 import tf2.client.render.RenderGrenadeHe;
-import tf2.client.render.RenderMarkerMortar;
 import tf2.client.render.RenderShell;
 import tf2.client.render.RenderShield;
 import tf2.client.render.RenderShieldRiot;
@@ -61,6 +61,7 @@ import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityMTT1;
 import tf2.entity.mob.frend.EntityMTT2;
+import tf2.entity.mob.frend.EntityMTT3;
 import tf2.entity.mob.frend.EntityMTT4;
 import tf2.entity.mob.frend.EntityTF77B;
 import tf2.entity.mob.frend.EntityTF78R;
@@ -69,7 +70,6 @@ import tf2.entity.mob.frend.EntityTF80G;
 import tf2.entity.projectile.EntityBarrier;
 import tf2.entity.projectile.enemy.EntityEnemyBullet;
 import tf2.entity.projectile.enemy.EntityEnemyBulletHE;
-import tf2.entity.projectile.enemy.EntityEnemyBulletMortar;
 import tf2.entity.projectile.enemy.EntityEnemyGrenade;
 import tf2.entity.projectile.enemy.EntityEnemyImpact;
 import tf2.entity.projectile.enemy.EntityEnemyMortar;
@@ -79,6 +79,7 @@ import tf2.entity.projectile.player.EntityBulletBig;
 import tf2.entity.projectile.player.EntityBulletCorrosion;
 import tf2.entity.projectile.player.EntityFriendBullet;
 import tf2.entity.projectile.player.EntityFriendImpact;
+import tf2.entity.projectile.player.EntityFriendMortar;
 import tf2.entity.projectile.player.EntityFriendShell;
 import tf2.entity.projectile.player.EntityGrenade;
 import tf2.entity.projectile.player.EntityGrenadeHe;
@@ -120,6 +121,8 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityFriendShell.class, RenderFriendShell::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFriendImpact.class, RenderFlat::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBarrier.class, RenderBarrier::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityFriendMortar.class, RenderBulletBig::new);
+
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyBullet.class, RenderBullet::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyGrenade.class, RenderBullet::new);
@@ -131,8 +134,7 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyImpact.class, RenderFlat::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityEnemySlashFragment.class, RenderSlashFragment::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityEnemySlashWide.class, RenderSlashWide::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyMortar.class, RenderMarkerMortar::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyBulletMortar.class, RenderBulletHE::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyMortar.class, RenderBulletBig::new);
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityTM02.class, RenderTM02::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTM03.class, RenderTM03::new);
@@ -173,6 +175,7 @@ public class ClientProxy extends CommonProxy
 //
 		RenderingRegistry.registerEntityRenderingHandler(EntityMTT1.class, RenderMTT1::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMTT2.class, RenderMTT2::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMTT3.class, RenderMTT3::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMTT4.class, RenderMTT4::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCFR12.class, RenderCFR12::new);
 

@@ -26,6 +26,7 @@ import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityMTT1;
 import tf2.entity.mob.frend.EntityMTT2;
+import tf2.entity.mob.frend.EntityMTT3;
 import tf2.entity.mob.frend.EntityMTT4;
 import tf2.entity.mob.frend.EntityTF77B;
 import tf2.entity.mob.frend.EntityTF78R;
@@ -34,7 +35,6 @@ import tf2.entity.mob.frend.EntityTF80G;
 import tf2.entity.projectile.EntityBarrier;
 import tf2.entity.projectile.enemy.EntityEnemyBullet;
 import tf2.entity.projectile.enemy.EntityEnemyBulletHE;
-import tf2.entity.projectile.enemy.EntityEnemyBulletMortar;
 import tf2.entity.projectile.enemy.EntityEnemyGrenade;
 import tf2.entity.projectile.enemy.EntityEnemyImpact;
 import tf2.entity.projectile.enemy.EntityEnemyMortar;
@@ -44,6 +44,7 @@ import tf2.entity.projectile.player.EntityBulletBig;
 import tf2.entity.projectile.player.EntityBulletCorrosion;
 import tf2.entity.projectile.player.EntityFriendBullet;
 import tf2.entity.projectile.player.EntityFriendImpact;
+import tf2.entity.projectile.player.EntityFriendMortar;
 import tf2.entity.projectile.player.EntityFriendShell;
 import tf2.entity.projectile.player.EntityGrenade;
 import tf2.entity.projectile.player.EntityGrenadeHe;
@@ -135,12 +136,12 @@ public class RegistryHandler
 //		EntityEnemySlashFragment.registerEntity(EntityEnemySlashFragment.class, prefix("enemyslashfragment"), "EnemySlashFragment", 256, 1, true);
 //		EntityEnemySlashWide.registerEntity(EntityEnemySlashWide.class, prefix("enemyslashwide"), "EnemySlashWide", 256, 1, true);
 		EntityEnemyMortar.registerEntity(EntityEnemyMortar.class, prefix("enemymortar"), "EnemyMortar", 256, 1, true);
-		EntityEnemyBulletMortar.registerEntity(EntityEnemyBulletMortar.class, prefix("enemybulletmortar"), "EnemyBulletMortar", 256, 1, true);
 //
 		EntityFriendBullet.registerEntity(EntityFriendBullet.class, prefix("friendbullet"), "FriendBullet", 128, 5, true);
 //		EntityFriendGrenade.registerEntity(EntityFriendGrenade.class, prefix("friendgrenade"), "FriendGrenade", 128, 1, true);
 		EntityFriendShell.registerEntity(EntityFriendShell.class, prefix("friendshell"), "FriendShell", 256, 1, true);
 		EntityFriendImpact.registerEntity(EntityFriendImpact.class, prefix("friendimpact"), "FriendImpact", 256, 1, true);
+		EntityFriendMortar.registerEntity(EntityFriendMortar.class, prefix("friendmortar"), "FriendMortar", 256, 1, true);
 
 		registerMob(EntityTM02.class, "TM02", "TM02", 0x2F2F2F, 0xFF0000);
 		registerMob(EntityTM03.class, "TM03", "TM03", 0x5F5F5F, 0xFF5000);
@@ -182,6 +183,7 @@ public class RegistryHandler
 //
 		registerMob(EntityMTT1.class, "MTT1", "MTT1");
 		registerMob(EntityMTT2.class, "MTT2", "MTT2");
+		registerMob(EntityMTT3.class, "MTT3", "MTT3");
 		registerMob(EntityMTT4.class, "MTT4", "MTT4");
 		registerMob(EntityCFR12.class, "CFR12", "CFR12");
 

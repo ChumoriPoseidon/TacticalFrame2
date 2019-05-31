@@ -102,7 +102,7 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 
 		if (this.attackTime <= 0)
 		{
-			this.attackTime = 140;
+			this.attackTime = 120;
 		}
 	}
 

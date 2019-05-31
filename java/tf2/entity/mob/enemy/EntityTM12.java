@@ -25,7 +25,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import tf2.TF2Core;
 import tf2.TFSoundEvents;
-import tf2.entity.projectile.enemy.EntityEnemyBulletMortar;
+import tf2.entity.projectile.enemy.EntityEnemyMortar;
 
 public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 {
@@ -90,8 +90,9 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 		if (this.attackTime == 1)
 		{
 
-			EntityEnemyBulletMortar bullet = new EntityEnemyBulletMortar(this.world, this);
+			EntityEnemyMortar bullet = new EntityEnemyMortar(this.world, this);
 			bullet.setDamage(bullet.getDamage() + 4.0D);
+			bullet.setSpread(5D);
 			bullet.posY = this.posY + this.height * 2;
 			bullet.setRange(f2);
 			bullet.shoot(var3, 50F, var5, 1.75F, 4.0F);

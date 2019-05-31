@@ -10,29 +10,30 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import tf2.TFItems;
 import tf2.TFSoundEvents;
 import tf2.entity.mob.ai.EntityAIFollowFriendMecha;
 import tf2.entity.mob.ai.EntityAINearestAttackbleTargetFriend;
-import tf2.entity.projectile.player.EntityFriendBullet;
+import tf2.entity.projectile.player.EntityFriendMortar;
 
-public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
+public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 {
-	private static final double defaultDamage = 3;
-	private static final double upAttack = 0.07;
+	private static final double defaultDamage = 15;
+	private static final double upAttack = 0.123;
 	private static final double upArmor = 0.124;
 	private static final double upArmorToughness = 0.022;
 	private static final double upMaxHealth = 1.23;
 
-	private static final double defaultArmor = 8.0D;
+	private static final double defaultArmor = 6.0D;
 	private static final double defaultArmorToughness = 0.0D;
 	private static final double defaultMaxHealth = 40.0D;
 
-	public EntityMTT1(World worldIn)
+	public EntityMTT3(World worldIn)
 	{
 		super(worldIn, (byte) 1, (byte) 50, defaultDamage, upAttack, defaultArmor, upArmor, defaultArmorToughness, upArmorToughness, defaultMaxHealth, upMaxHealth, false);
-		this.setSize(1.4F, 2.0F);
+		this.setSize(1.3F, 1.9F);
 		this.stepHeight = 1.6F;
 		if (this.getHomePosition() == null)
 		{
@@ -46,7 +47,7 @@ public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIFollowFriendMecha(this, 1.0D, 5.0F, 2.0F));
 		//this.tasks.addTask(2, new EntityAIWanderFriendMecha(this, 1.0D));
-		this.tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 1, 30.0F));
+		this.tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 1, 50.0F));
 		this.tasks.addTask(3, new EntityFriendMecha.EntityAILookAtAccessPlayer(this));
 		this.tasks.addTask(4, new EntityAILookIdle(this));
 		this.targetTasks.addTask(2, new EntityAINearestAttackbleTargetFriend(this, 10, true));
@@ -55,10 +56,10 @@ public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.28D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(8.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
 	}
 
 	@Override
@@ -86,18 +87,33 @@ public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
 		double var8 = target.posY - this.posY - 0.5F;
 		double var5 = target.posZ - this.posZ;
 
-		if (this.attackTime <= 28 && this.attackTime % 4 == 0)
-		{
-			EntityFriendBullet var7 = new EntityFriendBullet(this.world, this);
-			var7.setDamage(var7.getDamage() + this.getMechaATK());
-			this.playSound(TFSoundEvents.M16, 2.3F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-			var7.shoot(var3, var8, var5, 2.0F, 3.0F);
-			this.world.spawnEntity(var7);
-		}
-
+		double f2 = MathHelper.sqrt(var3 * var3 + var5 * var5);
 		if (this.attackTime <= 0)
 		{
-			this.attackTime = 100;
+			this.attackTime = 90;
+		}
+
+		if (this.attackTime == 1)
+		{
+
+			EntityFriendMortar bullet = new EntityFriendMortar(this.world, this);
+			bullet.setDamage(bullet.getDamage() + 4.0D);
+			bullet.setSpread(3D);
+			bullet.posY = this.posY + this.height * 2;
+			bullet.setRange(f2);
+			bullet.shoot(var3, 50F, var5, 1.75F, 4.0F);
+
+			this.world.spawnEntity(bullet);
+
+			this.playSound(TFSoundEvents.BAZOOKA, 2.3F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+
+			//			EntityEnemyMortar var7 = new EntityEnemyMortar(this.world, this);
+			//			var7.setDamage(var7.getDamage() + 14.0D);
+			//			var7.posX = var1.posX;
+			//			var7.posZ = var1.posZ;
+			//			var7.posY = var1.posY + 0.5F;
+			//			var7.shoot(var3, -1F, var5, 0.05F, 1.0F);
+			//			this.world.spawnEntity(var7);
 		}
 	}
 
@@ -156,7 +172,7 @@ public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
 
 		if (this.getMechaLevel() == 20)
 		{
-			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_ADDITIONALARMOR_1));
+			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_FIREFILLING));
 		}
 	}
 

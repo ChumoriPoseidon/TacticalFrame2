@@ -133,16 +133,6 @@ public class EntityFriendImpact extends EntityFriendProjectile
 	                    {
 	                        EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
 
-	                        if (this.knockbackStrength > 0)
-	                        {
-	                            float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
-
-	                            if (f1 > 0.0F)
-	                            {
-	                                entitylivingbase.addVelocity(this.motionX * (double)this.knockbackStrength * 0.6000000238418579D / (double)f1, 0.1D, this.motionZ * (double)this.knockbackStrength * 0.6000000238418579D / (double)f1);
-	                            }
-	                        }
-
 	                        if (this.thrower instanceof EntityLivingBase)
 	                        {
 	                            EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.thrower);
