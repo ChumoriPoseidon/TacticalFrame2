@@ -6,36 +6,45 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.TFDamageSource;
 import tf2.entity.projectile.EntityTFProjectile;
-import tf2.entity.projectile.IFriendProjectile;
 
-public class EntityFriendGrenade extends EntityTFProjectile implements IFriendProjectile
+public class EntityMortar extends EntityTFProjectile
 {
+	protected float velocity;
+	protected double range;
 	protected double spread;
 
-    public EntityFriendGrenade(World worldIn)
+    public EntityMortar(World worldIn)
 	{
 		super(worldIn);
-		this.setSize(0.2F, 0.2F);
+		this.setSize(0.25F, 0.25F);
+
 	}
 
-	public EntityFriendGrenade(World worldIn, double x, double y, double z)
+	public EntityMortar(World worldIn, double x, double y, double z)
 	{
 		super(worldIn, x, y, z);
 	}
 
-	public EntityFriendGrenade(World worldIn, EntityLivingBase throwerIn)
+	public EntityMortar(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
-		this.setTickAir(100);
+		this.setTickAir(200);
+	}
+
+	@Override
+	public void shoot(double x, double y, double z, float velocity, float inaccuracy)
+	{
+		super.shoot(x, y, z, velocity, inaccuracy);
+		this.velocity = velocity;
 	}
 
 	@Override
@@ -51,30 +60,22 @@ public class EntityFriendGrenade extends EntityTFProjectile implements IFriendPr
 		}
 	}
 
-	public void setSpread(double damageIn)
-	{
-		this.spread = damageIn;
-	}
-	public double getSpread()
-	{
-		return this.spread;
-	}
     @Override
     public void setEntityDead()
     {
         super.setDead();
 
     	this.world.createExplosion((Entity) null, this.posX, this.posY,this.posZ, 0.0F, false);
- 		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(3.0D));
+ 		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(this.spread));
  		int var3;
  		for (var3 = 0; var3 < var7.size(); ++var3)
  		{
  			EntityLivingBase var8 = (EntityLivingBase)var7.get(var3);
 
- 			if(var8 != this.thrower && !(var8 instanceof EntityPlayer) && !(var8 instanceof EntityGolem && !(var8 instanceof IMob)))
+ 			if(var8 != this.thrower && !(var8 instanceof EntityGolem && !(var8 instanceof IMob)))
  			{
  				DamageSource var201 = this.damageSource();
- 	 			var8.attackEntityFrom(var201, (float)this.damage * 0.5F);
+ 	 			var8.attackEntityFrom(var201, (float)this.damage);
  	 			var8.hurtResistantTime = 0;
  			}
  		}
@@ -98,7 +99,41 @@ public class EntityFriendGrenade extends EntityTFProjectile implements IFriendPr
             }
         }
     }
-    @Override
+
+	public void setRange(double rangeIn)
+	{
+		this.range = rangeIn;
+	}
+
+	public double getRange()
+	{
+		return this.range;
+	}
+
+	public void setSpread(double damageIn)
+	{
+		this.spread = damageIn;
+	}
+	public double getSpread()
+	{
+		return this.spread;
+	}
+	@Override
+	protected void isGravity()
+	{
+		if(this.velocity != 0)
+		{
+			double speed = velocity * 0.1D;
+			double gravity = 0.48D + this.getRange() * 0.01D;
+
+			double v_x = speed * (MathHelper.cos((float) Math.toRadians(this.ticksInAir)));
+			double v_y = speed * (MathHelper.cos((float)Math.toRadians(this.ticksInAir)));
+
+			this.motionY -= (2 * v_x * v_y) / gravity;
+		}
+	}
+
+	@Override
 	public void writeEntityToNBT(NBTTagCompound compound)
 	{
 		super.writeEntityToNBT(compound);

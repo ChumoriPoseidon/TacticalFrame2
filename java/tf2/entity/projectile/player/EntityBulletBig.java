@@ -2,14 +2,11 @@ package tf2.entity.projectile.player;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import tf2.TF2Core;
 import tf2.TFDamageSource;
-import tf2.util.RegistryHandler;
+import tf2.entity.projectile.EntityTFProjectile;
 
-public class EntityBulletBig extends EntityPlayerProjectile
+public class EntityBulletBig extends EntityTFProjectile
 {
 	public EntityBulletBig(World worldIn)
 	{
@@ -25,17 +22,7 @@ public class EntityBulletBig extends EntityPlayerProjectile
 	public EntityBulletBig(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
-	}
-
-	public static void registerEntity(Class<EntityBulletBig> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
-	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
-	}
-
-	@Override
-	public int plusTickAir()
-	{
-		return 20;
+		super.setTickAir(50);
 	}
 
 	@Override

@@ -1,16 +1,11 @@
 package tf2.entity.projectile.player;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import tf2.TF2Core;
-import tf2.util.RegistryHandler;
+import tf2.entity.projectile.IFriendProjectile;
 
-public class EntityFriendShell extends EntityFriendProjectile
+public class EntityFriendShell extends EntityFriendBullet implements IFriendProjectile
 {
-	protected int amplifier;
-
 	public EntityFriendShell(World worldIn)
 	{
 		super(worldIn);
@@ -25,10 +20,5 @@ public class EntityFriendShell extends EntityFriendProjectile
 	public EntityFriendShell(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
-	}
-
-	public static void registerEntity(Class<EntityFriendShell> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
-	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
 	}
 }

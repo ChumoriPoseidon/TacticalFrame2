@@ -2,8 +2,6 @@ package tf2.entity.projectile.player;
 
 import java.util.List;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,24 +11,20 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.play.server.SPacketChangeGameState;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tf2.TF2Core;
 import tf2.TFDamageSource;
-import tf2.util.RegistryHandler;
+import tf2.entity.projectile.EntityTFProjectile;
 
-public class EntityShell extends EntityPlayerProjectile
+public class EntityShell extends EntityTFProjectile
 {
 	public EntityShell(World worldIn)
 	{
 		super(worldIn);
 		this.setSize(0.25F, 0.25F);
+		this.setTickAir(200);
 	}
 
 	public EntityShell(World worldIn, double x, double y, double z)
@@ -41,15 +35,6 @@ public class EntityShell extends EntityPlayerProjectile
 	public EntityShell(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
-	}
-	public static void registerEntity(Class<EntityShell> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
-	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
-	}
-	@Override
-	public int plusTickAir()
-	{
-		return 170;
 	}
 
 	@Override
@@ -203,26 +188,7 @@ public class EntityShell extends EntityPlayerProjectile
         }
         else
         {
-            BlockPos blockpos = raytraceResultIn.getBlockPos();
-            this.xTile = blockpos.getX();
-            this.yTile = blockpos.getY();
-            this.zTile = blockpos.getZ();
-            IBlockState iblockstate = this.world.getBlockState(blockpos);
-            this.inTile = iblockstate.getBlock();
-
-            this.motionX = (double)((float)(raytraceResultIn.hitVec.x - this.posX));
-            this.motionY = (double)((float)(raytraceResultIn.hitVec.y - this.posY));
-            this.motionZ = (double)((float)(raytraceResultIn.hitVec.z - this.posZ));
-            float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
-            this.posX -= this.motionX / (double)f2 * 0.05000000074505806D;
-            this.posY -= this.motionY / (double)f2 * 0.05000000074505806D;
-            this.posZ -= this.motionZ / (double)f2 * 0.05000000074505806D;
-            this.inGround = true;
-
-            if (iblockstate.getMaterial() != Material.AIR)
-            {
-                this.inTile.onEntityCollidedWithBlock(this.world, blockpos, iblockstate, this);
-            }
+        	super.onHitBlock(raytraceResultIn);
         }
     }
 }

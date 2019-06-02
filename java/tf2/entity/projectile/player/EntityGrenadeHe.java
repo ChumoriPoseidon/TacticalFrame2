@@ -10,15 +10,12 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.play.server.SPacketChangeGameState;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import tf2.TF2Core;
 import tf2.TFDamageSource;
-import tf2.util.RegistryHandler;
+import tf2.entity.projectile.EntityTFProjectile;
 
-public class EntityGrenadeHe extends EntityPlayerProjectile
+public class EntityGrenadeHe extends EntityTFProjectile
 {
 	public EntityGrenadeHe(World worldIn)
 	{
@@ -34,17 +31,7 @@ public class EntityGrenadeHe extends EntityPlayerProjectile
 	public EntityGrenadeHe(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
-	}
-
-	public static void registerEntity(Class<EntityGrenadeHe> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
-	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
-	}
-
-	@Override
-	public int plusTickAir()
-	{
-		return 50;
+		this.setTickAir(80);
 	}
 
 	@Override
