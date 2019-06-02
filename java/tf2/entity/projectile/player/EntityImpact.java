@@ -90,50 +90,49 @@ public class EntityImpact extends EntityTFProjectile
 
 	        if (entity != null)
 	        {
-	        	if ((entity instanceof EntityMobTF || entity instanceof IMob))
-	        	{
-	        		DamageSource damagesource;
 
-	                if (this.thrower == null)
-	                {
-	                    damagesource = TFDamageSource.causeBulletDamage(this, this);
-	                }
-	                else
-	                {
-	                    damagesource = TFDamageSource.causeBulletDamage(this, this.thrower);
-	                }
+        		DamageSource damagesource;
 
-	                if (this.isBurning())
-	                {
-	                    entity.setFire(5);
-	                }
+                if (this.thrower == null)
+                {
+                    damagesource = TFDamageSource.causeBulletDamage(this, this);
+                }
+                else
+                {
+                    damagesource = TFDamageSource.causeBulletDamage(this, this.thrower);
+                }
 
-	                if (entity.attackEntityFrom(damagesource, (float)this.damage))
-	                {
-	                    if (entity instanceof EntityLivingBase)
-	                    {
-	                        EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
+                if (this.isBurning())
+                {
+                    entity.setFire(5);
+                }
 
-	                        if (this.thrower instanceof EntityLivingBase)
-	                        {
-	                            EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.thrower);
-	                            EnchantmentHelper.applyArthropodEnchantments((EntityLivingBase)this.thrower, entitylivingbase);
-	                        }
+                if (entity.attackEntityFrom(damagesource, (float)this.damage))
+                {
+                    if (entity instanceof EntityLivingBase)
+                    {
+                        EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
 
-	                        this.bulletHit(entitylivingbase);
-	                        entitylivingbase.hurtResistantTime = 0;
+                        if (this.thrower instanceof EntityLivingBase)
+                        {
+                            EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.thrower);
+                            EnchantmentHelper.applyArthropodEnchantments((EntityLivingBase)this.thrower, entitylivingbase);
+                        }
 
-	                        if (this.thrower != null && entitylivingbase != this.thrower && entitylivingbase instanceof EntityPlayer && this.thrower instanceof EntityPlayerMP)
-	                        {
-	                            ((EntityPlayerMP)this.thrower).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
-	                        }
-	                    }
-	                }
-	        	}
-	        	else if(entity instanceof IProjectile)
-	        	{
-	        		entity.setDead();
-	        	}
+                        this.bulletHit(entitylivingbase);
+                        entitylivingbase.hurtResistantTime = 0;
+
+                        if (this.thrower != null && entitylivingbase != this.thrower && entitylivingbase instanceof EntityPlayer && this.thrower instanceof EntityPlayerMP)
+                        {
+                            ((EntityPlayerMP)this.thrower).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
+                        }
+                    }
+                }
+
+				if(entity instanceof IProjectile)
+				{
+					entity.setDead();
+				}
 	        }
 	    }
 }
