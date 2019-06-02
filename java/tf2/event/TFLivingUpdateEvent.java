@@ -1,12 +1,19 @@
 package tf2.event;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import tf2.entity.mob.enemy.EntityMobTF;
+import tf2.entity.projectile.IEnemyProjectile;
+import tf2.entity.projectile.IFriendProjectile;
 import tf2.items.guns.ItemTFGuns;
 import tf2.items.guns.ItemTFGunsHG;
 import tf2.items.guns.ItemTFGunsLMG;
@@ -68,6 +75,23 @@ public class TFLivingUpdateEvent
 					}
 				}
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public void onTFProjectileImpact(ProjectileImpactEvent event)
+	{
+		Entity projectile = event.getEntity();
+		Entity target = event.getRayTraceResult().entityHit;
+
+		if(target instanceof EntityMobTF && projectile instanceof IEnemyProjectile)
+		{
+			event.setCanceled(true);
+		}
+
+		if((target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))) && projectile instanceof IFriendProjectile)
+		{
+			event.setCanceled(true);
 		}
 	}
 }

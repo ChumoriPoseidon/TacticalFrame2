@@ -4,8 +4,6 @@ import java.util.List;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityGolem;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -72,7 +70,7 @@ public class EntityMortar extends EntityTFProjectile
  		{
  			EntityLivingBase var8 = (EntityLivingBase)var7.get(var3);
 
- 			if(var8 != this.thrower && !(var8 instanceof EntityGolem && !(var8 instanceof IMob)))
+ 			if(var8 != this.thrower)
  			{
  				DamageSource var201 = this.damageSource();
  	 			var8.attackEntityFrom(var201, (float)this.damage);

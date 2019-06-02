@@ -92,6 +92,7 @@ public class EntityEnemyBulletHE extends EntityTFProjectile implements IEnemyPro
 			DamageSource var201 = this.damageSource();
 			var8.attackEntityFrom(var201, (float) this.damage * 0.5F);
 			var8.hurtResistantTime = 0;
+
 		}
 	}
 

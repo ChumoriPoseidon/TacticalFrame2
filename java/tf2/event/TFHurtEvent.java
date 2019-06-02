@@ -1,6 +1,8 @@
 package tf2.event;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -13,7 +15,11 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import tf2.TFItems;
+import tf2.entity.mob.enemy.EntityMobTF;
+import tf2.entity.mob.frend.EntityFriendMecha;
 import tf2.entity.mob.frend.EntityMobCF;
+import tf2.entity.projectile.IEnemyProjectile;
+import tf2.entity.projectile.IFriendProjectile;
 import tf2.items.guns.ItemTFGunsSG;
 import tf2.items.guns.ItemTFGunsSMG;
 import tf2.potion.TFPotionPlus;
@@ -135,6 +141,17 @@ public class TFHurtEvent
 		EntityLivingBase target = event.getEntityLiving();
 		DamageSource damage = event.getSource();
 		float amount = event.getAmount();
+
+		if((damage.getTrueSource() instanceof EntityMobTF || damage.getImmediateSource() instanceof IEnemyProjectile) && target instanceof EntityMobTF)
+		{
+			event.setCanceled(true);
+		}
+		if((damage.getTrueSource() instanceof EntityFriendMecha || damage.getImmediateSource() instanceof IFriendProjectile) && (target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))))
+		{
+			event.setCanceled(true);
+		}
+
+
 
 		if (target != null && !target.world.isRemote && target instanceof EntityPlayer)
 		{
