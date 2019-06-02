@@ -8,15 +8,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import tf2.TF2Core;
 import tf2.TFDamageSource;
+import tf2.entity.projectile.EntityTFProjectile;
+import tf2.entity.projectile.IEnemyProjectile;
 import tf2.potion.TFPotionPlus;
-import tf2.util.RegistryHandler;
 
-public class EntityEnemyBulletHE extends EntityEnemyProjectile
+public class EntityEnemyBulletHE extends EntityTFProjectile implements IEnemyProjectile
 {
 	protected int amplifier;
 
@@ -34,11 +32,7 @@ public class EntityEnemyBulletHE extends EntityEnemyProjectile
 	public EntityEnemyBulletHE(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
-	}
-
-	public static void registerEntity(Class<EntityEnemyBulletHE> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
-	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
+		this.setTickAir(50);
 	}
 
 	@Override

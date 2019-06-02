@@ -6,16 +6,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tf2.TF2Core;
 import tf2.TFDamageSource;
-import tf2.util.RegistryHandler;
+import tf2.entity.projectile.EntityTFProjectile;
+import tf2.entity.projectile.IEnemyProjectile;
 
-public class EntityEnemyGrenade extends EntityEnemyProjectile
+public class EntityEnemyGrenade extends EntityTFProjectile implements IEnemyProjectile
 {
     public EntityEnemyGrenade(World worldIn)
 	{
@@ -31,11 +29,7 @@ public class EntityEnemyGrenade extends EntityEnemyProjectile
 	public EntityEnemyGrenade(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
-	}
-
-	public static void registerEntity(Class<EntityEnemyGrenade> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
-	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
+		this.setTickAir(50);
 	}
 
 	@Override

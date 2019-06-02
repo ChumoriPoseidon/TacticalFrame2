@@ -235,7 +235,7 @@ public class EntityBarrier extends Entity
 		return SoundEvents.BLOCK_GLASS_BREAK;
 	}
 
-	public static void registerEntity(Class<EntityBarrier> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
+	public static void registerEntity(Class<? extends Entity> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
 	{
 		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
 	}

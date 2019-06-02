@@ -1,4 +1,4 @@
-package tf2.entity.projectile.enemy;
+package tf2.entity.projectile;
 
 import java.util.List;
 
@@ -29,13 +29,15 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tf2.TF2Core;
 import tf2.TFDamageSource;
-import tf2.entity.mob.enemy.EntityMobTF;
 import tf2.potion.TFPotionPlus;
+import tf2.util.RegistryHandler;
 
-public class EntityEnemyProjectile extends Entity implements IProjectile
+public class EntityTFProjectile extends Entity implements IProjectile
 {
 	protected int xTile;
 	protected int yTile;
@@ -48,11 +50,11 @@ public class EntityEnemyProjectile extends Entity implements IProjectile
 
 	private int ticksInGround;
 	protected int ticksInAir;
+	protected int ticksLifeBullet;
 
-	protected int knockbackStrength;
 	protected double damage;
 
-	public EntityEnemyProjectile(World worldIn)
+	public EntityTFProjectile(World worldIn)
 	{
 		super(worldIn);
 		this.xTile = -1;
@@ -61,13 +63,13 @@ public class EntityEnemyProjectile extends Entity implements IProjectile
 		this.setSize(0.2F, 0.2F);
 	}
 
-	public EntityEnemyProjectile(World worldIn, double x, double y, double z)
+	public EntityTFProjectile(World worldIn, double x, double y, double z)
 	{
 		this(worldIn);
 		this.setPosition(x, y, z);
 	}
 
-	public EntityEnemyProjectile(World worldIn, EntityLivingBase throwerIn)
+	public EntityTFProjectile(World worldIn, EntityLivingBase throwerIn)
 	{
 		this(worldIn, throwerIn.posX, throwerIn.posY + (double) throwerIn.getEyeHeight() - 0.10000000149011612D, throwerIn.posZ);
 		this.thrower = throwerIn;
@@ -90,7 +92,7 @@ public class EntityEnemyProjectile extends Entity implements IProjectile
 			d0 = 4.0D;
 		}
 
-		d0 = d0 * 64.0D;
+		d0 = d0 * 128.0D;
 		return distance < d0 * d0;
 	}
 
@@ -286,9 +288,13 @@ public class EntityEnemyProjectile extends Entity implements IProjectile
 			this.doBlockCollisions();
 
 		}
-		if (this.ticksInAir >= 50 + this.plusTickAir())
+
+		if(!this.world.isRemote)
 		{
-			this.setEntityDead();
+			if (this.ticksInAir >= this.getTickAir() || this.inGround)
+			{
+				this.setEntityDead();
+			}
 		}
 	}
 
@@ -309,52 +315,35 @@ public class EntityEnemyProjectile extends Entity implements IProjectile
 		Entity entity = raytraceResultIn.entityHit;
 		if (entity != null)
 		{
-			if (!(entity instanceof EntityMobTF))
+			DamageSource damagesource = this.damageSource();
+
+			if (this.isBurning())
 			{
-				DamageSource damagesource = this.damageSource();
+				entity.setFire(5);
+			}
 
-				if (this.isBurning())
+			if (entity.attackEntityFrom(damagesource, (float) this.damage))
+			{
+				if (entity instanceof EntityLivingBase)
 				{
-					entity.setFire(5);
-				}
+					EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
 
-				if (entity.attackEntityFrom(damagesource, (float) this.damage))
-				{
-					if (entity instanceof EntityLivingBase)
+					if (this.thrower instanceof EntityLivingBase)
 					{
-						EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
-
-						if (this.knockbackStrength > 0)
-						{
-							float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
-
-							if (f1 > 0.0F)
-							{
-								entitylivingbase.addVelocity(this.motionX * (double) this.knockbackStrength * 0.6000000238418579D / (double) f1, 0.1D, this.motionZ * (double) this.knockbackStrength * 0.6000000238418579D / (double) f1);
-							}
-						}
-
-						if (this.thrower instanceof EntityLivingBase)
-						{
-							EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.thrower);
-							EnchantmentHelper.applyArthropodEnchantments((EntityLivingBase) this.thrower, entitylivingbase);
-						}
-
-						this.bulletHit(entitylivingbase);
-						entitylivingbase.hurtResistantTime = 0;
-
-						if (this.thrower != null && entitylivingbase != this.thrower && entitylivingbase instanceof EntityPlayer && this.thrower instanceof EntityPlayerMP)
-						{
-							((EntityPlayerMP) this.thrower).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
-						}
+						EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.thrower);
+						EnchantmentHelper.applyArthropodEnchantments((EntityLivingBase) this.thrower, entitylivingbase);
 					}
 
-					if (!(entity instanceof EntityEnderman))
+					this.bulletHit(entitylivingbase);
+					entitylivingbase.hurtResistantTime = 0;
+
+					if (this.thrower != null && entitylivingbase != this.thrower && entitylivingbase instanceof EntityPlayer && this.thrower instanceof EntityPlayerMP)
 					{
-						this.setEntityDead();
+						((EntityPlayerMP) this.thrower).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
 					}
 				}
-				else
+
+				if (!(entity instanceof EntityEnderman))
 				{
 					this.setEntityDead();
 				}
@@ -363,29 +352,35 @@ public class EntityEnemyProjectile extends Entity implements IProjectile
 			{
 				this.setEntityDead();
 			}
+
 		}
 		else
 		{
-			BlockPos blockpos = raytraceResultIn.getBlockPos();
-			this.xTile = blockpos.getX();
-			this.yTile = blockpos.getY();
-			this.zTile = blockpos.getZ();
-			IBlockState iblockstate = this.world.getBlockState(blockpos);
-			this.inTile = iblockstate.getBlock();
-			this.inData = this.inTile.getMetaFromState(iblockstate);
-			this.motionX = (double) ((float) (raytraceResultIn.hitVec.x - this.posX));
-			this.motionY = (double) ((float) (raytraceResultIn.hitVec.y - this.posY));
-			this.motionZ = (double) ((float) (raytraceResultIn.hitVec.z - this.posZ));
-			float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
-			this.posX -= this.motionX / (double) f2 * 0.05000000074505806D;
-			this.posY -= this.motionY / (double) f2 * 0.05000000074505806D;
-			this.posZ -= this.motionZ / (double) f2 * 0.05000000074505806D;
-			this.inGround = true;
+			this.onHitBlock(raytraceResultIn);
+		}
+	}
 
-			if (iblockstate.getMaterial() != Material.AIR)
-			{
-				this.inTile.onEntityCollidedWithBlock(this.world, blockpos, iblockstate, this);
-			}
+	protected void onHitBlock(RayTraceResult raytraceResultIn)
+	{
+		BlockPos blockpos = raytraceResultIn.getBlockPos();
+		this.xTile = blockpos.getX();
+		this.yTile = blockpos.getY();
+		this.zTile = blockpos.getZ();
+		IBlockState iblockstate = this.world.getBlockState(blockpos);
+		this.inTile = iblockstate.getBlock();
+		this.inData = this.inTile.getMetaFromState(iblockstate);
+		this.motionX = (double) ((float) (raytraceResultIn.hitVec.x - this.posX));
+		this.motionY = (double) ((float) (raytraceResultIn.hitVec.y - this.posY));
+		this.motionZ = (double) ((float) (raytraceResultIn.hitVec.z - this.posZ));
+		float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
+		this.posX -= this.motionX / (double) f2 * 0.05000000074505806D;
+		this.posY -= this.motionY / (double) f2 * 0.05000000074505806D;
+		this.posZ -= this.motionZ / (double) f2 * 0.05000000074505806D;
+		this.inGround = true;
+
+		if (iblockstate.getMaterial() != Material.AIR)
+		{
+			this.inTile.onEntityCollidedWithBlock(this.world, blockpos, iblockstate, this);
 		}
 	}
 
@@ -414,11 +409,16 @@ public class EntityEnemyProjectile extends Entity implements IProjectile
 	}
 
 	/**
-	 * 自然消滅までの時間 50tick + this.plusTickAir
+	 * 自然消滅までの時間 30tick + this.plusTickAir
 	 */
-	protected int plusTickAir()
+	protected int getTickAir()
 	{
-		return 0;
+		return ticksLifeBullet == 0 ? 30 : ticksLifeBullet;
+	}
+
+	protected void setTickAir(int ticks)
+	{
+		ticksLifeBullet = ticks;
 	}
 
 	public static void registerFixesThrowable(DataFixer fixer, String name)
@@ -571,13 +571,12 @@ public class EntityEnemyProjectile extends Entity implements IProjectile
 		return this.damage + k;
 	}
 
-
-	public void setKnockbackStrength(int knockbackStrengthIn)
-	{
-		this.knockbackStrength = knockbackStrengthIn;
-	}
-
 	@SideOnly(Side.CLIENT)
 	protected void generateRandomParticles()
 	{}
+
+	public static void registerEntity(Class<? extends Entity> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
+	{
+		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
+	}
 }

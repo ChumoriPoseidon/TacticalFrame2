@@ -20,6 +20,7 @@ import tf2.common.PacketHandler;
 import tf2.entity.mob.frend.EntityFriendMecha;
 import tf2.entity.mob.frend.EntityMTT1;
 import tf2.entity.mob.frend.EntityMTT2;
+import tf2.entity.mob.frend.EntityMTT3;
 import tf2.entity.mob.frend.EntityMobCF;
 import tf2.tile.container.ContainerFriendMechaInventory;
 
@@ -101,7 +102,8 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 		int entityPosY = (originPosY + 92);
 
 		int scale= (int)(37 - this.entityMecha.height * 5);
-		if(entityMecha instanceof EntityMobCF)
+
+		if(entityMecha instanceof EntityMobCF || entityMecha instanceof EntityMTT3)
 		{
 			scale =12;
 		}

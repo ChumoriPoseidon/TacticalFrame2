@@ -5,26 +5,14 @@ import java.util.List;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import tf2.TF2Core;
-import tf2.TFDamageSource;
-import tf2.util.RegistryHandler;
+import tf2.entity.projectile.IFriendProjectile;
 
-public class EntityFriendMortar extends EntityFriendProjectile
+public class EntityFriendMortar extends EntityMortar implements IFriendProjectile
 {
-	protected float velocity;
-	protected double range;
-	protected double spread;
-
     public EntityFriendMortar(World worldIn)
 	{
 		super(worldIn);
@@ -41,36 +29,6 @@ public class EntityFriendMortar extends EntityFriendProjectile
 		super(worldIn, throwerIn);
 	}
 
-	public static void registerEntity(Class<EntityFriendMortar> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
-	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
-	}
-
-	@Override
-	public void shoot(double x, double y, double z, float velocity, float inaccuracy)
-	{
-		super.shoot(x, y, z, velocity, inaccuracy);
-		this.velocity = velocity;
-	}
-
-	@Override
-	public DamageSource damageSource()
-	{
-		if (this.thrower == null)
-		{
-			return TFDamageSource.causeBombDamage(this);
-		}
-		else
-		{
-			return TFDamageSource.causeBombDamage(this.thrower);
-		}
-	}
-	@Override
-	public int plusTickAir()
-	{
-		return 170;
-	}
-
     @Override
     public void setEntityDead()
     {
@@ -83,7 +41,7 @@ public class EntityFriendMortar extends EntityFriendProjectile
  		{
  			EntityLivingBase var8 = (EntityLivingBase)var7.get(var3);
 
- 			if(var8 != this.thrower && !(var8 instanceof EntityPlayer) && !(var8 instanceof EntityGolem))
+ 			if(var8 != this.thrower && !(var8 instanceof EntityPlayer) && !(var8 instanceof EntityGolem && !(var8 instanceof IMob)))
  			{
  				DamageSource var201 = this.damageSource();
  	 			var8.attackEntityFrom(var201, (float)this.damage);
@@ -91,73 +49,4 @@ public class EntityFriendMortar extends EntityFriendProjectile
  			}
  		}
     }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void generateRandomParticles()
-    {
-        double var211 = this.prevPosX - this.posX;
-        double var231 = this.prevPosY - this.posY;
-        double var23 = this.prevPosZ - this.posZ;
-
-        if (this.world.isRemote)
-        {
-        	for (int var24 = 0; var24 < 5; ++var24)
-            {
-        		float var16 = 0.2F * (float)var24;
-
-                this.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL,  this.posX + var211 * (double)var16, this.posY + 0.1D + var231 * (double)var16, this.posZ + var23 * (double)var16, 0.0D, 0.0D, 0.0D, new int[15]);
-            }
-        }
-    }
-
-	public void setRange(double rangeIn)
-	{
-		this.range = rangeIn;
-	}
-
-	public double getRange()
-	{
-		return this.range;
-	}
-
-	public void setSpread(double damageIn)
-	{
-		this.spread = damageIn;
-	}
-	public double getSpread()
-	{
-		return this.spread;
-	}
-	@Override
-	protected void isGravity()
-	{
-		if(this.velocity != 0)
-		{
-			double speed = velocity * 0.1D;
-			double gravity = 0.48D + this.getRange() * 0.01D;
-
-			double v_x = speed * (MathHelper.cos((float) Math.toRadians(this.ticksInAir)));
-			double v_y = speed * (MathHelper.cos((float)Math.toRadians(this.ticksInAir)));
-
-			this.motionY -= (2 * v_x * v_y) / gravity;
-		}
-	}
-
-	@Override
-	public void writeEntityToNBT(NBTTagCompound compound)
-	{
-		super.writeEntityToNBT(compound);
-		compound.setDouble("spread", this.spread);
-	}
-
-	/**
-	 * (abstract) Protected helper method to read subclass entity data from NBT.
-	 */
-	@Override
-	public void readEntityFromNBT(NBTTagCompound compound)
-	{
-		super.readEntityFromNBT(compound);
-		this.spread = compound.getDouble("spread");
-	}
 }

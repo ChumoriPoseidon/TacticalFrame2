@@ -42,6 +42,7 @@ public class TFHurtEvent
 				amount *= 0.8F;
 				event.setAmount(amount);
 			}
+
 //			if (entity instanceof EntityPlayer)
 //			{
 //				EntityPlayer player = (EntityPlayer) event.getEntityLiving();

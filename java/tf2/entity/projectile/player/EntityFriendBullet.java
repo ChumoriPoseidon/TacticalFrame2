@@ -1,13 +1,15 @@
 package tf2.entity.projectile.player;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import tf2.TF2Core;
-import tf2.util.RegistryHandler;
+import tf2.entity.projectile.IFriendProjectile;
 
-public class EntityFriendBullet extends EntityFriendProjectile
+public class EntityFriendBullet extends EntityBullet implements IFriendProjectile
 {
 	public EntityFriendBullet(World worldIn)
 	{
@@ -25,8 +27,20 @@ public class EntityFriendBullet extends EntityFriendProjectile
 		super(worldIn, throwerIn);
 	}
 
-	public static void registerEntity(Class<EntityFriendBullet> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
+	@Override
+	protected void onHit(RayTraceResult raytraceResultIn)
 	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
+		Entity entity = raytraceResultIn.entityHit;
+		if (entity != null)
+		{
+			if (!(entity instanceof EntityPlayer) || !(entity instanceof EntityGolem && !(entity instanceof IMob)))
+			{
+				super.onHit(raytraceResultIn);
+			}
+		}
+		else
+		{
+			super.onHitBlock(raytraceResultIn);
+		}
 	}
 }

@@ -8,16 +8,13 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tf2.TF2Core;
 import tf2.TFDamageSource;
-import tf2.util.RegistryHandler;
+import tf2.entity.projectile.EntityTFProjectile;
 
-public class EntityGrenade extends EntityPlayerProjectile
+public class EntityGrenade extends EntityTFProjectile
 {
 	protected double spread;
 
@@ -35,17 +32,7 @@ public class EntityGrenade extends EntityPlayerProjectile
 	public EntityGrenade(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
-	}
-
-	public static void registerEntity(Class<EntityGrenade> clazz, ResourceLocation registryName, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
-	{
-		EntityRegistry.registerModEntity(registryName, clazz, registryName.getResourceDomain() + "." + registryName.getResourcePath(), RegistryHandler.entityId++, TF2Core.INSTANCE, trackingRange, updateFrequency, sendsVelocityUpdates);
-	}
-
-	@Override
-	public int plusTickAir()
-	{
-		return 70;
+		this.setTickAir(100);
 	}
 
 	@Override
