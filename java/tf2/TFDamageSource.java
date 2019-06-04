@@ -28,9 +28,4 @@ public class TFDamageSource extends DamageSource
 	{
 		return new EntityDamageSource("grenade", par1).setExplosion();
 	}
-
-	public static DamageSource causeFriendDamage(Entity par1)
-    {
-        return new EntityDamageSource("friend", par1);
-    }
 }

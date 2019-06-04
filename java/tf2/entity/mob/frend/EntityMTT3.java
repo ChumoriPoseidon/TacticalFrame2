@@ -96,7 +96,7 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 		{
 
 			EntityFriendMortar bullet = new EntityFriendMortar(this.world, this);
-			bullet.setDamage(bullet.getDamage() + 4.0D);
+			bullet.setDamage(bullet.getDamage() + this.getMechaATK());
 			bullet.setSpread(3D);
 			bullet.posY = this.posY + this.height * 2;
 			bullet.setRange(f2);

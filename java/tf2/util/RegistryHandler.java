@@ -16,6 +16,7 @@ import tf2.entity.mob.enemy.EntityTM02;
 import tf2.entity.mob.enemy.EntityTM03;
 import tf2.entity.mob.enemy.EntityTM04;
 import tf2.entity.mob.enemy.EntityTM05;
+import tf2.entity.mob.enemy.EntityTM06;
 import tf2.entity.mob.enemy.EntityTM07;
 import tf2.entity.mob.enemy.EntityTM11;
 import tf2.entity.mob.enemy.EntityTM12;
@@ -147,6 +148,7 @@ public class RegistryHandler
 		registerMob(EntityTM03.class, "TM03", "TM03", 0x5F5F5F, 0xFF5000);
 		registerMob(EntityTM04.class, "TM04", "TM04", 0xB22222, 0xB0C4DE);
 		registerMob(EntityTM05.class, "TM05", "TM05", 0x228B22, 0xFF0000);
+		registerMob(EntityTM06.class, "TM06", "TM06", 0x007000, 0xAAAAAA);
 		registerMob(EntityTM07.class, "TM07", "TM07", 0x007000, 0xAAAAAA);
 		registerMob(EntityTM11.class, "TM11", "TM11", 0x4169E1, 0x00FFFF);
 		registerMob(EntityTM12.class, "TM12", "TM12", 0x4169F0, 0xFF0000);
