@@ -10,8 +10,7 @@
 			"item": "minecraft:diamond"
 		},
 		"X": {
-			 "type": "forge:ore_dict",
-             "ore": "ingotSteel"
+			 "item": "minecraft:iron_ingot"
 		},
 		"Y": {
 			"item": "tf:workkit",
@@ -23,6 +22,6 @@
         }
 	},
 	"result": {
-		"item": "tf:pulverizer"
+		"item": "tf2:pulverizer"
 	}
 }

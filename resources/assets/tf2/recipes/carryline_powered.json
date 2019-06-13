@@ -11,14 +11,14 @@
 			  "data": 0
 		},
 		"Y": {
-			 "item": "tf:carryline"
+			 "item": "tf2:carryline"
 		},
 		"Z": {
             "item": "minecraft:gold_nugget"
         }
 	},
 	"result": {
-		"item": "tf:carryline_powered",
+		"item": "tf2:carryline_powered",
 		"count": 4
 	}
 }

@@ -2,11 +2,11 @@
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
 		{
-			"item": "tf2:cokeblock"
+			"item": "tf2:reinforced_ironblock"
 		}
 	],
 	"result": {
-		"item": "tf2:coke",
+		"item": "tf2:reinforced_ironingot",
 		"count": 9
 	}
 }

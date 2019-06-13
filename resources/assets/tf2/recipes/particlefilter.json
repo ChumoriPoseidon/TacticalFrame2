@@ -10,18 +10,17 @@
              "item": "minecraft:diamond"
         },
 		"X": {
-			 "item": "tf:mechaparts"
+			 "item": "tf2:mechaparts"
 		},
 		"Y": {
-			 "type": "forge:ore_dict",
-             "ore": "ingotSteel"
+			 "item": "minecraft:iron_ingot"
 		},
 		"Z": {
              "type": "forge:ore_dict",
-             "ore": "gearGold"
+             "ore": "gearIron"
         }
 	},
 	"result": {
-		"item": "tf:particlefilter"
+		"item": "tf2:particlefilter"
 	}
 }

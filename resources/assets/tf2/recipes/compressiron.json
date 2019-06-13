@@ -2,7 +2,7 @@
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
 		{
-			"item": "tf:compressiron"
+			"item": "tf2:compressiron"
 		}
 	],
 	"result": {

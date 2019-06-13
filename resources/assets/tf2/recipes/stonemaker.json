@@ -10,8 +10,7 @@
 			"item": "minecraft:diamond_pickaxe"
 		},
 		"X": {
-			 "type": "forge:ore_dict",
-             "ore": "ingotSteel"
+			 "item": "minecraft:iron_ingot"
 		},
 		"Y": {
 			"item": "minecraft:piston"
@@ -29,6 +28,6 @@
         }
 	},
 	"result": {
-		"item": "tf:stonemaker"
+		"item": "tf2:stonemaker"
 	}
 }

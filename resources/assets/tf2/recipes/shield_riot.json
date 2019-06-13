@@ -7,13 +7,13 @@
 	],
 	"key": {
 		"X": {
-			 "item": "tf:ceramic"
+			 "item": "tf2:rigidoingot"
 		},
 		"Z": {
-            "item": "tf:flamchip"
+            "item": "tf2:developchip_1"
         }
 	},
 	"result": {
-		"item": "tf:riotshield"
+		"item": "tf2:riotshield"
 	}
 }

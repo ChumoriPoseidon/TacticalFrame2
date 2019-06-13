@@ -9,12 +9,12 @@
 			 "item": "minecraft:iron_ingot"
 		},
 		"Y": {
-			"item": "tf:workkit",
+			"item": "tf2:workkit",
             "data": 32767
 		}
 	},
 	"result": {
-		"item": "tf:can",
-		"count": 15
+		"item": "tf2:can",
+		"count": 16
 	}
 }

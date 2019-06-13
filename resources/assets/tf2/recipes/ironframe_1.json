@@ -2,12 +2,12 @@
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
 		{
-			"item": "tf:ironframe",
+			"item": "tf2:ironframe",
 			"data": 0
 		}
 	],
 	"result": {
-		"item": "tf:ironframe",
+		"item": "tf2:ironframe",
 		"data": 1
 	}
 }

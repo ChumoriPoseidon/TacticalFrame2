@@ -7,16 +7,10 @@
         },
 		{
 			"item": "minecraft:iron_ingot"
-		},
-		{
-            "item": "minecraft:iron_ingot"
-        },
-		{
-			"item": "minecraft:gunpowder"
 		}
 	],
 	"result": {
-		"item": "tf2:boxsniper",
+		"item": "tf2:boxsmall",
 		"count": 1
 	}
 }

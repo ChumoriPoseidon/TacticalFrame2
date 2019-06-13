@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-        "item": "tf2:coke"
+      "item": "tf2:rigidoingot"
     }
   },
   "result": {
-    "item": "tf2:cokeblock"
+    "item": "tf2:rigidoblock"
   }
 }

@@ -2,7 +2,7 @@
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
 		{
-            "item": "tf:workkit",
+            "item": "tf2:workkit",
             "data": 32767
         },
 		{
@@ -16,7 +16,7 @@
         }
 	],
 	"result": {
-		"item": "tf:boxshot",
+		"item": "tf2:boxshot",
 		"count": 1
 	}
 }

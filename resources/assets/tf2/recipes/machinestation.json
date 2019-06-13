@@ -7,13 +7,13 @@
 	],
 	"key": {
 		"X": {
-			 "item": "minecraft:iron_ingot"
+			 "item": "tf2:guncraft"
 		},
 		"Y": {
-			"item": "minecraft:crafting_table"
+			"item": "minecraft:iron_ingot"
 		}
 	},
 	"result": {
-		"item": "tf2:guncraft"
+		"item": "tf2:machinestation"
 	}
 }

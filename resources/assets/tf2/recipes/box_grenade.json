@@ -8,15 +8,15 @@
             "item": "minecraft:iron_ingot"
         },
 		{
-			"item": "tf:explosive"
+			"item": "tf2:explosive"
 		},
 		{
-			"item": "tf:workkit",
+			"item": "tf2:workkit",
 			"data": 32767
 		}
 	],
 	"result": {
-		"item": "tf:boxgrenade",
+		"item": "tf2:boxgrenade",
 		"count": 1
 	}
 }
