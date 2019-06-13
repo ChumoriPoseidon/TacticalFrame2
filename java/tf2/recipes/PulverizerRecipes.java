@@ -91,15 +91,15 @@ public class PulverizerRecipes
 		        this.addSmeltingRecipe(new ItemStack(Items.GOLDEN_BOOTS, 1, 32767), new ItemStack(Items.GOLD_NUGGET, 28), 0.1F);
 		        this.addSmeltingRecipe(new ItemStack(Items.GOLDEN_HORSE_ARMOR, 1, 32767), new ItemStack(Items.GOLD_NUGGET, 36), 0.1F);
 
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_HELMET, 1, 32767), new ItemStack(TFItems.POWDER, 3, 6), 0.1F);
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_CHESTPLATE, 1, 32767), new ItemStack(TFItems.POWDER, 5, 6), 0.1F);
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_LEGGINGS, 1, 32767), new ItemStack(TFItems.POWDER, 4, 6), 0.1F);
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_BOOTS, 1, 32767), new ItemStack(TFItems.POWDER, 2, 6), 0.1F);
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_AXE, 1, 32767), new ItemStack(TFItems.POWDER, 1, 6), 0.1F);
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_PICKAXE, 1, 32767), new ItemStack(TFItems.POWDER, 1, 6), 0.1F);
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_HORSE_ARMOR, 1, 32767), new ItemStack(TFItems.POWDER, 3, 6), 0.1F);
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_SWORD, 1, 32767), new ItemStack(TFItems.POWDER, 1, 6), 0.1F);
-		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_HOE, 1, 32767), new ItemStack(TFItems.POWDER, 1, 6), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_HELMET, 1, 32767), new ItemStack(TFItems.POWDER, 3, 2), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_CHESTPLATE, 1, 32767), new ItemStack(TFItems.POWDER, 5, 2), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_LEGGINGS, 1, 32767), new ItemStack(TFItems.POWDER, 4, 2), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_BOOTS, 1, 32767), new ItemStack(TFItems.POWDER, 2, 2), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_AXE, 1, 32767), new ItemStack(TFItems.POWDER, 1, 2), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_PICKAXE, 1, 32767), new ItemStack(TFItems.POWDER, 1, 2), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_HORSE_ARMOR, 1, 32767), new ItemStack(TFItems.POWDER, 3, 2), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_SWORD, 1, 32767), new ItemStack(TFItems.POWDER, 1, 2), 0.1F);
+		        this.addSmeltingRecipe(new ItemStack(Items.DIAMOND_HOE, 1, 32767), new ItemStack(TFItems.POWDER, 1, 2), 0.1F);
 
 //		        this.addSmeltingRecipe(new ItemStack(TFItems.CLUMPS, 1, 0), new ItemStack(TFItems.POWDER_IRON, 1), 0.1F);
 //		        this.addSmeltingRecipe(new ItemStack(TFItems.CLUMPS, 1, 1), new ItemStack(TFItems.POWDER, 1, 1), 0.1F);

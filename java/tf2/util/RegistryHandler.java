@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import tf2.TF2Core;
 import tf2.TFBlocks;
 import tf2.TFItems;
+import tf2.entity.mob.enemy.EntityEnemyMTT4;
 import tf2.entity.mob.enemy.EntityTM02;
 import tf2.entity.mob.enemy.EntityTM03;
 import tf2.entity.mob.enemy.EntityTM04;
@@ -25,6 +26,7 @@ import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.frend.EntityCFR12;
+import tf2.entity.mob.frend.EntityEvent1;
 import tf2.entity.mob.frend.EntityMTT1;
 import tf2.entity.mob.frend.EntityMTT2;
 import tf2.entity.mob.frend.EntityMTT3;
@@ -169,10 +171,7 @@ public class RegistryHandler
 //		registerMob(EntityTF08C.class, "TF08C", "TF08C", 0x008000, 0x77CFFF);
 //
 //		registerMob(EntityTF44.class, "TF44", "TF44", 0x000000, 0xFF0000);
-//
-//		registerMob(EntityGiantSpider.class, "GiantSpider", "GiantSpider", 0x000000, 0xFF0000);
-//
-//		registerMob(EntityDefence.class, "Defence", "Defence", 0xEEEEEE, 0xCCCCCC);
+
 //		registerMob(EntityDefence2.class, "Defence2", "Defence2", 0xEEEEEE, 0xCCCCCC);
 //		registerMob(EntityDefence3.class, "Defence3", "Defence3", 0xEEEEEE, 0xCCCCCC);
 //		registerMob(EntitySoldier.class, "Soldier", "Soldier", 0x008000, 0x77CFFF);
@@ -182,7 +181,9 @@ public class RegistryHandler
 //		registerMob(EntityBike.class, "Bike", "Bike", 0x4060FF, 0xEEEEFF);
 //		registerMob(EntityTank.class, "Tank", "Tank", 0x006400, 0xEEEEFF);
 //		registerMob(EntityNDFTank.class, "NDFTank", "NDFTank", 0x006400, 0xEEEEFF);
-//
+		registerMob(EntityEnemyMTT4.class, "EnemyMTT4", "EnemyMTT4", 0x3CB371, 0xFFA500);
+		registerMob(EntityEvent1.class, "Event1", "Event1", 0x008000, 0xFFFFFF);
+
 		registerMob(EntityMTT1.class, "MTT1", "MTT1");
 		registerMob(EntityMTT2.class, "MTT2", "MTT2");
 		registerMob(EntityMTT3.class, "MTT3", "MTT3");

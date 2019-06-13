@@ -124,7 +124,7 @@ public class ItemBuffSkill extends ItemSkillBase
 			}
 			if (stack.getItem() == TFItems.SKILL_MEDICALKIT)
 			{
-				tooltip.add(TextFormatting.BLUE + I18n.translateToLocal("skill.areaheal"));
+				tooltip.add(TextFormatting.BLUE + I18n.translateToLocal("skill.medicalkit"));
 			}
 		}
 		else

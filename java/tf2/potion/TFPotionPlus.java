@@ -25,6 +25,7 @@ public class TFPotionPlus extends Potion
 	public static Potion HEAT;
 	public static Potion SHOOTING;
 	public static Potion RECOIL_SUPPRESS;
+	public static Potion DEBUFF_GUARD;
 
 	protected static final ResourceLocation potiontex = new ResourceLocation("tf2:textures/gui/potion.png");
 	private final int iconID;
@@ -46,8 +47,8 @@ public class TFPotionPlus extends Potion
 		ForgeRegistries.POTIONS.register(RESISTANCE_DOT.setRegistryName(Reference.MOD_ID, "resistance_dot"));
 		DISABLE_CHANCE = new TFPotionPlus(false, 0x0055DD, 6).setPotionName("disablechance").setBeneficial();
 		ForgeRegistries.POTIONS.register(DISABLE_CHANCE.setRegistryName(Reference.MOD_ID, "disablechance"));
-//		HOT_SPRING = new TFPotionPlus(false, 0xF0F0F0, 7).setPotionName("hot_spring").setBeneficial();
-//		ForgeRegistries.POTIONS.register(HOT_SPRING.setRegistryName(Reference.MOD_ID, "hot_spring"));
+		DEBUFF_GUARD = new TFPotionPlus(false, 0xFFECEF, 7).setPotionName("debuff_guard").setBeneficial();
+		ForgeRegistries.POTIONS.register(DEBUFF_GUARD.setRegistryName(Reference.MOD_ID, "debuff_guard"));
 		DAMAGE_CANCEL = new TFPotionPlus(false, 0xCCCCFF, 8).setPotionName("damagecancel").setBeneficial();
 		ForgeRegistries.POTIONS.register(DAMAGE_CANCEL.setRegistryName(Reference.MOD_ID, "damagecancel"));
 		VULNERABILITY = new TFPotionPlus(true, 0xEE6666, 9).setPotionName("vulnerability");

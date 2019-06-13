@@ -3,8 +3,6 @@ package tf2.entity.mob.frend;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackRanged;
-import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -15,6 +13,7 @@ import tf2.TFItems;
 import tf2.TFSoundEvents;
 import tf2.entity.mob.ai.EntityAIFollowFriendMecha;
 import tf2.entity.mob.ai.EntityAINearestAttackbleTargetFriend;
+import tf2.entity.mob.ai.EntityAITurretAttackRanged;
 import tf2.entity.projectile.player.EntityFriendBullet;
 
 public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
@@ -46,9 +45,9 @@ public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIFollowFriendMecha(this, 1.0D, 5.0F, 2.0F));
 		//this.tasks.addTask(2, new EntityAIWanderFriendMecha(this, 1.0D));
-		this.tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 1, 30.0F));
+		this.tasks.addTask(2, new EntityAITurretAttackRanged(this, 1.0D, 1, 30.0F));
 		this.tasks.addTask(3, new EntityFriendMecha.EntityAILookAtAccessPlayer(this));
-		this.tasks.addTask(4, new EntityAILookIdle(this));
+		//this.tasks.addTask(4, new EntityAILookIdle(this));
 		this.targetTasks.addTask(2, new EntityAINearestAttackbleTargetFriend(this, 10, true));
 	}
 

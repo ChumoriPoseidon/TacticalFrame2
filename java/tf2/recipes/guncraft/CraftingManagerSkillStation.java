@@ -78,11 +78,32 @@ public class CraftingManagerSkillStation {
 		register("2", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_ATTITUDECONTROL), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
 		register("3", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_AVOIDANCE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
 		register("4", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_GUARDPOINOT), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
-//		register("5", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_FULLFIRE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
-//		register("6", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_FULLFIRE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
-//		register("7", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_FULLFIRE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
-//		register("8", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_FULLFIRE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
-//
+		register("5", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_FRONTLINE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
+		register("6", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_TEAMWORK), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
+		register("7", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_MEDICALKIT), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
+		register("8", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_RECOVERPOINT), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_0)}));
+
+		register("21", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_OVERDRIVE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("22", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_ANTIDISTURB), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("23", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_ASSALTFORCE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("24", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_AREAHEAL), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("25", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_CORROSIONBULLET), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("26", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_MOBILEARMOR), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("27", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_PRECISONSNIPER), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("28", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_GHOSTDANCE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("29", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_FIREBARRAGE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("30", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_BERSERKGLUED), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+		register("31", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_SPREADHOWITZER), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
+
+		register("41", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_MORTARSUPPORT), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_2)}));
+		register("42", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_CANNONADE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_2)}));
+		register("43", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_DISTORTION), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_2)}));
+		register("44", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_SHIELDCIRCLE), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_2)}));
+		register("45", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_RESONANCESOUL), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_2)}));
+		register("46", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_SUPPRESSFORMATION), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_2)}));
+		register("47", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_CUREPOD), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_2)}));
+		register("48", new ShapelessOreRecipe(null, new ItemStack(TFItems.SKILL_RELIEFSQUAD), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_2)}));
+
 //		register("box_shot", new ShapelessOreRecipe(null, new ItemStack(TFItems.BOX_SHOT, 1), new Object[] {new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GUNPOWDER), new ItemStack(Items.PAPER)}));
 //		register("box_sniper", new ShapelessOreRecipe(null, new ItemStack(TFItems.BOX_SNIPER, 1), new Object[] {new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GUNPOWDER)}));
 //		register("box_grenade", new ShapelessOreRecipe(null, new ItemStack(TFItems.BOX_GRENADE, 1), new Object[] {new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT), new ItemStack(TFBlocks.EXPLOSIVE)}));

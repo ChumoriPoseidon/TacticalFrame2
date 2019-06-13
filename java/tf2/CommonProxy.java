@@ -19,6 +19,7 @@ import tf2.tile.container.ContainerMachineStation;
 import tf2.tile.container.ContainerMechaDock;
 import tf2.tile.container.ContainerPulverizer;
 import tf2.tile.container.ContainerSkillStation;
+import tf2.tile.container.ContainerStoneMaker;
 import tf2.tile.gui.GuiBioGenerator;
 import tf2.tile.gui.GuiCokeOven;
 import tf2.tile.gui.GuiCupola;
@@ -28,11 +29,13 @@ import tf2.tile.gui.GuiMachineStation;
 import tf2.tile.gui.GuiMechaDock;
 import tf2.tile.gui.GuiPulverizer;
 import tf2.tile.gui.GuiSkillStation;
+import tf2.tile.gui.GuiStoneMaker;
 import tf2.tile.tileentity.TileEntityBioGenerator;
 import tf2.tile.tileentity.TileEntityCokeOven;
 import tf2.tile.tileentity.TileEntityCupola;
 import tf2.tile.tileentity.TileEntityMechaDock;
 import tf2.tile.tileentity.TileEntityPulverizer;
+import tf2.tile.tileentity.TileEntityStoneMaker;
 
 public class CommonProxy implements IGuiHandler
 {
@@ -145,14 +148,10 @@ public class CommonProxy implements IGuiHandler
 		{
 			return new ContainerPulverizer(player, (TileEntityPulverizer) tile);
 		}
-//		if (tile instanceof TileEntityExtractor)
-//		{
-//			return new ContainerExtractor(player, (TileEntityExtractor) tile);
-//		}
-//		if (tile instanceof TileEntityStoneMaker)
-//		{
-//			return new ContainerStoneMaker(player, (TileEntityStoneMaker) tile);
-//		}
+		if (tile instanceof TileEntityStoneMaker)
+		{
+			return new ContainerStoneMaker(player, (TileEntityStoneMaker) tile);
+		}
 //		if (tile instanceof TileEntityContainerBox)
 //		{
 //			return new ContainerContainerBox(player, (TileEntityContainerBox) tile);
@@ -255,14 +254,10 @@ public class CommonProxy implements IGuiHandler
 		{
 			return new GuiPulverizer(player, (TileEntityPulverizer) tile);
 		}
-//		if (tile instanceof TileEntityExtractor)
-//		{
-//			return new GuiExtractor(player, (TileEntityExtractor) tile);
-//		}
-//		if (tile instanceof TileEntityStoneMaker)
-//		{
-//			return new GuiStoneMaker(player, (TileEntityStoneMaker) tile);
-//		}
+		if (tile instanceof TileEntityStoneMaker)
+		{
+			return new GuiStoneMaker(player, (TileEntityStoneMaker) tile);
+		}
 //		if (tile instanceof TileEntityContainerBox)
 //		{
 //			return new GuiContainerBox(player, (TileEntityContainerBox) tile);

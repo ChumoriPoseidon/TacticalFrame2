@@ -239,10 +239,10 @@ public abstract class EntityFriendMecha extends EntityGolem
 			}
 			return false;
 		}
-		//		if(entity instanceof EntityMobFriend)
-		//		{
-		//			return false;
-		//		}
+		if (entity instanceof EntityMobNPC)
+		{
+			return false;
+		}
 		if (entity instanceof EntityFriendMecha)
 		{
 			return false;
@@ -313,25 +313,24 @@ public abstract class EntityFriendMecha extends EntityGolem
 			return true;
 		}
 		else
-        {
-            if (!this.world.isRemote)
-            {
+		{
+			if (!this.world.isRemote)
+			{
 
-
-                if(this.canBeingRidden && player.isSneaking() && player.getCachedUniqueIdString().equals(this.getOwnerUUID().toString()))
-                {
-                    player.startRiding(this);
-                    return true;
-                }
-                else
-                {
-                    //if(!(itemstack.getItem() instanceof ItemTFGuns))
-                    this.setAccessPlayer(player);
-                    player.openGui(TF2Core.INSTANCE, TF2Core.guiTurret, this.getEntityWorld(), this.getEntityId(), 0, 0);
-                }
-            }
-            return true;
-        }
+				if (this.canBeingRidden && player.isSneaking() && player.getCachedUniqueIdString().equals(this.getOwnerUUID().toString()))
+				{
+					player.startRiding(this);
+					return true;
+				}
+				else
+				{
+					//if(!(itemstack.getItem() instanceof ItemTFGuns))
+					this.setAccessPlayer(player);
+					player.openGui(TF2Core.INSTANCE, TF2Core.guiTurret, this.getEntityWorld(), this.getEntityId(), 0, 0);
+				}
+			}
+			return true;
+		}
 	}
 
 	@Override

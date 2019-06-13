@@ -3,6 +3,7 @@ package tf2.client;
 import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +17,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.CommonProxy;
 import tf2.client.mobrender.RenderCFR12;
+import tf2.client.mobrender.RenderEnemyMTT4;
+import tf2.client.mobrender.RenderEvent1;
 import tf2.client.mobrender.RenderMTT1;
 import tf2.client.mobrender.RenderMTT2;
 import tf2.client.mobrender.RenderMTT3;
@@ -48,6 +51,7 @@ import tf2.client.render.RenderGrenadeHe;
 import tf2.client.render.RenderShell;
 import tf2.client.render.RenderShield;
 import tf2.client.render.RenderShieldRiot;
+import tf2.entity.mob.enemy.EntityEnemyMTT4;
 import tf2.entity.mob.enemy.EntityTM02;
 import tf2.entity.mob.enemy.EntityTM03;
 import tf2.entity.mob.enemy.EntityTM04;
@@ -61,6 +65,7 @@ import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.frend.EntityCFR12;
+import tf2.entity.mob.frend.EntityEvent1;
 import tf2.entity.mob.frend.EntityMTT1;
 import tf2.entity.mob.frend.EntityMTT2;
 import tf2.entity.mob.frend.EntityMTT3;
@@ -102,7 +107,6 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public void loadEntity()
 	{
-//		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityShieldFire.class, new RenderShieldFire());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityShield.class, new RenderShield());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityShield2.class, new RenderShieldRiot());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityShield3.class, new RenderShieldRiot2());
@@ -168,14 +172,14 @@ public class ClientProxy extends CommonProxy
 //
 //		RenderingRegistry.registerEntityRenderingHandler(EntityBike.class, RenderBike::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityTank.class, RenderTank::new);
-//		RenderingRegistry.registerEntityRenderingHandler(EntityDefence.class, m -> new RenderDefence<>(m, new ModelBiped(), 0.625F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityEvent1.class, m -> new RenderEvent1<>(m, new ModelBiped(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityDefence2.class, m -> new RenderDefence2<>(m, new ModelBiped(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityDefence3.class, m -> new RenderDefence3<>(m, new ModelBiped(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntitySoldier.class, m -> new RenderSoldier<>(m, new ModelSoldier(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityMercenary.class, m -> new RenderMercenary<>(m, new ModelSoldier(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityZunko.class, m -> new RenderZunko<>(m, new ModelSoldier(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityNDFTank.class, RenderNDFTank::new);
-//
+		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyMTT4.class, RenderEnemyMTT4::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMTT1.class, RenderMTT1::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMTT2.class, RenderMTT2::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMTT3.class, RenderMTT3::new);

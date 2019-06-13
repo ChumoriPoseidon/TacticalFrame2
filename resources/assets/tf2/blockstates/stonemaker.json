@@ -3,9 +3,9 @@
     "defaults": {
         "model": "orientable",
         "textures": {
-        "top": "tf:blocks/stonemaker",
-        "front": "tf:blocks/stonemaker_face",
-        "side": "tf:blocks/stonemaker"
+        "top": "tf2:blocks/stonemaker",
+        "front": "tf2:blocks/stonemaker_face",
+        "side": "tf2:blocks/stonemaker"
         },
         "uvlock": true
     },

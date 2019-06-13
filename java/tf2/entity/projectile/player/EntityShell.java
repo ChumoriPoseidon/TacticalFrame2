@@ -44,6 +44,12 @@ public class EntityShell extends EntityTFProjectile
 	}
 
 	@Override
+	protected int getTickAir()
+	{
+		return 200;
+	}
+
+	@Override
 	public void setEntityDead()
     {
         super.setDead();
