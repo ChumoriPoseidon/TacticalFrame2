@@ -63,6 +63,7 @@ import tf2.util.CreativeTabsTFMain;
 import tf2.util.CreativeTabsTFSkills;
 import tf2.util.Reference;
 import tf2.util.RegistryHandler;
+import tf2.util.WorldTierManager;
 
 @Mod(modid = Reference.MOD_ID, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, name = Reference.NAME, guiFactory = "tf.client.gui.TFGuiFactory")
 public class TF2Core {
@@ -177,7 +178,8 @@ public class TF2Core {
 
 	public static void loadConfig()
 	{
-		File configFile = new File(Loader.instance().getConfigDir(), "tf.cfg");
+		File configFile = new File(Loader.instance().getConfigDir(), "tacticalframe" +  File.separatorChar + "tf.cfg");
+
 		if (!configFile.exists())
 		{
 			try
@@ -203,6 +205,12 @@ public class TF2Core {
 	public void serverStarting(FMLServerStartingEvent event)
 	{
 		event.registerServerCommand(new TFCommand());
+	}
+
+	@EventHandler
+	public void serverReadTierConfig(FMLServerStartingEvent event)
+	{
+		WorldTierManager.createWorldTierFile(event.getServer().getEntityWorld());
 	}
 
 	@NetworkCheckHandler
