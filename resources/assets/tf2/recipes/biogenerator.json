@@ -7,14 +7,13 @@
 	],
 	"key": {
 		"#": {
-			"item": "tf:diesel"
+			"item": "tf2:waste_oil"
 		},
 		"X": {
-			 "type": "forge:ore_dict",
-             "ore": "ingotSteel"
+			"item": "minecraft:iron_ingot"
 		},
 		"Y": {
-			"item": "tf:workkit",
+			"item": "tf2:workkit",
             "data": 32767
 		},
 		"Z": {
@@ -23,6 +22,6 @@
         }
 	},
 	"result": {
-		"item": "tf:biogenerator"
+		"item": "tf2:biogenerator"
 	}
 }

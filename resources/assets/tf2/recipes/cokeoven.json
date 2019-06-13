@@ -2,7 +2,7 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"XXX",
-		"XYX",
+		"ZYZ",
 		"###"
 	],
 	"key": {
@@ -11,15 +11,18 @@
 			"ore": "bucketLava"
 		},
 		"X": {
-			 "type": "forge:ore_dict",
-             "ore": "ingotSteel"
+			"item": "minecraft:iron_ingot"
 		},
 		"Y": {
-			"item": "tf:workkit",
-            "data": 32767
+			"item": "tf2:workkit",
+			"data": 32767
+		},
+		"Z": {
+			"type": "forge:ore_dict",
+			"ore": "gearIron"
 		}
 	},
 	"result": {
-		"item": "tf:cokeoven"
+		"item": "tf2:cokeoven"
 	}
 }

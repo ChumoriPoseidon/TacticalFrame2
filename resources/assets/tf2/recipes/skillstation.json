@@ -1,19 +1,19 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		"YYY",
+		" Y ",
 		"YXY",
-		"YYY"
+		" Y "
 	],
 	"key": {
 		"X": {
-			 "item": "tf:guncraft"
+			 "item": "tf2:guncraft"
 		},
 		"Y": {
 			"item": "minecraft:crafting_table"
 		}
 	},
 	"result": {
-		"item": "tf:skillstation"
+		"item": "tf2:skillstation"
 	}
 }

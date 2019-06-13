@@ -2,17 +2,18 @@
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
 		{
-			"item": "tf:nitrocellulose"
+			"item": "tf2:phenol"
 		},
 		{
-			"item": "tf:nitroguanidine"
-		},
+            "item": "minecraft:gunpowder"
+        },
 		{
-            "item": "tf:nitroglycerine"
-        }
+			"type": "forge:ore_dict",
+            "ore": "dustNiter"
+		}
 	],
 	"result": {
-		"item": "tf:explosive",
+		"item": "tf2:explosive",
 		"count": 1
 	}
 }

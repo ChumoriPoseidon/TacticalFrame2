@@ -15,25 +15,20 @@ public class OreDictionaryRegister
 	static void loadOres()
 	{
 		OreDictionary.registerOre("fuelCoke", new ItemStack(TFItems.COKE));
-		OreDictionary.registerOre("itemSimpleMachineChassi", new ItemStack(TFBlocks.MACHINE_CHASSIS));
-		OreDictionary.registerOre("ingotSteel", new ItemStack(TFItems.REINFORCED_IRON_INGOT));
-		OreDictionary.registerOre("blockSteel", new ItemStack(TFBlocks.REINFORCED_IRON_BLOCK));
-//		OreDictionary.registerOre("dustIron", new ItemStack(TFItems.POWDER_IRON));
-//		OreDictionary.registerOre("dustGold", new ItemStack(TFItems.POWDER, 1, 1));
-//		OreDictionary.registerOre("dustCoal", new ItemStack(TFItems.POWDER, 1, 2));
-//		OreDictionary.registerOre("dustCoal", new ItemStack(TFItems.POWDER, 1, 3));
-//		OreDictionary.registerOre("dustSulfur", new ItemStack(TFItems.POWDER_SULFUR));
-//		OreDictionary.registerOre("dustNiter", new ItemStack(TFItems.POWDER_NITER));
-//		OreDictionary.registerOre("dustSaltpeter", new ItemStack(TFItems.POWDER_NITER));
-//		OreDictionary.registerOre("dustDiamond", new ItemStack(TFItems.POWDER, 1, 6));
-//		OreDictionary.registerOre("dustEmerald", new ItemStack(TFItems.POWDER, 1, 7));
+		OreDictionary.registerOre("dustIron", new ItemStack(TFItems.POWDER_IRON));
+		OreDictionary.registerOre("dustGold", new ItemStack(TFItems.POWDER, 1, 1));
+		OreDictionary.registerOre("dustCoal", new ItemStack(TFItems.POWDER, 1, 0));
+		OreDictionary.registerOre("dustSulfur", new ItemStack(TFItems.POWDER, 1, 7));
+		OreDictionary.registerOre("dustNiter", new ItemStack(TFItems.POWDER, 1, 6));
+		OreDictionary.registerOre("dustSaltpeter", new ItemStack(TFItems.POWDER, 1, 6));
+		OreDictionary.registerOre("dustDiamond", new ItemStack(TFItems.POWDER, 1, 2));
+		OreDictionary.registerOre("dustEmerald", new ItemStack(TFItems.POWDER, 1, 3));
 //		OreDictionary.registerOre("foodFlour", new ItemStack(TFItems.POWDER, 1, 0));
 //		OreDictionary.registerOre("dustFlour", new ItemStack(TFItems.POWDER, 1, 0));
 //		OreDictionary.registerOre("dustWheat", new ItemStack(TFItems.POWDER, 1, 0));
 //		OreDictionary.registerOre("foodSalt", new ItemStack(TFItems.POWDER, 1, 10));
 //		OreDictionary.registerOre("dustSalt", new ItemStack(TFItems.POWDER, 1, 10));
-//		OreDictionary.registerOre("dustQuartz", new ItemStack(TFItems.POWDER, 1, 4));
-//		OreDictionary.registerOre("dustQuartz", new ItemStack(TFItems.POWDER, 1, 13));
+		OreDictionary.registerOre("dustQuartz", new ItemStack(TFItems.POWDER, 1, 4));
 
 		OreDictionary.registerOre("oreIron", new ItemStack(TFBlocks.ORE_MAGNETITE));
 		OreDictionary.registerOre("oreNiter", new ItemStack(TFBlocks.ORE_NITER));
@@ -42,7 +37,7 @@ public class OreDictionaryRegister
 		OreDictionary.registerOre("oreMagnetite", new ItemStack(TFBlocks.ORE_MAGNETITE));
 		OreDictionary.registerOre("gemNiter", new ItemStack(TFItems.NITER));
 		OreDictionary.registerOre("gemSulfur", new ItemStack(TFItems.SULFUR));
-//		OreDictionary.registerOre("itemRubber", new ItemStack(TFItems.RUBBER));
+		OreDictionary.registerOre("itemRubber", new ItemStack(TFItems.RUBBER));
 		OreDictionary.registerOre("bucketMilk", new ItemStack(TFItems.CAN_MILK));
 		OreDictionary.registerOre("bucketMilk", new ItemStack(Items.MILK_BUCKET));
 		OreDictionary.registerOre("bucketLava", new ItemStack(TFItems.CAN_LAVA));
