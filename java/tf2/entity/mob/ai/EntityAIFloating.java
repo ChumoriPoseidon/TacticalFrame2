@@ -12,19 +12,21 @@ public class EntityAIFloating  extends EntityAIBase
 	private final EntityLiving parentEntity;
 	private final double height;
 	private final double speed;
+	private final double leaving;
 	private Boolean landing = false;
 
-	public EntityAIFloating(EntityLiving entity, double heightIn, double speedIn)
+	public EntityAIFloating(EntityLiving entity, double heightIn, double speedIn, double leavingIn)
 	{
 		this.parentEntity = entity;
 		this.height = heightIn;
 		this.speed = speedIn;
+		this.leaving = leavingIn;
 		this.setMutexBits(4);
 	}
 
-	public EntityAIFloating(EntityLiving entity, double heightIn, double speedIn, boolean landingIn)
+	public EntityAIFloating(EntityLiving entity, double heightIn, double speedIn, double leavingIn, boolean landingIn)
 	{
-		this(entity, heightIn, speedIn);
+		this(entity, heightIn, speedIn, leavingIn);
 		this.landing = landingIn;
 	}
 
@@ -103,6 +105,49 @@ public class EntityAIFloating  extends EntityAIBase
 		{
 			this.parentEntity.rotationYaw = -((float) MathHelper.atan2(this.parentEntity.motionX, this.parentEntity.motionZ)) * (180F / (float) Math.PI);
 			this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
+		}
+
+		/** ターゲットに対して一定距離取る処理*/
+		if (this.parentEntity.getAttackTarget() != null)
+		{
+			if (!this.parentEntity.canEntityBeSeen(this.parentEntity.getAttackTarget()))
+			{
+				this.parentEntity.setAttackTarget(null);
+			}
+		}
+		if (this.parentEntity.getAttackTarget() != null)
+		{
+			double d0 = this.parentEntity.getAttackTarget().posX - this.parentEntity.posX;
+			double d1 = this.parentEntity.getAttackTarget().posZ - this.parentEntity.posZ;
+			float f0 = MathHelper.sqrt(d0 * d0 + d1 * d1);
+
+			if (!this.parentEntity.onGround)
+			{
+				float f = this.parentEntity.getDistance(this.parentEntity.getAttackTarget()) / 0.9F;
+
+				float f2 = MathHelper.sqrt(d0 * d0 + d1 * d1);
+
+				if (f < this.leaving)
+				{
+					this.parentEntity.motionX = -(d0 / (double) f2 * 0.01D * (30.0D - f) + this.parentEntity.motionX * 0.3D);
+					this.parentEntity.motionZ = -(d1 / (double) f2 * 0.01D * (30.0D - f) + this.parentEntity.motionZ * 0.3D);
+				}
+				else if(f >= this.leaving && f <  this.leaving + 0.05D)
+				{
+					this.parentEntity.motionX *= 0.01D;
+					this.parentEntity.motionZ *= 0.01D;
+				}
+				else if(f >=  this.leaving + 0.05D)
+				{
+					this.parentEntity.motionX = d0 / (double) f0 * 0.25D * 0.5D + this.parentEntity.motionX * 0.1D;
+					this.parentEntity.motionZ = d1 / (double) f0 * 0.25D * 0.5D + this.parentEntity.motionZ * 0.1D;
+				}
+			}
+
+			this.parentEntity.rotationYaw = -((float) MathHelper.atan2(d0, d1)) * (180F / (float) Math.PI);
+			this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
+
+
 		}
     }
 }
