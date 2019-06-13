@@ -97,16 +97,16 @@ public class CraftingManagerGunCraft {
 		register("gunchip_lmg", new ShapelessOreRecipe(null, new ItemStack(TFItems.GUNCHIP_LMG, 1), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
 		register("gunchip_gl", new ShapelessOreRecipe(null, new ItemStack(TFItems.GUNCHIP_GL, 1), new Object[] {new ItemStack(TFItems.DEVELOP_CHIP_1)}));
 
-		register("m1911", new ShapedOreRecipe(null, new ItemStack(TFItems.M1911), new Object[]{" A ", "BCB", " A ", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_HG}));
-		register("deserteagle", new ShapedOreRecipe(null, new ItemStack(TFItems.DESERTEAGLE), new Object[]{" A ", "BCB", " A ", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_HG}));
+		register("m1911", new ShapedOreRecipe(null, new ItemStack(TFItems.M1911), new Object[]{" A ", "BCB", " A ", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_HG}));
+		register("deserteagle", new ShapedOreRecipe(null, new ItemStack(TFItems.DESERTEAGLE), new Object[]{" A ", "BCB", " A ", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_HG}));
 
-		register("uzi", new ShapedOreRecipe(null, new ItemStack(TFItems.UZI), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_SMG}));
-		register("evo3", new ShapedOreRecipe(null, new ItemStack(TFItems.EVO3), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_SMG}));
-		register("ppsh41", new ShapedOreRecipe(null, new ItemStack(TFItems.PPSH41), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_SMG}));
-		register("mp7", new ShapedOreRecipe(null, new ItemStack(TFItems.MP7), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_SMG}));
-		register("p90", new ShapedOreRecipe(null, new ItemStack(TFItems.P90), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_SMG}));
-		register("ump9", new ShapedOreRecipe(null, new ItemStack(TFItems.UMP9), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_SMG}));
-		register("pp19", new ShapedOreRecipe(null, new ItemStack(TFItems.PP19), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', TFItems.GUNCHIP_SMG}));
+		register("uzi", new ShapedOreRecipe(null, new ItemStack(TFItems.UZI), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_SMG}));
+		register("evo3", new ShapedOreRecipe(null, new ItemStack(TFItems.EVO3), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_SMG}));
+		register("ppsh41", new ShapedOreRecipe(null, new ItemStack(TFItems.PPSH41), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_SMG}));
+		register("mp7", new ShapedOreRecipe(null, new ItemStack(TFItems.MP7), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_SMG}));
+		register("p90", new ShapedOreRecipe(null, new ItemStack(TFItems.P90), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_SMG}));
+		register("ump9", new ShapedOreRecipe(null, new ItemStack(TFItems.UMP9), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_SMG}));
+		register("pp19", new ShapedOreRecipe(null, new ItemStack(TFItems.PP19), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.IRON_NUGGET, 'C', TFItems.GUNCHIP_SMG}));
 
 		register("ak47", new ShapedOreRecipe(null, new ItemStack(TFItems.AK47), new Object[]{"AAA", "BCB", "AAA", 'A',TFItems.REINFORCED_IRON_INGOT, 'B', TFItems.SCRAP, 'C', TFItems.GUNCHIP_AR}));
 		register("m16a1", new ShapedOreRecipe(null, new ItemStack(TFItems.M16A1), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.REINFORCED_IRON_INGOT, 'B', TFItems.SCRAP, 'C', TFItems.GUNCHIP_AR}));

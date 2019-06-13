@@ -90,7 +90,7 @@ public class EntityAreaHeal extends Entity implements IProjectile
 				var8.heal(3F);
 			}
 		}
-		for (int i = 0; i < 100; ++i)
+		for (int i = 0; i < 50; ++i)
 		{
 			double r = 0.2F + this.rand.nextDouble() * 0.5F;
 			double t = this.rand.nextDouble() * 2 * Math.PI;
@@ -217,11 +217,11 @@ public class EntityAreaHeal extends Entity implements IProjectile
 				this.inGround = true;
 			}
 		}
-		if (this.ticksInAir % 40 == 0)
+		if (this.ticksInAir % 60 == 0)
 		{
 			this.setHeal();
 		}
-		if (!this.inGround && this.ticksInAir <= 400)
+		if (!this.inGround && this.ticksInAir <= 600)
         {
 			++this.ticksInAir;
 			Vec3d vec3d1 = new Vec3d(this.posX, this.posY, this.posZ);

@@ -42,6 +42,7 @@ import tf2.items.skill.ItemBuffSkill;
 import tf2.items.skill.ItemCannonade;
 import tf2.items.skill.ItemCommandAssault;
 import tf2.items.skill.ItemCorrosionBullet;
+import tf2.items.skill.ItemCurePod;
 import tf2.items.skill.ItemDistortion;
 import tf2.items.skill.ItemFireBarrage;
 import tf2.items.skill.ItemFrontLine;
@@ -65,8 +66,8 @@ public class TFItems
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	public static final ToolMaterial steel = EnumHelper.addToolMaterial("steel", 2, 1000, 12.0F, 3.0F, 8);
 	public static final ToolMaterial rigido = EnumHelper.addToolMaterial("rigido", 3, 2000, 13.0F, 4.0F, 14);
-	public static final ArmorMaterial steelArmor = EnumHelper.addArmorMaterial("steelArmor", "tf:steelarmor", 40, new int[] { 3, 5, 7, 3 }, 8, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0);
-	public static final ArmorMaterial rigidoArmor = EnumHelper.addArmorMaterial("rigidoArmor", "tf:rigidoarmor", 120, new int[] { 3, 6, 8, 3 }, 14, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2);
+	public static final ArmorMaterial steelArmor = EnumHelper.addArmorMaterial("steelArmor", "tf2:reinforcediron_armor", 40, new int[] { 3, 5, 7, 3 }, 8, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0);
+	public static final ArmorMaterial rigidoArmor = EnumHelper.addArmorMaterial("rigidoArmor", "tf2:rigidoarmor", 120, new int[] { 3, 6, 8, 3 }, 14, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2);
 
 	public static final Item REINFORCED_IRON_INGOT = new ItemBase("reinforced_ironingot");
 	public static final Item RIGIDO_INGOT = new ItemBase("rigidoingot");
@@ -189,18 +190,20 @@ public class TFItems
 	public static final Item SKILL_GUARDPOINOT = new ItemBuffSkill("guardpoint", 1200);
 	public static final Item SKILL_ANTIDISTURB = new ItemBuffSkill("antidisturb", 1200);
 	public static final Item SKILL_DISTORTION = new ItemDistortion("distortion", 1200);
+	public static final Item SKILL_SHIELDCIRCLE = new ItemShieldCircle("shieldcircle", 600);
 
 	public static final Item SKILL_FRONTLINE = new ItemFrontLine("frontline", 400);
 	public static final Item SKILL_TEAMWORK = new ItemTeamWork("teamwork", 600);
 	public static final Item SKILL_ASSALTFORCE = new ItemAssaltForce("assaltforce", 1200);
 	public static final Item SKILL_RESONANCESOUL = new ItemResonanceSoul("resonancesoul", 4800);
 	public static final Item SKILL_SUPPRESSFORMATION = new ItemSuppressFormation("suppressformation", 1200);
-	public static final Item SKILL_SHIELDCIRCLE = new ItemShieldCircle("shieldcircle", 600);
 
 	public static final Item SKILL_MEDICALKIT = new ItemBuffSkill("medicalkit", 1200);
-	public static final Item SKILL_RECOVERPOINT = new ItemBuffSkill("recoverpoint", 1800);
+	public static final Item SKILL_RECOVERPOINT = new ItemBuffSkill("recoverpoint", 1200);
 	public static final Item SKILL_AREAHEAL = new ItemAreaHeal("areaheal", 400);
+	public static final Item SKILL_CUREPOD = new ItemCurePod("curepod", 1200);
 	public static final Item SKILL_RELIEFSQUAD = new ItemReliefSquad("reliefsquad", 1200);
+
 	public static final Item SKILL_REPAIRTOOL = new ItemRepairTool("repairtool", 2400);
 
 	public static final Item SKILL_CORROSIONBULLET = new ItemCorrosionBullet("corrosionbullet");

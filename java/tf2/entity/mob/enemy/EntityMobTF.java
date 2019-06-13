@@ -9,9 +9,7 @@ import net.minecraft.world.World;
 public class EntityMobTF extends EntityMob
 {
 	public int attackTime;
-
 	public int deathTicks;
-
 	public EntityMobTF(World par1World)
     {
         super(par1World);

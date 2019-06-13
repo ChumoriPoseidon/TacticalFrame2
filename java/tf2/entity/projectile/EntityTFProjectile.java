@@ -409,7 +409,7 @@ public class EntityTFProjectile extends Entity implements IProjectile
 	}
 
 	/**
-	 * 自然消滅までの時間 30tick + this.plusTickAir
+	 * 自然消滅までの時間
 	 */
 	protected int getTickAir()
 	{

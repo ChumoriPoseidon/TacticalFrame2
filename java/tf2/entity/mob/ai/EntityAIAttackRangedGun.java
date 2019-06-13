@@ -93,30 +93,22 @@ public class EntityAIAttackRangedGun extends EntityAIBase
 				--this.seeTime;
 			}
 
-			if (d0 <= (double) this.maxAttackDistance && this.seeTime >= 20)
-			{
-				this.entityHost.getNavigator().clearPath();
-				++this.strafingTime;
-			}
-			else
-			{
-				this.entityHost.getNavigator().tryMoveToEntityLiving(attackTarget, this.entityMoveSpeed);
-				this.strafingTime = -1;
-			}
 
-			//this.entityHost.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
 
 			if (d0 <= (double) this.maxAttackDistance && this.seeTime >= 20)
 			{
 				this.entityHost.getNavigator().clearPath();
 				++this.strafingTime;
+
+
 			}
 			else
 			{
 				this.entityHost.getNavigator().tryMoveToEntityLiving(attackTarget, this.entityMoveSpeed);
 				this.strafingTime = -1;
-			}
 
+
+			}
 			if (this.strafingTime >= 20)
 			{
 				if ((double) this.entityHost.getRNG().nextFloat() < 0.3D)

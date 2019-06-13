@@ -1,5 +1,7 @@
 package tf2.event;
 
+import java.util.Iterator;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityGolem;
@@ -30,6 +32,7 @@ public class TFLivingUpdateEvent
 		if (target != null && target instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) target;
+
 			ItemStack itemstack = ((EntityPlayer) (player)).getHeldItemMainhand();
 
 			if (itemstack != null && itemstack.getItem() instanceof ItemTFGuns)
@@ -46,7 +49,7 @@ public class TFLivingUpdateEvent
 					if (player.isHandActive() && !player.isSneaking())
 					{
 						if (itemstack.getItem() instanceof ItemTFGunsSMG ||
-								itemstack.getItem() instanceof ItemTFGunsHG )
+								itemstack.getItem() instanceof ItemTFGunsHG)
 						{
 							if (d0 <= 0.14F + (i * 0.01F))
 							{
@@ -76,6 +79,23 @@ public class TFLivingUpdateEvent
 				}
 			}
 		}
+
+		if (target != null && target.isPotionActive(TFPotionPlus.DEBUFF_GUARD))
+		{
+			//なぜ分けているのかがわからないため放置
+			//if (!target.world.isRemote) return;
+			Iterator<PotionEffect> iterator = target.getActivePotionMap().values().iterator();
+
+			while (iterator.hasNext())
+			{
+				PotionEffect effect = iterator.next();
+
+				if (effect.getPotion().isBadEffect())
+				{
+					iterator.remove();
+				}
+			}
+		}
 	}
 
 	@SubscribeEvent
@@ -84,12 +104,12 @@ public class TFLivingUpdateEvent
 		Entity projectile = event.getEntity();
 		Entity target = event.getRayTraceResult().entityHit;
 
-		if(target instanceof EntityMobTF && projectile instanceof IEnemyProjectile)
+		if (target instanceof EntityMobTF && projectile instanceof IEnemyProjectile)
 		{
 			event.setCanceled(true);
 		}
 
-		if((target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))) && projectile instanceof IFriendProjectile)
+		if ((target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))) && projectile instanceof IFriendProjectile)
 		{
 			event.setCanceled(true);
 		}

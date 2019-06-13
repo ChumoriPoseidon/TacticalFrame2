@@ -12,18 +12,9 @@ import net.minecraft.world.World;
 
 public class EntityMobNPC extends EntityGolem
 {
-	public int attackTime;
-
 	public int deathTicks;
-
-	public int animationTime1;
-	public int animationTime2;
-	public int animationTime3;
-	public int maxAnimationTime1;
-
 	protected int eventTime;
 	private static final DataParameter<Integer> EVENT_TIME = EntityDataManager.<Integer> createKey(EntityMobNPC.class, DataSerializers.VARINT);
-
 
 	public EntityMobNPC(World par1World)
 	{
@@ -42,9 +33,9 @@ public class EntityMobNPC extends EntityGolem
 		return false;
 	}
 
-//	@Override
-//	public void setInWeb()
-//	{}
+	@Override
+	public void setInWeb()
+	{}
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount)
@@ -56,6 +47,10 @@ public class EntityMobNPC extends EntityGolem
 			return !player.capabilities.isCreativeMode ? false : super.attackEntityFrom(source, amount);
 		}
 		if(entity instanceof EntityMobNPC)
+		{
+			return false;
+		}
+		if(entity instanceof EntityFriendMecha)
 		{
 			return false;
 		}
@@ -76,51 +71,13 @@ public class EntityMobNPC extends EntityGolem
 		{
 			this.eventTime = this.dataManager.get(EVENT_TIME).intValue();
 		}
-
 		++this.eventTime;
-
-
-		if (this.attackTime > 0)
-		{
-			--this.attackTime;
-		}
-		if (this.animationTime1 > 0)
-		{
-			--this.animationTime1;
-		}
-		if (this.animationTime2 > 0)
-		{
-			--this.animationTime2;
-		}
-		if (this.animationTime3 > 0)
-		{
-			--this.animationTime3;
-		}
-	}
-
-	public void setAnimetion1()
-	{
-		this.world.setEntityState(this, (byte) 42);
-	}
-
-	public void setAnimetion2()
-	{
-		this.world.setEntityState(this, (byte) 43);
-	}
-
-	public void setAnimetion3()
-	{
-		this.world.setEntityState(this, (byte) 44);
 	}
 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound)
 	{
 		super.writeEntityToNBT(compound);
-		compound.setShort("AnimationTime1", (short) this.animationTime1);
-		compound.setShort("AnimationTime2", (short) this.animationTime2);
-		compound.setShort("AnimationTime3", (short) this.animationTime3);
-
 		compound.setInteger("EventTime", this.eventTime);
 	}
 
@@ -128,10 +85,6 @@ public class EntityMobNPC extends EntityGolem
 	public void readEntityFromNBT(NBTTagCompound compound)
 	{
 		super.readEntityFromNBT(compound);
-		this.animationTime1 = compound.getShort("AnimationTime1");
-		this.animationTime2 = compound.getShort("AnimationTime2");
-		this.animationTime3 = compound.getShort("AnimationTime3");
-
 		this.eventTime = compound.getInteger("EventTime");
 	}
 

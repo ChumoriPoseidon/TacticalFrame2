@@ -1,6 +1,7 @@
 package tf2.items.guns;
 
 import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemStack;
 
 /**
  * エラー回避用のダミークラス。
@@ -13,8 +14,8 @@ public class ItemTFGunsDummy extends ItemBow
 		super();
 	}
 
-	public int getItemEnchantability()
-	{
-		return 0;
-	}
+	public boolean isEnchantable(ItemStack stack)
+    {
+        return false;
+    }
 }

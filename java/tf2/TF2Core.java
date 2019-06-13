@@ -8,7 +8,9 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
@@ -20,6 +22,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -57,6 +60,7 @@ import tf2.tile.tileentity.TileEntityCokeOven;
 import tf2.tile.tileentity.TileEntityCupola;
 import tf2.tile.tileentity.TileEntityMechaDock;
 import tf2.tile.tileentity.TileEntityPulverizer;
+import tf2.tile.tileentity.TileEntityStoneMaker;
 import tf2.util.CreativeTabsTFBlocks;
 import tf2.util.CreativeTabsTFGuns;
 import tf2.util.CreativeTabsTFMain;
@@ -223,7 +227,7 @@ public class TF2Core {
 //		GameRegistry.registerTileEntity(TileEntityRefiner.class, "tf:tile.refiner");
 		GameRegistry.registerTileEntity(TileEntityPulverizer.class, "tf:tile.pulverizer");
 //		GameRegistry.registerTileEntity(TileEntityExtractor.class, "tf:tile.extractor");
-//		GameRegistry.registerTileEntity(TileEntityStoneMaker.class, "tf:tile.stonemaker");
+		GameRegistry.registerTileEntity(TileEntityStoneMaker.class, "tf:tile.stonemaker");
 //		GameRegistry.registerTileEntity(TileEntityContainerBox.class, "tf:tile.containerbox");
 //		GameRegistry.registerTileEntity(TileEntityRigidoBox.class, "tf:tile.rigidobox");
 //		GameRegistry.registerTileEntity(TileEntityRigidoFurnace.class, "tf:tile.rigidofurnace");
@@ -231,7 +235,6 @@ public class TF2Core {
 //		GameRegistry.registerTileEntity(TileEntityAdvPulverizer.class, "tf:tile.advpulverizer");
 //		GameRegistry.registerTileEntity(TileEntityAdvExtractor.class, "tf:tile.advextractor");
 //		GameRegistry.registerTileEntity(TileEntityCokeChamber.class, "tf:tile.cokechamber");
-//		GameRegistry.registerTileEntity(TileEntitySkill.class, "tf:tile.skill");
 //		GameRegistry.registerTileEntity(TileEntityPromoter.class, "tf:tile.promoter");
 //		GameRegistry.registerTileEntity(TileEntityTFMobSpawner.class, "tf:tile.tfmobspawner");
 		GameRegistry.registerTileEntity(TileEntityMechaDock.class, "tf2:tile.mechadock");
@@ -304,6 +307,47 @@ public class TF2Core {
 	}
 	public void addRecipe()
 	{
+		GameRegistry.addSmelting(TFBlocks.ORE_MAGNETITE, new ItemStack(Items.IRON_INGOT), 0.2f);
+		GameRegistry.addSmelting(TFBlocks.ORE_NITER, new ItemStack(TFItems.NITER), 0.2f);
+		GameRegistry.addSmelting(TFBlocks.ORE_SULFUR, new ItemStack(TFItems.SULFUR), 0.2f);
+		GameRegistry.addSmelting(TFItems.SCRAP_RUBBER, new ItemStack(TFItems.RUBBER), 0.3f);
+
+		GameRegistry.addSmelting(new ItemStack(TFItems.POWDER_IRON), new ItemStack(Items.IRON_INGOT), 0.2f);
+		GameRegistry.addSmelting(new ItemStack(TFItems.POWDER, 1, 1), new ItemStack(Items.GOLD_INGOT), 0.2f);
+		GameRegistry.addSmelting(new ItemStack(TFItems.POWDER, 1, 2), new ItemStack(Items.DIAMOND), 0.4f);
+		GameRegistry.addSmelting(new ItemStack(TFItems.POWDER, 1, 3), new ItemStack(Items.EMERALD), 0.4f);
+		GameRegistry.addSmelting(new ItemStack(TFItems.POWDER, 1, 4), new ItemStack(Items.QUARTZ), 0.3f);
+		GameRegistry.addSmelting(new ItemStack(TFItems.POWDER, 1, 6), new ItemStack(TFItems.NITER), 0.2f);
+		GameRegistry.addSmelting(new ItemStack(TFItems.POWDER, 1, 7), new ItemStack(TFItems.SULFUR), 0.2f);
+
+		GameRegistry.registerFuelHandler(new IFuelHandler()
+		{
+			@Override
+			public int getBurnTime(ItemStack fuel)
+			{
+				if (fuel.getItem().equals(TFItems.COKE))
+				{
+					return 3200;
+				}
+				if (fuel.getItem().equals(TFItems.DIESEL_BOX))
+				{
+					return 4000;
+				}
+				if (fuel.getItem().equals(TFItems.WASTE_OIL))
+				{
+					return 1600;
+				}
+				if (fuel.getItem().equals(TFItems.CAN_LAVA))
+				{
+					return 20000;
+				}
+				if (fuel.getItem().equals(Item.getItemFromBlock(TFBlocks.COKE_BLOCK)))
+				{
+					return 28800;
+				}
+				return 0;
+			}
+		});
 	}
 
 	@SubscribeEvent
