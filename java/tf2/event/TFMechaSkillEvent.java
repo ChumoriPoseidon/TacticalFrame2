@@ -1,20 +1,49 @@
 package tf2.event;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import tf2.TFItems;
+import tf2.entity.EntityItemSpawnFriendMecha;
 import tf2.entity.mob.frend.EntityFriendMecha;
 import tf2.potion.TFPotionPlus;
 
 public class TFMechaSkillEvent
 {
+	@SubscribeEvent
+	public void onEntityJoin(EntityJoinWorldEvent event)
+	{
+		if(event.getWorld().isRemote || event.isCanceled() || event.getEntity().isDead)
+		{
+			return;
+		}
+
+		if(event.getEntity().getClass() == EntityItem.class)
+		{
+			EntityItem item = (EntityItem)event.getEntity();
+			if(!item.getItem().isEmpty() && item.getItem().getItem() == TFItems.SPAWNFM)
+			{
+				item.setDead();
+
+				EntityItemSpawnFriendMecha core = new EntityItemSpawnFriendMecha(item.world, item.posX, item.posY, item.posZ, item.getItem());
+				core.motionX = item.motionX;
+				core.motionY = item.motionY;
+				core.motionZ = item.motionZ;
+				core.setPickupDelay(30);
+				core.setNoDespawn();
+				item.world.spawnEntity(core);
+			}
+		}
+	}
+
 	@SubscribeEvent
 	public void mechaHurtEvent(LivingHurtEvent event)
 	{
