@@ -49,9 +49,9 @@ public class RenderTM06 extends Render
 			GlStateManager.color(0.5F, 0.3F, 0.3F, 1F);
 		}
 
-		//		float x = entity.ticksExisted;
-		//		float t = (float) Math.sin(x / ((float) Math.PI * 5F)) * 0.05F;
-		//		GlStateManager.translate(0F, t + 0.1F, 0F);
+//				float x = entity.ticksExisted;
+//				float t = (float) Math.sin(x / ((float) Math.PI * 5F)) * 0.05F;
+//				GlStateManager.translate(0F, t + 0.1F, 0F);
 
 		entity.rotationYaw = entity.rotationYawHead;
 
