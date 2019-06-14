@@ -18,8 +18,7 @@
 			"data": 32767
 		},
 		"Z": {
-			"type": "forge:ore_dict",
-			"ore": "gearIron"
+			"item": "tf2:machinechassis"
 		}
 	},
 	"result": {

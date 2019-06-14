@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf:ak74"
+			"item": "tf2:ak47"
 		},
 		"title": {
 			"translate": "advancement.craftGuns2"
@@ -10,14 +10,14 @@
 			"translate": "advancement.craftGuns2.desc"
 		}
 	},
-	"parent": "tf:gun1",
+	"parent": "tf2:gun1",
     "criteria": {
         "1": {
             "trigger": "minecraft:inventory_changed",
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:ak74"
+                        "item": "tf2:ak47"
                     }
                 ]
             }
@@ -27,7 +27,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:m4a1"
+                        "item": "tf2:m4a1"
                     }
                 ]
             }
@@ -37,7 +37,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:m1014"
+                        "item": "tf2:ak74"
                     }
                 ]
             }
@@ -47,7 +47,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:vepr12"
+                        "item": "tf2:ak12"
                     }
                 ]
             }
@@ -57,7 +57,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:m200"
+                        "item": "tf2:m16a1"
                     }
                 ]
             }
@@ -67,7 +67,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:wa2000"
+                        "item": "tf2:hk416"
                     }
                 ]
             }
@@ -77,7 +77,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:mosinnagant"
+                        "item": "tf2:sig550"
                     }
                 ]
             }
@@ -87,7 +87,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:m82a1"
+                        "item": "tf2:g36"
                     }
                 ]
             }
@@ -97,7 +97,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:p90"
+                        "item": "tf2:famas"
                     }
                 ]
             }
@@ -107,7 +107,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:mp7"
+                        "item": "tf2:ots14"
                     }
                 ]
             }
@@ -117,7 +117,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:mg42"
+                        "item": "tf2:m24"
                     }
                 ]
             }
@@ -127,7 +127,137 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:m20"
+                        "item": "tf2:m200"
+                    }
+                ]
+            }
+        },
+         "13": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:xm2010"
+                    }
+                ]
+            }
+        },
+         "14": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:svd"
+                    }
+                ]
+            }
+        },
+         "15": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:wa2000"
+                    }
+                ]
+            }
+        },
+         "16": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:psg1"
+                    }
+                ]
+            }
+        },
+         "17": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:mosinnagant"
+                    }
+                ]
+            }
+        },
+         "18": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:m82a1"
+                    }
+                ]
+            }
+        },
+         "19": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:pgm"
+                    }
+                ]
+            }
+        },
+         "20": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:spas12"
+                    }
+                ]
+            }
+        },
+         "21": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:m1014"
+                    }
+                ]
+            }
+        },
+         "22": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:m870"
+                    }
+                ]
+            }
+        },
+         "23": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:saiga12"
+                    }
+                ]
+            }
+        },
+         "24": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:vepr12"
+                    }
+                ]
+            }
+        },
+         "25": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:aa12"
                     }
                 ]
             }
@@ -146,7 +276,20 @@
             "9",
             "10",
             "11",
-            "12"
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25"
         ]
     ]
 }

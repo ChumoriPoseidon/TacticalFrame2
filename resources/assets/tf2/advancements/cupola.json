@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf:cupola"
+			"item": "tf2:cupola"
 		},
 		"title": {
 			"translate": "advancement.craftCupola"
@@ -10,21 +10,20 @@
 			"translate": "advancement.craftCupola.desc"
 		}
 	},
-	"parent": "tf:root2",
+	"parent": "tf2:root",
     "criteria": {
         "craft": {
             "trigger": "minecraft:inventory_changed",
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:cupola"
+                        "item": "tf2:cupola"
                     }
                 ]
             }
         }
     },
     "rewards": {
-        "recipes": ["tf:compressiron", "tf:ironframe_0", "tf:ironframe_1", "tf:ironframe_2", "tf:can", "tf:cokeoven", "tf:containerbox", "tf:shield_iron"
-        , "tf:basicgenerator"]
+        "recipes": ["tf2:compressiron", "tf2:ironframe_0", "tf2:ironframe_1", "tf2:ironframe_2", "tf2:can", "tf2:cokeoven", "tf2:shield_iron"]
     }
 }

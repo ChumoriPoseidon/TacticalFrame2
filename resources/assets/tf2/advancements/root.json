@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf:colorlight","data" : 1
+			"item": "tf2:workkit"
 		},
 		"title": {
 			"translate": "advancement.tacticalFrame"
@@ -9,7 +9,7 @@
 		"description": {
 			"translate": "advancement.tacticalFrame.desc"
 		},
-		"background": "tf:textures/blocks/aidstone_9.png",
+		"background": "tf2:textures/blocks/aidstone_9.png",
 		"show_toast": false,
         "announce_to_chat": false
 	},
@@ -26,7 +26,7 @@
 		}
 	},
 	"rewards": {
-        "recipes": ["tf:workkit", "tf:guncraft"]
+        "recipes": ["tf2:workkit", "tf2:guncraft","tf2:cupola","tf2:gunpowder3"]
     }
 
 }

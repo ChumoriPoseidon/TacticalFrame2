@@ -49,6 +49,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+import tf2.TFBlocks;
+import tf2.TFItems;
 import tf2.util.Reference;
 
 public class CraftingManagerMachineStation {
@@ -89,45 +91,18 @@ public class CraftingManagerMachineStation {
 //		register("gear_iron", new ShapedOreRecipe(null, new ItemStack(TFItems.GEAR_IRON), new Object[]{" A ", "A A", " A ", 'A', Items.IRON_INGOT}));
 //		register("gear_gold", new ShapedOreRecipe(null, new ItemStack(TFItems.GEAR_GOLD), new Object[]{" A ", "A A", " A ", 'A', Items.GOLD_INGOT}));
 //
-//		register("ak47", new ShapedOreRecipe(null, new ItemStack(TFItems.AK47), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("m16a1", new ShapedOreRecipe(null, new ItemStack(TFItems.M16A1), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("m24", new ShapedOreRecipe(null, new ItemStack(TFItems.M24), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("svd", new ShapedOreRecipe(null, new ItemStack(TFItems.SVD), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("spas12", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAS12), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("saiga12", new ShapedOreRecipe(null, new ItemStack(TFItems.SAIGA12), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("uzi", new ShapedOreRecipe(null, new ItemStack(TFItems.UZI), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("evo3", new ShapedOreRecipe(null, new ItemStack(TFItems.EVO3), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("ppsh41", new ShapedOreRecipe(null, new ItemStack(TFItems.PPSH41), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("m1911", new ShapedOreRecipe(null, new ItemStack(TFItems.M1911), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("deserteagle", new ShapedOreRecipe(null, new ItemStack(TFItems.DESERTEAGLE), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//		register("m1a1", new ShapedOreRecipe(null, new ItemStack(TFItems.M1A1), new Object[]{"AAA", "BCB", "AAA", 'A', Items.IRON_INGOT, 'B', Items.FLINT, 'C', Blocks.CRAFTING_TABLE}));
-//
-//		register("ak74", new ShapedOreRecipe(null, new ItemStack(TFItems.AK74), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.AK47}));
-//		register("famas", new ShapedOreRecipe(null, new ItemStack(TFItems.FAMAS), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.AK47}));
-//
-//		register("m4a1", new ShapedOreRecipe(null, new ItemStack(TFItems.M4A1), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.M16A1}));
-//		register("sig550", new ShapedOreRecipe(null, new ItemStack(TFItems.SIG550), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.M16A1}));
-//
-//		register("m200", new ShapedOreRecipe(null, new ItemStack(TFItems.M200), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.M24}));
-//		register("wa2000", new ShapedOreRecipe(null, new ItemStack(TFItems.WA2000), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.SVD}));
-//		register("mosinnagant", new ShapedOreRecipe(new ResourceLocation(Reference.MOD_ID, "mosinnagant"), new ItemStack(TFItems.MOSINNAGANT), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.M24}));
-//		register("mosinnagant_2", new ShapedOreRecipe(new ResourceLocation(Reference.MOD_ID, "mosinnagant"), new ItemStack(TFItems.MOSINNAGANT), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.SVD}));
-//		register("m82a1", new ShapedOreRecipe(null, new ItemStack(TFItems.M82A1), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.M24}));
-//		register("m82a1_2", new ShapedOreRecipe(null, new ItemStack(TFItems.M82A1), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.SVD}));
-//
-//		register("m1014", new ShapedOreRecipe(null, new ItemStack(TFItems.M1014), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.SPAS12}));
-//		register("vepr12", new ShapedOreRecipe(null, new ItemStack(TFItems.VEPR12), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.SAIGA12}));
-//
-//		register("p90", new ShapedOreRecipe(null, new ItemStack(TFItems.P90), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.UZI}));
-//		register("mp7", new ShapedOreRecipe(null, new ItemStack(TFItems.MP7), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.EVO3}));
-//		register("mg42", new ShapedOreRecipe(null, new ItemStack(TFItems.MG42), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.PPSH41}));
-//		register("m20", new ShapedOreRecipe(null, new ItemStack(TFItems.M20), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.STEEL_INGOT, 'B', TFItems.MECHA_PARTS, 'C', TFItems.M1A1}));
-//
-//		register("ak12", new ShapedOreRecipe(null, new ItemStack(TFItems.AK12), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.AK74}));
-//		register("hk416", new ShapedOreRecipe(null, new ItemStack(TFItems.HK416), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M4A1}));
-//		register("ots14", new ShapedOreRecipe(null, new ItemStack(TFItems.OTS14), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.FAMAS}));
-//		register("g36", new ShapedOreRecipe(null, new ItemStack(TFItems.G36), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.SIG550}));
-//
+		register("cfr12", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 0), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 0), 'A', new ItemStack(TFItems.PARTS, 1, 2), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_0}));
+
+		register("mtt1", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 1), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 2), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_0}));
+		register("mtt2", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 2), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 2), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_0}));
+		register("mtt3", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 3), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 2), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_0}));
+
+		register("mtt4", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 4), new Object[]{"BAB", 'A', new ItemStack(TFItems.PARTS, 1, 1), 'B', TFBlocks.MACHINE_CHASSIS}));
+
+		register("tf77b", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 5), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 4), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_1}));
+		register("tf78r", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 6), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 4), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_1}));
+		register("tf79p", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 7), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 4), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_1}));
+		register("tf80g", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 8), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 4), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_1}));
 //
 //		register("scar", new ShapedOreRecipe(null, new ItemStack(TFItems.SCAR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.AK74}));
 //		register("scar_2", new ShapedOreRecipe(null, new ItemStack(TFItems.SCAR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M4A1}));
@@ -189,73 +164,6 @@ public class CraftingManagerMachineStation {
 //		 *  ex2: ゾンビ肉[rotten_flesh]とニンジン(orジャガイモ)[carrot or potato] > ゾンビ肉[rotten_flesh] x2
 //		 *  register("dup_rotten_flesh", new ShapelessOreRecipe(null, new ItemStack(Items.ROTTEN_FLESH, 2), Items.ROTTEN_FLESH, Ingredient.fromItems(Items.CARROT, Items.POTATO)));
 //		 */
-//
-//		register("planks_0", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 0), new Object[] {new ItemStack(Blocks.LOG, 1, 32767)}));
-//		register("planks_1", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 1), new Object[] {new ItemStack(Blocks.LOG, 1, 32767)}));
-//		register("planks_2", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 2), new Object[] {new ItemStack(Blocks.LOG, 1, 32767)}));
-//		register("planks_3", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 3), new Object[] {new ItemStack(Blocks.LOG, 1, 32767)}));
-//		register("planks_4", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 4), new Object[] {new ItemStack(Blocks.LOG, 1, 32767)}));
-//		register("planks_5", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 5), new Object[] {new ItemStack(Blocks.LOG, 1, 32767)}));
-//		register("planks_6", new ShapelessOreRecipe(null, new ItemStack(Blocks.CRAFTING_TABLE, 1), new Object[] {new ItemStack(Blocks.LOG, 1, 32767)}));
-//
-//		register("2planks_0", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 0), new Object[] {new ItemStack(Blocks.LOG2, 1, 32767)}));
-//		register("2planks_1", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 1), new Object[] {new ItemStack(Blocks.LOG2, 1, 32767)}));
-//		register("2planks_2", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 2), new Object[] {new ItemStack(Blocks.LOG2, 1, 32767)}));
-//		register("2planks_3", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 3), new Object[] {new ItemStack(Blocks.LOG2, 1, 32767)}));
-//		register("2planks_4", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 4), new Object[] {new ItemStack(Blocks.LOG2, 1, 32767)}));
-//		register("2planks_5", new ShapelessOreRecipe(null, new ItemStack(Blocks.PLANKS, 4, 5), new Object[] {new ItemStack(Blocks.LOG2, 1, 32767)}));
-//		register("2planks_6", new ShapelessOreRecipe(null, new ItemStack(Blocks.CRAFTING_TABLE, 1), new Object[] {new ItemStack(Blocks.LOG2, 1, 32767)}));
-//
-//		register("gem_0_0", new ShapelessOreRecipe(null, new ItemStack(Items.IRON_INGOT, 10), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_1", new ShapelessOreRecipe(null, new ItemStack(Items.GOLD_INGOT, 3), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_2", new ShapelessOreRecipe(null, new ItemStack(Items.COAL, 20), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_3", new ShapelessOreRecipe(null, new ItemStack(Items.GUNPOWDER, 5), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_4", new ShapelessOreRecipe(null, new ItemStack(Items.QUARTZ, 3), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_5", new ShapelessOreRecipe(null, new ItemStack(Items.REDSTONE, 5), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_6", new ShapelessOreRecipe(null, new ItemStack(Items.GLOWSTONE_DUST, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_7", new ShapelessOreRecipe(null, new ItemStack(Items.BLAZE_POWDER, 2), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_8", new ShapelessOreRecipe(null, new ItemStack(TFItems.WILLOW_SEED, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_9", new ShapelessOreRecipe(null, new ItemStack(TFItems.COFFEE_BERRY, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_10", new ShapelessOreRecipe(null, new ItemStack(TFItems.COTTON_SEED, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//		register("gem_0_11", new ShapelessOreRecipe(null, new ItemStack(Blocks.RAIL, 34), new Object[] {new ItemStack(TFItems.GEM, 1, 0)}));
-//
-//		register("gem_1_0", new ShapelessOreRecipe(null, new ItemStack(Items.IRON_INGOT, 15), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_1", new ShapelessOreRecipe(null, new ItemStack(Items.GOLD_INGOT, 5), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_2", new ShapelessOreRecipe(null, new ItemStack(Items.DIAMOND, 1), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_3", new ShapelessOreRecipe(null, new ItemStack(Items.GUNPOWDER, 8), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_4", new ShapelessOreRecipe(null, new ItemStack(Items.QUARTZ, 5), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_5", new ShapelessOreRecipe(null, new ItemStack(Items.REDSTONE, 8), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_6", new ShapelessOreRecipe(null, new ItemStack(Items.GLOWSTONE_DUST, 7), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_7", new ShapelessOreRecipe(null, new ItemStack(Items.BLAZE_ROD, 2), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_8", new ShapelessOreRecipe(null, new ItemStack(Items.DYE, 4, 3), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_9", new ShapelessOreRecipe(null, new ItemStack(Items.DYE, 16, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_10", new ShapelessOreRecipe(null, new ItemStack(Items.EMERALD, 1), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//		register("gem_1_11", new ShapelessOreRecipe(null, new ItemStack(Blocks.CACTUS, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 1)}));
-//
-//		register("gem_2_0", new ShapelessOreRecipe(null, new ItemStack(Items.IRON_INGOT, 20), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_1", new ShapelessOreRecipe(null, new ItemStack(Items.GOLD_INGOT, 8), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_2", new ShapelessOreRecipe(null, new ItemStack(Items.DIAMOND, 2), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_3", new ShapelessOreRecipe(null, new ItemStack(Items.GUNPOWDER, 10), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_4", new ShapelessOreRecipe(null, new ItemStack(Items.QUARTZ, 10), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_5", new ShapelessOreRecipe(null, new ItemStack(Items.REDSTONE, 10), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_6", new ShapelessOreRecipe(null, new ItemStack(Items.GLOWSTONE_DUST, 10), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_7", new ShapelessOreRecipe(null, new ItemStack(Items.BLAZE_ROD, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_8", new ShapelessOreRecipe(null, new ItemStack(Blocks.NETHER_BRICK, 64), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_9", new ShapelessOreRecipe(null, new ItemStack(Items.DYE, 20, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		register("gem_2_10", new ShapelessOreRecipe(null, new ItemStack(Items.EMERALD, 2), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//		//register("gem_2_11", new ShapelessOreRecipe(null, new ItemStack(Blocks.CACTUS, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 2)}));
-//
-//		register("gem_3_0", new ShapelessOreRecipe(null, new ItemStack(Items.IRON_INGOT, 25), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_1", new ShapelessOreRecipe(null, new ItemStack(Items.GOLD_INGOT, 10), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_2", new ShapelessOreRecipe(null, new ItemStack(Items.DIAMOND, 3), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_3", new ShapelessOreRecipe(null, new ItemStack(Items.GUNPOWDER, 12), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_4", new ShapelessOreRecipe(null, new ItemStack(Items.QUARTZ, 15), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_5", new ShapelessOreRecipe(null, new ItemStack(Items.REDSTONE, 16), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_6", new ShapelessOreRecipe(null, new ItemStack(Items.GLOWSTONE_DUST, 16), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_7", new ShapelessOreRecipe(null, new ItemStack(TFItems.CERAMIC, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_8", new ShapelessOreRecipe(null, new ItemStack(TFItems.RIGIDO_PLATE, 6), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_9", new ShapelessOreRecipe(null, new ItemStack(Items.DYE, 24, 4), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
-//		register("gem_3_10", new ShapelessOreRecipe(null, new ItemStack(Items.EMERALD, 3), new Object[] {new ItemStack(TFItems.GEM, 1, 3)}));
 
 	}
 

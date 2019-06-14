@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import tf2.TFBlocks;
 import tf2.recipes.guncraft.CraftingManagerSkillStation;
 import tf2.recipes.guncraft.InventoryGunCraft;
-import tf2.recipes.guncraft.SlotGunCraft;
+import tf2.recipes.guncraft.SlotSkillStation;
 
 public class ContainerSkillStation extends Container
 {
@@ -39,7 +39,7 @@ public class ContainerSkillStation extends Container
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					 this.addSlotToContainer(new SlotGunCraft(this.player, craftMatrix, craftResult, j + i * 3, 97 + j * 21, 16 + i * 21));
+					 this.addSlotToContainer(new SlotSkillStation(this.player, craftMatrix, craftResult, j + i * 3, 97 + j * 21, 16 + i * 21));
 				}
 			}
 

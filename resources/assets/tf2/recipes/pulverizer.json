@@ -3,22 +3,24 @@
 	"pattern": [
 		"###",
 		"ZYZ",
-		"XXX"
+		"XAX"
 	],
 	"key": {
 		"#": {
 			"item": "minecraft:diamond"
 		},
 		"X": {
-			 "item": "minecraft:iron_ingot"
+			 "item": "tf2:reinforced_ironingot"
 		},
 		"Y": {
-			"item": "tf:workkit",
+			"item": "tf2:workkit",
             "data": 32767
 		},
 		"Z": {
-             "type": "forge:ore_dict",
-             "ore": "gearIron"
+             "item": "tf2:machinechassis"
+        },
+        "A": {
+             "item": "tf2:diesel_box"
         }
 	},
 	"result": {

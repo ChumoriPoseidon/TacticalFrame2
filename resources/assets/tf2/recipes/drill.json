@@ -2,19 +2,22 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" X ",
-		"XYX",
-		" X "
+		"X#X",
+		"XYX"
 	],
 	"key": {
+		"#": {
+			"item": "tf2:machinechassis"
+		},
 		"X": {
 			 "item": "minecraft:iron_ingot"
 		},
 		"Y": {
-			"item": "tf2:workkit",
-            "data": 32767
+			 "item": "tf2:parts",
+            "data": 0
 		}
 	},
 	"result": {
-		"item": "tf2:gear_iron"
+		"item": "tf2:drill"
 	}
 }

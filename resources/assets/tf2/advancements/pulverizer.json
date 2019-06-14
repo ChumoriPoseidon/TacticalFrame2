@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf:pulverizer"
+			"item": "tf2:pulverizer"
 		},
 		"title": {
 			"translate": "advancement.craftPulverizer"
@@ -10,22 +10,20 @@
 			"translate": "advancement.craftPulverizer.desc"
 		}
 	},
-	"parent": "tf:steel",
+	"parent": "tf2:biogenerator",
     "criteria": {
         "craft": {
             "trigger": "minecraft:inventory_changed",
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:pulverizer"
+                        "item": "tf2:pulverizer"
                     }
                 ]
             }
         }
     },
     "rewards": {
-        "recipes": ["tf:ceramic","tf:ceramic_tempered","tf:rigidoingot","tf:rigido_sword","tf:rigido_axe","tf:rigido_pickaxe","tf:rigido_shovel"
-        ,"tf:rigido_helmet","tf:rigido_body","tf:rigido_leg","tf:rigido_boot","tf:rigidobattery", "tf:rigidobox", "tf:shield_fireguard"
-        , "tf:gunpowder", "tf:hardtack", "tf:shortbread", "tf:shortbread_cocoa"]
+        "recipes": ["tf2:gunpowder","tf2:gunpowder2"]
     }
 }

@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf:biogenerator"
+			"item": "tf2:biogenerator"
 		},
 		"title": {
 			"translate": "advancement.craftGenerator"
@@ -10,22 +10,20 @@
 			"translate": "advancement.craftGenerator.desc"
 		}
 	},
-	"parent": "tf:cokeoven",
+	"parent": "tf2:cokeoven",
     "criteria": {
         "craft": {
             "trigger": "minecraft:inventory_changed",
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:biogenerator"
+                        "item": "tf2:biogenerator"
                     }
                 ]
             }
         }
     },
     "rewards": {
-        "recipes": ["tf:nitroreactor","tf:rubberseat","tf:tire","tf:aidstone_0","tf:aidstone_1","tf:aidstone_2","tf:aidstone_3","tf:aidstone_4","tf:aidstone_5"
-        ,"tf:aidstone_6","tf:aidstone_7","tf:aidstone_8","tf:aidstone_9","tf:aidstone_10","tf:aidstone_11","tf:aidstone_12"
-        ,"tf:aidstone_13","tf:aidstone_14","tf:aidstone_15","tf:aidstone_16"]
+        "recipes": ["tf2:pulverizer","tf2:explosive","tf2:drill","tf2:drill_diamond","tf2:drill2","tf2:drill_diamond2"]
     }
 }

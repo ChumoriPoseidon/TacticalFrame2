@@ -15,6 +15,8 @@ import tf2.items.ItemBase;
 import tf2.items.ItemCan;
 import tf2.items.ItemCanMilk;
 import tf2.items.ItemDrill;
+import tf2.items.ItemGunChip;
+import tf2.items.ItemParts;
 import tf2.items.ItemPowder;
 import tf2.items.ItemShieldIron;
 import tf2.items.ItemShieldRiot;
@@ -114,6 +116,12 @@ public class TFItems
 	public static final Item BOX_SNIPER = new ItemAmmo("boxsniper", 30);
 	public static final Item BOX_GRENADE = new ItemAmmo("boxgrenade", 10);
 
+	public static final Item ITEM_LOCK = new ItemBase("item_lock").setMaxStackSize(1);
+	public static final Item COORD_JUMP = new ItemCoordJump("coord_jump");
+	public static final Item GRENADE_HE = new ItemGrenadeHe("grenade_he");
+
+	public static final Item PARTS = new ItemParts("parts");
+
 	public static final Item UPGRADE_0 = new ItemBase("upgrade_0");
 	public static final Item UPGRADE_1 = new ItemBase("upgrade_1");
 	public static final Item UPGRADE_2 = new ItemBase("upgrade_2");
@@ -122,17 +130,7 @@ public class TFItems
 	public static final Item DEVELOP_CHIP_1 = new ItemBase("developchip_1");
 	public static final Item DEVELOP_CHIP_2 = new ItemBase("developchip_2");
 
-	public static final Item GUNCHIP_HG = new ItemBase("gunchip_hg");
-	public static final Item GUNCHIP_SMG = new ItemBase("gunchip_smg");
-	public static final Item GUNCHIP_AR = new ItemBase("gunchip_ar");
-	public static final Item GUNCHIP_SG = new ItemBase("gunchip_sg");
-	public static final Item GUNCHIP_SR = new ItemBase("gunchip_sr");
-	public static final Item GUNCHIP_LMG = new ItemBase("gunchip_lmg");
-	public static final Item GUNCHIP_GL = new ItemBase("gunchip_gl");
-
-	public static final Item ITEM_LOCK = new ItemBase("item_lock").setMaxStackSize(1);
-	public static final Item COORD_JUMP = new ItemCoordJump("coord_jump");
-	public static final Item GRENADE_HE = new ItemGrenadeHe("grenade_he");
+	public static final Item GUNCHIP = new ItemGunChip("gunchip");
 
 	public static final Item M1911 = new ItemTFGunsHG("m1911", 8, 6F, 2F, 1F, TFSoundEvents.M1911, 2F, 4F, 3, 18);
 	public static final Item DESERTEAGLE = new ItemTFGunsHG("deserteagle", 7, 15F, 2F, 1F, TFSoundEvents.DESERT, 10F, 10F, 15, 20);

@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf:sig550"
+			"item": "tf2:m60e1"
 		},
 		"title": {
 			"translate": "advancement.craftGuns3"
@@ -10,14 +10,14 @@
 			"translate": "advancement.craftGuns3.desc"
 		}
 	},
-	"parent": "tf:gun2",
+	"parent": "tf2:gun2",
     "criteria": {
         "1": {
             "trigger": "minecraft:inventory_changed",
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:ak12"
+                        "item": "tf2:mg42"
                     }
                 ]
             }
@@ -27,7 +27,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:hk416"
+                        "item": "tf2:m60e1"
                     }
                 ]
             }
@@ -37,7 +37,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:sig550"
+                        "item": "tf2:m1a1"
                     }
                 ]
             }
@@ -47,7 +47,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:scar"
+                        "item": "tf2:m20"
                     }
                 ]
             }
@@ -57,97 +57,7 @@
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:m14ebr"
-                    }
-                ]
-            }
-        },
-         "6": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:m870"
-                    }
-                ]
-            }
-        },
-         "7": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:aa12"
-                    }
-                ]
-            }
-        },
-         "8": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:xm2010"
-                    }
-                ]
-            }
-        },
-         "9": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:psg1"
-                    }
-                ]
-            }
-        },
-         "11": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:pgm"
-                    }
-                ]
-            }
-        },
-         "12": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:pp19"
-                    }
-                ]
-            }
-        },
-         "13": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:famas"
-                    }
-                ]
-            }
-        },
-         "14": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:m60e1"
-                    }
-                ]
-            }
-        },
-         "15": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [
-                    {
-                        "item": "tf:mgl140"
+                        "item": "tf2:mgl140"
                     }
                 ]
             }
@@ -159,17 +69,7 @@
             "2",
             "3",
             "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"
+            "5"
         ]
     ]
 }

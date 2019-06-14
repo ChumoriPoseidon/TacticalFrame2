@@ -10,7 +10,7 @@
 			"item": "minecraft:diamond_pickaxe"
 		},
 		"X": {
-			 "item": "minecraft:iron_ingot"
+			 "item": "tf2:reinforced_ironingot"
 		},
 		"Y": {
 			"item": "minecraft:piston"

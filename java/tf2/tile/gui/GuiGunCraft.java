@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -55,7 +56,7 @@ public class GuiGunCraft extends GuiContainer
 		super.updateScreen();
 		++this.updateCount;
 
-		this.nextRecipeButton.enabled = this.currentRecipeIndex < 8;
+		this.nextRecipeButton.enabled = this.currentRecipeIndex < 11;
 		this.previousRecipeButton.enabled = this.currentRecipeIndex > 0;
 	}
 
@@ -141,7 +142,7 @@ public class GuiGunCraft extends GuiContainer
 			item2 = new ItemStack(Items.IRON_INGOT);
 			item3 = itemnull;
 			item4 = new ItemStack(Items.IRON_NUGGET);
-			item5 = new ItemStack(TFItems.GUNCHIP_HG);
+			item5 = new ItemStack(TFItems.GUNCHIP, 1, 0);
 			item6 = new ItemStack(Items.IRON_NUGGET);
 			item7 = itemnull;
 			item8 = new ItemStack(Items.IRON_INGOT);
@@ -153,7 +154,7 @@ public class GuiGunCraft extends GuiContainer
 			item2 = new ItemStack(Items.IRON_INGOT);
 			item3 = new ItemStack(Items.IRON_INGOT);
 			item4 = new ItemStack(Items.IRON_NUGGET);
-			item5 = new ItemStack(TFItems.GUNCHIP_SMG);
+			item5 = new ItemStack(TFItems.GUNCHIP, 1, 1);
 			item6 = new ItemStack(Items.IRON_NUGGET);
 			item7 = new ItemStack(Items.IRON_INGOT);
 			item8 = new ItemStack(Items.IRON_INGOT);
@@ -165,7 +166,7 @@ public class GuiGunCraft extends GuiContainer
 			item2 = new ItemStack(TFItems.REINFORCED_IRON_INGOT);
 			item3 = new ItemStack(TFItems.REINFORCED_IRON_INGOT);
 			item4 = new ItemStack(TFItems.SCRAP);
-			item5 = new ItemStack(TFItems.GUNCHIP_AR);
+			item5 = new ItemStack(TFItems.GUNCHIP, 1, 2);
 			item6 = new ItemStack(TFItems.SCRAP);
 			item7 = new ItemStack(TFItems.REINFORCED_IRON_INGOT);
 			item8 = new ItemStack(TFItems.REINFORCED_IRON_INGOT);
@@ -177,7 +178,7 @@ public class GuiGunCraft extends GuiContainer
 			item2 = new ItemStack(TFItems.RIGIDO_INGOT);
 			item3 = new ItemStack(TFItems.RIGIDO_INGOT);
 			item4 = new ItemStack(TFItems.MECHA_PARTS);
-			item5 = new ItemStack(TFItems.GUNCHIP_LMG);
+			item5 = new ItemStack(TFItems.GUNCHIP, 1, 5);
 			item6 = new ItemStack(TFItems.MECHA_PARTS);
 			item7 = new ItemStack(TFItems.RIGIDO_INGOT);
 			item8 = new ItemStack(TFItems.RIGIDO_INGOT);
@@ -239,6 +240,42 @@ public class GuiGunCraft extends GuiContainer
 			item4 = new ItemStack(Items.IRON_INGOT);
 			item5 = new ItemStack(TFItems.EXPLOSIVE);
 			item6 = new ItemStack(Items.IRON_INGOT);
+			item7 = itemnull;
+			item8 = itemnull;
+			item9 = itemnull;
+			break;
+		case 9:
+			item0 = new ItemStack(TFItems.GUNCHIP, 1, 0);
+			item1 = itemnull;
+			item2 = itemnull;
+			item3 = itemnull;
+			item4 = new ItemStack(Blocks.CRAFTING_TABLE);
+			item5 = new ItemStack(Items.IRON_INGOT);
+			item6 = itemnull;
+			item7 = itemnull;
+			item8 = itemnull;
+			item9 = itemnull;
+			break;
+		case 10:
+			item0 = new ItemStack(TFItems.GUNCHIP, 1, 2);
+			item1 = itemnull;
+			item2 = itemnull;
+			item3 = itemnull;
+			item4 = itemnull;
+			item5 = new ItemStack(TFItems.DEVELOP_CHIP_0);
+			item6 = itemnull;
+			item7 = itemnull;
+			item8 = itemnull;
+			item9 = itemnull;
+			break;
+		case 11:
+			item0 = new ItemStack(TFItems.GUNCHIP, 1, 5);
+			item1 = itemnull;
+			item2 = itemnull;
+			item3 = itemnull;
+			item4 = itemnull;
+			item5 = new ItemStack(TFItems.DEVELOP_CHIP_1);
+			item6 = itemnull;
 			item7 = itemnull;
 			item8 = itemnull;
 			item9 = itemnull;

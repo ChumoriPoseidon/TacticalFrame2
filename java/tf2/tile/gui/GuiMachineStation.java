@@ -13,7 +13,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -21,9 +20,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tf2.TFBlocks;
 import tf2.TFItems;
 import tf2.tile.container.ContainerMachineStation;
-
 
 @SideOnly(Side.CLIENT)
 public class GuiMachineStation extends GuiContainer
@@ -56,7 +55,7 @@ public class GuiMachineStation extends GuiContainer
         super.updateScreen();
         ++this.updateCount;
 
-        this.nextRecipeButton.enabled = this.currentRecipeIndex < 8;
+        this.nextRecipeButton.enabled = this.currentRecipeIndex < 3;
         this.previousRecipeButton.enabled = this.currentRecipeIndex > 0;
     }
     @Override
@@ -137,51 +136,51 @@ public class GuiMachineStation extends GuiContainer
         switch (i)
         {
         case 0:
-        	item0 = itemnull;
-        	item1 = new ItemStack(Items.IRON_INGOT);
-			item2 = new ItemStack(Items.IRON_INGOT);
-			item3 = new ItemStack(Items.IRON_INGOT);
-			item4 = new ItemStack(Items.FLINT);
-			item5 = new ItemStack(Blocks.CRAFTING_TABLE);
-			item6 = new ItemStack(Items.FLINT);
-			item7 = new ItemStack(Items.IRON_INGOT);
-			item8 = new ItemStack(Items.IRON_INGOT);
-			item9 = new ItemStack(Items.IRON_INGOT);
-			break;
-        case 1:
-        	item0 = itemnull;
-        	item1 = new ItemStack(Items.IRON_INGOT);
-			item2 = new ItemStack(Items.IRON_INGOT);
-			item3 = new ItemStack(Items.IRON_INGOT);
-			item4 = new ItemStack(Items.IRON_INGOT);
-			item5 = itemnull;
-			item6 = new ItemStack(Items.IRON_INGOT);
-			item7 = new ItemStack(Items.IRON_INGOT);
-			item8 = new ItemStack(Items.IRON_INGOT);
-			item9 = new ItemStack(Items.IRON_INGOT);
-			break;
-        case 2:
-        	item0 = itemnull;
-        	item1 = new ItemStack(Items.IRON_INGOT);
-			item2 = new ItemStack(Items.IRON_INGOT);
-			item3 = new ItemStack(Items.IRON_INGOT);
-			item4 = new ItemStack(Items.IRON_INGOT);
-			item5 = itemnull;
-			item6 = new ItemStack(Items.IRON_INGOT);
-			item7 = new ItemStack(Items.IRON_INGOT);
-			item8 = new ItemStack(Items.IRON_INGOT);
-			item9 = new ItemStack(Items.IRON_INGOT);
-			break;
-        case 3:
-        	item0 = new ItemStack(TFItems.BOX_RIFLE);
+        	item0 = new ItemStack(TFItems.SPAWNFM, 1, 4);
         	item1 = itemnull;
-        	item2 = itemnull;
-        	item3 = itemnull;
-        	item4 = itemnull;
-        	item5 = new ItemStack(Items.GUNPOWDER);
-			item6 = new ItemStack(Items.IRON_INGOT);
+			item2 = itemnull;
+			item3 = itemnull;
+			item4 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
+			item5 = new ItemStack(TFItems.PARTS, 1, 1);
+			item6 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
 			item7 = itemnull;
 			item8 = itemnull;
+			item9 = itemnull;
+			break;
+        case 1:
+        	item0 = new ItemStack(TFItems.SPAWNFM, 1, 0);
+        	item1 = itemnull;
+			item2 = new ItemStack(TFItems.PARTS, 1, 2);
+			item3 = itemnull;
+			item4 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
+			item5 = new ItemStack(TFItems.DEVELOP_CHIP_0);
+			item6 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
+			item7 = itemnull;
+			item8 = new ItemStack(TFItems.PARTS, 1, 0);
+			item9 = itemnull;
+			break;
+        case 2:
+        	item0 = new ItemStack(TFItems.SPAWNFM, 1, 1);
+        	item1 = itemnull;
+			item2 = new ItemStack(TFItems.PARTS, 1, 2);
+			item3 = itemnull;
+			item4 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
+			item5 = new ItemStack(TFItems.DEVELOP_CHIP_0);
+			item6 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
+			item7 = itemnull;
+			item8 = new ItemStack(TFItems.PARTS, 1, 1);
+			item9 = itemnull;
+			break;
+        case 3:
+        	item0 = new ItemStack(TFItems.SPAWNFM, 1, 5);
+        	item1 = itemnull;
+			item2 = new ItemStack(TFItems.PARTS, 1, 4);
+			item3 = itemnull;
+			item4 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
+			item5 = new ItemStack(TFItems.DEVELOP_CHIP_1);
+			item6 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
+			item7 = itemnull;
+			item8 = new ItemStack(TFItems.PARTS, 1, 1);
 			item9 = itemnull;
 			break;
         case 4:

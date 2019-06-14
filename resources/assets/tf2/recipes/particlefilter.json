@@ -16,8 +16,7 @@
 			 "item": "minecraft:iron_ingot"
 		},
 		"Z": {
-             "type": "forge:ore_dict",
-             "ore": "gearIron"
+             "item": "tf2:scrap"
         }
 	},
 	"result": {
