@@ -12,7 +12,7 @@ import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import tf2.TFItems;
-import tf2.entity.EntityItemFriendMecha;
+import tf2.entity.EntityItemSpawnFriendMecha;
 import tf2.entity.mob.frend.EntityFriendMecha;
 import tf2.potion.TFPotionPlus;
 
@@ -33,7 +33,7 @@ public class TFMechaSkillEvent
 			{
 				item.setDead();
 
-				EntityItemFriendMecha core = new EntityItemFriendMecha(item.world, item.posX, item.posY, item.posZ, item.getItem());
+				EntityItemSpawnFriendMecha core = new EntityItemSpawnFriendMecha(item.world, item.posX, item.posY, item.posZ, item.getItem());
 				core.motionX = item.motionX;
 				core.motionY = item.motionY;
 				core.motionZ = item.motionZ;

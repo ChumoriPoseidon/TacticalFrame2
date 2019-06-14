@@ -6,19 +6,19 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import tf2.TFItems;
 
-public class EntityItemFriendMecha extends EntityItem
+public class EntityItemSpawnFriendMecha extends EntityItem
 {
-	public EntityItemFriendMecha(World worldIn)
+	public EntityItemSpawnFriendMecha(World worldIn)
 	{
 		super(worldIn);
 	}
 
-	public EntityItemFriendMecha(World worldIn, double x, double y, double z)
+	public EntityItemSpawnFriendMecha(World worldIn, double x, double y, double z)
 	{
 		super(worldIn, x, y, z);
 	}
 
-	public EntityItemFriendMecha(World worldIn, double x, double y, double z, ItemStack stack)
+	public EntityItemSpawnFriendMecha(World worldIn, double x, double y, double z, ItemStack stack)
 	{
 		super(worldIn, x, y, z, stack);
 	}
