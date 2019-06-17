@@ -13,6 +13,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.WorldInfo;
+import tf2.util.TFWorldConfigManager;
 
 public class TFCommand extends CommandBase
 {
@@ -49,7 +50,7 @@ public class TFCommand extends CommandBase
         {
         	String s = args.length > 0 ? args[0] : "";
         	String s1 = args.length > 1 ? args[1] : "";
-            World world = server.worlds[0];
+            World world = server.getEntityWorld();
             WorldInfo worldinfo = world.getWorldInfo();
 
             if ("destroy".equalsIgnoreCase(args[0]))
@@ -136,6 +137,7 @@ public class TFCommand extends CommandBase
 	            		TF2Core.config.getCategory("all").get("tf.config.tier1").set(args[1]);
 	            		TF2Core.syncConfig();
 	            		notifyCommandListener(sender, this, "tf.commands.success", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier1});
+	            		TFWorldConfigManager.saveWorldConfigFile(world);
 	            	}
 	            	else
 	            	{
@@ -161,6 +163,7 @@ public class TFCommand extends CommandBase
 	            		TF2Core.config.getCategory("all").get("tf.config.tier2").set(args[1]);
 	            		TF2Core.syncConfig();
 	            		notifyCommandListener(sender, this, "tf.commands.success", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier2});
+	            		TFWorldConfigManager.saveWorldConfigFile(world);
 	            	}
 	            	else
 	            	{
@@ -185,7 +188,12 @@ public class TFCommand extends CommandBase
 	            			{
 	            		TF2Core.config.getCategory("all").get("tf.config.tier3").set(args[1]);
 	            		TF2Core.syncConfig();
+<<<<<<< HEAD
 	            		notifyCommandListener(sender, this, "tf.commands.tier.success", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier3});
+=======
+	            		notifyCommandListener(sender, this, "tf.commands.success", new Object[] {s, TF2Core.CONFIG.spawnMobTFtier3});
+	            		TFWorldConfigManager.saveWorldConfigFile(world);
+>>>>>>> 3b9cab46dc0aa78bedea42855070cdc819b942f3
 	            	}
 	            	else
 	            	{

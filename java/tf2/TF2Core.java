@@ -21,6 +21,8 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.WorldEvent.CreateSpawnPosition;
+import net.minecraftforge.event.world.WorldEvent.Save;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.Loader;
@@ -68,9 +70,9 @@ import tf2.util.CreativeTabsTFMain;
 import tf2.util.CreativeTabsTFSkills;
 import tf2.util.Reference;
 import tf2.util.RegistryHandler;
-import tf2.util.WorldTierManager;
+import tf2.util.TFWorldConfigManager;
 
-@Mod(modid = Reference.MOD_ID, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, name = Reference.NAME, guiFactory = "tf.client.gui.TFGuiFactory")
+@Mod(modid = Reference.MOD_ID, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, name = Reference.NAME /*, guiFactory = "tf.client.gui.TFGuiFactory"*/)
 public class TF2Core {
 
 	@Mod.Instance(Reference.MOD_ID)
@@ -210,12 +212,22 @@ public class TF2Core {
 	public void serverStarting(FMLServerStartingEvent event)
 	{
 		event.registerServerCommand(new TFCommand());
+		TFWorldConfigManager.loadWorldConfigFile(event.getServer().getEntityWorld());
 	}
 
-	@EventHandler
-	public void serverReadTierConfig(FMLServerStartingEvent event)
+	@SubscribeEvent
+	public void serverCreateTierConfig(CreateSpawnPosition event)
 	{
-		WorldTierManager.createWorldTierFile(event.getServer().getEntityWorld());
+		if(event.getWorld().provider.getDimension() == 0)
+		{
+			TFWorldConfigManager.createWorldConfigFile(event.getWorld());
+		}
+	}
+
+	@SubscribeEvent
+	public void serverSaveTierConfig(Save event)
+	{
+		TFWorldConfigManager.saveWorldConfigFile(event.getWorld());
 	}
 
 	@NetworkCheckHandler
