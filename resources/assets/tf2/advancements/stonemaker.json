@@ -1,7 +1,7 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf:stonemaker"
+			"item": "tf2:stonemaker"
 		},
 		"title": {
 			"translate": "advancement.craftStonemaker"
@@ -10,21 +10,20 @@
 			"translate": "advancement.craftStonemaker.desc"
 		}
 	},
-	"parent": "tf:steel",
+	"parent": "tf2:reinforced_iron",
     "criteria": {
         "craft": {
             "trigger": "minecraft:inventory_changed",
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:stonemaker"
+                        "item": "tf2:stonemaker"
                     }
                 ]
             }
         }
     },
     "rewards": {
-        "recipes": ["tf:concrete_0","tf:concrete_1","tf:concrete_2","tf:concrete_3","tf:concrete_4","tf:concrete_5","tf:concrete_6"
-        ,"tf:concrete_7","tf:concrete_8","tf:concreteiron_0","tf:concreteiron_1","tf:concreteiron_2","tf:crushfilter","tf:particlefilter"]
+        "recipes": ["tf2:crushfilter","tf2:particlefilter"]
     }
 }

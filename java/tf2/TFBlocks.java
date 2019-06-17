@@ -23,6 +23,7 @@ import tf2.blocks.BlockMechaDock;
 import tf2.blocks.BlockPulverizer;
 import tf2.blocks.BlockSkillStation;
 import tf2.blocks.BlockStoneMaker;
+import tf2.blocks.BlockSynthesizer;
 import tf2.blocks.BlockTFOre;
 
 public class TFBlocks
@@ -36,6 +37,7 @@ public class TFBlocks
 	public static final Block CUPOLA = new BlockCupola("cupola").setHardness(3F).setResistance(20F);
 	public static final Block COKE_OVEN = new BlockCokeOven("cokeoven").setHardness(3F).setResistance(20F);
 	public static final Block BIO_GENERATOR = new BlockBioGenerator("biogenerator").setHardness(3F).setResistance(20F);
+	public static final Block SYNTHESIZER = new BlockSynthesizer("synthesizer").setHardness(3F).setResistance(20F);
 	public static final Block PULVERIZER = new BlockPulverizer("pulverizer").setHardness(3F).setResistance(20F);
 	public static final Block STONEMAKER = new BlockStoneMaker("stonemaker").setHardness(3F).setResistance(20F);
 

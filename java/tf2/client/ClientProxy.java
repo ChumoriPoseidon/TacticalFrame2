@@ -39,6 +39,7 @@ import tf2.client.mobrender.RenderTM26A;
 import tf2.client.mobrender.RenderTM26B;
 import tf2.client.mobrender.RenderTM26C;
 import tf2.client.mobrender.RenderTM26D;
+import tf2.client.mobrender.RenderTM41;
 import tf2.client.model.ModelGynoid;
 import tf2.client.render.RenderAreaHeal;
 import tf2.client.render.RenderBarrier;
@@ -64,6 +65,7 @@ import tf2.entity.mob.enemy.EntityTM26A;
 import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
+import tf2.entity.mob.enemy.EntityTM41;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityEvent1;
 import tf2.entity.mob.frend.EntityMTT1;
@@ -78,6 +80,7 @@ import tf2.entity.projectile.EntityBarrier;
 import tf2.entity.projectile.enemy.EntityEnemyBullet;
 import tf2.entity.projectile.enemy.EntityEnemyBulletHE;
 import tf2.entity.projectile.enemy.EntityEnemyGrenade;
+import tf2.entity.projectile.enemy.EntityEnemyHowitzer;
 import tf2.entity.projectile.enemy.EntityEnemyImpact;
 import tf2.entity.projectile.enemy.EntityEnemyMortar;
 import tf2.entity.projectile.player.EntityAreaHeal;
@@ -140,6 +143,7 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyImpact.class, RenderFlat::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityEnemySlashFragment.class, RenderSlashFragment::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityEnemySlashWide.class, RenderSlashWide::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyHowitzer.class, RenderBulletBig::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnemyMortar.class, RenderBulletBig::new);
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityTM02.class, RenderTM02::new);
@@ -161,6 +165,7 @@ public class ClientProxy extends CommonProxy
 //		RenderingRegistry.registerEntityRenderingHandler(EntityTM31.class, RenderTM31::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityTM33.class, RenderTM33::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityTM34.class, RenderTM34::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTM41.class, RenderTM41::new);
 //
 //		RenderingRegistry.registerEntityRenderingHandler(EntityTF08A.class, RenderTF08A::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityTF08B.class, RenderTF08B::new);

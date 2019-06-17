@@ -24,6 +24,6 @@
         }
     },
     "rewards": {
-        "recipes": ["tf2:pulverizer","tf2:explosive","tf2:drill","tf2:drill_diamond","tf2:drill2","tf2:drill_diamond2"]
+        "recipes": ["tf2:pulverizer","tf2:explosive","tf2:explosive2","tf2:drill","tf2:drill_diamond","tf2:drill2","tf2:drill_diamond2"]
     }
 }

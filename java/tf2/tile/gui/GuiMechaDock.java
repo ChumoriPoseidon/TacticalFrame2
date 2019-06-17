@@ -61,7 +61,7 @@ public class GuiMechaDock extends GuiContainer {
 				{
 					color = 0xff5555;
 				}
-				else if((nbt.getInteger("tf.mechaLevel") >= 59 && !TF2Core.CONFIG.spawnMobTFtier3))
+				else if((nbt.getInteger("tf.mechaLevel") >= 59 && !TF2Core.CONFIG.spawnMobTMtier3))
 				{
 					color = 0xff5555;
 				}

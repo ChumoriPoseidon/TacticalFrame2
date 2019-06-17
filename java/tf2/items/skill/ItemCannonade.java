@@ -61,7 +61,7 @@ public class ItemCannonade extends ItemSkillBase
 		{
 			if (!worldIn.isRemote)
 			{
-				for (int i = 0; i < 20; i++)
+				for (int i = 0; i < 15; i++)
                 {
 					EntityShell entity = new EntityShell(worldIn, playerIn);
 					entity.setDamage(entity.getDamage() + 20.0F);
@@ -77,7 +77,7 @@ public class ItemCannonade extends ItemSkillBase
 		{
 			if (!worldIn.isRemote)
 			{
-				for (int i = 0; i < 20; i++)
+				for (int i = 0; i < 15; i++)
                 {
 					EntityShell entity = new EntityShell(worldIn, playerIn);
 					entity.setDamage(entity.getDamage() + 20.0F);

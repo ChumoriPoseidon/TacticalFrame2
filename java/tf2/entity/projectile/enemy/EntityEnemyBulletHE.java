@@ -1,15 +1,12 @@
 package tf2.entity.projectile.enemy;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import tf2.TFDamageSource;
+import tf2.common.TFExplosion;
 import tf2.entity.projectile.EntityTFProjectile;
 import tf2.entity.projectile.IEnemyProjectile;
 import tf2.potion.TFPotionPlus;
@@ -65,35 +62,17 @@ public class EntityEnemyBulletHE extends EntityTFProjectile implements IEnemyPro
 	}
 
 	@Override
-	public DamageSource damageSource()
+	protected float directHitDamage()
 	{
-		if (this.thrower == null)
-		{
-			return TFDamageSource.causeGrenadeDamage(this);
-		}
-		else
-		{
-			return TFDamageSource.causeGrenadeDamage(this.thrower);
-		}
+		return 0F;
 	}
 
 	@Override
 	public void setEntityDead()
 	{
-		super.setDead();
-
+		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 3.0D, this.damage);
 		this.world.createExplosion((Entity) null, this.posX, this.posY, this.posZ, 0.0F, false);
-		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(3.0D));
-		int var3;
-		for (var3 = 0; var3 < var7.size(); ++var3)
-		{
-			EntityLivingBase var8 = (EntityLivingBase) var7.get(var3);
-
-			DamageSource var201 = this.damageSource();
-			var8.attackEntityFrom(var201, (float) this.damage * 0.5F);
-			var8.hurtResistantTime = 0;
-
-		}
+		super.setDead();
 	}
 
 	@Override

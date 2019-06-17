@@ -91,7 +91,7 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 		{
 
 			EntityEnemyMortar bullet = new EntityEnemyMortar(this.world, this);
-			bullet.setDamage(bullet.getDamage() + 4.0D);
+			bullet.setDamage(bullet.getDamage() + 14.0D);
 			bullet.setSpread(5D);
 			bullet.posY = this.posY + this.height * 2;
 			bullet.setRange(f2);
@@ -100,14 +100,6 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 			this.world.spawnEntity(bullet);
 
 			this.playSound(TFSoundEvents.BAZOOKA, 2.3F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-
-			//			EntityEnemyMortar var7 = new EntityEnemyMortar(this.world, this);
-			//			var7.setDamage(var7.getDamage() + 14.0D);
-			//			var7.posX = var1.posX;
-			//			var7.posZ = var1.posZ;
-			//			var7.posY = var1.posY + 0.5F;
-			//			var7.shoot(var3, -1F, var5, 0.05F, 1.0F);
-			//			this.world.spawnEntity(var7);
 		}
 	}
 

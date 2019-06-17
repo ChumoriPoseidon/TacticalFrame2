@@ -7,8 +7,6 @@ import tf2.entity.projectile.player.EntityImpact;
 
 public class EntityEnemyImpact extends EntityImpact implements IEnemyProjectile
 {
-	private int knockbackStrength;
-
 	public EntityEnemyImpact(World worldIn)
 	{
 		super(worldIn);

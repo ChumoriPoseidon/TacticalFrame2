@@ -9,11 +9,11 @@
         },
 		{
 			"type": "forge:ore_dict",
-            "ore": "dustNiter"
+            "ore": "gemNiter"
 		},
         {
             "type": "forge:ore_dict",
-            "ore": "dustSulfur"
+            "ore": "gemSulfur"
         }
 	],
 	"result": {

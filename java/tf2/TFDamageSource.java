@@ -18,12 +18,6 @@ public class TFDamageSource extends DamageSource
     {
         return (new EntityDamageSourceIndirect("bullet", par1, par2)).setProjectile();
     }
-
-	public static DamageSource causeBombDamage(Entity par1)
-    {
-        return new EntityDamageSource("bomb", par1).setExplosion();
-    }
-
 	public static DamageSource causeGrenadeDamage(Entity par1)
 	{
 		return new EntityDamageSource("grenade", par1).setExplosion();

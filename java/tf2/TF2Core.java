@@ -61,6 +61,7 @@ import tf2.tile.tileentity.TileEntityCupola;
 import tf2.tile.tileentity.TileEntityMechaDock;
 import tf2.tile.tileentity.TileEntityPulverizer;
 import tf2.tile.tileentity.TileEntityStoneMaker;
+import tf2.tile.tileentity.TileEntitySynthesizer;
 import tf2.util.CreativeTabsTFBlocks;
 import tf2.util.CreativeTabsTFGuns;
 import tf2.util.CreativeTabsTFMain;
@@ -94,7 +95,7 @@ public class TF2Core {
 	public static final int guiSkill = 8;
 	public static final int guiMachine = 9;
 	public static final int guiRigidofurnace = 10;
-	public static final int guiRefiner = 11;
+	public static final int guiSynthesizer = 11;
 	public static final int guiNitroreactor = 12;
 	public static final int guiAdvPulverizer = 13;
 	public static final int guiAdvExtractor = 14;
@@ -230,12 +231,11 @@ public class TF2Core {
 		//TFRecipes.initRecipes();
 
 		GameRegistry.registerTileEntity(TileEntityCupola.class, "tf2:tile.cupola");
-		GameRegistry.registerTileEntity(TileEntityCokeOven.class, "tf:tile.cokeoven");
-		GameRegistry.registerTileEntity(TileEntityBioGenerator.class, "tf:tile.biogenerator");
-//		GameRegistry.registerTileEntity(TileEntityRefiner.class, "tf:tile.refiner");
-		GameRegistry.registerTileEntity(TileEntityPulverizer.class, "tf:tile.pulverizer");
-//		GameRegistry.registerTileEntity(TileEntityExtractor.class, "tf:tile.extractor");
-		GameRegistry.registerTileEntity(TileEntityStoneMaker.class, "tf:tile.stonemaker");
+		GameRegistry.registerTileEntity(TileEntityCokeOven.class, "tf2:tile.cokeoven");
+		GameRegistry.registerTileEntity(TileEntityBioGenerator.class, "tf2:tile.biogenerator");
+		GameRegistry.registerTileEntity(TileEntitySynthesizer.class, "tf2:tile.synthesizer");
+		GameRegistry.registerTileEntity(TileEntityPulverizer.class, "tf2:tile.pulverizer");
+		GameRegistry.registerTileEntity(TileEntityStoneMaker.class, "tf2:tile.stonemaker");
 //		GameRegistry.registerTileEntity(TileEntityContainerBox.class, "tf:tile.containerbox");
 //		GameRegistry.registerTileEntity(TileEntityRigidoBox.class, "tf:tile.rigidobox");
 //		GameRegistry.registerTileEntity(TileEntityRigidoFurnace.class, "tf:tile.rigidofurnace");

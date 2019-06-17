@@ -92,7 +92,7 @@ public class TileEntityPulverizer extends TileEntity implements ITickable, ISide
 		@SideOnly(Side.CLIENT)
 		public int getCookProgressScaled(int par1)
 		{
-			return this.cookTime * par1 / 400;
+			return this.cookTime * par1 / 600;
 		}
 		//燃焼の描画
 		@SideOnly(Side.CLIENT)
@@ -100,7 +100,7 @@ public class TileEntityPulverizer extends TileEntity implements ITickable, ISide
 		{
 			if (this.currentItemBurnTime == 0)
 			{
-				this.currentItemBurnTime = 400;
+				this.currentItemBurnTime = 600;
 			}
 			return this.burnTime * par1 / this.currentItemBurnTime;
 		}
@@ -149,7 +149,7 @@ public class TileEntityPulverizer extends TileEntity implements ITickable, ISide
                 {
                 	++this.cookTime;
 
-                    if (this.cookTime >= 400)
+                    if (this.cookTime >= 600)
                     {
                         this.cookTime = 0;
                         this.smeltItem();
@@ -163,7 +163,7 @@ public class TileEntityPulverizer extends TileEntity implements ITickable, ISide
             }
             else if (!this.isBurning() && this.cookTime > 0)
 			{
-				this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, 400);
+				this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, 600);
 			}
             if (flag != this.isBurning())
             {

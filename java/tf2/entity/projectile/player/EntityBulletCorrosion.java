@@ -27,6 +27,7 @@ public class EntityBulletCorrosion extends EntityTFProjectile
 	@Override
 	public void bulletHit(EntityLivingBase living)
 	{
+		super.bulletHit(living);
 		if (!this.world.isRemote)
 		{
 			living.addPotionEffect(new PotionEffect(TFPotionPlus.VULNERABILITY, 100, 1));

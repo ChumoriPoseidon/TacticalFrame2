@@ -23,24 +23,28 @@ import tf2.plugin.jei.category.RecipeCategoryGunCraft;
 import tf2.plugin.jei.category.RecipeCategoryMachineStation;
 import tf2.plugin.jei.category.RecipeCategoryPulverizer;
 import tf2.plugin.jei.category.RecipeCategorySkillStation;
+import tf2.plugin.jei.category.RecipeCategorySynthesizer;
 import tf2.plugin.jei.maker.RecipeMakerBioGenerator;
 import tf2.plugin.jei.maker.RecipeMakerCokeOven;
 import tf2.plugin.jei.maker.RecipeMakerGunCraft;
 import tf2.plugin.jei.maker.RecipeMakerMachineStation;
 import tf2.plugin.jei.maker.RecipeMakerPulverizer;
 import tf2.plugin.jei.maker.RecipeMakerSkillStation;
+import tf2.plugin.jei.maker.RecipeMakerSynthesizer;
 import tf2.tile.container.ContainerBioGenerator;
 import tf2.tile.container.ContainerCokeOven;
 import tf2.tile.container.ContainerGunCraft;
 import tf2.tile.container.ContainerMachineStation;
 import tf2.tile.container.ContainerPulverizer;
 import tf2.tile.container.ContainerSkillStation;
+import tf2.tile.container.ContainerSynthesizer;
 import tf2.tile.gui.GuiBioGenerator;
 import tf2.tile.gui.GuiCokeOven;
 import tf2.tile.gui.GuiGunCraft;
 import tf2.tile.gui.GuiMachineStation;
 import tf2.tile.gui.GuiPulverizer;
 import tf2.tile.gui.GuiSkillStation;
+import tf2.tile.gui.GuiSynthesizer;
 
 @JEIPlugin
 public class PluginJEI implements IModPlugin {
@@ -52,6 +56,7 @@ public class PluginJEI implements IModPlugin {
 	public static String UID_CokeOven = "tfmod.cokeoven";
 	public static String UID_SKillStation = "tfmod.skillstation";
 	public static String UID_MachineStation = "tfmod.machinestation";
+	public static String UID_Synthesizer = "tfmod.synthesizer";
 
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registry) {
@@ -66,7 +71,7 @@ public class PluginJEI implements IModPlugin {
 		registry.addRecipeCategories(new RecipeCategoryBioGenerator(guiHelper));
 
 		registry.addRecipeCategories(new RecipeCategoryCokeOven(guiHelper));
-
+		registry.addRecipeCategories(new RecipeCategorySynthesizer(guiHelper));
 		registry.addRecipeCategories(new RecipeCategoryPulverizer(guiHelper));
 
 	}
@@ -99,6 +104,7 @@ public class PluginJEI implements IModPlugin {
 		registry.addRecipes(RecipeMakerBioGenerator.getRecipes(jeiHelpers), UID_BioGenerator);
 		registry.addRecipes(RecipeMakerCokeOven.getRecipes(jeiHelpers), UID_CokeOven);
 		registry.addRecipes(RecipeMakerPulverizer.getRecipes(jeiHelpers), UID_Pulverizer);
+		registry.addRecipes(RecipeMakerSynthesizer.getRecipes(jeiHelpers), UID_Synthesizer);
 
 		registry.addRecipeClickArea(GuiGunCraft.class, 201, 36, 18, 18, UID_GunCraft);
 		registry.addRecipeClickArea(GuiSkillStation.class, 74, 58, 17, 14, UID_SKillStation);
@@ -106,6 +112,7 @@ public class PluginJEI implements IModPlugin {
 		registry.addRecipeClickArea(GuiBioGenerator.class, 25, 14, 54, 36, UID_BioGenerator);
 		registry.addRecipeClickArea(GuiCokeOven.class, 91, 32, 28, 20, UID_CokeOven);
 		registry.addRecipeClickArea(GuiPulverizer.class, 75, 34, 27, 19, UID_Pulverizer);
+		registry.addRecipeClickArea(GuiSynthesizer.class, 90, 34, 24, 18, UID_Synthesizer);
 
 
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerGunCraft.class, UID_GunCraft, 12, 9, 21, 36);
@@ -114,6 +121,7 @@ public class PluginJEI implements IModPlugin {
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerBioGenerator.class, UID_BioGenerator, 0, 1, 5, 36);
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerCokeOven.class, UID_CokeOven, 0, 8, 18, 36);
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerPulverizer.class, UID_Pulverizer, 0, 1, 3, 36);
+		recipeTransferRegistry.addRecipeTransferHandler(ContainerSynthesizer.class, UID_Synthesizer, 1, 1, 4, 36);
 
 
 		registry.addRecipeCatalyst(new ItemStack(TFBlocks.GUNCRAFT), UID_GunCraft);
@@ -122,6 +130,6 @@ public class PluginJEI implements IModPlugin {
 		registry.addRecipeCatalyst(new ItemStack(TFBlocks.BIO_GENERATOR), UID_BioGenerator);
 		registry.addRecipeCatalyst(new ItemStack(TFBlocks.COKE_OVEN), UID_CokeOven);
 		registry.addRecipeCatalyst(new ItemStack(TFBlocks.PULVERIZER), UID_Pulverizer);
-
+		registry.addRecipeCatalyst(new ItemStack(TFBlocks.SYNTHESIZER), UID_Synthesizer);
 	}
 }

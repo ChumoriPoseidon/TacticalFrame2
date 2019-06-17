@@ -1,21 +1,12 @@
 package tf2.entity.projectile.player;
 
-import java.util.List;
-
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.play.server.SPacketChangeGameState;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tf2.TFDamageSource;
+import tf2.common.TFExplosion;
 import tf2.entity.projectile.EntityTFProjectile;
 
 public class EntityShell extends EntityTFProjectile
@@ -35,6 +26,7 @@ public class EntityShell extends EntityTFProjectile
 	public EntityShell(World worldIn, EntityLivingBase throwerIn)
 	{
 		super(worldIn, throwerIn);
+		this.setTickAir(200);
 	}
 
 	@Override
@@ -44,28 +36,11 @@ public class EntityShell extends EntityTFProjectile
 	}
 
 	@Override
-	protected int getTickAir()
-	{
-		return 200;
-	}
-
-	@Override
 	public void setEntityDead()
     {
-        super.setDead();
-
-    	this.world.createExplosion((Entity) null, this.posX, this.posY,this.posZ, 0.0F, false);
- 		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(10.0D));
- 		int var3;
- 		for (var3 = 0; var3 < var7.size(); ++var3)
- 		{
- 			EntityLivingBase var8 = (EntityLivingBase)var7.get(var3);
- 			if(var8 != this.thrower)
- 			{
- 	 			var8.attackEntityFrom(this.damageSource(), (float)this.damage);
- 	 			var8.hurtResistantTime = 0;
- 			}
- 		}
+ 		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 10D, this.damage);
+		this.world.createExplosion((Entity) null, this.posX, this.posY, this.posZ, 0.0F, false);
+		super.setDead();
     }
 	@Override
     public void setDead()
@@ -108,28 +83,6 @@ public class EntityShell extends EntityTFProjectile
 		}
 	}
 
-    @Override
-    public DamageSource damageSource()
-	{
-    	 if (this.thrower == null)
-         {
-             return TFDamageSource.causeBombDamage(this);
-         }
-         else
-         {
-             return TFDamageSource.causeBombDamage(this.thrower);
-         }
-	}
-
-    @Override
-	public void bulletHit(EntityLivingBase living)
-	{
-		if(living instanceof EntityEnderman)
-		{
-			this.setEntityDead();
-		}
-	}
-
     @SideOnly(Side.CLIENT)
     public void generateRandomParticles()
     {
@@ -150,51 +103,8 @@ public class EntityShell extends EntityTFProjectile
     }
 
     @Override
-    public void onHit(RayTraceResult raytraceResultIn)
-    {
-        Entity entity = raytraceResultIn.entityHit;
-
-        if (entity != null)
-        {
-            if (this.isBurning())
-            {
-                entity.setFire(5);
-            }
-
-            if (entity.attackEntityFrom(this.damageSource(), (float)this.damage * 0.25F))
-            {
-                if (entity instanceof EntityLivingBase)
-                {
-                    EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
-
-                    if (this.thrower instanceof EntityLivingBase)
-                    {
-                        EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.thrower);
-                        EnchantmentHelper.applyArthropodEnchantments((EntityLivingBase)this.thrower, entitylivingbase);
-                    }
-
-                    this.bulletHit(entitylivingbase);
-                    entitylivingbase.hurtResistantTime = 0;
-
-                    if (this.thrower != null && entitylivingbase != this.thrower && entitylivingbase instanceof EntityPlayer && this.thrower instanceof EntityPlayerMP)
-                    {
-                        ((EntityPlayerMP)this.thrower).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
-                    }
-                }
-
-                if (!(entity instanceof EntityEnderman))
-                {
-                	 this.setEntityDead();
-                }
-            }
-            else
-            {
-            	this.setEntityDead();
-            }
-        }
-        else
-        {
-        	super.onHitBlock(raytraceResultIn);
-        }
-    }
+	protected float directHitDamage()
+	{
+		return 0F;
+	}
 }

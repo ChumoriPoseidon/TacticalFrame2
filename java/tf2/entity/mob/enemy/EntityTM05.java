@@ -106,10 +106,12 @@ public class EntityTM05 extends EntityMobTF implements IRangedAttackMob
 		for (var31 = 0; var31 < var7.size(); ++var31)
 		{
 			EntityLivingBase var8 = (EntityLivingBase) var7.get(var31);
-			var8.attackEntityFrom(TFDamageSource.causeGrenadeDamage(this), 15.0F);
-			var8.hurtResistantTime = 0;
+			if(!(var8 instanceof EntityMobTF))
+			{
+				var8.attackEntityFrom(TFDamageSource.causeGrenadeDamage(this), 15.0F);
+				var8.hurtResistantTime = 0;
+			}
 		}
-
 		if (!this.world.isRemote)
 		{
 			this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY, this.posZ, this.experienceValue));

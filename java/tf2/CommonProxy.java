@@ -20,6 +20,7 @@ import tf2.tile.container.ContainerMechaDock;
 import tf2.tile.container.ContainerPulverizer;
 import tf2.tile.container.ContainerSkillStation;
 import tf2.tile.container.ContainerStoneMaker;
+import tf2.tile.container.ContainerSynthesizer;
 import tf2.tile.gui.GuiBioGenerator;
 import tf2.tile.gui.GuiCokeOven;
 import tf2.tile.gui.GuiCupola;
@@ -30,12 +31,14 @@ import tf2.tile.gui.GuiMechaDock;
 import tf2.tile.gui.GuiPulverizer;
 import tf2.tile.gui.GuiSkillStation;
 import tf2.tile.gui.GuiStoneMaker;
+import tf2.tile.gui.GuiSynthesizer;
 import tf2.tile.tileentity.TileEntityBioGenerator;
 import tf2.tile.tileentity.TileEntityCokeOven;
 import tf2.tile.tileentity.TileEntityCupola;
 import tf2.tile.tileentity.TileEntityMechaDock;
 import tf2.tile.tileentity.TileEntityPulverizer;
 import tf2.tile.tileentity.TileEntityStoneMaker;
+import tf2.tile.tileentity.TileEntitySynthesizer;
 
 public class CommonProxy implements IGuiHandler
 {
@@ -152,6 +155,10 @@ public class CommonProxy implements IGuiHandler
 		{
 			return new ContainerStoneMaker(player, (TileEntityStoneMaker) tile);
 		}
+		if (tile instanceof TileEntitySynthesizer)
+		{
+			return new ContainerSynthesizer(player, (TileEntitySynthesizer) tile);
+		}
 //		if (tile instanceof TileEntityContainerBox)
 //		{
 //			return new ContainerContainerBox(player, (TileEntityContainerBox) tile);
@@ -163,10 +170,6 @@ public class CommonProxy implements IGuiHandler
 //		if (tile instanceof TileEntityRigidoFurnace)
 //		{
 //			return new ContainerRigidoFurnace(player, (TileEntityRigidoFurnace) tile);
-//		}
-//		if (tile instanceof TileEntityRefiner)
-//		{
-//			return new ContainerRefiner(player, (TileEntityRefiner) tile);
 //		}
 //		if (tile instanceof TileEntityNitroReactor)
 //		{
@@ -184,14 +187,7 @@ public class CommonProxy implements IGuiHandler
 //		{
 //			return new ContainerCokeChamber(player, (TileEntityCokeChamber) tile);
 //		}
-//		if (tile instanceof TileEntitySkill)
-//		{
-//			return new ContainerSkill(player, (TileEntitySkill) tile);
-//		}
-//		if (tile instanceof TileEntityPromoter)
-//		{
-//			return new ContainerPromoter(player, (TileEntityPromoter) tile);
-//		}
+
 		if (tile instanceof TileEntityMechaDock)
 		{
 			return new ContainerMechaDock(player, (TileEntityMechaDock) tile);
@@ -258,6 +254,10 @@ public class CommonProxy implements IGuiHandler
 		{
 			return new GuiStoneMaker(player, (TileEntityStoneMaker) tile);
 		}
+		if (tile instanceof TileEntitySynthesizer)
+		{
+			return new GuiSynthesizer(player, (TileEntitySynthesizer) tile);
+		}
 //		if (tile instanceof TileEntityContainerBox)
 //		{
 //			return new GuiContainerBox(player, (TileEntityContainerBox) tile);
@@ -269,10 +269,6 @@ public class CommonProxy implements IGuiHandler
 //		if (tile instanceof TileEntityRigidoFurnace)
 //		{
 //			return new GuiRigidoFurnace(player, (TileEntityRigidoFurnace) tile);
-//		}
-//		if (tile instanceof TileEntityRefiner)
-//		{
-//			return new GuiRefiner(player, (TileEntityRefiner) tile);
 //		}
 //		if (tile instanceof TileEntityNitroReactor)
 //		{
@@ -289,14 +285,6 @@ public class CommonProxy implements IGuiHandler
 //		if (tile instanceof TileEntityCokeChamber)
 //		{
 //			return new GuiCokeChamber(player, (TileEntityCokeChamber) tile);
-//		}
-//		if (tile instanceof TileEntitySkill)
-//		{
-//			return new GuiSkill(player, (TileEntitySkill) tile);
-//		}
-//		if (tile instanceof TileEntityPromoter)
-//		{
-//			return new GuiPromoter(player, (TileEntityPromoter) tile);
 //		}
 		if (tile instanceof TileEntityMechaDock)
 		{

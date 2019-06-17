@@ -29,8 +29,6 @@ public class EntityMobTF extends EntityMob
 		return var1.damageType == "dcs_cold" ? false :
 				var1.damageType == "dcs_heat" ? false :
 
-				var1.damageType == "grenade" ? false :
-
 				var1.damageType == "starve" ? false :
 				var1.damageType == "fall" ? false :
 				var1.damageType == "inFire" ? false :

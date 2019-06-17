@@ -315,11 +315,11 @@ public class EntityAreaHeal extends Entity implements IProjectile
 	{
 		if (this.thrower == null)
 		{
-			return TFDamageSource.causeBombDamage(this);
+			return TFDamageSource.causeGrenadeDamage(this);
 		}
 		else
 		{
-			return TFDamageSource.causeBombDamage(this.thrower);
+			return TFDamageSource.causeGrenadeDamage(this.thrower);
 		}
 	}
 

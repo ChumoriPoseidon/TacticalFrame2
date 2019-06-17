@@ -7,7 +7,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import tf2.TFDamageSource;
 import tf2.entity.projectile.EntityTFProjectile;
 
 public class EntityHomingMissile extends EntityTFProjectile
@@ -37,19 +36,6 @@ public class EntityHomingMissile extends EntityTFProjectile
     @Override
 	public void isGravity()
 	{}
-
-	@Override
-	public DamageSource damageSource()
-	{
-		if (this.thrower == null)
-		{
-			return TFDamageSource.causeBombDamage(this);
-		}
-		else
-		{
-			return TFDamageSource.causeBombDamage(this.thrower);
-		}
-	}
 
     @Override
     public void setEntityDead()

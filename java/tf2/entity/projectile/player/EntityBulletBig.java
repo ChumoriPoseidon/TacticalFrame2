@@ -1,9 +1,7 @@
 package tf2.entity.projectile.player;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.world.World;
-import tf2.TFDamageSource;
 import tf2.entity.projectile.EntityTFProjectile;
 
 public class EntityBulletBig extends EntityTFProjectile
@@ -29,14 +27,5 @@ public class EntityBulletBig extends EntityTFProjectile
 	public float inWaterSpeed()
 	{
 		return 0.9F;
-	}
-
-	@Override
-	public void bulletHit(EntityLivingBase living)
-	{
-		if(living instanceof EntityEnderman)
-		{
-			living.attackEntityFrom(TFDamageSource.causeBombDamage(this.thrower), (float) this.damage);
-		}
 	}
 }

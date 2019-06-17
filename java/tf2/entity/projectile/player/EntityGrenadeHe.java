@@ -1,7 +1,5 @@
 package tf2.entity.projectile.player;
 
-import java.util.List;
-
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,7 +10,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import tf2.TFDamageSource;
+import tf2.common.TFExplosion;
 import tf2.entity.projectile.EntityTFProjectile;
 
 public class EntityGrenadeHe extends EntityTFProjectile
@@ -37,20 +35,9 @@ public class EntityGrenadeHe extends EntityTFProjectile
 	@Override
     public void setEntityDead()
     {
-        super.setDead();
-
+		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 3.5D, this.damage);
     	this.world.createExplosion((Entity) null, this.posX, this.posY,this.posZ, 0.0F, false);
- 		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(3.5D));
- 		int var3;
- 		for (var3 = 0; var3 < var7.size(); ++var3)
- 		{
- 			EntityLivingBase var8 = (EntityLivingBase)var7.get(var3);
- 			if(var8 != this.thrower)
- 			{
- 	 			var8.attackEntityFrom(this.damageSource(), (float)this.damage);
- 	 			var8.hurtResistantTime = 0;
- 			}
- 		}
+    	super.setDead();
     }
 
 	@Override
@@ -69,18 +56,6 @@ public class EntityGrenadeHe extends EntityTFProjectile
 		}
 	}
 
-    @Override
-    public DamageSource damageSource()
-	{
-    	 if (this.thrower == null)
-         {
-             return TFDamageSource.causeBombDamage(this);
-         }
-         else
-         {
-             return TFDamageSource.causeBombDamage(this.thrower);
-         }
-	}
 
     @Override
     public void inGround()

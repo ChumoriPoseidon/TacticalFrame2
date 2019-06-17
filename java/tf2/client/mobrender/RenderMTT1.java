@@ -109,12 +109,14 @@ public class RenderMTT1 extends Render
 		GlStateManager.popMatrix();
 	}
 
-	private void renderhead(EntityMTT1 p_76986_1_)
+	private void renderhead(EntityMTT1 entity)
 	{
+		float f = entity.rotationPitch;
+		f = MathHelper.clamp(f, -20F, 15F);
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0.0F, 1.5F, 0.0F);
-		GlStateManager.rotate(180.0F - p_76986_1_.rotationYawHead, 0.0F, 1.0F, 0.0F);
-		GlStateManager.rotate(p_76986_1_.rotationPitch, 1.0F, 0.0F, 0.0F);
+		GlStateManager.rotate(180.0F - entity.rotationYawHead, 0.0F, 1.0F, 0.0F);
+		GlStateManager.rotate(f, 1.0F, 0.0F, 0.0F);
 		GlStateManager.translate(0.0F, -1.5F, -0.0F);
 
 		tankk.renderPart("head");

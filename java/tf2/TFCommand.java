@@ -185,7 +185,7 @@ public class TFCommand extends CommandBase
 	            			{
 	            		TF2Core.config.getCategory("all").get("tf.config.tier3").set(args[1]);
 	            		TF2Core.syncConfig();
-	            		notifyCommandListener(sender, this, "tf.commands.tier.success", new Object[] {s, TF2Core.CONFIG.spawnMobTFtier3});
+	            		notifyCommandListener(sender, this, "tf.commands.tier.success", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier3});
 	            	}
 	            	else
 	            	{
@@ -199,7 +199,7 @@ public class TFCommand extends CommandBase
             	else
             	{
             		s = "Mecha Tier.3";
-            		notifyCommandListener(sender, this, "tf.commands.stat.usage", new Object[] {s, TF2Core.CONFIG.spawnMobTFtier3});
+            		notifyCommandListener(sender, this, "tf.commands.stat.usage", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier3});
             	}
             }
             else

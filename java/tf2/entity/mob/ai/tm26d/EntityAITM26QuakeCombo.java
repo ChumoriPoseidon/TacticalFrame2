@@ -136,7 +136,7 @@ public class EntityAITM26QuakeCombo extends EntityAIBase
 			if (this.chargeTime == 50)
 			{
 				EntityEnemyImpact var7 = new EntityEnemyImpact(this.leaper.world, this.leaper);
-				var7.setDamage(var7.getDamage() + 8.0D);
+				var7.setDamage(var7.getDamage() + 7.0D);
 				var7.shoot(dx, dy, dz, 1.5F, 0.0F);
 				this.leaper.world.spawnEntity(var7);
 				this.leaper.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 2.5F, 1.0F / (this.leaper.getRNG().nextFloat() * 0.4F + 0.8F));
@@ -165,7 +165,7 @@ public class EntityAITM26QuakeCombo extends EntityAIBase
 				if (this.chargeTime == 85 && this.leaper.getHealthCount() < 2)
 				{
 					EntityEnemyImpact var7 = new EntityEnemyImpact(this.leaper.world, this.leaper);
-					var7.setDamage(var7.getDamage() + 8.0D);
+					var7.setDamage(var7.getDamage() + 7.0D);
 					var7.shoot(dx, dy, dz, 1.5F, 0.0F);
 					this.leaper.world.spawnEntity(var7);
 					this.leaper.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 2.5F, 1.0F / (this.leaper.getRNG().nextFloat() * 0.4F + 0.8F));

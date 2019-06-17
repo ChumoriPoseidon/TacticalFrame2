@@ -91,6 +91,7 @@ public class TFItems
 	public static final Item REIMETAL = new ItemBase("reimetal");
 	public static final Item RIGIDO_PLATE = new ItemBase("rigidoplate");
 	public static final Item MECHA_PARTS = new ItemBase("mechaparts");
+	public static final Item TECH_PARTS = new ItemBase("techparts");
 	public static final Item LEPRE_CUBE = new ItemBase("leprecube");
 	public static final Item COMPRESS_IRON = new ItemBase("compressiron");
 	public static final Item GEAR_IRON = new ItemBase("gear_iron");

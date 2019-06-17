@@ -1,16 +1,13 @@
 package tf2.entity.projectile.player;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tf2.TFDamageSource;
+import tf2.common.TFExplosion;
 import tf2.entity.projectile.EntityTFProjectile;
 import tf2.entity.projectile.IFriendProjectile;
 
@@ -35,19 +32,6 @@ public class EntityFriendGrenade extends EntityTFProjectile implements IFriendPr
 		this.setTickAir(100);
 	}
 
-	@Override
-	public DamageSource damageSource()
-	{
-		if (this.thrower == null)
-		{
-			return TFDamageSource.causeBombDamage(this);
-		}
-		else
-		{
-			return TFDamageSource.causeBombDamage(this.thrower);
-		}
-	}
-
 	public void setSpread(double damageIn)
 	{
 		this.spread = damageIn;
@@ -60,21 +44,8 @@ public class EntityFriendGrenade extends EntityTFProjectile implements IFriendPr
     public void setEntityDead()
     {
         super.setDead();
-
+        TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 3D, this.damage);
     	this.world.createExplosion((Entity) null, this.posX, this.posY,this.posZ, 0.0F, false);
- 		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(3.0D));
- 		int var3;
- 		for (var3 = 0; var3 < var7.size(); ++var3)
- 		{
- 			EntityLivingBase var8 = (EntityLivingBase)var7.get(var3);
-
- 			if(var8 != this.thrower)
- 			{
- 				DamageSource var201 = this.damageSource();
- 	 			var8.attackEntityFrom(var201, (float)this.damage * 0.5F);
- 	 			var8.hurtResistantTime = 0;
- 			}
- 		}
     }
 
     @Override

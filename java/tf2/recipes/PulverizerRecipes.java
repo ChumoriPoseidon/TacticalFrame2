@@ -36,13 +36,13 @@ public class PulverizerRecipes
 
 	private PulverizerRecipes()
 	{
-		        this.addSmelting(Items.BLAZE_ROD, new ItemStack(Items.BLAZE_POWDER, 4), 0.5F);
-		        this.addSmelting(Items.BONE, new ItemStack(Items.DYE, 5, 15), 0.3F);
-		        this.addSmelting(Items.REEDS, new ItemStack(Items.SUGAR, 2), 0.1F);
-		        this.addSmeltingRecipeForBlock(Blocks.GRAVEL, new ItemStack(Items.FLINT, 2), 0.5F);
+		        this.addSmelting(Items.BLAZE_ROD, new ItemStack(Items.BLAZE_POWDER, 6), 0.5F);
+		        this.addSmelting(Items.BONE, new ItemStack(Items.DYE, 9, 15), 0.3F);
+		        this.addSmelting(Items.REEDS, new ItemStack(Items.SUGAR, 3), 0.1F);
+		        this.addSmeltingRecipeForBlock(Blocks.GRAVEL, new ItemStack(Items.FLINT, 3), 0.5F);
 		        this.addSmeltingRecipeForBlock(Blocks.WOOL, new ItemStack(Items.STRING, 4), 0.5F);
-		        this.addSmeltingRecipeForBlock(Blocks.PUMPKIN, new ItemStack(Items.PUMPKIN_SEEDS, 6), 0.1F);
-		        this.addSmelting(Items.MELON, new ItemStack(Items.MELON_SEEDS, 2), 0.1F);
+		        this.addSmeltingRecipeForBlock(Blocks.PUMPKIN, new ItemStack(Items.PUMPKIN_SEEDS, 8), 0.1F);
+		        this.addSmelting(Items.MELON, new ItemStack(Items.MELON_SEEDS, 3), 0.1F);
 		        this.addSmeltingRecipeForBlock(Blocks.MELON_BLOCK, new ItemStack(Items.MELON, 9), 0.2F);
 
 		        this.addSmeltingRecipeForBlock(TFBlocks.ORE_PYRODITE, new ItemStack(TFItems.FLAMLIGHT), 0.9F);
@@ -58,25 +58,24 @@ public class PulverizerRecipes
 		        this.addSmeltingRecipe(new ItemStack(Items.COAL, 1, 0), new ItemStack(TFItems.POWDER, 1, 0), 0.2F);
 		        this.addSmeltingRecipe(new ItemStack(Items.COAL, 1, 1), new ItemStack(TFItems.POWDER, 1, 0), 0.2F);
 
-		        this.addSmeltingRecipe("oreIron", new ItemStack(TFItems.POWDER_IRON, 2), 0.4F);
-		        this.addSmeltingRecipe("oreMagnetite", new ItemStack(TFItems.POWDER_IRON, 2), 0.4F);
-		        this.addSmeltingRecipe("oreGold", new ItemStack(TFItems.POWDER, 2, 1), 0.8F);
-		        this.addSmeltingRecipe("oreNiter", new ItemStack(TFItems.POWDER, 2, 6), 0.5F);
-		        this.addSmeltingRecipe("oreSaltpeter", new ItemStack(TFItems.POWDER, 2, 6), 0.5F);
-		        this.addSmeltingRecipe("oreSulfur", new ItemStack(TFItems.POWDER, 2, 7), 0.5F);
-		        this.addSmeltingRecipe("oreQuartz", new ItemStack(TFItems.POWDER, 2, 4), 0.9F);
+		        this.addSmeltingRecipe("oreIron", new ItemStack(TFItems.POWDER_IRON, 3), 0.4F);
+		        this.addSmeltingRecipe("oreMagnetite", new ItemStack(TFItems.POWDER_IRON, 3), 0.4F);
+		        this.addSmeltingRecipe("oreGold", new ItemStack(TFItems.POWDER, 3, 1), 0.8F);
+		        this.addSmeltingRecipe("oreNiter", new ItemStack(TFItems.POWDER, 3, 6), 0.5F);
+		        this.addSmeltingRecipe("oreSaltpeter", new ItemStack(TFItems.POWDER, 3, 6), 0.5F);
+		        this.addSmeltingRecipe("oreSulfur", new ItemStack(TFItems.POWDER, 3, 7), 0.5F);
+		        this.addSmeltingRecipe("oreQuartz", new ItemStack(TFItems.POWDER, 4, 4), 0.9F);
 
 //		        this.addSmeltingRecipeForBlock(Blocks.IRON_ORE, new ItemStack(TFItems.POWDER_IRON, 2, 1), 0.4F);
 //		        this.addSmeltingRecipeForBlock(Blocks.GOLD_ORE, new ItemStack(TFItems.POWDER, 2, 1), 0.8F);
-		        this.addSmeltingRecipeForBlock(Blocks.EMERALD_ORE, new ItemStack(TFItems.POWDER, 2, 3), 1.0F);
-		        this.addSmeltingRecipeForBlock(Blocks.DIAMOND_ORE, new ItemStack(TFItems.POWDER, 2, 2), 1.0F);
-		        this.addSmeltingRecipeForBlock(Blocks.COAL_ORE, new ItemStack(TFItems.POWDER, 2, 0), 0.3F);
+		        this.addSmeltingRecipeForBlock(Blocks.EMERALD_ORE, new ItemStack(TFItems.POWDER, 3, 3), 1.0F);
+		        this.addSmeltingRecipeForBlock(Blocks.DIAMOND_ORE, new ItemStack(TFItems.POWDER, 3, 2), 1.0F);
+		        this.addSmeltingRecipeForBlock(Blocks.COAL_ORE, new ItemStack(TFItems.POWDER, 3, 0), 0.3F);
 		        this.addSmeltingRecipeForBlock(Blocks.COAL_BLOCK, new ItemStack(TFItems.POWDER, 9, 0), 0.3F);
-		        this.addSmeltingRecipeForBlock(Blocks.QUARTZ_ORE, new ItemStack(TFItems.POWDER, 4, 4), 1.0F);
 		        this.addSmeltingRecipeForBlock(Blocks.QUARTZ_BLOCK, new ItemStack(Items.QUARTZ, 4), 0.1F);
 		        this.addSmeltingRecipeForBlock(Blocks.QUARTZ_STAIRS, new ItemStack(Items.QUARTZ, 1), 0.1F);
-		        this.addSmeltingRecipeForBlock(Blocks.REDSTONE_ORE, new ItemStack(Items.REDSTONE, 4), 0.4F);
-		        this.addSmeltingRecipeForBlock(Blocks.LAPIS_ORE, new ItemStack(Items.DYE, 6, 4), 0.5F);
+		        this.addSmeltingRecipeForBlock(Blocks.REDSTONE_ORE, new ItemStack(Items.REDSTONE, 15), 0.4F);
+		        this.addSmeltingRecipeForBlock(Blocks.LAPIS_ORE, new ItemStack(Items.DYE, 18, 4), 0.5F);
 		        this.addSmeltingRecipeForBlock(Blocks.GLOWSTONE, new ItemStack(Items.GLOWSTONE_DUST, 4), 0.3F);
 		        this.addSmeltingRecipeForBlock(Blocks.COBBLESTONE, new ItemStack(Blocks.GRAVEL, 1), 0.1F);
 

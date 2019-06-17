@@ -1,15 +1,12 @@
 package tf2.entity.projectile.enemy;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tf2.TFDamageSource;
+import tf2.common.TFExplosion;
 import tf2.entity.projectile.EntityTFProjectile;
 import tf2.entity.projectile.IEnemyProjectile;
 
@@ -32,36 +29,18 @@ public class EntityEnemyGrenade extends EntityTFProjectile implements IEnemyProj
 		this.setTickAir(50);
 	}
 
-	@Override
-	public DamageSource damageSource()
-	{
-    	 if (this.thrower == null)
-         {
-             return TFDamageSource.causeGrenadeDamage(this);
-         }
-         else
-         {
-             return TFDamageSource.causeGrenadeDamage(this.thrower);
-         }
-	}
-
     @Override
     public void setEntityDead()
     {
-        super.setDead();
-
-    	this.world.createExplosion((Entity) null, this.posX, this.posY,this.posZ, 0.0F, false);
- 		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(3.0D));
- 		int var3;
- 		for (var3 = 0; var3 < var7.size(); ++var3)
- 		{
- 			EntityLivingBase var8 = (EntityLivingBase)var7.get(var3);
-
- 			DamageSource var201 = this.damageSource();
- 			var8.attackEntityFrom(var201, (float)this.damage * 0.5F);
- 		}
+ 		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 3.0D, this.damage);
+		this.world.createExplosion((Entity) null, this.posX, this.posY, this.posZ, 0.0F, false);
+		super.setDead();
     }
-
+    @Override
+   	protected float directHitDamage()
+   	{
+   		return 0F;
+   	}
     @Override
     @SideOnly(Side.CLIENT)
     public void generateRandomParticles()

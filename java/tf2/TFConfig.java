@@ -7,7 +7,7 @@ public class TFConfig
 
 	public boolean spawnMobTMtier1 = true;
 	public boolean spawnMobTMtier2 = false;
-	public boolean spawnMobTFtier3 = false;
+	public boolean spawnMobTMtier3 = false;
 	public boolean blockDestroy = true;
 	public boolean ironGenerate = true;
 	public boolean multiMission = false;
@@ -34,7 +34,7 @@ public class TFConfig
 
 		this.spawnMobTMtier1 = config.getBoolean("tf.config.tier1", "all", true, "True if Tier.1 Mecha are allowed to spawn");
 		this.spawnMobTMtier2 = config.getBoolean("tf.config.tier2", "all", false, "True if Tier.2 Mecha are allowed to spawn");
-		this.spawnMobTFtier3 = config.getBoolean("tf.config.tier3", "all", false, "True if Tier.3 Mecha are allowed to spawn");
+		this.spawnMobTMtier3 = config.getBoolean("tf.config.tier3", "all", false, "True if Tier.3 Mecha are allowed to spawn");
 		this.blockDestroy = config.getBoolean("tf.config.destroy", "all", true, "True if block destroy with Explosive");
 		this.ironGenerate = config.getBoolean("tf.config.iron", "all", true, "True if Magnetite ore and Hematite ore generate");
 		this.multiMission = config.getBoolean("tf.config.multi", "all", false, "True if more enemies with multi missions");

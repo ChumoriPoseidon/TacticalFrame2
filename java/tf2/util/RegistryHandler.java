@@ -25,6 +25,7 @@ import tf2.entity.mob.enemy.EntityTM26A;
 import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
+import tf2.entity.mob.enemy.EntityTM41;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityEvent1;
 import tf2.entity.mob.frend.EntityMTT1;
@@ -39,6 +40,7 @@ import tf2.entity.projectile.EntityBarrier;
 import tf2.entity.projectile.enemy.EntityEnemyBullet;
 import tf2.entity.projectile.enemy.EntityEnemyBulletHE;
 import tf2.entity.projectile.enemy.EntityEnemyGrenade;
+import tf2.entity.projectile.enemy.EntityEnemyHowitzer;
 import tf2.entity.projectile.enemy.EntityEnemyImpact;
 import tf2.entity.projectile.enemy.EntityEnemyMortar;
 import tf2.entity.projectile.player.EntityAreaHeal;
@@ -139,7 +141,8 @@ public class RegistryHandler
 //		EntityEnemySlashFragment.registerEntity(EntityEnemySlashFragment.class, prefix("enemyslashfragment"), "EnemySlashFragment", 256, 1, true);
 //		EntityEnemySlashWide.registerEntity(EntityEnemySlashWide.class, prefix("enemyslashwide"), "EnemySlashWide", 256, 1, true);
 		EntityEnemyMortar.registerEntity(EntityEnemyMortar.class, prefix("enemymortar"), "EnemyMortar", 256, 1, true);
-//
+		EntityEnemyHowitzer.registerEntity(EntityEnemyHowitzer.class, prefix("enemyhowitzer"), "EnemyHowitzer", 256, 1, true);
+
 		EntityFriendBullet.registerEntity(EntityFriendBullet.class, prefix("friendbullet"), "FriendBullet", 128, 5, true);
 //		EntityFriendGrenade.registerEntity(EntityFriendGrenade.class, prefix("friendgrenade"), "FriendGrenade", 128, 1, true);
 		EntityFriendShell.registerEntity(EntityFriendShell.class, prefix("friendshell"), "FriendShell", 256, 1, true);
@@ -165,6 +168,7 @@ public class RegistryHandler
 //		registerMob(EntityTM31.class, "TM31", "TM31", 0x13ADFF, 0xEE0000);
 //		registerMob(EntityTM33.class, "TM33", "TM33", 0x00BFFF, 0xFF5500);
 //		registerMob(EntityTM34.class, "TM34", "TM34", 0x0000FF, 0xFF2500);
+		registerMob(EntityTM41.class, "TM41", "TM41", 0xCC0404, 0xFFFF50);
 //
 //		registerMob(EntityTF08A.class, "TF08A", "TF08A", 0xFFFFFF, 0x77CFFF);
 //		registerMob(EntityTF08B.class, "TF08B", "TF08B", 0x0000CF, 0x77CFFF);

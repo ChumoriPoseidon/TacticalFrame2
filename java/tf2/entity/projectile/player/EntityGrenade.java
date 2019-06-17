@@ -1,17 +1,13 @@
 package tf2.entity.projectile.player;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tf2.TFDamageSource;
+import tf2.common.TFExplosion;
 import tf2.entity.projectile.EntityTFProjectile;
 
 public class EntityGrenade extends EntityTFProjectile
@@ -44,20 +40,9 @@ public class EntityGrenade extends EntityTFProjectile
 	@Override
 	public void setEntityDead()
 	{
-		super.setDead();
-
+		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, this.spread, this.damage);
 		this.world.createExplosion((Entity) null, this.posX, this.posY, this.posZ, 0.0F, false);
-		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(this.spread));
-		int var3;
-		for (var3 = 0; var3 < var7.size(); ++var3)
-		{
-			EntityLivingBase var8 = (EntityLivingBase) var7.get(var3);
-			if (var8 != this.thrower)
-			{
-				var8.attackEntityFrom(this.damageSource(), (float) this.damage * 0.5F);
-				var8.hurtResistantTime = 0;
-			}
-		}
+		super.setDead();
 	}
 
 	@Override
@@ -77,31 +62,15 @@ public class EntityGrenade extends EntityTFProjectile
 	}
 
 	@Override
-	public DamageSource damageSource()
+	protected float directHitDamage()
 	{
-		if (this.thrower == null)
-		{
-			return TFDamageSource.causeBombDamage(this);
-		}
-		else
-		{
-			return TFDamageSource.causeBombDamage(this.thrower);
-		}
+		return 0F;
 	}
 
-	@Override
-	public void bulletHit(EntityLivingBase living)
-	{
-		if (living instanceof EntityEnderman)
-		{
-			this.setEntityDead();
-		}
-	}
 
 	@SideOnly(Side.CLIENT)
 	protected void generateRandomParticles()
 	{
-
 		double var211 = this.prevPosX - this.posX;
 		double var231 = this.prevPosY - this.posY;
 		double var23 = this.prevPosZ - this.posZ;

@@ -53,7 +53,7 @@ public class EntityImpact extends EntityTFProjectile
          }
          else
          {
-             return DamageSource.causeMobDamage(this.thrower).setDamageBypassesArmor();
+             return DamageSource.causeMobDamage(this.thrower);
          }
 	}
 

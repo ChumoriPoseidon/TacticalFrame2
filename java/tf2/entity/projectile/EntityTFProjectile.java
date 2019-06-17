@@ -322,7 +322,7 @@ public class EntityTFProjectile extends Entity implements IProjectile
 				entity.setFire(5);
 			}
 
-			if (entity.attackEntityFrom(damagesource, (float) this.damage))
+			if (entity.attackEntityFrom(damagesource, this.directHitDamage()))
 			{
 				if (entity instanceof EntityLivingBase)
 				{
@@ -450,7 +450,17 @@ public class EntityTFProjectile extends Entity implements IProjectile
 	}
 
 	protected void bulletHit(EntityLivingBase living)
-	{}
+	{
+		if(living instanceof EntityEnderman)
+		{
+			living.attackEntityFrom(TFDamageSource.causeGrenadeDamage(this.thrower), (float) this.damage);
+		}
+	}
+
+	protected float directHitDamage()
+	{
+		return (float)this.damage;
+	}
 
 	@Nullable
 	protected Entity findEntityOnPath(Vec3d start, Vec3d end)

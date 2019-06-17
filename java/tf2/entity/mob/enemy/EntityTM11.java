@@ -105,7 +105,7 @@ public class EntityTM11 extends EntityMobTF implements IRangedAttackMob
 			if (this.attackTime <= 31 && this.attackTime % 10 == 1)
 			{
 				EntityEnemyGrenade var7 = new EntityEnemyGrenade(this.world, this);
-				var7.setDamage(var7.getDamage() + 3.0D);
+				var7.setDamage(var7.getDamage() + 4.5D);
 				this.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 2.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 				var7.shoot(var3, var8, var5, 2.0F, 3.0F);
 				this.world.spawnEntity(var7);

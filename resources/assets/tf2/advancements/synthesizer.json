@@ -1,29 +1,26 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf:extractor"
+			"item": "tf2:synthesizer"
 		},
 		"title": {
-			"translate": "advancement.craftExtractor"
+			"translate": "advancement.craftSynthesizer"
 		},
 		"description": {
-			"translate": "advancement.craftExtractor.desc"
+			"translate": "advancement.craftSynthesizer.desc"
 		}
 	},
-	"parent": "tf:ceramic",
+	"parent": "tf2:cokeoven",
     "criteria": {
         "craft": {
             "trigger": "minecraft:inventory_changed",
              "conditions": {
                 "items": [
                     {
-                        "item": "tf:extractor"
+                        "item": "tf2:synthesizer"
                     }
                 ]
             }
         }
-    },
-   "rewards": {
-        "recipes": ["tf:energydrink","tf:adv_pulverizer","tf:adv_extractor","tf:cokechamber"]
     }
 }

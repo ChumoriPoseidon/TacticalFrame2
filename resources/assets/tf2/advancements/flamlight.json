@@ -1,34 +1,26 @@
 {
-	"display": {
-		"icon": {
-			"item": "tf:flamlight"
-		},
-		"title": {
-			"translate": "advancement.getFlamlight"
-		},
-		"description": {
-			"translate": "advancement.getFlamlight.desc"
-		}
-	},
-	"parent": "tf:rigidoplate",
-    "criteria": {
-        "plate": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [{"item": "tf:flamlight"}]
-            }
+    "display": {
+        "icon": {
+            "item": "tf2:flamlight"
         },
-        "ingot": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [{"item": "tf:flamfragment"}]
-            }
+        "title": {
+            "translate": "advancement.getFlamlight"
+        },
+        "description": {
+            "translate": "advancement.getFlamlight.desc"
         }
     },
-    "requirements": [
-        ["plate", "ingot"]
-    ],
-    "rewards": {
-        "recipes": ["tf:flamlight", "tf:flamfragment", "tf:flamchip"]
+    "parent": "tf2:pulverizer",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:flamlight"
+                    }
+                ]
+            }
+        }
     }
 }
