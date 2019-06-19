@@ -54,7 +54,7 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(45.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.9D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.22D);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(2.0D);
@@ -68,7 +68,7 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 	@Nullable
 	protected ResourceLocation getLootTable()
 	{
-		return TF2Core.ENTITIES_TM26;
+		return TF2Core.ENTITIES_TM12;
 	}
 
 	@Override
@@ -83,15 +83,15 @@ public class EntityTM12 extends EntityMobTF implements IRangedAttackMob
 
 		if (this.attackTime <= 0)
 		{
-			this.attackTime = 120;
+			this.attackTime = 130;
 
 		}
 
-		if (this.attackTime == 1)
+		if (this.attackTime == 10 || this.attackTime == 20)
 		{
 
 			EntityEnemyMortar bullet = new EntityEnemyMortar(this.world, this);
-			bullet.setDamage(bullet.getDamage() + 14.0D);
+			bullet.setDamage(bullet.getDamage() + 12.0D);
 			bullet.setSpread(5D);
 			bullet.posY = this.posY + this.height * 2;
 			bullet.setRange(f2);

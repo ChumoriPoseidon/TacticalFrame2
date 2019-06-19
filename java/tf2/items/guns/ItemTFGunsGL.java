@@ -226,7 +226,7 @@ public class ItemTFGunsGL extends ItemTFGuns implements IHasModel
 		double i = this.damage(stack);
 		int x = this.getMaxDamage(stack);
 		double y = this.reloadTime(stack) / 20;
-		double w = this.recoil + this.recoilrand;
+		float w = this.recoil + this.recoilrand;
 		int z = this.coolTime(stack);
 		double v = this.spread;
 

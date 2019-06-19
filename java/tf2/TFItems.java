@@ -136,48 +136,48 @@ public class TFItems
 	public static final Item M1911 = new ItemTFGunsHG("m1911", 8, 6F, 2F, 1F, TFSoundEvents.M1911, 2F, 4F, 3, 18);
 	public static final Item DESERTEAGLE = new ItemTFGunsHG("deserteagle", 7, 15F, 2F, 1F, TFSoundEvents.DESERT, 10F, 10F, 15, 20);
 
-	public static final Item UZI = new ItemTFGunsSMG("uzi", 40, 3F, 2F, 2.8F, TFSoundEvents.UZI, 0F, 1.5F, 1 / 2, 20);
-	public static final Item PPSH41 = new ItemTFGunsSMG("ppsh41", 70, 4.5F, 2F, 6F, TFSoundEvents.PPSH, 0.5F, 6F, 1, 50);
-	public static final Item P90 = new ItemTFGunsSMG("p90", 50, 4F, 2F, 2.8F, TFSoundEvents.P90, 0F, 1.5F, 1 / 2, 22);
-	public static final Item PP19 = new ItemTFGunsSMG("pp19", 60, 5F, 2F, 2.8F, TFSoundEvents.PP19, 0F, 1.5F, 1 / 2, 24);
-	public static final Item EVO3 = new ItemTFGunsSMG("evo3", 30, 4F, 2F, 2.8F, TFSoundEvents.EVO, 0F, 2F, 1 / 2, 18);
-	public static final Item MP7 = new ItemTFGunsSMG("mp7", 30, 5.5F, 2F, 2.8F, TFSoundEvents.MP7, 0F, 2F, 1 / 2, 20);
-	public static final Item UMP9 = new ItemTFGunsSMG("ump9", 30, 7F, 2F, 2.8F, TFSoundEvents.UMP9, 0F, 2F, 1 / 2, 24);
+	public static final Item UZI = new ItemTFGunsSMG("uzi", 40, 3F, 0.8F, 1F, TFSoundEvents.UZI, 0F, 1.5F, 1 / 2, 24);
+	public static final Item PPSH41 = new ItemTFGunsSMG("ppsh41", 70, 3F, 1F, 2.8F, TFSoundEvents.PPSH, 0F, 6F, 1, 42);
+	public static final Item P90 = new ItemTFGunsSMG("p90", 50, 3F, 1F, 2.8F, TFSoundEvents.P90, 0F, 1.5F, 1 / 2, 30);
+	public static final Item PP19 = new ItemTFGunsSMG("pp19", 60, 3F, 1F, 2.8F, TFSoundEvents.PP19, 0F, 1.5F, 1 / 2, 36);
+	public static final Item EVO3 = new ItemTFGunsSMG("evo3", 30, 4F, 1F, 2.8F, TFSoundEvents.EVO, 0F, 2.1F, 1 / 2, 24);
+	public static final Item MP7 = new ItemTFGunsSMG("mp7", 30, 4F, 1F, 2.8F, TFSoundEvents.MP7, 0F, 1.5F, 1 / 2, 32);
+	public static final Item UMP9 = new ItemTFGunsSMG("ump9", 30, 4F, 1F, 2.8F, TFSoundEvents.UMP9, 0F, 1.8F, 1 / 2, 28);
 
-	public static final Item AK47 = new ItemTFGunsAR("ak47", 30, 5F, 3F, 4.5F, TFSoundEvents.AK, 0.5F, 3.5F, 1, 30);
-	public static final Item AK74 = new ItemTFGunsAR("ak74", 30, 8.5F, 3F, 4.5F, TFSoundEvents.AK, 0.5F, 4F, 1, 32);
-	public static final Item AK12 = new ItemTFGunsAR("ak12", 30, 12F, 3F, 4.5F, TFSoundEvents.AK12, 0.5F, 4.5F, 1, 34);
-	public static final Item M4A1 = new ItemTFGunsAR("m4a1", 30, 7F, 3F, 4.5F, TFSoundEvents.M16, 0.5F, 3.0F, 1, 30);
-	public static final Item M16A1 = new ItemTFGunsAR("m16a1", 30, 4F, 3F, 4.5F, TFSoundEvents.M16, 0.5F, 2.5F, 1, 28);
-	public static final Item HK416 = new ItemTFGunsAR("hk416", 30, 10F, 3F, 4.5F, TFSoundEvents.HK416, 0.5F, 3.5F, 1, 32);
-	public static final Item SIG550 = new ItemTFGunsAR("sig550", 30, 6.5F, 3F, 2.4F, TFSoundEvents.SIG550, 0.1F, 2F, 1, 36);
-	public static final Item G36 = new ItemTFGunsAR("g36", 30, 9.5F, 3F, 2.4F, TFSoundEvents.G36, 0.1F, 2F, 1, 36);
-	public static final Item FAMAS = new ItemTFGunsAR("famas", 25, 6F, 3F, 4.5F, TFSoundEvents.FAMAS, 0F, 2.3F, 1 / 2, 24);
-	public static final Item OTS14 = new ItemTFGunsAR("ots14", 25, 9F, 3F, 4.5F, TFSoundEvents.SUPPRESS, 0F, 2.3F, 1 / 2, 36);
+	public static final Item AK47 = new ItemTFGunsAR("ak47", 30, 5.5F, 1F, 4.5F, TFSoundEvents.AK, 0.5F, 4F, 1, 35);
+	public static final Item AK74 = new ItemTFGunsAR("ak74", 30, 5F, 1F, 4.5F, TFSoundEvents.AK, 0.4F, 4F, 1, 30);
+	public static final Item AK12 = new ItemTFGunsAR("ak12", 30, 6F, 1F, 4.5F, TFSoundEvents.AK12, 0.5F, 4.5F, 1, 35);
+	public static final Item M16A1 = new ItemTFGunsAR("m16a1", 30, 4F, 1F, 4.5F, TFSoundEvents.M16, 0.3F, 2.2F, 1, 27);
+	public static final Item M4A1 = new ItemTFGunsAR("m4a1", 30, 4.5F, 1F, 4.5F, TFSoundEvents.M16, 0.3F, 2.6F, 1, 30);
+	public static final Item HK416 = new ItemTFGunsAR("hk416", 30, 5F, 1F, 4.5F, TFSoundEvents.HK416, 0.4F, 3F, 1, 36);
+	public static final Item SIG550 = new ItemTFGunsAR("sig550", 30, 4F, 1F, 4.5F, TFSoundEvents.SIG550, 0F, 2.1F, 1, 28);
+	public static final Item G36 = new ItemTFGunsAR("g36", 30, 4.5F, 1F, 4.5F, TFSoundEvents.G36, 0F, 2.2F, 1, 33);
+	public static final Item FAMAS = new ItemTFGunsAR("famas", 25, 4F, 1F, 4.5F, TFSoundEvents.FAMAS, 0F, 2.3F, 1 / 2, 30);
+	public static final Item OTS14 = new ItemTFGunsAR("ots14", 30, 4F, 1F, 4.5F, TFSoundEvents.SUPPRESS, 0F, 2.3F, 1 / 2, 36);
 
-	public static final Item M24 = new ItemTFGunsSR("m24", 5, 25F, 5F, 20F, TFSoundEvents.M24, 10F, 10F, 26, 28);
-	public static final Item M200 = new ItemTFGunsSR("m200", 5, 35F, 5F, 20F, TFSoundEvents.M24, 10F, 10F, 30, 30);
-	public static final Item XM2010 = new ItemTFGunsSR("xm2010", 5, 45F, 5F, 20F, TFSoundEvents.M24, 10F, 10F, 34, 32);
-	public static final Item SVD = new ItemTFGunsSR("svd", 10, 17F, 5F, 20F, TFSoundEvents.SVD, 2F, 5F, 7, 28);
-	public static final Item WA2000 = new ItemTFGunsSR("wa2000", 10, 22F, 5F, 20F, TFSoundEvents.WA2000, 3F, 5F, 8, 30);
-	public static final Item PSG1 = new ItemTFGunsSR("psg1", 10, 27F, 5F, 20F, TFSoundEvents.PSG1, 3F, 5.5F, 9, 32);
-	public static final Item MOSINNAGANT = new ItemTFGunsSR("mosinnagant", 5, 30F, 5F, 20F, TFSoundEvents.MOSIN, 4F, 8F, 14, 32);
-	public static final Item M82A1 = new ItemTFGunsSR("m82a1", 10, 19F, 5F, 20F, TFSoundEvents.M82, 6F, 9F, 16, 58);
-	public static final Item PGM = new ItemTFGunsSR("pgm", 5, 27F, 5F, 20F, TFSoundEvents.PGM, 4F, 9F, 20, 60);
+	public static final Item M24 = new ItemTFGunsSR("m24", 5, 25F, 2.5F, 20F, TFSoundEvents.M24, 5F, 8F, 26, 30);
+	public static final Item M200 = new ItemTFGunsSR("m200", 5, 28F, 2.5F, 20F, TFSoundEvents.M24, 6F, 9F, 28, 31);
+	public static final Item XM2010 = new ItemTFGunsSR("xm2010", 5, 30F, 2.5F, 20F, TFSoundEvents.M24, 7F, 10F, 30, 32);
+	public static final Item SVD = new ItemTFGunsSR("svd", 10, 14F, 2F, 20F, TFSoundEvents.SVD, 2F, 4.5F, 7, 30);
+	public static final Item WA2000 = new ItemTFGunsSR("wa2000", 10, 16F, 2F, 20F, TFSoundEvents.WA2000, 2.5F, 5F, 8, 31);
+	public static final Item PSG1 = new ItemTFGunsSR("psg1", 10, 18F, 2F, 20F, TFSoundEvents.PSG1, 3F, 5.5F, 9, 32);
+	public static final Item MOSINNAGANT = new ItemTFGunsSR("mosinnagant", 5, 23F, 2.5F, 20F, TFSoundEvents.MOSIN, 4F, 8F, 14, 32);
+	public static final Item M82A1 = new ItemTFGunsSR("m82a1", 10, 30F, 2.5F, 20F, TFSoundEvents.M82, 8F, 10F, 20, 45);
+	public static final Item PGM = new ItemTFGunsSR("pgm", 5, 35F, 2.5F, 20F, TFSoundEvents.PGM, 8F, 10F, 34, 35);
 
-	public static final Item SPAS12 = new ItemTFGunsSG("spas12", 8, 3F, 1F, 12, 8F, TFSoundEvents.SPAS, 10F, 10F, 20, 28);
-	public static final Item M1014 = new ItemTFGunsSG("m1014", 8, 4.5F, 1F, 12, 8F, TFSoundEvents.M1014, 10F, 10F, 22, 30);
-	public static final Item M870 = new ItemTFGunsSG("m870", 8, 6F, 1F, 12, 8F, TFSoundEvents.M870, 10F, 10F, 24, 30);
-	public static final Item SAIGA12 = new ItemTFGunsSG("saiga12", 8, 2.5F, 1F, 12, 13F, TFSoundEvents.SAIGA, 4F, 6F, 6, 32);
-	public static final Item VEPR12 = new ItemTFGunsSG("vepr12", 8, 3.5F, 1F, 12, 13F, TFSoundEvents.SAIGA, 4F, 6F, 6, 34);
-	public static final Item AA12 = new ItemTFGunsSG("aa12", 20, 5F, 1F, 8, 13F, TFSoundEvents.AA12, 1.5F, 4.5F, 4, 38);
+	public static final Item SPAS12 = new ItemTFGunsSG("spas12", 8, 3F, 0.5F, 12, 8F, TFSoundEvents.SPAS, 8F, 10F, 18, 30);
+	public static final Item M1014 = new ItemTFGunsSG("m1014", 8, 3F, 0.5F, 13, 8F, TFSoundEvents.M1014, 8F, 10F, 20, 32);
+	public static final Item M870 = new ItemTFGunsSG("m870", 8, 3F, 0.5F, 14, 8F, TFSoundEvents.M870, 8F, 10F, 22, 34);
+	public static final Item SAIGA12 = new ItemTFGunsSG("saiga12", 8, 3F, 0.5F, 10, 13F, TFSoundEvents.SAIGA, 4F, 6F, 6, 34);
+	public static final Item VEPR12 = new ItemTFGunsSG("vepr12", 8, 3F, 0.5F, 9, 13F, TFSoundEvents.SAIGA, 4F, 6F, 5, 30);
+	public static final Item AA12 = new ItemTFGunsSG("aa12", 20, 3F, 0.5F, 8, 13F, TFSoundEvents.AA12, 3F, 6F, 5, 38);
 
 	public static final Item MG42 = new ItemTFGunsLMG("mg42", 100, 6.5F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 6.5F, 1, 60);
-	public static final Item M60E1 = new ItemTFGunsLMG("m60e1", 100, 8.5F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 7F, 1, 70);
+	public static final Item M60E1 = new ItemTFGunsLMG("m60e1", 100, 7F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 7F, 1, 60);
 
-	public static final Item M1A1 = new ItemTFGunsGL("m1a1", 1, 30F, 2F, 4D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 40, 40);
-	public static final Item M20 = new ItemTFGunsGL("m20", 1, 40F, 2F, 3D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 40, 42);
-	public static final Item MGL140 = new ItemTFGunsGL("mgl140", 6, 50F, 2F, 2.5D, 8F, TFSoundEvents.MGL, 15F, 15F, 20, 50);
+	public static final Item M1A1 = new ItemTFGunsGL("m1a1", 1, 40F, 2F, 4D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 40, 40);
+	public static final Item M20 = new ItemTFGunsGL("m20", 1, 40F, 2F, 3D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 30, 42);
+	public static final Item MGL140 = new ItemTFGunsGL("mgl140", 6, 40F, 2F, 2.5D, 8F, TFSoundEvents.MGL, 15F, 15F, 20, 50);
 
 	public static final Item SKILL_FULLFIRE = new ItemBuffSkill("fullfire", 1200);
 	public static final Item SKILL_ATTITUDECONTROL = new ItemBuffSkill("attitudecontrol", 1200);

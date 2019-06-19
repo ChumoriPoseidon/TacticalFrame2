@@ -1,23 +1,23 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf2:pulverizer"
+			"item": "tf2:reimetalingot"
 		},
 		"title": {
-			"translate": "advancement.craftPulverizer"
+			"translate": "advancement.getReimetalingot"
 		},
 		"description": {
-			"translate": "advancement.craftPulverizer.desc"
+			"translate": "advancement.getReimetalingot.desc"
 		}
 	},
-	"parent": "tf2:biogenerator",
+	"parent": "tf2:rigidoingot",
 	"criteria": {
 		"craft": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"item": "tf2:pulverizer"
+						"item": "tf2:reimetalingot"
 					}
 				]
 			}
@@ -26,10 +26,6 @@
 	"rewards": {
 		"loot": [
 			"tf2:reward/developchip_2"
-		],
-		"recipes": [
-			"tf2:gunpowder",
-			"tf2:gunpowder2"
 		]
 	}
 }

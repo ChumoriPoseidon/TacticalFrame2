@@ -39,7 +39,7 @@ public class RecipeCategoryPulverizer<RecipeWrapperPulverizer> implements IRecip
 		this.arrow = guiHelper.createAnimatedDrawable(arrowDrawable, 200, IDrawableAnimated.StartDirection.LEFT, false);
 
 		this.background = guiHelper.createDrawable(this.backgroundLocation, 43, 16, 94, 54);
-		this.localizedName = I18n.format("gui.jei.category.pulverizer", new Object[0]);
+		this.localizedName = I18n.format("gui.pulverizer", new Object[0]);
 	}
 
 	@Override

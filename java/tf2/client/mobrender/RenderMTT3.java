@@ -61,7 +61,6 @@ public class RenderMTT3 extends Render
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240f, 240f);
 		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 
-		GlStateManager.rotate(-(180.0F - p_76986_1_.rotationYaw), 0.0F, 1.0F, 0.0F);
 		tankk.renderPart("body");
 		this.renderTier(p_76986_1_);
 

@@ -70,7 +70,7 @@ public class EntityTM41 extends EntityMobTF implements IRangedAttackMob
 	@Nullable
 	protected ResourceLocation getLootTable()
 	{
-		return TF2Core.ENTITIES_TM07;
+		return TF2Core.ENTITIES_TM41;
 	}
 
 	@Override
@@ -86,8 +86,8 @@ public class EntityTM41 extends EntityMobTF implements IRangedAttackMob
 			if (this.attackTime <= 40 && this.attackTime % 4 == 0)
 			{
 				EntityEnemyBullet var7 = new EntityEnemyBullet(this.world, this);
-				var7.setDamage(var7.getDamage() + 4D);
-				var7.shoot(var3, var8, var5, 3.5F, 5.5F);
+				var7.setDamage(var7.getDamage() + 5D);
+				var7.shoot(var3, var8, var5, 4.0F, 5.5F);
 				this.playSound(TFSoundEvents.AK, 2.3F, 0.9F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 				this.world.spawnEntity(var7);
 			}

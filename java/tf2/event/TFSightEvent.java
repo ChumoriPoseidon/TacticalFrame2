@@ -126,20 +126,13 @@ public class TFSightEvent
 							itemstack != null && itemstack.getItem() == TFItems.M4A1 ||
 							itemstack != null && itemstack.getItem() == TFItems.HK416 ||
 							itemstack != null && itemstack.getItem() == TFItems.FAMAS ||
-							itemstack != null && itemstack.getItem() == TFItems.OTS14)
-					{
-						if (!entityplayer.isSneaking())
-						{
-							String ads = "tf2:textures/misc/re_ar.png";
-							this.renderCrossHair(minecraft, scaledresolution, ads);
-						}
-					}
-					if (itemstack != null && itemstack.getItem() == TFItems.SIG550 ||
+							itemstack != null && itemstack.getItem() == TFItems.OTS14 ||
+							itemstack != null && itemstack.getItem() == TFItems.SIG550 ||
 							itemstack != null && itemstack.getItem() == TFItems.G36)
 					{
 						if (!entityplayer.isSneaking())
 						{
-							String ads = "tf2:textures/misc/re_m16.png";
+							String ads = "tf2:textures/misc/re_ar.png";
 							this.renderCrossHair(minecraft, scaledresolution, ads);
 						}
 					}
@@ -174,6 +167,7 @@ public class TFSightEvent
 						}
 					}
 					if (itemstack != null && itemstack.getItem() == TFItems.UZI ||
+							itemstack != null && itemstack.getItem() == TFItems.PPSH41 ||
 							itemstack != null && itemstack.getItem() == TFItems.EVO3 ||
 							itemstack != null && itemstack.getItem() == TFItems.P90 ||
 							itemstack != null && itemstack.getItem() == TFItems.MP7 ||
@@ -186,8 +180,7 @@ public class TFSightEvent
 							this.renderCrossHair(minecraft, scaledresolution, ads);
 						}
 					}
-					if (itemstack != null && itemstack.getItem() == TFItems.PPSH41 ||
-							itemstack != null && itemstack.getItem() == TFItems.MG42 ||
+					if (itemstack != null && itemstack.getItem() == TFItems.MG42 ||
 							itemstack != null && itemstack.getItem() == TFItems.M60E1)
 					{
 						if (entityplayer.isSneaking())

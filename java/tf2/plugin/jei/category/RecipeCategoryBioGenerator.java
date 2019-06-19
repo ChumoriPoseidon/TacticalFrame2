@@ -39,7 +39,7 @@ public class RecipeCategoryBioGenerator<RecipeWrapperBioGenerator> implements IR
 		this.arrow = guiHelper.createAnimatedDrawable(arrowDrawable, 200, IDrawableAnimated.StartDirection.BOTTOM, false);
 
 		this.background = guiHelper.createDrawable(this.backgroundLocation, 25, 14, 125, 58);
-		this.localizedName = I18n.format("gui.jei.category.biogenerator", new Object[0]);
+		this.localizedName = I18n.format("gui.biogenerator", new Object[0]);
 	}
 
 	@Override
