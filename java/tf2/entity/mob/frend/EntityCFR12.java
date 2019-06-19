@@ -200,7 +200,7 @@ public class EntityCFR12 extends EntityMobCF
 			{
 				EntityGrenade bullet = new EntityGrenade(world, player);
 				bullet.setDamage(bullet.getDamage() + this.getMechaATK() + 10D);
-				bullet.setSpread(bullet.getSpread() + 3.0D);
+				bullet.setSpread(bullet.getSpread() + 3.5D);
 				bullet.setHeadingFromThrower(player, player.rotationPitch -2.5F, player.rotationYaw + wideAngle[i], 0.0F, 2.0F, 0.0F);
 				bullet.posY = this.posY + 3.2D;
 				//弾の弾速と集団性
