@@ -194,6 +194,10 @@ public class TFCommand extends CommandBase
 	            		notifyCommandListener(sender, this, "tf.commands.success", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier3});
 	            		TFWorldConfigManager.saveWorldConfigFile(world);
 
+
+	            		notifyCommandListener(sender, this, "tf.commands.tier.success", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier3});
+	            		TFWorldConfigManager.saveWorldConfigFile(world);
+
 	            	}
 	            	else
 	            	{
