@@ -30,6 +30,7 @@ public class GuiMachineStation extends GuiContainer
     private static final ResourceLocation craftingTableGuiTextures = new ResourceLocation("tf2:textures/gui/container/machinestation.png");
 
     private int updateCount;
+    private int changeSlot;
 
     private GuiRecipeButton nextRecipeButton;
     private GuiRecipeButton previousRecipeButton;
@@ -54,6 +55,10 @@ public class GuiMachineStation extends GuiContainer
     {
         super.updateScreen();
         ++this.updateCount;
+        if(this.updateCount % 20 == 0)
+        {
+        	++this.changeSlot;
+        }
 
         this.nextRecipeButton.enabled = this.currentRecipeIndex < 3;
         this.previousRecipeButton.enabled = this.currentRecipeIndex > 0;
@@ -111,185 +116,157 @@ public class GuiMachineStation extends GuiContainer
 		int x = (this.width  - this.xSize) / 2;
 		int y = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
-	        RenderHelper.enableGUIStandardItemLighting();
-	        GL11.glDisable(GL11.GL_LIGHTING);
-	        GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-	        GL11.glEnable(GL11.GL_COLOR_MATERIAL);
-
-	        itemRender.zLevel = 100.0F;
-
-	    ItemStack item0 = this.itemid;
-	    ItemStack item1 = this.itemid;
-	    ItemStack item2 = this.itemid;
-	    ItemStack item3 = this.itemid;
-	    ItemStack item4 = this.itemid;
-	    ItemStack item5 = this.itemid;
-	    ItemStack item6 = this.itemid;
-	    ItemStack item7 = this.itemid;
-	    ItemStack item8 = this.itemid;
-	    ItemStack item9 = this.itemid;
-
-	    ItemStack itemnull = ItemStack.EMPTY;
-
-	    int i = this.currentRecipeIndex;
-
-        switch (i)
-        {
-        case 0:
-        	item0 = new ItemStack(TFItems.SPAWNFM, 1, 4);
-        	item1 = itemnull;
-			item2 = itemnull;
-			item3 = itemnull;
-			item4 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
-			item5 = new ItemStack(TFItems.PARTS, 1, 1);
-			item6 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
-			item7 = itemnull;
-			item8 = itemnull;
-			item9 = itemnull;
-			break;
-        case 1:
-        	item0 = new ItemStack(TFItems.SPAWNFM, 1, 0);
-        	item1 = itemnull;
-			item2 = new ItemStack(TFItems.PARTS, 1, 2);
-			item3 = itemnull;
-			item4 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
-			item5 = new ItemStack(TFItems.DEVELOP_CHIP_0);
-			item6 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
-			item7 = itemnull;
-			item8 = new ItemStack(TFItems.PARTS, 1, 0);
-			item9 = itemnull;
-			break;
-        case 2:
-        	item0 = new ItemStack(TFItems.SPAWNFM, 1, 1);
-        	item1 = itemnull;
-			item2 = new ItemStack(TFItems.PARTS, 1, 2);
-			item3 = itemnull;
-			item4 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
-			item5 = new ItemStack(TFItems.DEVELOP_CHIP_0);
-			item6 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
-			item7 = itemnull;
-			item8 = new ItemStack(TFItems.PARTS, 1, 1);
-			item9 = itemnull;
-			break;
-        case 3:
-        	item0 = new ItemStack(TFItems.SPAWNFM, 1, 5);
-        	item1 = itemnull;
-			item2 = new ItemStack(TFItems.PARTS, 1, 4);
-			item3 = itemnull;
-			item4 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
-			item5 = new ItemStack(TFItems.DEVELOP_CHIP_1);
-			item6 = new ItemStack(TFBlocks.MACHINE_CHASSIS);
-			item7 = itemnull;
-			item8 = new ItemStack(TFItems.PARTS, 1, 1);
-			item9 = itemnull;
-			break;
-        case 4:
-        	item0 = new ItemStack(TFItems.BOX_SHOT);
-        	item1 = itemnull;
-        	item2 = itemnull;
-        	item3 = itemnull;
-			item4 = new ItemStack(Items.PAPER);
-			item5 = new ItemStack(Items.GUNPOWDER);
-			item6 = new ItemStack(Items.IRON_INGOT);
-			item7 = itemnull;
-			item8 = itemnull;
-			item9 = itemnull;
-			break;
-        case 5:
-        	item0 = new ItemStack(TFItems.BOX_SNIPER);
-        	item1 = itemnull;
-        	item2 = itemnull;
-        	item3 = itemnull;
-			item4 = new ItemStack(Items.IRON_INGOT);
-			item5 = new ItemStack(Items.GUNPOWDER);
-			item6 = new ItemStack(Items.IRON_INGOT);
-			item7 = itemnull;
-			item8 = itemnull;
-			item9 = itemnull;
-			break;
-        case 6:
-        	item0 = new ItemStack(TFItems.BOX_GRENADE);
-        	item1 = itemnull;
-        	item2 = itemnull;
-        	item3 = itemnull;
-			item4 = new ItemStack(Items.IRON_INGOT);
-			item5 = new ItemStack(Items.IRON_INGOT);
-			item6 = new ItemStack(Items.IRON_INGOT);
-			item7 = itemnull;
-			item8 = itemnull;
-			item9 = itemnull;
-			break;
-        case 7:
-        	item0 = new ItemStack(Items.IRON_INGOT);
-        	item1 = itemnull;
-			item2 = new ItemStack(Items.IRON_INGOT);
-			item3 = itemnull;
-			item4 = new ItemStack(Items.IRON_INGOT);
-			item5 = itemnull;
-			item6 = new ItemStack(Items.IRON_INGOT);
-			item7 = itemnull;
-			item8 = new ItemStack(Items.IRON_INGOT);
-			item9 = itemnull;
-			break;
-        case 8:
-        	item0 = new ItemStack(Items.IRON_INGOT);
-        	item1 = itemnull;
-			item2 = new ItemStack(Items.GOLD_INGOT);
-			item3 = itemnull;
-			item4 = new ItemStack(Items.GOLD_INGOT);
-			item5 = itemnull;
-			item6 = new ItemStack(Items.GOLD_INGOT);
-			item7 = itemnull;
-			item8 = new ItemStack(Items.GOLD_INGOT);
-			item9 = itemnull;
-			break;
-        }
-
-		itemRender.renderItemAndEffectIntoGUI(item0, x + 202, y + 17);
-
-        itemRender.renderItemAndEffectIntoGUI(item1, x + 184, y + 57);
-        itemRender.renderItemAndEffectIntoGUI(item2, x + 202, y + 57);
-        itemRender.renderItemAndEffectIntoGUI(item3, x + 220, y + 57);
-
-        itemRender.renderItemAndEffectIntoGUI(item4, x + 184, y + 75);
-        itemRender.renderItemAndEffectIntoGUI(item5, x + 202, y + 75);
-        itemRender.renderItemAndEffectIntoGUI(item6, x + 220, y + 75);
-
-        itemRender.renderItemAndEffectIntoGUI(item7, x + 184, y + 93);
-        itemRender.renderItemAndEffectIntoGUI(item8, x + 202, y + 93);
-        itemRender.renderItemAndEffectIntoGUI(item9, x + 220, y + 93);
-		itemRender.zLevel = 0.0F;
+        RenderHelper.enableGUIStandardItemLighting();
+        GL11.glDisable(GL11.GL_LIGHTING);
+        GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+        GL11.glEnable(GL11.GL_COLOR_MATERIAL);
 		//GL11.glPopMatrix();
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glEnable(GL11.GL_DEPTH_TEST);
         RenderHelper.enableStandardItemLighting();
-
-
-//        if (item0 != null && this.func_146978_c(32, 32, 16, 16, xMouse, yMouse))
-//        {
-//            this.renderToolTip(item0, xMouse, yMouse);
-//        }
-//
-//        if (item5 != null && this.func_146978_c(32, 96, 16, 16, xMouse, yMouse))
-//        {
-//            this.renderToolTip(item5, xMouse, yMouse);
-//        }
 	}
 
-    @Override
-	public void drawScreen(int x, int y, float par3)
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks)
 	{
 		this.drawDefaultBackground();
-		super.drawScreen(x, y, par3);
-		this.renderHoveredToolTip(x, y);
+		super.drawScreen(mouseX, mouseY, partialTicks);
 
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		RenderHelper.enableGUIStandardItemLighting();
-        this.mc.getTextureManager().bindTexture(craftingTableGuiTextures);
-        int x1 = (this.width  - this.xSize) / 2;
-		int y1 = (this.height - this.ySize) / 2;
+		int originPosX = (this.width - this.xSize) / 2;
+		int originPosY = (this.height - this.ySize) / 2;
 
-        RenderHelper.enableStandardItemLighting();
+		ItemStack[] stackResult = {null};
+		ItemStack[] stackRecipe = null;
+
+		int index = this.currentRecipeIndex;
+
+		switch (index)
+		  {
+		  	case 0:
+		  		stackResult = new ItemStack[] { new ItemStack(TFItems.SPAWNFM, 1, 4)};
+		  		stackRecipe = new ItemStack[]
+		  			{
+		  				ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY,
+		  				new ItemStack(TFBlocks.MACHINE_CHASSIS), new ItemStack(TFItems.PARTS, 1, 1), new ItemStack(TFBlocks.MACHINE_CHASSIS),
+		  				ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY
+		  			};
+		  		break;
+		  	case 1:
+		  		stackResult = new ItemStack[] { new ItemStack(TFItems.SPAWNFM, 1, 0)};
+		  		stackRecipe = new ItemStack[]
+		  			{
+		  				ItemStack.EMPTY, new ItemStack(TFItems.PARTS, 1, 2), ItemStack.EMPTY,
+		  				new ItemStack(TFBlocks.MACHINE_CHASSIS), new ItemStack(TFItems.DEVELOP_CHIP_0), new ItemStack(TFBlocks.MACHINE_CHASSIS),
+		  				ItemStack.EMPTY, new ItemStack(TFItems.PARTS, 1, 0), ItemStack.EMPTY
+		  			};
+		  		break;
+		      case 2:
+		    		stackResult = new ItemStack[] { new ItemStack(TFItems.SPAWNFM, 1, 1), new ItemStack(TFItems.SPAWNFM, 1, 2), new ItemStack(TFItems.SPAWNFM, 1, 3)};
+		      		stackRecipe = new ItemStack[]
+		      			{
+		      				ItemStack.EMPTY, new ItemStack(TFItems.PARTS, 1, 2), ItemStack.EMPTY,
+		      				new ItemStack(TFBlocks.MACHINE_CHASSIS), new ItemStack(TFItems.DEVELOP_CHIP_0), new ItemStack(TFBlocks.MACHINE_CHASSIS),
+		      				ItemStack.EMPTY, new ItemStack(TFItems.PARTS, 1, 1), ItemStack.EMPTY
+		      			};
+				break;
+		        case 3:
+		    		stackResult = new ItemStack[] { new ItemStack(TFItems.SPAWNFM, 1, 5),  new ItemStack(TFItems.SPAWNFM, 1, 6),  new ItemStack(TFItems.SPAWNFM, 1, 7),  new ItemStack(TFItems.SPAWNFM, 1, 8)};
+		      		stackRecipe = new ItemStack[]
+		      			{
+		      				ItemStack.EMPTY, new ItemStack(TFItems.PARTS, 1, 4), ItemStack.EMPTY,
+		      				new ItemStack(TFBlocks.MACHINE_CHASSIS), new ItemStack(TFItems.DEVELOP_CHIP_1), new ItemStack(TFBlocks.MACHINE_CHASSIS),
+		      				ItemStack.EMPTY, new ItemStack(TFItems.PARTS, 1, 1), ItemStack.EMPTY
+		      			};
+				break;
+		        case 4:
+		    		stackResult = new ItemStack[] { new ItemStack(TFItems.BOX_SHOT)};
+		      		stackRecipe = new ItemStack[]
+		      			{
+		      				ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY,
+		      				new ItemStack(Items.PAPER), new ItemStack(Items.GUNPOWDER), new ItemStack(Items.IRON_INGOT),
+		      				ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY
+		      			};
+				break;
+		        case 5:
+		    		stackResult = new ItemStack[] { new ItemStack(TFItems.BOX_SNIPER)};
+		      		stackRecipe = new ItemStack[]
+		      			{
+		      				ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY,
+		      				new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GUNPOWDER), new ItemStack(Items.IRON_INGOT),
+		      				ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY
+		      			};
+				break;
+		        case 6:
+		    		stackResult = new ItemStack[] { new ItemStack(TFItems.BOX_GRENADE)};
+		      		stackRecipe = new ItemStack[]
+		      			{
+		      				ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY,
+		      				new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT),
+		      				ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY
+		      			};
+				break;
+		  }
+
+		for(int slot = 0; slot < stackResult.length; slot++)
+		{
+			this.drawItem(mouseX, mouseY, partialTicks, stackResult[changeSlot % (stackResult.length)], 202, 17);
+			this.renderToolTip(mouseX, mouseY, partialTicks, stackResult[changeSlot % (stackResult.length)], 202, 17);
+		}
+
+		for(int slot = 0; slot < stackRecipe.length; slot++)
+		{
+			if(!stackRecipe[slot].isEmpty())
+			{
+				int heightX = 184;
+				int heightY = 57;
+				if(slot < 3){}
+				else if(slot < 6)
+				{
+					heightY += 18;
+				}
+				else
+				{
+					heightY += 36;
+				}
+				this.drawItem(mouseX, mouseY, partialTicks, stackRecipe[slot], heightX + ((slot % 3) * 18), heightY);
+			}
+		}
+		for(int slot = 0; slot < stackRecipe.length; slot++)
+		{
+			if(!stackRecipe[slot].isEmpty())
+			{
+				int heightX = 184;
+				int heightY = 57;
+				if(slot < 3){}
+				else if(slot < 6)
+				{
+					heightY += 18;
+				}
+				else
+				{
+					heightY += 36;
+				}
+				this.renderToolTip(mouseX, mouseY, partialTicks, stackRecipe[slot], heightX + ((slot % 3) * 18), heightY);
+			}
+		}
+
+		this.renderHoveredToolTip(mouseX, mouseY);
+	}
+
+	private void drawItem(int mouseX, int mouseY, float partialTicks, ItemStack stack, int x, int y)
+	{
+		int originPosX = (this.width - this.xSize) / 2;
+		int originPosY = (this.height - this.ySize) / 2;
+
+		itemRender.renderItemAndEffectIntoGUI(stack, originPosX + x, originPosY + y);
+	}
+
+	private void renderToolTip(int mouseX, int mouseY, float partialTicks, ItemStack stack, int x, int y)
+	{
+		if (this.isPointInRegion(x, y, 16, 16, mouseX, mouseY))
+		{
+			this.renderToolTip(stack, mouseX, mouseY);
+		}
 	}
 
 	   @SideOnly(Side.CLIENT)

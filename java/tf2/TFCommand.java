@@ -188,12 +188,8 @@ public class TFCommand extends CommandBase
 	            			{
 	            		TF2Core.config.getCategory("all").get("tf.config.tier3").set(args[1]);
 	            		TF2Core.syncConfig();
-<<<<<<< HEAD
 	            		notifyCommandListener(sender, this, "tf.commands.tier.success", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier3});
-=======
-	            		notifyCommandListener(sender, this, "tf.commands.success", new Object[] {s, TF2Core.CONFIG.spawnMobTFtier3});
 	            		TFWorldConfigManager.saveWorldConfigFile(world);
->>>>>>> 3b9cab46dc0aa78bedea42855070cdc819b942f3
 	            	}
 	            	else
 	            	{
