@@ -6,8 +6,8 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "tf2:rigidoplate",
-                    "weight": 15,
+                    "name": "tf2:techparts",
+                    "weight": 5,
                     "functions": [
                         {
                             "function": "set_count",
@@ -27,8 +27,8 @@
                 },
                 {
                     "type": "item",
-                    "name": "tf2:mechaparts",
-                    "weight": 5,
+                    "name": "tf2:scrap_rubber",
+                    "weight": 10,
                     "functions": [
                         {
                             "function": "set_count",
@@ -55,13 +55,27 @@
                 {
                     "type": "item",
                     "name": "tf2:reimetal",
-                    "weight": 1,
+                    "weight": 10,
                     "functions": [
                         {
                             "function": "set_count",
                             "count": {
-                                "min": 0,
-                                "max": 1
+                                "min": 1,
+                                "max": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "tf2:flamfragment",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 4
                             }
                         }
                     ]

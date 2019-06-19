@@ -61,7 +61,7 @@ public class TFAnvilEvent
 				{
 					int level = tag2.getInteger("tf.level");
 
-					if (3 <= level && level < 7)
+					if (3 <= level && level < 6)
 					{
 						ItemStack next = new ItemStack(left.getItem());
 						tag.setInteger("tf.level", level + 1);
@@ -82,7 +82,7 @@ public class TFAnvilEvent
 				{
 					int level = tag2.getInteger("tf.level");
 
-					if (7 <= level && level < 10)
+					if (6 <= level && level < 10)
 					{
 						ItemStack next = new ItemStack(left.getItem());
 						tag.setInteger("tf.level", level + 1);
@@ -138,7 +138,7 @@ public class TFAnvilEvent
 				{
 					int level = tag2.getInteger("tf.level");
 
-					if (3 <= level && level < 7)
+					if (3 <= level && level < 6)
 					{
 						ItemStack next = new ItemStack(left.getItem());
 						tag.setInteger("tf.level", level + 1);
@@ -159,7 +159,7 @@ public class TFAnvilEvent
 				{
 					int level = tag2.getInteger("tf.level");
 
-					if (7 <= level && level < 10)
+					if (6 <= level && level < 10)
 					{
 						ItemStack next = new ItemStack(left.getItem());
 						tag.setInteger("tf.level", level + 1);

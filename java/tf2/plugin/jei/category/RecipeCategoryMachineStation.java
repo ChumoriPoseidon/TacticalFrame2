@@ -39,7 +39,7 @@ public class RecipeCategoryMachineStation implements IRecipeCategory<IRecipeWrap
 	public RecipeCategoryMachineStation(IGuiHelper guiHelper) {
 
 		this.background = guiHelper.createDrawable(this.backgroundLocation, 0, 60, 116, 54);
-		this.localizedName = I18n.format("gui.jei.category.machine", new Object[0]);
+		this.localizedName = I18n.format("gui.machinestation", new Object[0]);
 		this.craftingGridHelper = guiHelper.createCraftingGridHelper(inputSlot, outputSlot);
 	}
 

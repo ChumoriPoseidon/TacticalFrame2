@@ -45,10 +45,10 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 		super.initEntityAI();
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIFollowFriendMecha(this, 1.0D, 5.0F, 2.0F));
-//		this.tasks.addTask(2, new EntityAIWanderFriendMecha(this, 1.0D));
+		//		this.tasks.addTask(2, new EntityAIWanderFriendMecha(this, 1.0D));
 		this.tasks.addTask(2, new EntityAITurretAttackRanged(this, 1.0D, 1, 50.0F));
 		this.tasks.addTask(3, new EntityFriendMecha.EntityAILookAtAccessPlayer(this));
-//		this.tasks.addTask(4, new EntityAILookIdle(this));
+		//		this.tasks.addTask(4, new EntityAILookIdle(this));
 		this.targetTasks.addTask(2, new EntityAINearestAttackbleTargetFriend(this, 10, true));
 	}
 
@@ -97,7 +97,15 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 
 			EntityFriendMortar bullet = new EntityFriendMortar(this.world, this);
 			bullet.setDamage(bullet.getDamage() + this.getMechaATK());
-			bullet.setSpread(3D);
+
+			if (this.getMechaLevel() >= 40)
+			{
+				bullet.setSpread(6D);
+			}
+			else
+			{
+				bullet.setSpread(3D);
+			}
 			bullet.posY = this.posY + this.height * 2;
 			bullet.setRange(f2);
 			bullet.shoot(var3, 50F, var5, 1.75F, 4.0F);
@@ -105,14 +113,6 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 			this.world.spawnEntity(bullet);
 
 			this.playSound(TFSoundEvents.BAZOOKA, 2.3F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-
-			//			EntityEnemyMortar var7 = new EntityEnemyMortar(this.world, this);
-			//			var7.setDamage(var7.getDamage() + 14.0D);
-			//			var7.posX = var1.posX;
-			//			var7.posZ = var1.posZ;
-			//			var7.posY = var1.posY + 0.5F;
-			//			var7.shoot(var3, -1F, var5, 0.05F, 1.0F);
-			//			this.world.spawnEntity(var7);
 		}
 	}
 
@@ -123,23 +123,23 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 	@Override
 	public ItemStack getSkillUnique()
 	{
-//		if (this.getMechaLevel() >= 20)
-//		{
-//			return new ItemStack(TFItems.SKILL_SELFHEALING);
-//		}
+		//		if (this.getMechaLevel() >= 20)
+		//		{
+		//			return new ItemStack(TFItems.SKILL_SELFHEALING);
+		//		}
 		return null;
 	}
 
 	@Override
 	public void onLivingUpdate()
 	{
-//		if (this.getMechaLevel() >= 20)
-//		{
-//			if (this.ticksExisted % 200 == 0 && !this.world.isRemote)
-//			{
-//				this.heal(1F);
-//			}
-//		}
+		//		if (this.getMechaLevel() >= 20)
+		//		{
+		//			if (this.ticksExisted % 200 == 0 && !this.world.isRemote)
+		//			{
+		//				this.heal(1F);
+		//			}
+		//		}
 		super.onLivingUpdate();
 	}
 
@@ -148,26 +148,26 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 	{
 		this.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		super.isUpLevel();
-//		if (this.getMechaLevel() == 20)
-//		{
-//			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
-//			ItemStack stack = new ItemStack(TFItems.SKILL_SELFHEALING);
-//
-//			ITextComponent text = new TextComponentString("[");
-//			text.getStyle().setColor(TextFormatting.GREEN);
-//			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
-//
-//			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
-//			text.appendSibling(itemName);
-//			text.appendText("]");
-//
-//			String skillText = "skill.get";
-//
-//			if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
-//			{
-//				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
-//			}
-//		}
+		//		if (this.getMechaLevel() == 20)
+		//		{
+		//			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
+		//			ItemStack stack = new ItemStack(TFItems.SKILL_SELFHEALING);
+		//
+		//			ITextComponent text = new TextComponentString("[");
+		//			text.getStyle().setColor(TextFormatting.GREEN);
+		//			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
+		//
+		//			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
+		//			text.appendSibling(itemName);
+		//			text.appendText("]");
+		//
+		//			String skillText = "skill.get";
+		//
+		//			if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
+		//			{
+		//				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
+		//			}
+		//		}
 
 		if (this.getMechaLevel() == 20)
 		{

@@ -245,7 +245,7 @@ public class ItemTFGunsLMG extends ItemTFGuns implements IHasModel
 		double i = this.damage(stack);
 		int x = this.getMaxDamage(stack);
 		double y = this.reloadTime(stack) / 20;
-		double w = this.recoil + this.recoilrand;
+		float w = this.recoil + this.recoilrand;
 		byte z = this.getCycleCount(stack);
 
 		tooltip.add(ChatFormatting.BLUE + I18n.translateToLocal(" ") + (i) + " " + I18n.translateToLocal("tf.bulletdamage"));

@@ -42,7 +42,7 @@ public class RecipeCategoryCokeOven<RecipeWrapperCokeOven> implements IRecipeCat
 		this.arrow = guiHelper.createAnimatedDrawable(arrowDrawable, 300, IDrawableAnimated.StartDirection.LEFT, false);
 
 		this.background = guiHelper.createDrawable(this.backgroundLocation, 16, 20, 144, 76);
-		this.localizedName = I18n.format("gui.jei.category.cokeoven", new Object[0]);
+		this.localizedName = I18n.format("gui.cokeoven", new Object[0]);
 	}
 
 	@Override

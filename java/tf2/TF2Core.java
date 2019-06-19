@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,11 +38,21 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkCheckHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.client.GunRenderSetup;
 import tf2.common.PacketHandler;
+import tf2.entity.mob.enemy.EntityTM04;
+import tf2.entity.mob.enemy.EntityTM05;
+import tf2.entity.mob.enemy.EntityTM07;
+import tf2.entity.mob.enemy.EntityTM11;
+import tf2.entity.mob.enemy.EntityTM12;
+import tf2.entity.mob.enemy.EntityTM26A;
+import tf2.entity.mob.enemy.EntityTM26B;
+import tf2.entity.mob.enemy.EntityTM26C;
+import tf2.entity.mob.enemy.EntityTM41;
 import tf2.event.EventGunRender;
 import tf2.event.EventWorldGen;
 import tf2.event.KeyEvent;
@@ -70,6 +81,7 @@ import tf2.util.CreativeTabsTFMain;
 import tf2.util.CreativeTabsTFSkills;
 import tf2.util.Reference;
 import tf2.util.RegistryHandler;
+import tf2.util.TFAdvancements;
 import tf2.util.TFWorldConfigManager;
 
 @Mod(modid = Reference.MOD_ID, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, name = Reference.NAME /*, guiFactory = "tf.client.gui.TFGuiFactory"*/)
@@ -113,14 +125,18 @@ public class TF2Core {
 
 	public static final ResourceLocation ENTITIES_TM04 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm04"));
 	public static final ResourceLocation ENTITIES_TM05 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm05"));
+	public static final ResourceLocation ENTITIES_TM06 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm06"));
 	public static final ResourceLocation ENTITIES_TM07 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm07"));
 	public static final ResourceLocation ENTITIES_TM11 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm11"));
+	public static final ResourceLocation ENTITIES_TM12 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm12"));
 	public static final ResourceLocation ENTITIES_TM18 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm18"));
 	public static final ResourceLocation ENTITIES_TM22 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm22"));
 	public static final ResourceLocation ENTITIES_TM26 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm26"));
+	public static final ResourceLocation ENTITIES_TM26D = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm26d"));
 	public static final ResourceLocation ENTITIES_TM31 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm31"));
 	public static final ResourceLocation ENTITIES_TM33 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm33"));
 	public static final ResourceLocation ENTITIES_TM34 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm34"));
+	public static final ResourceLocation ENTITIES_TM41 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tm41"));
 	public static final ResourceLocation ENTITIES_TF08 = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "entities/tf08"));
 
 	@Mod.EventHandler
@@ -240,7 +256,7 @@ public class TF2Core {
 	public void init(FMLInitializationEvent event)
 	{
 		this.addRecipe();
-		//TFRecipes.initRecipes();
+		TFAdvancements.init();
 
 		GameRegistry.registerTileEntity(TileEntityCupola.class, "tf2:tile.cupola");
 		GameRegistry.registerTileEntity(TileEntityCokeOven.class, "tf2:tile.cokeoven");
@@ -281,19 +297,17 @@ public class TF2Core {
 		{
 			if (biome != null && isSpawnableBiomeType(biome))
 			{
-//				EntityRegistry.addSpawn(EntityTM04.class, TFCore.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
-//				EntityRegistry.addSpawn(EntityTM05.class, TFCore.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
-//				EntityRegistry.addSpawn(EntityTM07.class, TFCore.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
-//				EntityRegistry.addSpawn(EntityTM11.class, TFCore.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
-//
-//				EntityRegistry.addSpawn(EntityTM26A.class, TFCore.CONFIG.spawnRatetier2, 1, 5, EnumCreatureType.MONSTER, biome);
-//				EntityRegistry.addSpawn(EntityTM26B.class, TFCore.CONFIG.spawnRatetier2, 1, 5, EnumCreatureType.MONSTER, biome);
-//				EntityRegistry.addSpawn(EntityTM26C.class, TFCore.CONFIG.spawnRatetier2, 1, 5, EnumCreatureType.MONSTER, biome);
-//				EntityRegistry.addSpawn(EntityTM12.class, TFCore.CONFIG.spawnRatetier2, 1, 2, EnumCreatureType.MONSTER, biome);
-//
-//				EntityRegistry.addSpawn(EntityTF08A.class, TFCore.CONFIG.spawnRatetier3, 1, 2, EnumCreatureType.MONSTER, biome);
-//				EntityRegistry.addSpawn(EntityTF08B.class, TFCore.CONFIG.spawnRatetier3, 1, 2, EnumCreatureType.MONSTER, biome);
-//				EntityRegistry.addSpawn(EntityTF08C.class, TFCore.CONFIG.spawnRatetier3, 1, 2, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EntityTM04.class, TF2Core.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EntityTM05.class, TF2Core.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EntityTM07.class, TF2Core.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EntityTM11.class, TF2Core.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
+
+				EntityRegistry.addSpawn(EntityTM26A.class, TF2Core.CONFIG.spawnRatetier2, 1, 5, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EntityTM26B.class, TF2Core.CONFIG.spawnRatetier2, 1, 5, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EntityTM26C.class, TF2Core.CONFIG.spawnRatetier2, 1, 5, EnumCreatureType.MONSTER, biome);
+				EntityRegistry.addSpawn(EntityTM12.class, TF2Core.CONFIG.spawnRatetier2, 1, 2, EnumCreatureType.MONSTER, biome);
+
+				EntityRegistry.addSpawn(EntityTM41.class, TF2Core.CONFIG.spawnRatetier3, 1, 2, EnumCreatureType.MONSTER, biome);
 			}
 		}
 		for (Biome biome : Biome.REGISTRY)

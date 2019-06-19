@@ -39,7 +39,7 @@ public class RecipeCategorySynthesizer<RecipeWrapperSynthesizer> implements IRec
 		this.arrow = guiHelper.createAnimatedDrawable(arrowDrawable, 200, IDrawableAnimated.StartDirection.LEFT, false);
 
 		this.background = guiHelper.createDrawable(this.backgroundLocation, 36, 16, 112, 54);
-		this.localizedName = I18n.format("gui.jei.category.synthesizer", new Object[0]);
+		this.localizedName = I18n.format("gui.synthesizer", new Object[0]);
 	}
 
 	@Override

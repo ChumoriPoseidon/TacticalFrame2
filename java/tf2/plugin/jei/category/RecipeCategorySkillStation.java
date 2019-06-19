@@ -39,7 +39,7 @@ public class RecipeCategorySkillStation implements IRecipeCategory<IRecipeWrappe
 	public RecipeCategorySkillStation(IGuiHelper guiHelper) {
 
 		this.background = guiHelper.createDrawable(this.backgroundLocation, 0, 60, 116, 54);
-		this.localizedName = I18n.format("gui.jei.category.skill", new Object[0]);
+		this.localizedName = I18n.format("gui.skill", new Object[0]);
 		this.craftingGridHelper = guiHelper.createCraftingGridHelper(inputSlot, outputSlot);
 	}
 

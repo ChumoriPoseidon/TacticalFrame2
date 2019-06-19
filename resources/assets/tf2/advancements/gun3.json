@@ -8,7 +8,8 @@
 		},
 		"description": {
 			"translate": "advancement.craftGuns3.desc"
-		}
+		},
+		"frame": "goal"
 	},
 	"parent": "tf2:gun2",
     "criteria": {
@@ -71,5 +72,8 @@
             "4",
             "5"
         ]
-    ]
+    ],
+    "rewards": {
+        "loot": ["tf2:reward/developchip_1"]
+    }
 }

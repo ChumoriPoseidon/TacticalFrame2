@@ -291,5 +291,8 @@
             "24",
             "25"
         ]
-    ]
+    ],
+    "rewards": {
+        "loot": ["tf2:reward/developchip_0"]
+    }
 }

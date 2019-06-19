@@ -52,5 +52,8 @@
             "tm26b",
             "tm26c"
         ]
-    ]
+    ],
+    "rewards": {
+        "loot": ["tf2:reward/developchip_1"]
+    }
 }

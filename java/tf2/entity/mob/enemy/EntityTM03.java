@@ -66,7 +66,7 @@ public class EntityTM03 extends EntityMobTF implements IRangedAttackMob
 	    @Nullable
 	    protected ResourceLocation getLootTable()
 	    {
-	        return TF2Core.ENTITIES_TM33;
+	        return TF2Core.ENTITIES_TM12;
 	    }
 
 	    @Override
