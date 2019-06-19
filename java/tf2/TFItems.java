@@ -220,6 +220,7 @@ public class TFItems
 	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", false);
 	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", false);
 	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", false);
+	public static final Item SKILL_RESURRECTION =  new ItemMechaSkillBase("resurrection", false);
 
 	public static final Item SKILL_WIDESPREAD = new ItemMechaSkillBase("widespread", true);
 	public static final Item SKILL_SELFHEALING = new ItemMechaSkillBase("selfhealing", true);
