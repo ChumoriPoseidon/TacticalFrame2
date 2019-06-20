@@ -1,0 +1,25 @@
+{
+    "display": {
+        "icon": {
+            "item": "tf2:armedform_gamma"
+        },
+        "title": {
+            "translate": "advancement.gynoid"
+        },
+        "description": {
+            "translate": "advancement.gynoid.desc"
+        }
+    },
+    "parent": "tf2:friendmecha",
+    "criteria": {
+        "ingot": {
+            "trigger": "tf2:summon_gynoid",
+             "conditions": {
+                "items": [{"item": "tf2:spawncore_fm"}]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": []
+    }
+}
