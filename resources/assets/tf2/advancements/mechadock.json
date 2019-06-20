@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "tf2:mechadock"
+        },
+        "title": {
+            "translate": "advancement.mechadock"
+        },
+        "description": {
+            "translate": "advancement.mechadock.desc"
+        },
+        "frame": "goal"
+    },
+    "parent": "tf2:cupola",
+    "criteria": {
+        "craft": {
+            "trigger": "minecraft:inventory_changed",
+             "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:mechadock"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": []
+    }
+}
