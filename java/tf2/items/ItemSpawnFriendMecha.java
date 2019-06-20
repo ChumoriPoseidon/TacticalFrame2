@@ -146,6 +146,16 @@ public class ItemSpawnFriendMecha extends ItemBase
                 }
             }
 
+//            TFAdvancements.SUMMON_FRIENDMECHA.trigger((EntityPlayerMP) playerIn);
+//            if(entity instanceof EntityGynoid)
+//            {
+//            	TFAdvancements.SUMMON_GYNOID.trigger((EntityPlayerMP) playerIn);
+//            }
+//            if(entity instanceof EntityMobCF)
+//            {
+//            	TFAdvancements.SUMMON_RIDEMECHA.trigger((EntityPlayerMP) playerIn);
+//            }
+
             return EnumActionResult.SUCCESS;
         }
     }

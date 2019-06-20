@@ -602,6 +602,7 @@ skill.hotbar=In hotbar slots
 skill.inventory=In top slots of inventory
 skill.mechaskill=Mecha Generic Skill
 skill.mechaskill_unique=Mecha Unique Skill
+skill.mechaskill_consume=Mecha Consume Skill
 skill.arskill1=After reloading a assault rifle,
 skill.arskill2=add Vulnerability II(0:05) to first bullet
 skill.sgskill1=When equipped with a shotgun on the main hand,

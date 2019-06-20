@@ -4,14 +4,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import tf2.TFItems;
+import tf2.TFSoundEvents;
 import tf2.entity.EntityItemSpawnFriendMecha;
 import tf2.entity.mob.frend.EntityFriendMecha;
 import tf2.potion.TFPotionPlus;
@@ -140,6 +143,37 @@ public class TFMechaSkillEvent
 				{
 					amount *= 2.0F;
 					event.setAmount(amount);
+				}
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public void onLivingDeathEvent(LivingDeathEvent event)
+	{
+		EntityLivingBase entity = event.getEntityLiving();
+		if (entity instanceof EntityFriendMecha)
+		{
+			EntityFriendMecha mecha = (EntityFriendMecha) entity;
+			if (mecha != null)
+			{
+				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_RESURRECTION))
+				{
+	    			if(mecha.getInventoryMechaEquipment().getSkillAItem().getItem() == TFItems.SKILL_RESURRECTION)
+	    			{
+	    				mecha.getInventoryMechaEquipment().setSkillAItem(ItemStack.EMPTY);
+	    			}
+	    			else if(mecha.getInventoryMechaEquipment().getSkillBItem().getItem() == TFItems.SKILL_RESURRECTION)
+	    			{
+	    				mecha.getInventoryMechaEquipment().setSkillBItem(ItemStack.EMPTY);
+	    			}
+	    			else if(mecha.getInventoryMechaEquipment().getSkillCItem().getItem() == TFItems.SKILL_RESURRECTION)
+	    			{
+	    				mecha.getInventoryMechaEquipment().setSkillCItem(ItemStack.EMPTY);
+	    			}
+	    			mecha.playSound(TFSoundEvents.DECISION, 0.7F, 1.0F / (mecha.getRNG().nextFloat() * 0.4F + 0.8F));
+	    			mecha.setHealth(mecha.getMaxHealth());
+					event.setCanceled(true);
 				}
 			}
 		}

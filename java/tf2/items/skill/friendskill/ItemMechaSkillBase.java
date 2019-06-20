@@ -18,11 +18,11 @@ import tf2.items.skill.ItemSkillBase;
 
 public class ItemMechaSkillBase  extends ItemSkillBase
 {
-	private final boolean uniqueSkill;
-	public ItemMechaSkillBase(String name, boolean uniqueSkillIn)
+	private final EnumFriendSkillType skillType;
+	public ItemMechaSkillBase(String name, EnumFriendSkillType type)
 	{
 		super(name);
-		this.uniqueSkill = uniqueSkillIn;
+		this.skillType = type;
 	}
 
 	@Override
@@ -38,10 +38,12 @@ public class ItemMechaSkillBase  extends ItemSkillBase
 		}
 		else
 		{
-			if(!this.uniqueSkill)
-				tooltip.add(TextFormatting.AQUA + " " + I18n.translateToLocal("skill.mechaskill"));
-			else
-				tooltip.add(TextFormatting.AQUA + " " + I18n.translateToLocal("skill.mechaskill_unique"));
+			switch(this.skillType)
+			{
+				case UNIQUE: tooltip.add(TextFormatting.AQUA + " " + I18n.translateToLocal("skill.mechaskill_unique")); break;
+				case COMMON: tooltip.add(TextFormatting.AQUA + " " + I18n.translateToLocal("skill.mechaskill")); break;
+				case CONSUME: tooltip.add(TextFormatting.AQUA + " " + I18n.translateToLocal("skill.mechaskill_consume")); break;
+			}
 
 			tooltip.add(TextFormatting.ITALIC + I18n.translateToLocal("LShift: Expand tooltip."));
 		}
@@ -54,6 +56,13 @@ public class ItemMechaSkillBase  extends ItemSkillBase
      */
     public EnumRarity getRarity(ItemStack stack)
     {
-        return this.uniqueSkill ? EnumRarity.UNCOMMON : EnumRarity.COMMON;
+        return this.skillType == EnumFriendSkillType.UNIQUE ? EnumRarity.UNCOMMON : EnumRarity.COMMON;
+    }
+
+    public static enum EnumFriendSkillType
+    {
+    	UNIQUE,
+    	COMMON,
+    	CONSUME
     }
 }
