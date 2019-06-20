@@ -6,6 +6,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import tf2.entity.mob.frend.EntityFriendMecha;
 import tf2.items.skill.ItemSkillBase;
+import tf2.items.skill.friendskill.ItemMechaSkillBase;
 
 public class ContainerFriendMechaInventory  extends Container
 {
@@ -38,7 +39,12 @@ public class ContainerFriendMechaInventory  extends Container
 						@Override
 						public boolean isItemValid(ItemStack stack)
 						{
-							if (stack.getItem() instanceof ItemSkillBase)
+							if(stack.getItem() == entityMecha.getInventoryMechaEquipment().getSkillBItem().getItem() || stack.getItem() == entityMecha.getInventoryMechaEquipment().getSkillBItem().getItem())
+							{
+								return false;
+							}
+
+							if (stack.getItem() instanceof ItemMechaSkillBase)
 							{
 								return entityPlayer == entityMecha.getOwner() ? true : false;
 							}
@@ -60,7 +66,12 @@ public class ContainerFriendMechaInventory  extends Container
 						@Override
 						public boolean isItemValid(ItemStack stack)
 						{
-							if (stack.getItem() instanceof ItemSkillBase)
+							if(stack.getItem() == entityMecha.getInventoryMechaEquipment().getSkillAItem().getItem() || stack.getItem() == entityMecha.getInventoryMechaEquipment().getSkillCItem().getItem())
+							{
+								return false;
+							}
+
+							if (stack.getItem() instanceof ItemMechaSkillBase)
 							{
 								return entityPlayer == entityMecha.getOwner() ? true : false;
 							}
@@ -82,7 +93,12 @@ public class ContainerFriendMechaInventory  extends Container
 						@Override
 						public boolean isItemValid(ItemStack stack)
 						{
-							if (stack.getItem() instanceof ItemSkillBase)
+							if(stack.getItem() == entityMecha.getInventoryMechaEquipment().getSkillAItem().getItem() || stack.getItem() == entityMecha.getInventoryMechaEquipment().getSkillBItem().getItem())
+							{
+								return false;
+							}
+
+							if (stack.getItem() instanceof ItemMechaSkillBase)
 							{
 								return entityPlayer == entityMecha.getOwner() ? true : false;
 							}

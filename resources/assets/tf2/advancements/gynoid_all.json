@@ -1,17 +1,17 @@
 {
 	"display": {
 		"icon": {
-			"item": "tf2:spawncore_fm",
-			"data": 5
+			"item": "tf2:armedform_gamma"
 		},
 		"title": {
-			"translate": "advancement.craftGynoid"
+			"translate": "advancement.craftGynoidAll"
 		},
 		"description": {
-			"translate": "advancement.craftGynoid.desc"
-		}
+			"translate": "advancement.craftGynoidAll.desc"
+		},
+        "frame": "challenge"
 	},
-	"parent": "tf2:turret",
+	"parent": "tf2:gynoid",
 	"criteria": {
 		"1": {
 			"trigger": "minecraft:inventory_changed",
@@ -46,25 +46,20 @@
 				]
 			}
 		},
-        "4": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "item": "tf2:spawncore_fm",
+		"4": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "tf2:spawncore_fm",
                         "data": 8
-                    }
-                ]
-            }
-        }
+					}
+				]
+			}
+		}
 	},
 	"requirements": [
-		[
-			"1",
-			"2",
-			"3",
-            "4"
-		]
+		["1"],["2"],["3"],["4"]
 	],
 	"rewards": {
 		"loot": [

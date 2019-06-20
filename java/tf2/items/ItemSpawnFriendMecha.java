@@ -23,7 +23,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -49,18 +48,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityFriendMecha;
-import tf2.entity.mob.frend.EntityGynoid;
 import tf2.entity.mob.frend.EntityMTT1;
 import tf2.entity.mob.frend.EntityMTT2;
 import tf2.entity.mob.frend.EntityMTT3;
 import tf2.entity.mob.frend.EntityMTT4;
-import tf2.entity.mob.frend.EntityMobCF;
 import tf2.entity.mob.frend.EntityTF77B;
 import tf2.entity.mob.frend.EntityTF78R;
 import tf2.entity.mob.frend.EntityTF79P;
 import tf2.entity.mob.frend.EntityTF80G;
 import tf2.util.Reference;
-import tf2.util.TFAdvancements;
 
 public class ItemSpawnFriendMecha extends ItemBase
 {
@@ -150,16 +146,15 @@ public class ItemSpawnFriendMecha extends ItemBase
                 }
             }
 
-            TFAdvancements.SUMMON_FRIENDMECHA.trigger((EntityPlayerMP) playerIn);
-            if(entity instanceof EntityGynoid)
-            {
-            	TFAdvancements.SUMMON_GYNOID.trigger((EntityPlayerMP) playerIn);
-            }
-            if(entity instanceof EntityMobCF)
-            {
-            	TFAdvancements.SUMMON_RIDEMECHA.trigger((EntityPlayerMP) playerIn);
-            }
-
+//            TFAdvancements.SUMMON_FRIENDMECHA.trigger((EntityPlayerMP) playerIn);
+//            if(entity instanceof EntityGynoid)
+//            {
+//            	TFAdvancements.SUMMON_GYNOID.trigger((EntityPlayerMP) playerIn);
+//            }
+//            if(entity instanceof EntityMobCF)
+//            {
+//            	TFAdvancements.SUMMON_RIDEMECHA.trigger((EntityPlayerMP) playerIn);
+//            }
 
             return EnumActionResult.SUCCESS;
         }

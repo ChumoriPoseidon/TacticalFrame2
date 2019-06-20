@@ -2,16 +2,16 @@
 	"display": {
 		"icon": {
 			"item": "tf2:spawncore_fm",
-			"data": 5
+			"data": 4
 		},
 		"title": {
-			"translate": "advancement.craftGynoid"
+			"translate": "advancement.craftTurret"
 		},
 		"description": {
-			"translate": "advancement.craftGynoid.desc"
+			"translate": "advancement.craftTurret.desc"
 		}
 	},
-	"parent": "tf2:turret",
+	"parent": "tf2:machinestation",
 	"criteria": {
 		"1": {
 			"trigger": "minecraft:inventory_changed",
@@ -19,7 +19,7 @@
 				"items": [
 					{
 						"item": "tf2:spawncore_fm",
-						"data": 5
+						"data": 1
 					}
 				]
 			}
@@ -30,7 +30,7 @@
 				"items": [
 					{
 						"item": "tf2:spawncore_fm",
-                        "data": 6
+                        "data": 2
 					}
 				]
 			}
@@ -41,34 +41,22 @@
 				"items": [
 					{
 						"item": "tf2:spawncore_fm",
-                        "data": 7
+                        "data": 3
 					}
 				]
 			}
-		},
-        "4": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "item": "tf2:spawncore_fm",
-                        "data": 8
-                    }
-                ]
-            }
-        }
+		}
 	},
 	"requirements": [
 		[
 			"1",
 			"2",
-			"3",
-            "4"
+			"3"
 		]
 	],
 	"rewards": {
 		"loot": [
-			"tf2:reward/developchip_1"
+			"tf2:reward/developchip_0"
 		]
 	}
 }
