@@ -5,10 +5,15 @@ import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import tf2.TFItems;
 import tf2.TFSoundEvents;
@@ -108,23 +113,23 @@ public class EntityMTT2 extends EntityFriendMecha implements IRangedAttackMob
 	@Override
 	public ItemStack getSkillUnique()
 	{
-//		if (this.getMechaLevel() >= 20)
-//		{
-//			return new ItemStack(TFItems.SKILL_SELFHEALING);
-//		}
+		if (this.getMechaLevel() >= 40)
+		{
+			return new ItemStack(TFItems.SKILL_SELFHEALING);
+		}
 		return null;
 	}
 
 	@Override
 	public void onLivingUpdate()
 	{
-//		if (this.getMechaLevel() >= 20)
-//		{
-//			if (this.ticksExisted % 200 == 0 && !this.world.isRemote)
-//			{
-//				this.heal(1F);
-//			}
-//		}
+		if (this.getMechaLevel() >= 40)
+		{
+			if (this.ticksExisted % 200 == 0 && !this.world.isRemote)
+			{
+				this.heal(1F);
+			}
+		}
 		super.onLivingUpdate();
 	}
 
@@ -133,26 +138,26 @@ public class EntityMTT2 extends EntityFriendMecha implements IRangedAttackMob
 	{
 		this.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		super.isUpLevel();
-//		if (this.getMechaLevel() == 20)
-//		{
-//			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
-//			ItemStack stack = new ItemStack(TFItems.SKILL_SELFHEALING);
-//
-//			ITextComponent text = new TextComponentString("[");
-//			text.getStyle().setColor(TextFormatting.GREEN);
-//			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
-//
-//			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
-//			text.appendSibling(itemName);
-//			text.appendText("]");
-//
-//			String skillText = "skill.get";
-//
-//			if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
-//			{
-//				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
-//			}
-//		}
+		if (this.getMechaLevel() == 40)
+		{
+			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
+			ItemStack stack = new ItemStack(TFItems.SKILL_SELFHEALING);
+
+			ITextComponent text = new TextComponentString("[");
+			text.getStyle().setColor(TextFormatting.GREEN);
+			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
+
+			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
+			text.appendSibling(itemName);
+			text.appendText("]");
+
+			String skillText = "skill.get";
+
+			if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
+			{
+				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
+			}
+		}
 
 		if (this.getMechaLevel() == 20)
 		{

@@ -218,11 +218,13 @@ public class TFItems
 	public static final Item SKILL_ADDITIONALARMOR_1 = new ItemMechaSkillBase("additionalarmor_1", false);
 	public static final Item SKILL_ADDITIONALARMOR_2 = new ItemMechaSkillBase("additionalarmor_2", false);
 	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", false);
+	public static final Item SKILL_ARTILLERYCOMMAND = new ItemMechaSkillBase("artillerycommand", false);
 	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", false);
 	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", false);
 
 	public static final Item SKILL_WIDESPREAD = new ItemMechaSkillBase("widespread", true);
 	public static final Item SKILL_SELFHEALING = new ItemMechaSkillBase("selfhealing", true);
+	public static final Item SKILL_SPREADCANNON = new ItemMechaSkillBase("spreadcannon", true);
 	public static final Item SKILL_ARMEDFORM_ALPHA = new ItemMechaSkillBase("armedform_alpha", true);
 	public static final Item SKILL_ARMEDFORM_BETA = new ItemMechaSkillBase("armedform_beta", true);
 	public static final Item SKILL_ARMEDFORM_GAMMA = new ItemMechaSkillBase("armedform_gamma", true);
