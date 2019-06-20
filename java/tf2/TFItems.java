@@ -60,6 +60,7 @@ import tf2.items.skill.ItemSpreadHowitzer;
 import tf2.items.skill.ItemSuppressFormation;
 import tf2.items.skill.ItemTeamWork;
 import tf2.items.skill.friendskill.ItemMechaSkillBase;
+import tf2.items.skill.friendskill.ItemMechaSkillBase.EnumFriendSkillType;
 import tf2.items.weapon.ItemCoordJump;
 import tf2.items.weapon.ItemGrenadeHe;
 
@@ -213,39 +214,24 @@ public class TFItems
 	public static final Item SKILL_BERSERKGLUED = new ItemCommandAssault("berserkglued");
 	public static final Item SKILL_SPREADHOWITZER = new ItemSpreadHowitzer("spreadhowitzer");
 
-//	public static final Item SKILL_FIREFILLING = new ItemMechaSkillBase("firefilling", EnumFriendSkillType.COMMON);
-//	public static final Item SKILL_HARDSTRIKE = new ItemMechaSkillBase("hardstrike", EnumFriendSkillType.COMMON);
-//	public static final Item SKILL_ADDITIONALARMOR_1 = new ItemMechaSkillBase("additionalarmor_1", EnumFriendSkillType.COMMON);
-//	public static final Item SKILL_ADDITIONALARMOR_2 = new ItemMechaSkillBase("additionalarmor_2", EnumFriendSkillType.COMMON);
-//	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", EnumFriendSkillType.COMMON);
-//	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", EnumFriendSkillType.COMMON);
-//	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", EnumFriendSkillType.COMMON);
-//
-//	public static final Item SKILL_RESURRECTION =  new ItemMechaSkillBase("resurrection", EnumFriendSkillType.CONSUME);
-//
-//	public static final Item SKILL_WIDESPREAD = new ItemMechaSkillBase("widespread", EnumFriendSkillType.UNIQUE);
-//	public static final Item SKILL_SELFHEALING = new ItemMechaSkillBase("selfhealing", EnumFriendSkillType.UNIQUE);
-//	public static final Item SKILL_ARMEDFORM_ALPHA = new ItemMechaSkillBase("armedform_alpha", EnumFriendSkillType.UNIQUE);
-//	public static final Item SKILL_ARMEDFORM_BETA = new ItemMechaSkillBase("armedform_beta", EnumFriendSkillType.UNIQUE);
-//	public static final Item SKILL_ARMEDFORM_GAMMA = new ItemMechaSkillBase("armedform_gamma", EnumFriendSkillType.UNIQUE);
-//	public static final Item SKILL_ARMEDFORM_DELTA = new ItemMechaSkillBase("armedform_delta", EnumFriendSkillType.UNIQUE);
+	public static final Item SKILL_FIREFILLING = new ItemMechaSkillBase("firefilling", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_HARDSTRIKE = new ItemMechaSkillBase("hardstrike", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_ADDITIONALARMOR_1 = new ItemMechaSkillBase("additionalarmor_1", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_ADDITIONALARMOR_2 = new ItemMechaSkillBase("additionalarmor_2", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_ARTILLERYCOMMAND = new ItemMechaSkillBase("artillerycommand", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", EnumFriendSkillType.COMMON);
 
-	public static final Item SKILL_FIREFILLING = new ItemMechaSkillBase("firefilling", false);
-	public static final Item SKILL_HARDSTRIKE = new ItemMechaSkillBase("hardstrike", false);
-	public static final Item SKILL_ADDITIONALARMOR_1 = new ItemMechaSkillBase("additionalarmor_1", false);
-	public static final Item SKILL_ADDITIONALARMOR_2 = new ItemMechaSkillBase("additionalarmor_2", false);
-	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", false);
-	public static final Item SKILL_ARTILLERYCOMMAND = new ItemMechaSkillBase("artillerycommand", false);
-	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", false);
-	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", false);
+	public static final Item SKILL_RESURRECTION =  new ItemMechaSkillBase("resurrection", EnumFriendSkillType.CONSUME);
 
-	public static final Item SKILL_WIDESPREAD = new ItemMechaSkillBase("widespread", true);
-	public static final Item SKILL_SELFHEALING = new ItemMechaSkillBase("selfhealing", true);
-	public static final Item SKILL_SPREADCANNON = new ItemMechaSkillBase("spreadcannon", true);
-	public static final Item SKILL_ARMEDFORM_ALPHA = new ItemMechaSkillBase("armedform_alpha", true);
-	public static final Item SKILL_ARMEDFORM_BETA = new ItemMechaSkillBase("armedform_beta", true);
-	public static final Item SKILL_ARMEDFORM_GAMMA = new ItemMechaSkillBase("armedform_gamma", true);
-	public static final Item SKILL_ARMEDFORM_DELTA = new ItemMechaSkillBase("armedform_delta", true);
+	public static final Item SKILL_SPREADCANNON = new ItemMechaSkillBase("spreadcannon", EnumFriendSkillType.UNIQUE);
+	public static final Item SKILL_WIDESPREAD = new ItemMechaSkillBase("widespread", EnumFriendSkillType.UNIQUE);
+	public static final Item SKILL_SELFHEALING = new ItemMechaSkillBase("selfhealing", EnumFriendSkillType.UNIQUE);
+	public static final Item SKILL_ARMEDFORM_ALPHA = new ItemMechaSkillBase("armedform_alpha", EnumFriendSkillType.UNIQUE);
+	public static final Item SKILL_ARMEDFORM_BETA = new ItemMechaSkillBase("armedform_beta", EnumFriendSkillType.UNIQUE);
+	public static final Item SKILL_ARMEDFORM_GAMMA = new ItemMechaSkillBase("armedform_gamma", EnumFriendSkillType.UNIQUE);
+	public static final Item SKILL_ARMEDFORM_DELTA = new ItemMechaSkillBase("armedform_delta", EnumFriendSkillType.UNIQUE);
 
 	public static final Item SPAWNFM = new ItemSpawnFriendMecha("spawncore_fm").setMaxStackSize(1);
 
