@@ -28,6 +28,9 @@
 			"tf2:reward/developchip_0"
 		],
 		"recipes": [
+			"tf2:upgrade_0",
+			"tf2:upgrade_1",
+			"tf2:upgrade_2",
 			"tf2:reinforced_iron_block",
 			"tf2:reinforced_iron_ingot",
 			"tf2:reinforced_iron_sword",

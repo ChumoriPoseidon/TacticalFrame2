@@ -219,11 +219,13 @@ public class TFItems
 	public static final Item SKILL_ADDITIONALARMOR_1 = new ItemMechaSkillBase("additionalarmor_1", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_2 = new ItemMechaSkillBase("additionalarmor_2", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_ARTILLERYCOMMAND = new ItemMechaSkillBase("artillerycommand", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", EnumFriendSkillType.COMMON);
 
 	public static final Item SKILL_RESURRECTION =  new ItemMechaSkillBase("resurrection", EnumFriendSkillType.CONSUME);
 
+	public static final Item SKILL_SPREADCANNON = new ItemMechaSkillBase("spreadcannon", EnumFriendSkillType.UNIQUE);
 	public static final Item SKILL_WIDESPREAD = new ItemMechaSkillBase("widespread", EnumFriendSkillType.UNIQUE);
 	public static final Item SKILL_SELFHEALING = new ItemMechaSkillBase("selfhealing", EnumFriendSkillType.UNIQUE);
 	public static final Item SKILL_ARMEDFORM_ALPHA = new ItemMechaSkillBase("armedform_alpha", EnumFriendSkillType.UNIQUE);
