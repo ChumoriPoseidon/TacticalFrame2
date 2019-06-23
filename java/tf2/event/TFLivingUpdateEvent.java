@@ -12,6 +12,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import tf2.entity.mob.enemy.EntityMobTF;
 import tf2.entity.projectile.IEnemyProjectile;
@@ -25,6 +26,11 @@ import tf2.potion.TFPotionPlus;
 
 public class TFLivingUpdateEvent
 {
+	@SubscribeEvent
+	public void onWorldMissionEvent(WorldEvent event)
+	{
+	}
+
 	@SubscribeEvent
 	public void onLivingMob(LivingUpdateEvent event)
 	{
