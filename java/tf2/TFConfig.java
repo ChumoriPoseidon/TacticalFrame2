@@ -5,6 +5,8 @@ import net.minecraftforge.common.config.Configuration;
 public class TFConfig
 {
 
+	public static boolean configChange= false;
+
 	public boolean spawnMobTMtier1 = true;
 	public boolean spawnMobTMtier2 = false;
 	public boolean spawnMobTMtier3 = false;

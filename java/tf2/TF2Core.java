@@ -84,7 +84,7 @@ import tf2.util.RegistryHandler;
 import tf2.util.TFAdvancements;
 import tf2.util.TFWorldConfigManager;
 
-@Mod(modid = Reference.MOD_ID, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, name = Reference.NAME /*, guiFactory = "tf.client.gui.TFGuiFactory"*/)
+@Mod(modid = Reference.MOD_ID, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, name = Reference.NAME, guiFactory = "tf2.client.gui.TFGuiFactory")
 public class TF2Core {
 
 	@Mod.Instance(Reference.MOD_ID)
@@ -387,6 +387,11 @@ public class TF2Core {
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event)
 	{
+		if(event.isWorldRunning())
+		{
+			TFConfig.configChange = true;
+		}
+
 		if (event.getModID().equalsIgnoreCase(Reference.MOD_ID))
 		{
 			TF2Core.syncConfig();
