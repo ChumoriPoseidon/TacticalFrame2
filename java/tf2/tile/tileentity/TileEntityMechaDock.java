@@ -15,6 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
+import tf2.TFBlocks;
 import tf2.TFItems;
 import tf2.entity.mob.frend.EntityFriendMecha;
 import tf2.items.ItemSpawnFriendMecha;
@@ -54,7 +55,7 @@ public class TileEntityMechaDock extends TileEntity implements ITickable, ISided
 	public NBTTagCompound writeToNBT(NBTTagCompound compound)
 	{
 		super.writeToNBT(compound);
-		compound.setInteger("RepairTime", (short) this.repairTime);
+		compound.setInteger("RepairTime", this.repairTime);
 		ItemStackHelper.saveAllItems(compound, this.furnaceItemStacks);
 		return compound;
 	}
@@ -103,7 +104,7 @@ public class TileEntityMechaDock extends TileEntity implements ITickable, ISided
 				{
 					if(nbt.getInteger("tf.mechaHealth") != nbt.getInteger("tf.mechaMaxHealth"))
 					{
-						repairTime = (nbt.getInteger("tf.mechaMaxHealth") - nbt.getInteger("tf.mechaHealth")) * (2 * (15 + (slot * 5))) + (60 * nbt.getInteger("tf.mechaLevel"));
+						this.repairTime = (nbt.getInteger("tf.mechaMaxHealth") - nbt.getInteger("tf.mechaHealth")) * (2 * (15 + (slot * 5))) + (60 * nbt.getInteger("tf.mechaLevel"));
 					}
 				}
 				else
@@ -119,29 +120,10 @@ public class TileEntityMechaDock extends TileEntity implements ITickable, ISided
 
 			if(this.repairTime > 0)
 			{
-				if(itemStack.getItem() == Items.IRON_NUGGET)
+				if(this.burnItemTime(itemStack) > 0)
 				{
 					itemStack.shrink(1);
-					this.repairTime -= 50;
-					if(this.repairTime < 0)
-					{
-						this.repairTime = 1;
-					}
-				}
-				if(itemStack.getItem() == Items.IRON_INGOT)
-				{
-					itemStack.shrink(1);
-					this.repairTime -= 450;
-					if(this.repairTime < 0)
-					{
-						this.repairTime = 1;
-					}
-
-				}
-				if(itemStack.getItem() == new ItemStack(Blocks.IRON_BLOCK).getItem())
-				{
-					itemStack.shrink(1);
-					this.repairTime -= 4050;
+					this.repairTime -= this.burnItemTime(itemStack);
 					if(this.repairTime < 0)
 					{
 						this.repairTime = 1;
@@ -154,6 +136,32 @@ public class TileEntityMechaDock extends TileEntity implements ITickable, ISided
         if (!this.world.isRemote)
         {}
     }
+
+	public int burnItemTime(ItemStack stack)
+	{
+		if(stack.getItem() == new ItemStack(Items.IRON_NUGGET).getItem())
+		{
+			return 50;
+		}
+		if(stack.getItem() == new ItemStack(Items.IRON_INGOT).getItem())
+		{
+			return 450;
+		}
+		if(stack.getItem() == new ItemStack(Blocks.IRON_BLOCK).getItem())
+		{
+			return 4050;
+		}
+		if(stack.getItem() == new ItemStack(TFItems.REINFORCED_IRON_INGOT).getItem())
+		{
+			return 540;
+		}
+		if(stack.getItem() == new ItemStack(TFBlocks.REINFORCED_IRON_BLOCK).getItem())
+		{
+			return 4860;
+		}
+
+		return 0;
+	}
 
 	//IInventoryの実装
 	//---------------------------------------------------------------------------------------
@@ -261,7 +269,7 @@ public class TileEntityMechaDock extends TileEntity implements ITickable, ISided
 
 		if (index == 1)
 		{
-			return stack.getItem() == Items.IRON_NUGGET || stack.getItem() == Items.IRON_INGOT || stack.getItem() == new ItemStack(Blocks.IRON_BLOCK).getItem();
+			return this.burnItemTime(stack) > 0;
 		}
 		else
 		{

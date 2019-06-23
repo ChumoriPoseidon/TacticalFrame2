@@ -4,8 +4,6 @@ import javax.annotation.Nullable;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
@@ -142,7 +140,7 @@ public class ContainerMechaDock  extends Container
 						return ItemStack.EMPTY;
 					}
 				}
-				else if ((itemstack1.getItem() == Items.IRON_NUGGET || itemstack1.getItem() == Items.IRON_INGOT || itemstack1.getItem() == new ItemStack(Blocks.IRON_BLOCK).getItem()) && this.inventorySlots.get(1).getStack().isEmpty())
+				else if (this.tile.burnItemTime(itemstack1) > 0 && this.inventorySlots.get(1).getStack().isEmpty())
 				{
 					// アイテムの移動(スロット0～1へ)
 					if (!this.mergeItemStack(itemstack1, 1, 2, false))
