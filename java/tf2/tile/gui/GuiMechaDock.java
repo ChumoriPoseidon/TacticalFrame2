@@ -114,14 +114,14 @@ public class GuiMechaDock extends GuiContainer {
 			else
 			{
 				this.fontRenderer.drawString("Lv: 1" , 111, 18, 0x00DDCC);
-				this.fontRenderer.drawString("鉄など資材を投入することで", 8, 30, 0x00DDCC);
-				this.fontRenderer.drawString("修理時間を短縮することができます", 8, 39, 0x00DDCC);
+				this.fontRenderer.drawString(I18n.format("gui.mechadock.desc"), 8, 30, 0x00DDCC);
+				this.fontRenderer.drawString(I18n.format("gui.mechadock.desc1"), 8, 39, 0x00DDCC);
 			}
 		}
 		else
 		{
-			this.fontRenderer.drawString("鉄など資材を投入することで", 8, 30, 0x00DDCC);
-			this.fontRenderer.drawString("修理時間を短縮することができます", 8, 39, 0x00DDCC);
+			this.fontRenderer.drawString(I18n.format("gui.mechadock.desc"), 8, 30, 0x00DDCC);
+			this.fontRenderer.drawString(I18n.format("gui.mechadock.desc1"), 8, 39, 0x00DDCC);
 		}
 		this.fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 8, 72, 0x404040);
 	}
