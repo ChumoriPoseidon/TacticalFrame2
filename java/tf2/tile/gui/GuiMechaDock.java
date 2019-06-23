@@ -25,8 +25,8 @@ public class GuiMechaDock extends GuiContainer {
 		this.tileEntity = tileEntity;
 		this.xSize = 176;
 		this.ySize = 166;
-
 	}
+
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks)
 	{
@@ -34,6 +34,7 @@ public class GuiMechaDock extends GuiContainer {
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		this.renderHoveredToolTip(mouseX, mouseY);
 	}
+
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{

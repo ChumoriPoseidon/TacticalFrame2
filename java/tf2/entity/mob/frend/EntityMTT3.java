@@ -130,7 +130,7 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 	{
 		if (this.getMechaLevel() >= 20)
 		{
-			return new ItemStack(TFItems.SKILL_SPREADCANNON);
+			return new ItemStack(TFItems.SKILL_SPREADHOWITZER);
 		}
 		return null;
 	}
@@ -142,7 +142,7 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 		if (this.getMechaLevel() == 20)
 		{
 			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
-			ItemStack stack = new ItemStack(TFItems.SKILL_SPREADCANNON);
+			ItemStack stack = new ItemStack(TFItems.SKILL_SPREADHOWITZER);
 
 			ITextComponent text = new TextComponentString("[");
 			text.getStyle().setColor(TextFormatting.GREEN);
