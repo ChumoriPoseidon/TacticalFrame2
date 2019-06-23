@@ -13,6 +13,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import tf2.TF2Core;
 import tf2.common.MessageKeyPressed;
@@ -51,8 +52,8 @@ public class EntityMobCF extends EntityFriendMecha
 	private static final DataParameter<Integer> LEFT_AMMO = EntityDataManager.<Integer> createKey(EntityMobCF.class, DataSerializers.VARINT);
 	private static final DataParameter<Integer> RIGHT_AMMO = EntityDataManager.<Integer> createKey(EntityMobCF.class, DataSerializers.VARINT);
 
-	public EntityMobCF(World worldIn, byte slotSize, byte maxLevel, double defaultDamage, double upAttack, double defaultArmor, double upArmor, double defaultArmorToughness, double upArmorToughness, double defaultMaxHealth, double upMaxHealth
-			, int maxBoostStackIn, int limitLeftclickIn, int limitRightclickIn, int limitShiftIn, int maxStackLeftAmmoIn, int maxStackRightAmmoIn, int reloadTimeLeftIn, int reloadTimeRightIn)
+	public EntityMobCF(World worldIn, byte slotSize, byte maxLevel, double defaultDamage, double upAttack, double defaultArmor, double upArmor, double defaultArmorToughness, double upArmorToughness, double defaultMaxHealth, double upMaxHealth,
+			int maxBoostStackIn, int limitLeftclickIn, int limitRightclickIn, int limitShiftIn, int maxStackLeftAmmoIn, int maxStackRightAmmoIn, int reloadTimeLeftIn, int reloadTimeRightIn)
 	{
 		super(worldIn, slotSize, maxLevel, defaultDamage, upAttack, defaultArmor, upArmor, defaultArmorToughness, upArmorToughness, defaultMaxHealth, upMaxHealth, true);
 		this.maxBoostStack = maxBoostStackIn;
@@ -114,6 +115,7 @@ public class EntityMobCF extends EntityFriendMecha
 	{
 		this.dataManager.set(LEFT_AMMO, new Integer(this.stackLeftAmmo));
 	}
+
 	public void setRightAmmo()
 	{
 		this.dataManager.set(RIGHT_AMMO, new Integer(this.stackRightAmmo));
@@ -139,7 +141,8 @@ public class EntityMobCF extends EntityFriendMecha
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount)
 	{
-		if (source.damageType == "starve" || source.damageType == "inWall" || source.damageType == "flyIntoWall" || source.damageType == "cactus" || source.damageType == "inFire" || source.damageType == "onFire" || source.damageType == "hotFloor" || source.damageType == "fall")
+		if (source.damageType == "starve" || source.damageType == "inWall" || source.damageType == "flyIntoWall" || source.damageType == "cactus" || source.damageType == "inFire" || source.damageType == "onFire" || source.damageType == "hotFloor"
+				|| source.damageType == "fall")
 		{
 			return false;
 		}
@@ -149,10 +152,10 @@ public class EntityMobCF extends EntityFriendMecha
 		{
 			return this.isBeingRidden() ? false : super.attackEntityFrom(source, amount);
 		}
-//		if (entity instanceof EntityMobFriend)
-//		{
-//			return false;
-//		}
+		//		if (entity instanceof EntityMobFriend)
+		//		{
+		//			return false;
+		//		}
 		if (entity instanceof EntityMobCF)
 		{
 			return false;
@@ -212,11 +215,41 @@ public class EntityMobCF extends EntityFriendMecha
 		return entity instanceof EntityPlayer ? ((EntityPlayer) entity).isUser() : !this.world.isRemote;
 	}
 
+	//搭乗者の位置を常に前方に置く
+	@Override
+	public void updatePassenger(Entity passenger)
+	{
+		if (this.isPassenger(passenger))
+		{
+			passenger.setPosition(this.calPosX(passenger), this.calPosY(passenger), this.calPosZ(passenger));
+		}
+	}
+
+	public double calPosX(Entity passenger)
+	{
+		double ix = 0;
+		float f1 = passenger.rotationYaw * (2 * (float) Math.PI / 360);
+		ix -= MathHelper.sin(f1) * 1.1D;
+		return this.posX + ix;
+	}
+
+	public double calPosY(Entity passenger)
+	{
+		return this.posY + this.getMountedYOffset() + passenger.getYOffset();
+	}
+
+	public double calPosZ(Entity passenger)
+	{
+		double iz = 0;
+		float f1 = passenger.rotationYaw * (2 * (float) Math.PI / 360);
+		iz += MathHelper.cos(f1) * 1.1D;
+		return this.posZ + iz;
+	}
+
 	@Override
 	public void onUpdate()
 	{
 		super.onUpdate();
-
 
 		//this.maxBoostStack = 40;
 
@@ -269,22 +302,21 @@ public class EntityMobCF extends EntityFriendMecha
 				++this.cooltimeShift;
 			}
 
-
-			if(this.stackLeftAmmo > this.maxStackLeftAmmo)
+			if (this.stackLeftAmmo > this.maxStackLeftAmmo)
 			{
 				++this.reloadLeftAmmo;
 			}
-			if(this.reloadLeftAmmo > this.reloadTimeLeftAmmo)
+			if (this.reloadLeftAmmo > this.reloadTimeLeftAmmo)
 			{
 				this.stackLeftAmmo = 0;
 				this.reloadLeftAmmo = 0;
 			}
 
-			if(this.stackRightAmmo > this.maxStackRightAmmo)
+			if (this.stackRightAmmo > this.maxStackRightAmmo)
 			{
 				++this.reloadRightAmmo;
 			}
-			if(this.reloadRightAmmo > this.reloadTimeRightAmmo)
+			if (this.reloadRightAmmo > this.reloadTimeRightAmmo)
 			{
 				this.stackRightAmmo = 0;
 				this.reloadRightAmmo = 0;
@@ -395,7 +427,6 @@ public class EntityMobCF extends EntityFriendMecha
 	@Override
 	public ItemStack getSkillUnique()
 	{
-		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
 }

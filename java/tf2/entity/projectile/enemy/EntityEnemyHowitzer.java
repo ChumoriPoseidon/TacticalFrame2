@@ -43,7 +43,7 @@ public class EntityEnemyHowitzer extends EntityTFProjectile implements IEnemyPro
 	@Override
 	public void setEntityDead()
 	{
-		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, this.spread, this.damage);
+		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, this.spread, this.getDamage());
 		this.world.createExplosion((Entity) null, this.posX, this.posY, this.posZ, 0.0F, false);
 		super.setDead();
 	}

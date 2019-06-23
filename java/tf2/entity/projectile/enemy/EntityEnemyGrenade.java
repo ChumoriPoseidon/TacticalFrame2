@@ -32,7 +32,7 @@ public class EntityEnemyGrenade extends EntityTFProjectile implements IEnemyProj
     @Override
     public void setEntityDead()
     {
- 		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 3.0D, this.damage);
+ 		TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 3.0D, this.getDamage());
 		this.world.createExplosion((Entity) null, this.posX, this.posY, this.posZ, 0.0F, false);
 		super.setDead();
     }

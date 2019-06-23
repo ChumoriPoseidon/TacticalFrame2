@@ -102,7 +102,14 @@ public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
 
 		if (this.attackTime <= 0)
 		{
-			this.attackTime = 100;
+			if (this.getMechaLevel() >= 40)
+			{
+				this.attackTime = 70;
+			}
+			else
+			{
+				this.attackTime = 100;
+			}
 		}
 	}
 
@@ -115,33 +122,19 @@ public class EntityMTT1 extends EntityFriendMecha implements IRangedAttackMob
 	{
 		if (this.getMechaLevel() >= 40)
 		{
-			return new ItemStack(TFItems.SKILL_SELFHEALING);
+			return new ItemStack(TFItems.SKILL_QUICKRELOAD);
 		}
 		return null;
 	}
 
 	@Override
-	public void onLivingUpdate()
-	{
-		if (this.getMechaLevel() >= 40)
-		{
-			if (this.ticksExisted % 200 == 0 && !this.world.isRemote)
-			{
-				this.heal(1F);
-			}
-		}
-		super.onLivingUpdate();
-	}
-
-	@Override
 	public void isUpLevel()
 	{
-		this.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		super.isUpLevel();
 		if (this.getMechaLevel() == 40)
 		{
 			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
-			ItemStack stack = new ItemStack(TFItems.SKILL_SELFHEALING);
+			ItemStack stack = new ItemStack(TFItems.SKILL_QUICKRELOAD);
 
 			ITextComponent text = new TextComponentString("[");
 			text.getStyle().setColor(TextFormatting.GREEN);

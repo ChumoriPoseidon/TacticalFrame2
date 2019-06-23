@@ -176,9 +176,9 @@ public class TFItems
 	public static final Item MG42 = new ItemTFGunsLMG("mg42", 100, 6.5F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 6.5F, 1, 60);
 	public static final Item M60E1 = new ItemTFGunsLMG("m60e1", 100, 7F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 7F, 1, 60);
 
-	public static final Item M1A1 = new ItemTFGunsGL("m1a1", 1, 40F, 2F, 4D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 40, 40);
-	public static final Item M20 = new ItemTFGunsGL("m20", 1, 40F, 2F, 3D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 30, 42);
-	public static final Item MGL140 = new ItemTFGunsGL("mgl140", 6, 40F, 2F, 2.5D, 8F, TFSoundEvents.MGL, 15F, 15F, 20, 50);
+	public static final Item M1A1 = new ItemTFGunsGL("m1a1", 1, 40F, 3F, 4D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 40, 40);
+	public static final Item M20 = new ItemTFGunsGL("m20", 1, 40F, 3F, 3D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 30, 30);
+	public static final Item MGL140 = new ItemTFGunsGL("mgl140", 6, 40F, 3F, 2.5D, 8F, TFSoundEvents.MGL, 15F, 15F, 20, 50);
 
 	public static final Item SKILL_FULLFIRE = new ItemBuffSkill("fullfire", 1200);
 	public static final Item SKILL_ATTITUDECONTROL = new ItemBuffSkill("attitudecontrol", 1200);
@@ -219,12 +219,13 @@ public class TFItems
 	public static final Item SKILL_ADDITIONALARMOR_1 = new ItemMechaSkillBase("additionalarmor_1", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_2 = new ItemMechaSkillBase("additionalarmor_2", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", EnumFriendSkillType.COMMON);
-	public static final Item SKILL_ARTILLERYCOMMAND = new ItemMechaSkillBase("artillerycommand", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_ARTILLERYCOMMAND_TURRET = new ItemMechaSkillBase("artillerycommand_turret", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", EnumFriendSkillType.COMMON);
 
 	public static final Item SKILL_RESURRECTION =  new ItemMechaSkillBase("resurrection", EnumFriendSkillType.CONSUME);
 
+	public static final Item SKILL_QUICKRELOAD = new ItemMechaSkillBase("quickreload", EnumFriendSkillType.UNIQUE);
 	public static final Item SKILL_SPREADCANNON = new ItemMechaSkillBase("spreadcannon", EnumFriendSkillType.UNIQUE);
 	public static final Item SKILL_WIDESPREAD = new ItemMechaSkillBase("widespread", EnumFriendSkillType.UNIQUE);
 	public static final Item SKILL_SELFHEALING = new ItemMechaSkillBase("selfhealing", EnumFriendSkillType.UNIQUE);

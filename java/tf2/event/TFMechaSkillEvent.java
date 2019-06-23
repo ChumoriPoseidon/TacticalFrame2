@@ -1,5 +1,7 @@
 package tf2.event;
 
+import java.util.List;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +19,10 @@ import tf2.TFItems;
 import tf2.TFSoundEvents;
 import tf2.entity.EntityItemSpawnFriendMecha;
 import tf2.entity.mob.frend.EntityFriendMecha;
+import tf2.entity.mob.frend.EntityMTT1;
+import tf2.entity.mob.frend.EntityMTT2;
+import tf2.entity.mob.frend.EntityMTT3;
+import tf2.entity.mob.frend.EntityMTT4;
 import tf2.potion.TFPotionPlus;
 
 public class TFMechaSkillEvent
@@ -121,6 +127,26 @@ public class TFMechaSkillEvent
 						{
 							player.addPotionEffect(new PotionEffect(TFPotionPlus.SHOOTING, 300, 0, true, false));
 						}
+					}
+				}
+
+				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_ARTILLERYCOMMAND_TURRET))
+				{
+					if(mecha.ticksExisted % 300 == 0 && !mecha.world.isRemote)
+					{
+						List var7 = mecha.world.getEntitiesWithinAABB(EntityFriendMecha.class, mecha.getEntityBoundingBox().grow(8.0D));
+				 		for (int var3 = 0; var3 < var7.size(); ++var3)
+				 		{
+				 			EntityFriendMecha friend = (EntityFriendMecha)var7.get(var3);
+
+				 			if (friend instanceof EntityMTT1 || friend instanceof EntityMTT2 || friend instanceof EntityMTT3 || friend instanceof EntityMTT4)
+				        	{
+				 				if(!friend.world.isRemote)
+								{
+				 					friend.addPotionEffect(new PotionEffect(TFPotionPlus.SHOOTING_SUPPORT, 300, 0, true, false));
+								}
+				        	}
+				 		}
 					}
 				}
 			}
