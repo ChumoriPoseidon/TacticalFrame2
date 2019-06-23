@@ -1,7 +1,8 @@
 package tf2.entity.mob.frend;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +15,6 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -33,10 +33,10 @@ public class EntityCFR12 extends EntityMobCF
 	private static final byte slotSize = 2;
 	private static final byte maxLevel = 99;
 
-	private static final double defaultDamage = 10D;
-	private static final double defaultArmor = 16.0D;
+	private static final double defaultDamage = 15D;
+	private static final double defaultArmor = 14.0D;
 	private static final double defaultArmorToughness = 2.0D;
-	private static final double defaultMaxHealth = 200.0D;
+	private static final double defaultMaxHealth = 150.0D;
 
 	private static final double upAttack = 0.154;
 	private static final double upArmor = 0.062;
@@ -67,40 +67,48 @@ public class EntityCFR12 extends EntityMobCF
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(20D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.22D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(16.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(14.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(2.0D);
 		this.boostStack = this.maxBoostStack;
 	}
 
-    @Override
+	@Override
 	public void isUpLevel()
-    {
-    	super.isUpLevel();
-    	if(this.getMechaLevel() == 14)
-    	{
-    		this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
-    		ItemStack stack = new ItemStack(TFItems.SKILL_WIDESPREAD);
+	{
+		super.isUpLevel();
+		if (this.getMechaLevel() == 20)
+		{
+			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
+			ItemStack stack = new ItemStack(TFItems.SKILL_WIDESPREAD);
 
 			ITextComponent text = new TextComponentString("[");
 			text.getStyle().setColor(TextFormatting.GREEN);
 			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
 			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
-	        text.appendSibling(itemName);
-	        text.appendText("]");
+			text.appendSibling(itemName);
+			text.appendText("]");
 
-	        String skillText = "skill.get";
+			String skillText = "skill.get";
 
-	        if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
-	        {
-	            this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] {this.getDisplayName() , text}));
-	        }
-    	}
-    }
+			if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
+			{
+				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
+			}
+		}
+		if (this.getMechaLevel() == 40)
+		{
+			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_ADDITIONALARMOR_1));
+		}
+		if (this.getMechaLevel() == 70)
+		{
+			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_FIREFILLING));
+		}
+	}
 
 	@Override
 	public ItemStack getSkillUnique()
 	{
-		if (this.getMechaLevel() >= 14)
+		if (this.getMechaLevel() >= 20)
 		{
 			return new ItemStack(TFItems.SKILL_WIDESPREAD);
 		}
@@ -137,22 +145,6 @@ public class EntityCFR12 extends EntityMobCF
 		//this.playSound(TFSoundEvents.TF_TANK, 0.8F, 0.8F);
 	}
 
-	//搭乗者の位置を常に前方に置く
-	@Override
-	public void updatePassenger(Entity passenger)
-	{
-		if (this.isPassenger(passenger))
-		{
-			double ix = 0;
-			double iz = 0;
-			float f1 = passenger.rotationYaw * (2 * (float) Math.PI / 360);
-			//float f2 = passenger.rotationPitch * (2 * (float)Math.PI / 360);
-			ix -= MathHelper.sin(f1) * 1;
-			iz += MathHelper.cos(f1) * 1;
-			passenger.setPosition(this.posX + ix, this.posY + this.getMountedYOffset() + passenger.getYOffset(), this.posZ + iz);
-		}
-	}
-
 	//搭乗者の高さ
 	@Override
 	public double getMountedYOffset()
@@ -181,9 +173,8 @@ public class EntityCFR12 extends EntityMobCF
 		{
 			EntityBulletBig bullet = new EntityBulletBig(world, player);
 			bullet.setDamage(bullet.getDamage() + this.getMechaATK());
-			bullet.setHeadingFromThrower(player, player.rotationPitch -2.5F, player.rotationYaw, 0.0F, 2.0F, 0.0F);
-			bullet.posY = this.posY + 3.2D;
-			//弾の弾速と集団性
+			bullet.setHeadingFromThrower(player, player.rotationPitch - 1.5F, player.rotationYaw, 0.0F, 2.0F, 0.0F);
+			bullet.setPosition(this.calPosX(player), this.calPosY(player) + 1.5D, this.calPosZ(player));
 			bullet.shoot(bullet.motionX, bullet.motionY, bullet.motionZ, 3.0F, 0F);
 			world.spawnEntity(bullet);
 		}
@@ -201,9 +192,8 @@ public class EntityCFR12 extends EntityMobCF
 				EntityGrenade bullet = new EntityGrenade(world, player);
 				bullet.setDamage(bullet.getDamage() + this.getMechaATK() + 10D);
 				bullet.setSpread(bullet.getSpread() + 3.5D);
-				bullet.setHeadingFromThrower(player, player.rotationPitch -2.5F, player.rotationYaw + wideAngle[i], 0.0F, 2.0F, 0.0F);
-				bullet.posY = this.posY + 3.2D;
-				//弾の弾速と集団性
+				bullet.setHeadingFromThrower(player, player.rotationPitch - 1.5F, player.rotationYaw + wideAngle[i], 0.0F, 2.0F, 0.0F);
+				bullet.setPosition(this.calPosX(player), this.calPosY(player) + 1.5D, this.calPosZ(player));
 				bullet.shoot(bullet.motionX, bullet.motionY, bullet.motionZ, 3.0F, 0F);
 				world.spawnEntity(bullet);
 			}
@@ -221,14 +211,30 @@ public class EntityCFR12 extends EntityMobCF
 	public void onShift(World world, EntityPlayer player)
 	{
 		this.smoke = 80;
-		if (!this.world.isRemote)
+
+		double k;
+		if (this.getMechaLevel() >= 20)
 		{
-			this.addPotionEffect(new PotionEffect(TFPotionPlus.DISABLE_CHANCE, 200, 2));
+			k = 10D;
 		}
-		if (!player.world.isRemote)
+		else
 		{
-			player.addPotionEffect(new PotionEffect(TFPotionPlus.DISABLE_CHANCE, 200, 2));
+			k = 1.5D;
 		}
+		List var7 = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(k));
+		for (int var3 = 0; var3 < var7.size(); ++var3)
+		{
+			EntityLivingBase living = (EntityLivingBase) var7.get(var3);
+
+			if ((living instanceof EntityFriendMecha || living instanceof EntityPlayer) && !living.world.isRemote)
+			{
+				if (!living.isPotionActive(TFPotionPlus.DISABLE_CHANCE))
+				{
+					living.addPotionEffect(new PotionEffect(TFPotionPlus.DISABLE_CHANCE, 200, 2));
+				}
+			}
+		}
+
 	}
 
 	@Override

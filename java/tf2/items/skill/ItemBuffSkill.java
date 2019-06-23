@@ -67,7 +67,7 @@ public class ItemBuffSkill extends ItemSkillBase
 			}
 			if (itemStackIn.getItem() == TFItems.SKILL_OVERDRIVE)
 			{
-				playerIn.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 300, 2));
+				playerIn.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 200, 2));
 			}
 			if (itemStackIn.getItem() == TFItems.SKILL_MEDICALKIT)
 			{
@@ -147,7 +147,7 @@ public class ItemBuffSkill extends ItemSkillBase
 			}
 			if (stack.getItem() == TFItems.SKILL_OVERDRIVE)
 			{
-				tooltip.add(TextFormatting.BLUE + I18n.translateToLocal("effect.damageBoost") + " III " + "(0:15)");
+				tooltip.add(TextFormatting.BLUE + I18n.translateToLocal("effect.damageBoost") + " III " + "(0:10)");
 			}
 			if (stack.getItem() == TFItems.SKILL_ATTITUDECONTROL)
 			{

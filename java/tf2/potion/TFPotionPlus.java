@@ -24,6 +24,7 @@ public class TFPotionPlus extends Potion
 	public static Potion VULNERABILITY;
 	public static Potion HEAT;
 	public static Potion SHOOTING;
+	public static Potion SHOOTING_SUPPORT;
 	public static Potion RECOIL_SUPPRESS;
 	public static Potion DEBUFF_GUARD;
 
@@ -55,9 +56,11 @@ public class TFPotionPlus extends Potion
 		ForgeRegistries.POTIONS.register(VULNERABILITY.setRegistryName(Reference.MOD_ID, "vulnerability"));
 		HEAT = new TFPotionPlus(true, 0xFF6666, 10).setPotionName("heat");
 		ForgeRegistries.POTIONS.register(HEAT.setRegistryName(Reference.MOD_ID, "heat"));
-		SHOOTING = new TFPotionPlus(false, 0xFFA500, 11).setPotionName("shooting");
+		SHOOTING = new TFPotionPlus(false, 0xFFA500, 11).setPotionName("shooting").setBeneficial();
 		ForgeRegistries.POTIONS.register(SHOOTING.setRegistryName(Reference.MOD_ID, "shooting"));
-		RECOIL_SUPPRESS = new TFPotionPlus(false, 0xFFA500, 12).setPotionName("recoil_suppress");
+		SHOOTING_SUPPORT = new TFPotionPlus(false, 0xADFF2F, 12).setPotionName("shooting_support").setBeneficial();
+		ForgeRegistries.POTIONS.register(SHOOTING_SUPPORT.setRegistryName(Reference.MOD_ID, "shooting_support"));
+		RECOIL_SUPPRESS = new TFPotionPlus(false, 0xADFF2F, 13).setPotionName("recoil_suppress").setBeneficial();
 		ForgeRegistries.POTIONS.register(RECOIL_SUPPRESS.setRegistryName(Reference.MOD_ID, "recoil_suppress"));
 	}
 	public TFPotionPlus(boolean isBadEffect, int liquidColor, int icon)

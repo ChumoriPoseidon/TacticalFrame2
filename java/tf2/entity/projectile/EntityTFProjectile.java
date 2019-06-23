@@ -224,6 +224,11 @@ public class EntityTFProjectile extends Entity implements IProjectile
 				}
 			}
 
+			if (raytraceresult != null && raytraceresult.entityHit != null && raytraceresult.entityHit.isBeingRidden() && raytraceresult.entityHit.isRidingOrBeingRiddenBy(this.thrower))
+			{
+				raytraceresult = null;
+			}
+
 			if (raytraceresult != null && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, raytraceresult))
 			{
 				this.onHit(raytraceresult);
@@ -459,7 +464,7 @@ public class EntityTFProjectile extends Entity implements IProjectile
 
 	protected float directHitDamage()
 	{
-		return (float)this.damage;
+		return (float)this.getDamage();
 	}
 
 	@Nullable
@@ -575,7 +580,14 @@ public class EntityTFProjectile extends Entity implements IProjectile
 				PotionEffect potion = this.thrower.getActivePotionEffect(TFPotionPlus.SHOOTING);
 				int i = potion.getAmplifier();
 
-				k = k * (1.1D + (i * 0.1D));
+				this.damage = this.damage * (1.1D + (i * 0.1D));
+			}
+			if (this.thrower.isPotionActive(TFPotionPlus.SHOOTING_SUPPORT))
+			{
+				PotionEffect potion = this.thrower.getActivePotionEffect(TFPotionPlus.SHOOTING_SUPPORT);
+				int i = potion.getAmplifier();
+
+				this.damage = this.damage * (1.1D + (i * 0.1D));
 			}
 		}
 		return this.damage + k;

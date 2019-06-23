@@ -44,7 +44,7 @@ public class EntityFriendGrenade extends EntityTFProjectile implements IFriendPr
     public void setEntityDead()
     {
         super.setDead();
-        TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 3D, this.damage);
+        TFExplosion.doExplosion(this.world, this.thrower, this.posX, this.posY, this.posZ, 3D, this.getDamage());
     	this.world.createExplosion((Entity) null, this.posX, this.posY,this.posZ, 0.0F, false);
     }
 

@@ -79,7 +79,7 @@ public class EntityImpact extends EntityTFProjectile
 	{
 		if (this.world.isRemote)
 		{
-			this.world.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, this.posX, this.posY - 0.1D, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, this.posX, this.posY - 0.1D, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
 		}
 	}
 

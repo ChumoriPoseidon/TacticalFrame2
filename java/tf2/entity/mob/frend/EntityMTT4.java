@@ -136,7 +136,6 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 	@Override
 	public void isUpLevel()
 	{
-		this.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		super.isUpLevel();
 		if (this.getMechaLevel() == 20)
 		{
