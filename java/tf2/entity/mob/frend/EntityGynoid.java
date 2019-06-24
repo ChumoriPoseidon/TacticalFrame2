@@ -47,7 +47,7 @@ public abstract class EntityGynoid extends EntityFriendMecha implements IRangedA
 		this.tasks.addTask(3, new EntityAILookIdle(this));
 		this.tasks.addTask(1, new EntityFriendMecha.EntityAILookAtAccessPlayer(this));
 		this.tasks.addTask(2, new EntityAIWanderFriendMecha(this, 1.0D));
-		this.tasks.addTask(6, new EntityAIFollowFriendMecha(this, 1.0D, 5.0F, 2.0F));
+		this.tasks.addTask(2, new EntityAIFollowFriendMecha(this, 1.0D, 5.0F, 2.0F));
 		this.targetTasks.addTask(2, new EntityAINearestAttackbleTargetFriend(this, 10, true));
 	}
 

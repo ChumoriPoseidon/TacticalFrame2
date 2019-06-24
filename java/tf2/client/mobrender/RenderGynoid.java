@@ -128,6 +128,20 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 				this.renderWing(entity, entity.ticksExisted);
 			}
 
+			if(entity instanceof EntityTF77B && entity.getMechaMode() != 0)
+			{
+				GlStateManager.pushMatrix();
+				GlStateManager.translate(-0.0F, 0F, 0F);
+				GlStateManager.translate(0F, 0F, 0.0F);
+				GlStateManager.rotate(entity.ticksExisted * 7.5F, 0.0F, 1.0F, 0.0F);
+				GlStateManager.translate(0.0F, 0F, 0F);
+				GlStateManager.translate(0F, 0F, -0.0F);
+				this.getEntityWeaponObj().renderPart("gear_ring");
+				GlStateManager.popMatrix();
+
+				this.renderPanel(entity, entity.ticksExisted);
+			}
+
 			GlStateManager.rotate(180 - entity.renderYawOffset, 0.0F, -1.0F, 0.0F);
 
 			this.renderHead(entity);
@@ -147,6 +161,23 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
 
+	public void renderPanel(EntityLivingBase entity, int tick)
+	{
+		float t = entity.ticksExisted;
+
+		GlStateManager.pushMatrix();
+		t = (float) Math.sin((tick - 0.25) / ((float) Math.PI * 5F)) * 0.2F;
+		GlStateManager.translate(0F, (t / 1.5) + 0.025F, 0F);
+		this.getEntityWeaponObj().renderPart("gear_panel_1");
+		GlStateManager.popMatrix();
+
+		GlStateManager.pushMatrix();
+		t = (float) Math.sin((tick + 0.25) / ((float) Math.PI * 5F)) * 0.2F;
+		GlStateManager.translate(0F, -(t / 1.5) + 0.025F, 0F);
+		this.getEntityWeaponObj().renderPart("gear_panel_2");
+		GlStateManager.popMatrix();
+	}
+
 	public void renderHead(EntityLivingBase entity)
 	{
 		GlStateManager.pushMatrix();
@@ -154,8 +185,8 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 		GlStateManager.rotate(180.0F - entity.rotationYawHead, 0.0F, 1.0F, 0.0F);
 		GlStateManager.rotate(entity.rotationPitch, 1.0F, 0.0F, 0.0F);
 		GlStateManager.translate(0.0F, -1.0F, 0.0F);
-		this.getEntityWeaponObj().renderPart("rightHeadGear");
-		this.getEntityWeaponObj().renderPart("leftHeadGear");
+		this.getEntityWeaponObj().renderPart("right_headGear");
+		this.getEntityWeaponObj().renderPart("left_headGear");
 		GlStateManager.popMatrix();
 	}
 
@@ -164,25 +195,29 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 		GlStateManager.pushMatrix();
 		float t = (float) Math.sin(tick / ((float) Math.PI * 5F)) * 0.2F;
 		GlStateManager.translate(0F, (t / 2) + 0.05F, 0F);
-		this.getEntityWeaponObj().renderPart("rightLegGear_1");
-		this.getEntityWeaponObj().renderPart("leftLegGear_1");
+		this.getEntityWeaponObj().renderPart("right_leggear_1");
+		this.getEntityWeaponObj().renderPart("left_leggear_1");
 		GlStateManager.popMatrix();
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0F, -(t / 4) + 0.025F, 0F);
-		this.getEntityWeaponObj().renderPart("rightLegGear_2");
-		this.getEntityWeaponObj().renderPart("leftLegGear_2");
+		this.getEntityWeaponObj().renderPart("right_leggear_2");
+		this.getEntityWeaponObj().renderPart("left_leggear_2");
 		GlStateManager.popMatrix();
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0F, -(t / 1.5) + 0.025F, 0F);
-		this.getEntityWeaponObj().renderPart("rightCube");
+		this.getEntityWeaponObj().renderPart("right_cube");
 		GlStateManager.popMatrix();
 
 		GlStateManager.pushMatrix();
 		t = (float) Math.sin((tick + 0.25) / ((float) Math.PI * 5F)) * 0.2F;
 		GlStateManager.translate(0F, (t / 1.5) + 0.025F, 0F);
-		this.getEntityWeaponObj().renderPart("leftCube");
+		this.getEntityWeaponObj().renderPart("left_cube");
+		if(entity instanceof EntityTF77B && ((EntityTF77B) entity).getMechaMode() != 0)
+		{
+			this.getEntityWeaponObj().renderPart("gear_panel_2");
+		}
 		GlStateManager.popMatrix();
 	}
 
@@ -193,14 +228,14 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 		GlStateManager.translate(0F, 1.31F, 0F);
 		GlStateManager.rotate((t * 10), 0.0F, 0.0F, 1.0F);
 		GlStateManager.translate(0F, -1.31F, 0F);
-		this.getEntityWeaponObj().renderPart("rightWing");
+		this.getEntityWeaponObj().renderPart("right_wing");
 		GlStateManager.popMatrix();
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0F, 1.31F, 0F);
 		GlStateManager.rotate((t * 10), 0.0F, 0.0F, -1.0F);
 		GlStateManager.translate(0F, -1.31F, 0F);
-		this.getEntityWeaponObj().renderPart("leftWing");
+		this.getEntityWeaponObj().renderPart("left_wing");
 		GlStateManager.popMatrix();
 	}
 
