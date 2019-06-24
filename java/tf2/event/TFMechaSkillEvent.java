@@ -4,12 +4,15 @@ import java.util.List;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
@@ -84,6 +87,54 @@ public class TFMechaSkillEvent
 			}
 		}
 	}
+
+	@SubscribeEvent
+	public void mechaAttackEvent(LivingAttackEvent event)
+	{
+		EntityLivingBase target = event.getEntityLiving();
+		DamageSource damage = event.getSource();
+		float amount = event.getAmount();
+
+		if (damage.getTrueSource() instanceof EntityFriendMecha)
+		{
+			EntityFriendMecha mecha = (EntityFriendMecha)damage.getTrueSource();
+			this.mechaAttackEvent2(mecha, target);
+		}
+		if (damage.getTrueSource() instanceof EntityPlayer && damage.getTrueSource().isRiding() && damage.getTrueSource().getRidingEntity() instanceof EntityFriendMecha)
+		{
+			EntityFriendMecha mecha = (EntityFriendMecha)damage.getTrueSource().getRidingEntity();
+			this.mechaAttackEvent2(mecha, target);
+		}
+	}
+
+	public void mechaAttackEvent2(EntityFriendMecha mecha, EntityLivingBase target)
+	{
+		if (mecha != null)
+		{
+			if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_ENCHANTFLAME))
+			{
+				if (target != null && !target.world.isRemote && !(target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))))
+				{
+					target.addPotionEffect(new PotionEffect(TFPotionPlus.HEAT, 200, 0));
+				}
+			}
+			if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_ENCHANTSLOW))
+			{
+				if (target != null && !target.world.isRemote && !(target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))))
+				{
+					target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 200, 0));
+				}
+			}
+			if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_ENCHANTWEAKNESS))
+			{
+				if (target != null && !target.world.isRemote && !(target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))))
+				{
+					target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 200, 0));
+				}
+			}
+		}
+	}
+
 
 	@SubscribeEvent
 	public void mechaLivingEvent(LivingUpdateEvent event)

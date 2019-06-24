@@ -151,8 +151,6 @@ public class TFHurtEvent
 			event.setCanceled(true);
 		}
 
-
-
 		if (target != null && !target.world.isRemote && target instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) target;
@@ -172,7 +170,6 @@ public class TFHurtEvent
 							{
 								event.setCanceled(true);
 							}
-							break;
 						}
 					}
 				}
@@ -192,23 +189,7 @@ public class TFHurtEvent
 //			//					 event.setCanceled(true);
 //			//				 }
 //			//			 }
-//			if (player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityTank)
-//			{
-//				if (damage.damageType.equals("fall") || damage.damageType.equals("inWall") || damage.damageType.equals("flyIntoWall"))
-//				{
-//					event.setCanceled(true);
-//				}
-//			}
-//			if (player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityTank)
-//			{
-//				player.getRidingEntity().attackEntityFrom(damage, amount);
-//
-//				if (this.attackEntity(damage) == true)
-//				{
-//					player.getRidingEntity().hurtResistantTime = 0;
-//				}
-//				event.setCanceled(true);
-//			}
+
 			if (player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityMobCF)
 			{
 				player.getRidingEntity().attackEntityFrom(damage, amount);
