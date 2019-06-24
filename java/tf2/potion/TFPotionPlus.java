@@ -97,7 +97,16 @@ public class TFPotionPlus extends Potion
 //        }
         else if (this == TFPotionPlus.HEAT)
         {
-            return  duration % 50 == 0;
+            int j = 50 >> amplifier;
+
+            if (j > 0)
+            {
+                return duration % j == 0;
+            }
+            else
+            {
+                return true;
+            }
         }
         else
         {
@@ -125,9 +134,10 @@ public class TFPotionPlus extends Potion
 //        }
         else if (this == TFPotionPlus.HEAT)
         {
-            if (entityLivingBaseIn.getHealth() > (float)amplifier + 1.0F)
+            if (entityLivingBaseIn.getHealth() > 1.0F)
             {
-                entityLivingBaseIn.attackEntityFrom(TFDamageSource.HEAT, (float)amplifier + 1.0F);
+                entityLivingBaseIn.attackEntityFrom(TFDamageSource.HEAT, 1.0F);
+                entityLivingBaseIn.hurtResistantTime = 0;
             }
         }
     }

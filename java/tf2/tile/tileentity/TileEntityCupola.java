@@ -280,8 +280,8 @@ public class TileEntityCupola extends TileEntity implements ITickable, ISidedInv
         }
 		else if (this.itemButton == 4)
         {
-            itemstack = new ItemStack(TFItems.GEAR_IRON);
-            i = 400;
+            itemstack = new ItemStack(TFItems.IRON_SHIELD);
+            i = 600;
         }
 		else if (this.itemButton == 5)
         {
@@ -342,8 +342,8 @@ public class TileEntityCupola extends TileEntity implements ITickable, ISidedInv
         }
 		else if (this.itemButton == 4)
         {
-            itemstack = new ItemStack(TFItems.GEAR_IRON);
-            i = 400;
+            itemstack = new ItemStack(TFItems.IRON_SHIELD);
+            i = 600;
         }
 		else if (this.itemButton == 5)
         {
@@ -484,7 +484,7 @@ public class TileEntityCupola extends TileEntity implements ITickable, ISidedInv
             if (item == TFItems.POWDER_IRON) return 100;
             if (item == TFItems.COMPRESS_IRON) return 6400;
             if (item == TFItems.SCRAP) return 40;
-            if (item == TFItems.IRON_SHIELD) return 700;
+            if (item == TFItems.IRON_SHIELD) return 600;
             if (item == TFItems.REINFORCED_IRON_PICKAXE) return 500;
             if (item == TFItems.REINFORCED_IRON_AXE) return 500;
             if (item == TFItems.REINFORCED_IRON_SHOVEL) return 100;
