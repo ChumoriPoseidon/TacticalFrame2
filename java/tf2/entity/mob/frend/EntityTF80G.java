@@ -23,7 +23,7 @@ import tf2.entity.mob.ai.EntityAIAttackRangedGun;
 
 public class EntityTF80G extends EntityGynoid
 {
-	private static final double defaultDamage = 0;
+	private static final double defaultDamage = 4;
 	private static final double upAttack = 0.068;
 	private static final double upArmor = 0.203;
 	private static final double upArmorToughness = 0.028;
@@ -165,7 +165,7 @@ public class EntityTF80G extends EntityGynoid
 
         if(distance < 1.5F)
         {
-        	target.attackEntityFrom(DamageSource.causeMobDamage(this), this.getMechaATK() + 4);
+        	target.attackEntityFrom(DamageSource.causeMobDamage(this), this.getMechaATK());
         }
 
 		if (this.attackTime <= 0)

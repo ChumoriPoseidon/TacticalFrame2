@@ -23,7 +23,7 @@ import tf2.entity.projectile.player.EntityFriendImpact;
 
 public class EntityTF79P extends EntityGynoid
 {
-	private static final double defaultDamage = 0;
+	private static final double defaultDamage = 2;
 	private static final double upAttack = 0.055;
 	private static final double upArmor = 0.217;
 	private static final double upArmorToughness = 0.055;
@@ -98,7 +98,7 @@ public class EntityTF79P extends EntityGynoid
 	             double z2 = (shootZ * (MathHelper.sin(wideAngle[wide]))) + (shootZ * (MathHelper.cos(wideAngle[wide])));
 
 				EntityFriendImpact entityImpact = new  EntityFriendImpact(this.world, this);
-	         	entityImpact.setDamage(entityImpact.getDamage() + this.getMechaATK() + 2);
+	         	entityImpact.setDamage(entityImpact.getDamage() + this.getMechaATK());
 	         	entityImpact.shoot(shootX + x2, shootY, shootZ + z2, 1.5F, 0.0F);
 	            this.world.spawnEntity(entityImpact);
 	         }

@@ -9,8 +9,12 @@ import javax.annotation.Nullable;
 
 import com.mojang.authlib.GameProfile;
 
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
@@ -30,7 +34,10 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -41,6 +48,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import tf2.TF2Core;
 import tf2.TFItems;
+import tf2.entity.mob.ai.EntityAIAttackRangedGun;
 import tf2.items.ItemSpawnFriendMecha;
 import tf2.items.skill.friendskill.ItemMechaSkillBase;
 import tf2.tile.InventoryFriendMechaEquipment;
@@ -663,5 +671,66 @@ public abstract class EntityFriendMecha extends EntityGolem
 				return false;
 			}
 		}
+	}
+
+	public class EntityAIAttackRangedGunFriendMecha extends EntityAIAttackRangedGun
+	{
+		/** The entity the AI instance has been applied to */
+		private final EntityLiving entityHost;
+
+		public EntityAIAttackRangedGunFriendMecha(IRangedAttackMob attacker, double movespeed, float maxAttackDistanceIn) {
+			super(attacker, movespeed, maxAttackDistanceIn);
+			this.entityHost = (EntityLiving) attacker;
+			this.setMutexBits(4);
+		}
+
+		@Override
+		public boolean shouldExecute()
+		{
+			if(this.entityHost instanceof EntityFriendMecha)
+			{
+				EntityFriendMecha mecha = (EntityFriendMecha) this.entityHost;
+				if(mecha.getOwner() != null && mecha.getMechaMode() == 1)
+				{
+					return mecha.getDistanceSq(mecha.getOwner()) < 420.0D;
+				}
+			}
+			return super.shouldExecute();
+		}
+
+		@Override
+		public void resetTask()
+		{
+			if(this.entityHost instanceof EntityFriendMecha)
+			{
+				EntityFriendMecha mecha = (EntityFriendMecha) this.entityHost;
+				if(mecha.getOwner() != null && mecha.getMechaMode() == 1)
+				{
+                    int i = MathHelper.floor(mecha.getOwner().posX) - 2;
+                    int j = MathHelper.floor(mecha.getOwner().posZ) - 2;
+                    int k = MathHelper.floor(mecha.getOwner().getEntityBoundingBox().minY);
+
+                    for (int l = 0; l <= 4; ++l)
+                    {
+                        for (int i1 = 0; i1 <= 4; ++i1)
+                        {
+                            if ((l < 1 || i1 < 1 || l > 3 || i1 > 3) && this.isTeleportFriendlyBlock(i, j, k, l, i1))
+                            {
+                                mecha.setLocationAndAngles((double)((float)(i + l) + 0.5F), (double)k, (double)((float)(j + i1) + 0.5F), mecha.rotationYaw, mecha.rotationPitch);
+                                mecha.getNavigator().clearPath();
+                                return;
+                            }
+                        }
+                    }
+				}
+			}
+		}
+
+	    protected boolean isTeleportFriendlyBlock(int x, int p_192381_2_, int y, int p_192381_4_, int p_192381_5_)
+	    {
+	        BlockPos blockpos = new BlockPos(x + p_192381_4_, y - 1, p_192381_2_ + p_192381_5_);
+	        IBlockState iblockstate = entityHost.world.getBlockState(blockpos);
+	        return iblockstate.getBlockFaceShape(entityHost.world, blockpos, EnumFacing.DOWN) == BlockFaceShape.SOLID && iblockstate.canEntitySpawn(this.entityHost) && entityHost.world.isAirBlock(blockpos.up()) && entityHost.world.isAirBlock(blockpos.up(2));
+	    }
 	}
 }

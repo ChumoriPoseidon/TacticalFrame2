@@ -16,13 +16,12 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import tf2.TFItems;
 import tf2.TFSoundEvents;
-import tf2.entity.mob.ai.EntityAIAttackRangedGun;
 import tf2.entity.projectile.player.EntityFriendShell;
 
 
 public class EntityTF77B extends EntityGynoid
 {
-	private static final double defaultDamage = 0;
+	private static final double defaultDamage = 3;
 	private static final double upAttack = 0.068;
 	private static final double upArmor = 0.19;
 	private static final double upArmorToughness = 0.028;
@@ -40,7 +39,7 @@ public class EntityTF77B extends EntityGynoid
 	protected void initEntityAI()
 	{
 		super.initEntityAI();
-		this.tasks.addTask(1, new EntityAIAttackRangedGun(this, 1.0D, 30.0F));
+		this.tasks.addTask(3, new EntityFriendMecha.EntityAIAttackRangedGunFriendMecha(this, 1.0D, 30.0F));
 	}
 
     @Override
@@ -89,7 +88,7 @@ public class EntityTF77B extends EntityGynoid
 		if (this.attackTime <= 15 && this.attackTime % 4 == 0)
 		{
 			EntityFriendShell var7 = new EntityFriendShell(this.world, this);
-			var7.setDamage(var7.getDamage() + this.getMechaATK() + 3);
+			var7.setDamage(var7.getDamage() + this.getMechaATK());
 			this.playSound(TFSoundEvents.FAMAS, 2.5F, 2.5F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 			var7.shoot(var3, var8, var5, 2.0F, 3.0F);
 			this.world.spawnEntity(var7);

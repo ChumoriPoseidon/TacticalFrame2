@@ -43,15 +43,15 @@ public class TFMechaSkillEvent
 			EntityItem item = (EntityItem)event.getEntity();
 			if(!item.getItem().isEmpty() && item.getItem().getItem() == TFItems.SPAWNFM)
 			{
-				item.setDead();
-
 				EntityItemSpawnFriendMecha core = new EntityItemSpawnFriendMecha(item.world, item.posX, item.posY, item.posZ, item.getItem());
 				core.motionX = item.motionX;
 				core.motionY = item.motionY;
 				core.motionZ = item.motionZ;
 				core.setPickupDelay(30);
 				core.setNoDespawn();
-				item.world.spawnEntity(core);
+				core.world.spawnEntity(core);
+
+				item.setItem(ItemStack.EMPTY);
 			}
 		}
 	}
