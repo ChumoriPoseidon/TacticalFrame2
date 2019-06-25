@@ -17,7 +17,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import tf2.TFItems;
 import tf2.TFSoundEvents;
-import tf2.entity.mob.ai.EntityAIAttackRangedGun;
 import tf2.entity.mob.ai.EntityAIFollowFriendMecha;
 import tf2.entity.mob.ai.EntityAINearestAttackbleTargetFriend;
 import tf2.entity.mob.ai.EntityAIWanderFriendMecha;
@@ -52,7 +51,7 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIFollowFriendMecha(this, 1.0D, 5.0F, 2.0F));
 		this.tasks.addTask(2, new EntityAIWanderFriendMecha(this, 1.0D));
-		this.tasks.addTask(3, new EntityAIAttackRangedGun(this, 1.0D, 30.0F));
+		this.tasks.addTask(3, new EntityFriendMecha.EntityAIAttackRangedGunFriendMecha(this, 1.0D, 30.0F));
 		this.tasks.addTask(4, new EntityFriendMecha.EntityAILookAtAccessPlayer(this));
 		this.tasks.addTask(5, new EntityAILookIdle(this));
 		this.targetTasks.addTask(2, new EntityAINearestAttackbleTargetFriend(this, 10, true));
@@ -164,4 +163,12 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 		}
 	}
 
+//	if(this.taskOwner.getOwner() != null && this.taskOwner.getMechaMode() == 1)
+//	{
+//		System.out.println(this.taskOwner.getDistance(this.taskOwner.getOwner()));
+//		if(this.taskOwner.getDistance(this.taskOwner.getOwner()) > 32F)
+//		{
+//			return false;
+//		}
+//	}
 }
