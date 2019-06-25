@@ -128,7 +128,7 @@ public class EntityTF80G extends EntityGynoid
     			this.motionX = (dx / f2) * MathHelper.sqrt(f2) * i;
     			this.motionZ = (dz / f2) * MathHelper.sqrt(f2) * i;
     			this.motionY = -(0.9F * y3);
-    			this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 2.5F, 1.5F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+    			this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.5F, 1.3F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
     			this.jumpTime = 0;
     		}
     	}

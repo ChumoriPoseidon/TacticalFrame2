@@ -45,13 +45,25 @@
 					}
 				]
 			}
-		}
+		},
+        "4": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "tf2:spawncore_fm",
+                        "data": 4
+                    }
+                ]
+            }
+        }
 	},
 	"requirements": [
 		[
 			"1",
 			"2",
-			"3"
+			"3",
+            "4"
 		]
 	],
 	"rewards": {

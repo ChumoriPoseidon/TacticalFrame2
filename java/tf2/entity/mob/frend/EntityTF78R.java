@@ -101,7 +101,7 @@ public class EntityTF78R extends EntityGynoid
 			this.motionX = (dx / f2) * MathHelper.sqrt(f2) * 1.1F;
 			this.motionZ = (dz / f2) * MathHelper.sqrt(f2) * 1.1F;
 			this.motionY = (0.14F * y3) + 0.41F;
-			this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 2.5F, 1.5F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+			this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.5F, 1.5F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		}
 
         if(distance < 1.5F)

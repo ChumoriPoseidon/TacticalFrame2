@@ -21,19 +21,15 @@ public class ItemWorkkit extends ItemBase
 
 	public ItemStack getContainerItem(ItemStack stack) {
 
-		if (stack != null && stack.getItem() == this) {
-
+		if (!stack.isEmpty() && stack.getItem() == this)
+		{
 			Random rand = Item.itemRand;
-
 			ItemStack copy = stack.copy();
-
 			boolean flag = copy.attemptDamageItem(1, rand, null);
-
-			return flag ? null : copy;
-
+			return flag ? ItemStack.EMPTY : copy;
 		}
 
-		return stack;
+		return ItemStack.EMPTY;
 
 	}
 

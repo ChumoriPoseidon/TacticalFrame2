@@ -86,11 +86,11 @@ public class EntityTF77B extends EntityGynoid
 		double var8 = target.posY - this.posY;
 		double var5 = target.posZ - this.posZ;
 
-		if (this.attackTime <= 15 && this.attackTime % 4 == 0)
+		if (this.attackTime <= 15 && this.attackTime % 5 == 0)
 		{
 			EntityFriendShell var7 = new EntityFriendShell(this.world, this);
 			var7.setDamage(var7.getDamage() + this.getMechaATK() + 3);
-			this.playSound(TFSoundEvents.FAMAS, 2.5F, 2.5F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+			this.playSound(TFSoundEvents.CUBE, 2.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 			var7.shoot(var3, var8, var5, 2.0F, 3.0F);
 			this.world.spawnEntity(var7);
 		}
