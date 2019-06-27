@@ -225,6 +225,7 @@ public class TFItems
 	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ENCHANTSLOW = new ItemMechaSkillBase("enchantslow", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_AUTOREPAIR = new ItemMechaSkillBase("autorepair", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_COMEBACK = new ItemMechaSkillBase("comeback", EnumFriendSkillType.COMMON);
 
 	public static final Item SKILL_RESURRECTION =  new ItemMechaSkillBase("resurrection", EnumFriendSkillType.CONSUME);
 

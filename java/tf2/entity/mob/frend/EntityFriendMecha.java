@@ -33,6 +33,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -157,6 +158,7 @@ public abstract class EntityFriendMecha extends EntityGolem
 	public void setDead()
 	{
 		int mechaID = 0;
+		Boolean dropedItem = false;
 
 		Class mechaClass = this.getClass();
 
@@ -224,7 +226,24 @@ public abstract class EntityFriendMecha extends EntityGolem
 					}
 				}
 			}
-			this.entityDropItem(itemstack, 0);
+
+			if(this.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_COMEBACK))
+			{
+				MinecraftServer minecraftserver = this.getServer();
+				for(EntityPlayerMP player : minecraftserver.getPlayerList().getPlayers())
+				{
+					if(this.getOwner() == player)
+					{
+						player.entityDropItem(itemstack, 0);
+						dropedItem = true;
+					}
+				}
+
+			}
+			if(!dropedItem)
+			{
+				this.entityDropItem(itemstack, 0);
+			}
 		}
 
 		super.setDead();
@@ -328,6 +347,17 @@ public abstract class EntityFriendMecha extends EntityGolem
 				if (this.canBeingRidden && player.isSneaking() && player.getCachedUniqueIdString().equals(this.getOwnerUUID().toString()))
 				{
 					player.startRiding(this);
+					return true;
+				}
+				else if(!this.canBeingRidden && player.isSneaking() && player.getCachedUniqueIdString().equals(this.getOwnerUUID().toString()))
+				{
+					switch(this.getMechaMode())
+					{
+						case 0: this.setMechaMode((byte)1);	break;
+						case 1: this.setMechaMode((byte)2);	break;
+						case 2: this.setMechaMode((byte)0);	break;
+					}
+					this.playSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 					return true;
 				}
 				else
