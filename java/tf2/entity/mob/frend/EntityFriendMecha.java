@@ -334,7 +334,11 @@ public abstract class EntityFriendMecha extends EntityGolem
 				{
 					//if(!(itemstack.getItem() instanceof ItemTFGuns))
 					this.setAccessPlayer(player);
-					player.openGui(TF2Core.INSTANCE, TF2Core.guiTurret, this.getEntityWorld(), this.getEntityId(), 0, 0);
+					if(this.getOwner() != null)
+					{
+						player.openGui(TF2Core.INSTANCE, TF2Core.guiTurret, this.getEntityWorld(), this.getEntityId(), 0, 0);
+					}
+					return false;
 				}
 			}
 			return true;
@@ -694,6 +698,10 @@ public abstract class EntityFriendMecha extends EntityGolem
 				{
 					return mecha.getDistanceSq(mecha.getOwner()) < 420.0D;
 				}
+				if(mecha.getHomePosition() != null && mecha.getMechaMode() == 2)
+				{
+					return mecha.getDistanceSq(mecha.getHomePosition()) < 420.0D;
+				}
 			}
 			return super.shouldExecute();
 		}
@@ -704,11 +712,31 @@ public abstract class EntityFriendMecha extends EntityGolem
 			if(this.entityHost instanceof EntityFriendMecha)
 			{
 				EntityFriendMecha mecha = (EntityFriendMecha) this.entityHost;
+
 				if(mecha.getOwner() != null && mecha.getMechaMode() == 1)
 				{
                     int i = MathHelper.floor(mecha.getOwner().posX) - 2;
                     int j = MathHelper.floor(mecha.getOwner().posZ) - 2;
                     int k = MathHelper.floor(mecha.getOwner().getEntityBoundingBox().minY);
+
+                    for (int l = 0; l <= 4; ++l)
+                    {
+                        for (int i1 = 0; i1 <= 4; ++i1)
+                        {
+                            if ((l < 1 || i1 < 1 || l > 3 || i1 > 3) && this.isTeleportFriendlyBlock(i, j, k, l, i1))
+                            {
+                                mecha.setLocationAndAngles((double)((float)(i + l) + 0.5F), (double)k, (double)((float)(j + i1) + 0.5F), mecha.rotationYaw, mecha.rotationPitch);
+                                mecha.getNavigator().clearPath();
+                                return;
+                            }
+                        }
+                    }
+				}
+				if(mecha.getHomePosition() != null && mecha.getMechaMode() == 2)
+				{
+                    int i = MathHelper.floor(mecha.getHomePosition().getX()) - 2;
+                    int j = MathHelper.floor(mecha.getHomePosition().getZ()) - 2;
+                    int k = MathHelper.floor(mecha.getHomePosition().getY());
 
                     for (int l = 0; l <= 4; ++l)
                     {

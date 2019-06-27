@@ -109,7 +109,7 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 				this.renderWing(entity, entity.ticksExisted);
 			}
 
-			if((entity instanceof EntityTF77B || entity instanceof EntityTF79P)&& entity.getMechaMode() != 0)
+			if(entity.getMechaMode() != 0)
 			{
 				GlStateManager.pushMatrix();
 				if(entity instanceof EntityTF77B)
@@ -155,7 +155,7 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 				this.renderWing(entity, entity.ticksExisted);
 			}
 
-			if((entity instanceof EntityTF77B || entity instanceof EntityTF79P)&& entity.getMechaMode() != 0)
+			if(entity.getMechaMode() != 0)
 			{
 				GlStateManager.pushMatrix();
 				if(entity instanceof EntityTF77B)
@@ -229,6 +229,7 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 		GlStateManager.translate(0.0F, -1.0F, 0.0F);
 		this.getEntityWeaponObj().renderPart("rightHeadGear");
 		this.getEntityWeaponObj().renderPart("leftHeadGear");
+		this.getEntityWeaponObj().renderPart("gearHead");
 		GlStateManager.popMatrix();
 	}
 
