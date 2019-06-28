@@ -220,6 +220,7 @@ public class TFItems
 	public static final Item SKILL_ADDITIONALARMOR_1 = new ItemMechaSkillBase("additionalarmor_1", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_2 = new ItemMechaSkillBase("additionalarmor_2", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_FIREPROTECTION = new ItemMechaSkillBase("fireprotection", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ENCHANTWEAKNESS = new ItemMechaSkillBase("enchantweakness", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ARTILLERYCOMMAND_TURRET = new ItemMechaSkillBase("artillerycommand_turret", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", EnumFriendSkillType.COMMON);

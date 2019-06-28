@@ -98,16 +98,46 @@ public class TFMechaSkillEvent
 		if (damage.getTrueSource() instanceof EntityFriendMecha)
 		{
 			EntityFriendMecha mecha = (EntityFriendMecha)damage.getTrueSource();
-			this.mechaAttackEvent2(mecha, target);
+			this.selectPlayerOrMecha(mecha, target);
 		}
 		if (damage.getTrueSource() instanceof EntityPlayer && damage.getTrueSource().isRiding() && damage.getTrueSource().getRidingEntity() instanceof EntityFriendMecha)
 		{
 			EntityFriendMecha mecha = (EntityFriendMecha)damage.getTrueSource().getRidingEntity();
-			this.mechaAttackEvent2(mecha, target);
+			this.selectPlayerOrMecha(mecha, target);
+		}
+
+
+		if (target instanceof EntityFriendMecha)
+		{
+			EntityFriendMecha mecha = (EntityFriendMecha) target;
+			if (mecha != null)
+			{
+				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_FIREPROTECTION))
+				{
+					if (damage.isFireDamage())
+					{
+						event.setCanceled(true);
+					}
+				}
+			}
+		}
+		if (target instanceof EntityPlayer && target.isRiding() && target.getRidingEntity() instanceof EntityFriendMecha)
+		{
+			EntityFriendMecha mecha = (EntityFriendMecha) target.getRidingEntity();
+			if (mecha != null)
+			{
+				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_FIREPROTECTION))
+				{
+					if (damage.isFireDamage())
+					{
+						event.setCanceled(true);
+					}
+				}
+			}
 		}
 	}
 
-	public void mechaAttackEvent2(EntityFriendMecha mecha, EntityLivingBase target)
+	public void selectPlayerOrMecha(EntityFriendMecha mecha, EntityLivingBase target)
 	{
 		if (mecha != null)
 		{
@@ -134,7 +164,6 @@ public class TFMechaSkillEvent
 			}
 		}
 	}
-
 
 	@SubscribeEvent
 	public void mechaLivingEvent(LivingUpdateEvent event)
