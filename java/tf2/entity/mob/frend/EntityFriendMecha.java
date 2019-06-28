@@ -33,6 +33,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -157,6 +158,7 @@ public abstract class EntityFriendMecha extends EntityGolem
 	public void setDead()
 	{
 		int mechaID = 0;
+		Boolean dropedItem = false;
 
 		Class mechaClass = this.getClass();
 
@@ -224,7 +226,24 @@ public abstract class EntityFriendMecha extends EntityGolem
 					}
 				}
 			}
-			this.entityDropItem(itemstack, 0);
+
+			if(this.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_COMEBACK))
+			{
+				MinecraftServer minecraftserver = this.getServer();
+				for(EntityPlayerMP player : minecraftserver.getPlayerList().getPlayers())
+				{
+					if(this.getOwner() == player)
+					{
+						player.entityDropItem(itemstack, 0);
+						dropedItem = true;
+					}
+				}
+
+			}
+			if(!dropedItem)
+			{
+				this.entityDropItem(itemstack, 0);
+			}
 		}
 
 		super.setDead();
@@ -330,11 +349,26 @@ public abstract class EntityFriendMecha extends EntityGolem
 					player.startRiding(this);
 					return true;
 				}
+				else if(!this.canBeingRidden && player.isSneaking() && player.getCachedUniqueIdString().equals(this.getOwnerUUID().toString()))
+				{
+					switch(this.getMechaMode())
+					{
+						case 0: this.setMechaMode((byte)1);	break;
+						case 1: this.setMechaMode((byte)2);	break;
+						case 2: this.setMechaMode((byte)0);	break;
+					}
+					this.playSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+					return true;
+				}
 				else
 				{
 					//if(!(itemstack.getItem() instanceof ItemTFGuns))
 					this.setAccessPlayer(player);
-					player.openGui(TF2Core.INSTANCE, TF2Core.guiTurret, this.getEntityWorld(), this.getEntityId(), 0, 0);
+					if(this.getOwner() != null)
+					{
+						player.openGui(TF2Core.INSTANCE, TF2Core.guiTurret, this.getEntityWorld(), this.getEntityId(), 0, 0);
+					}
+					return false;
 				}
 			}
 			return true;
@@ -694,6 +728,10 @@ public abstract class EntityFriendMecha extends EntityGolem
 				{
 					return mecha.getDistanceSq(mecha.getOwner()) < 420.0D;
 				}
+				if(mecha.getHomePosition() != null && mecha.getMechaMode() == 2)
+				{
+					return mecha.getDistanceSq(mecha.getHomePosition()) < 420.0D;
+				}
 			}
 			return super.shouldExecute();
 		}
@@ -704,11 +742,31 @@ public abstract class EntityFriendMecha extends EntityGolem
 			if(this.entityHost instanceof EntityFriendMecha)
 			{
 				EntityFriendMecha mecha = (EntityFriendMecha) this.entityHost;
+
 				if(mecha.getOwner() != null && mecha.getMechaMode() == 1)
 				{
                     int i = MathHelper.floor(mecha.getOwner().posX) - 2;
                     int j = MathHelper.floor(mecha.getOwner().posZ) - 2;
                     int k = MathHelper.floor(mecha.getOwner().getEntityBoundingBox().minY);
+
+                    for (int l = 0; l <= 4; ++l)
+                    {
+                        for (int i1 = 0; i1 <= 4; ++i1)
+                        {
+                            if ((l < 1 || i1 < 1 || l > 3 || i1 > 3) && this.isTeleportFriendlyBlock(i, j, k, l, i1))
+                            {
+                                mecha.setLocationAndAngles((double)((float)(i + l) + 0.5F), (double)k, (double)((float)(j + i1) + 0.5F), mecha.rotationYaw, mecha.rotationPitch);
+                                mecha.getNavigator().clearPath();
+                                return;
+                            }
+                        }
+                    }
+				}
+				if(mecha.getHomePosition() != null && mecha.getMechaMode() == 2)
+				{
+                    int i = MathHelper.floor(mecha.getHomePosition().getX()) - 2;
+                    int j = MathHelper.floor(mecha.getHomePosition().getZ()) - 2;
+                    int k = MathHelper.floor(mecha.getHomePosition().getY());
 
                     for (int l = 0; l <= 4; ++l)
                     {

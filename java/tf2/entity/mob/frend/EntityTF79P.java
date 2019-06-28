@@ -5,7 +5,6 @@ import java.util.List;
 import com.google.common.base.Predicates;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -19,6 +18,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import tf2.TFItems;
+import tf2.entity.mob.ai.EntityAIAttackRangedFriendMecha;
 import tf2.entity.projectile.player.EntityFriendImpact;
 
 public class EntityTF79P extends EntityGynoid
@@ -41,7 +41,7 @@ public class EntityTF79P extends EntityGynoid
 	protected void initEntityAI()
 	{
 		super.initEntityAI();
-		this.tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 1, 30.0F));
+		this.tasks.addTask(1, new EntityAIAttackRangedFriendMecha(this, 1.0D, 1, 30.0F));
 	}
 
     @Override
