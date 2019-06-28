@@ -60,6 +60,8 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 			if(entity.getMechaMode() != 0 && !entity.isRiding())
 			{
 				this.renderWeapon(entity);
+				this.renderRightBootsGear(entity);
+				this.renderLeftBootsGear(entity);
 			}
 
 	        float f4 = MathHelper.wrapDegrees(entity.rotationYawHead - entity.rotationYaw);
@@ -189,6 +191,8 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 			if(entity.getMechaMode() != 0 && !entity.isRiding())
 			{
 				this.renderWeapon(entity);
+				this.renderRightBootsGear(entity);
+				this.renderLeftBootsGear(entity);
 			}
 	        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lastx, lasty);
 			OpenGlHelper.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ZERO);
@@ -277,6 +281,63 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 		this.getEntityWeaponObj().renderPart("leftWing");
 		GlStateManager.popMatrix();
 	}
+
+	public void renderRightBootsGear(T entity)
+	{
+		float f = (float)(entity.motionX * entity.motionX + entity.motionY * entity.motionY + entity.motionZ * entity.motionZ);
+
+		GlStateManager.pushMatrix();
+		GlStateManager.rotate(180 - entity.renderYawOffset, 0.0F, 1.0F, 0.0F);
+
+		GlStateManager.translate(0F, 0.5625F, 0F);
+		GlStateManager.translate(0.10F, -0.75F, 0F);
+
+		GlStateManager.translate((this.layerModel.bipedRightLeg.rotationPointX / 10) / 1.375, (this.layerModel.bipedRightLeg.rotationPointY / 10) / 1.625, this.layerModel.bipedRightLeg.rotationPointZ / 10);
+
+		GlStateManager.rotate(this.layerModel.bipedRightLeg.rotateAngleX, 1.0F, 0.0F, 0.0F);
+		GlStateManager.rotate(this.layerModel.bipedRightLeg.rotateAngleY, 0.0F, 1.0F, 0.0F);
+		GlStateManager.rotate(this.layerModel.bipedRightLeg.rotateAngleZ, 0.0F, 0.0F, 1.0F);
+
+		if(f == 0)
+		{
+			f = 0.1F;
+		}
+
+		GlStateManager.rotate(MathHelper.cos(entity.limbSwing * 0.6662F) * 1.4F * entity.limbSwingAmount /  f, 1.0F, 0.0F, 0.0F);
+		GlStateManager.translate(0.0F, 0.0F, MathHelper.cos(entity.limbSwing * 0.6662F + (float)Math.PI) * -1.15F * entity.limbSwingAmount * 0.1F);
+		GlStateManager.translate(0F, -0.5625F, 0F);
+		this.getEntityWeaponObj().renderPart("rightBootGear");
+		GlStateManager.popMatrix();
+	}
+
+	public void renderLeftBootsGear(T entity)
+	{
+		float f = (float)(entity.motionX * entity.motionX + entity.motionY * entity.motionY + entity.motionZ * entity.motionZ);
+
+		GlStateManager.pushMatrix();
+		GlStateManager.rotate(180 - entity.renderYawOffset, 0.0F, 1.0F, 0.0F);
+
+		GlStateManager.translate(0F, 0.5625F, 0F);
+		GlStateManager.translate(0.10F, -0.75F, 0F);
+
+		GlStateManager.translate((this.layerModel.bipedRightLeg.rotationPointX / 10) / 1.375, (this.layerModel.bipedRightLeg.rotationPointY / 10) / 1.625, this.layerModel.bipedRightLeg.rotationPointZ / 10);
+
+		GlStateManager.rotate(this.layerModel.bipedRightLeg.rotateAngleX, 1.0F, 0.0F, 0.0F);
+		GlStateManager.rotate(this.layerModel.bipedRightLeg.rotateAngleY, 0.0F, 1.0F, 0.0F);
+		GlStateManager.rotate(this.layerModel.bipedRightLeg.rotateAngleZ, 0.0F, 0.0F, 1.0F);
+
+		if(f == 0)
+		{
+			f = 0.1F;
+		}
+
+		GlStateManager.rotate(MathHelper.cos(entity.limbSwing * 0.6662F) * 1.4F * entity.limbSwingAmount /  f, -1.0F, 0.0F, 0.0F);
+		GlStateManager.translate(0.0F, 0.0F, MathHelper.cos(entity.limbSwing * 0.6662F + (float)Math.PI) * 1.15F * entity.limbSwingAmount * 0.1F);
+		GlStateManager.translate(0F, -0.5625F, 0F);
+		this.getEntityWeaponObj().renderPart("leftBootGear");
+		GlStateManager.popMatrix();
+	}
+
 
 	public void renderWeapon(T entity)
 	{
