@@ -301,7 +301,7 @@ public class TileEntityCupola extends TileEntity implements ITickable, ISidedInv
 		else if (this.itemButton == 8)
         {
             itemstack = new ItemStack(TFItems.CAN);
-            i = 20;
+            i = 10;
         }
 		else if (this.itemButton == 9)
         {
@@ -363,7 +363,7 @@ public class TileEntityCupola extends TileEntity implements ITickable, ISidedInv
 		else if (this.itemButton == 8)
         {
             itemstack = new ItemStack(TFItems.CAN);
-            i = 20;
+            i = 10;
         }
 		else if (this.itemButton == 9)
         {
@@ -476,7 +476,7 @@ public class TileEntityCupola extends TileEntity implements ITickable, ISidedInv
             if (item == Items.HOPPER_MINECART) return 1000;
 
             if (item == Items.IRON_INGOT) return 100;
-            if (item == TFItems.CAN) return 20;
+            if (item == TFItems.CAN) return 10;
             if (item == TFItems.GEAR_IRON) return 400;
             if (item == TFItems.CAN_WATER) return 20;
             if (item == TFItems.CAN_LAVA) return 20;
