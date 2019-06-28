@@ -19,7 +19,6 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import tf2.TFItems;
-import tf2.entity.mob.ai.EntityAIAttackRangedGun;
 
 public class EntityTF78R extends EntityGynoid
 {
@@ -43,7 +42,7 @@ public class EntityTF78R extends EntityGynoid
 	protected void initEntityAI()
 	{
 		super.initEntityAI();
-		this.tasks.addTask(1, new EntityAIAttackRangedGun(this, 1.25D, 10.0F));
+		this.tasks.addTask(3, new EntityFriendMecha.EntityAIAttackRangedGunFriendMecha(this, 1.25D, 10.0F));
 	}
 
     @Override
