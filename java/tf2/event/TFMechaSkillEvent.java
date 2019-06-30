@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -56,6 +57,7 @@ public class TFMechaSkillEvent
 		}
 	}
 
+	//Damageはメカの防御値のみを参照するため、Playerは不要
 	@SubscribeEvent
 	public void mechaHurtEvent(LivingHurtEvent event)
 	{
@@ -69,6 +71,15 @@ public class TFMechaSkillEvent
 
 			if (mecha != null)
 			{
+				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_ALLORNOTHING))
+				{
+					if(0.8F < mecha.world.rand.nextFloat())
+					{
+						amount *= 0.5F;
+						event.setAmount(amount);
+					}
+				}
+
 				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_ADDITIONALARMOR_1))
 				{
 					amount *= 0.9F;
@@ -88,6 +99,7 @@ public class TFMechaSkillEvent
 		}
 	}
 
+	//騎乗時のPlayerにも効果を与える
 	@SubscribeEvent
 	public void mechaAttackEvent(LivingAttackEvent event)
 	{
@@ -98,46 +110,28 @@ public class TFMechaSkillEvent
 		if (damage.getTrueSource() instanceof EntityFriendMecha)
 		{
 			EntityFriendMecha mecha = (EntityFriendMecha)damage.getTrueSource();
-			this.selectPlayerOrMecha(mecha, target);
+			this.selectPlayerOrMecha(mecha, target, event, damage);
 		}
 		if (damage.getTrueSource() instanceof EntityPlayer && damage.getTrueSource().isRiding() && damage.getTrueSource().getRidingEntity() instanceof EntityFriendMecha)
 		{
 			EntityFriendMecha mecha = (EntityFriendMecha)damage.getTrueSource().getRidingEntity();
-			this.selectPlayerOrMecha(mecha, target);
+			this.selectPlayerOrMecha(mecha, target, event, damage);
 		}
 
 
 		if (target instanceof EntityFriendMecha)
 		{
 			EntityFriendMecha mecha = (EntityFriendMecha) target;
-			if (mecha != null)
-			{
-				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_FIREPROTECTION))
-				{
-					if (damage.isFireDamage())
-					{
-						event.setCanceled(true);
-					}
-				}
-			}
+			this.selectPlayerOrMecha(mecha, target, event, damage);
 		}
 		if (target instanceof EntityPlayer && target.isRiding() && target.getRidingEntity() instanceof EntityFriendMecha)
 		{
 			EntityFriendMecha mecha = (EntityFriendMecha) target.getRidingEntity();
-			if (mecha != null)
-			{
-				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_FIREPROTECTION))
-				{
-					if (damage.isFireDamage())
-					{
-						event.setCanceled(true);
-					}
-				}
-			}
+			this.selectPlayerOrMecha(mecha, target, event, damage);
 		}
 	}
 
-	public void selectPlayerOrMecha(EntityFriendMecha mecha, EntityLivingBase target)
+	public void selectPlayerOrMecha(EntityFriendMecha mecha, EntityLivingBase target, LivingAttackEvent event, DamageSource damage)
 	{
 		if (mecha != null)
 		{
@@ -152,7 +146,7 @@ public class TFMechaSkillEvent
 			{
 				if (target != null && !target.world.isRemote && !(target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))))
 				{
-					target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 200, 0));
+					target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 0));
 				}
 			}
 			if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_ENCHANTWEAKNESS))
@@ -160,6 +154,23 @@ public class TFMechaSkillEvent
 				if (target != null && !target.world.isRemote && !(target instanceof EntityPlayer || (target instanceof EntityGolem && !(target instanceof IMob))))
 				{
 					target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 200, 0));
+				}
+			}
+			if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_PROVOCATE))
+			{
+				if (target != null && target instanceof EntityMob)
+				{
+					EntityMob mob = (EntityMob)target;
+					mob.setAttackTarget(mecha);
+					mob.setLastAttackedEntity(mecha);
+				}
+			}
+
+			if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_FIREPROTECTION))
+			{
+				if (damage.isFireDamage())
+				{
+					event.setCanceled(true);
 				}
 			}
 		}
@@ -206,6 +217,20 @@ public class TFMechaSkillEvent
 						if(player != null && !player.world.isRemote)
 						{
 							player.addPotionEffect(new PotionEffect(TFPotionPlus.SHOOTING, 300, 0, true, false));
+						}
+					}
+				}
+
+				if (mecha.getInventoryMechaEquipment().getHasSkill(TFItems.SKILL_FULLFIREPOWER))
+				{
+					if(mecha.ticksExisted % 400 == 0 && !mecha.world.isRemote && 0.5F < mecha.world.rand.nextFloat())
+					{
+						mecha.addPotionEffect(new PotionEffect(TFPotionPlus.SHOOTING, 200, 2, true, false));
+
+						EntityPlayer player = (EntityPlayer)mecha.getControllingPassenger();
+						if(player != null && !player.world.isRemote)
+						{
+							player.addPotionEffect(new PotionEffect(TFPotionPlus.SHOOTING, 200, 2, true, false));
 						}
 					}
 				}

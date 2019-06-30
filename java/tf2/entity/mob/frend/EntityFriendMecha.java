@@ -362,9 +362,9 @@ public abstract class EntityFriendMecha extends EntityGolem
 				}
 				else
 				{
-					//if(!(itemstack.getItem() instanceof ItemTFGuns))
 					this.setAccessPlayer(player);
-					if(this.getOwner() != null)
+					//if(this.getOwner() != null)
+					if(this.getOwner() != null || player.isCreative())
 					{
 						player.openGui(TF2Core.INSTANCE, TF2Core.guiTurret, this.getEntityWorld(), this.getEntityId(), 0, 0);
 					}

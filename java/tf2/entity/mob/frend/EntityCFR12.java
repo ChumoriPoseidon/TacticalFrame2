@@ -33,15 +33,15 @@ public class EntityCFR12 extends EntityMobCF
 	private static final byte slotSize = 2;
 	private static final byte maxLevel = 99;
 
-	private static final double defaultDamage = 15D;
-	private static final double defaultArmor = 14.0D;
+	private static final double defaultDamage = 10D;
+	private static final double defaultArmor = 8.0D;
 	private static final double defaultArmorToughness = 2.0D;
-	private static final double defaultMaxHealth = 150.0D;
+	private static final double defaultMaxHealth = 100.0D;
 
-	private static final double upAttack = 0.154;
-	private static final double upArmor = 0.062;
+	private static final double upAttack = 0.257;
+	private static final double upArmor = 0.123;
 	private static final double upArmorToughness = 0.062;
-	private static final double upMaxHealth = 6.13;
+	private static final double upMaxHealth = 6.64;
 
 	private static final int maxBoostStack = 40;
 	private static final int limitLeftclick = 12;
@@ -67,7 +67,7 @@ public class EntityCFR12 extends EntityMobCF
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(20D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.22D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(14.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(8.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(2.0D);
 		this.boostStack = this.maxBoostStack;
 	}
@@ -76,7 +76,7 @@ public class EntityCFR12 extends EntityMobCF
 	public void isUpLevel()
 	{
 		super.isUpLevel();
-		if (this.getMechaLevel() == 20)
+		if (this.getMechaLevel() == 19)
 		{
 			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
 			ItemStack stack = new ItemStack(TFItems.SKILL_WIDESPREAD);
@@ -95,11 +95,11 @@ public class EntityCFR12 extends EntityMobCF
 				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
 			}
 		}
-		if (this.getMechaLevel() == 40)
+		if (this.getMechaLevel() == 39)
 		{
 			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_ADDITIONALARMOR_1));
 		}
-		if (this.getMechaLevel() == 70)
+		if (this.getMechaLevel() == 59)
 		{
 			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_FIREFILLING));
 		}
@@ -108,7 +108,7 @@ public class EntityCFR12 extends EntityMobCF
 	@Override
 	public ItemStack getSkillUnique()
 	{
-		if (this.getMechaLevel() >= 20)
+		if (this.getMechaLevel() >= 19)
 		{
 			return new ItemStack(TFItems.SKILL_WIDESPREAD);
 		}
@@ -213,7 +213,7 @@ public class EntityCFR12 extends EntityMobCF
 		this.smoke = 80;
 
 		double k;
-		if (this.getMechaLevel() >= 20)
+		if (this.getMechaLevel() >= 19)
 		{
 			k = 10D;
 		}

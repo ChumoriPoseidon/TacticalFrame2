@@ -173,8 +173,8 @@ public class TFItems
 	public static final Item VEPR12 = new ItemTFGunsSG("vepr12", 8, 3F, 0.5F, 9, 13F, TFSoundEvents.SAIGA, 4F, 6F, 5, 30);
 	public static final Item AA12 = new ItemTFGunsSG("aa12", 20, 3F, 0.5F, 8, 13F, TFSoundEvents.AA12, 3F, 6F, 5, 38);
 
-	public static final Item MG42 = new ItemTFGunsLMG("mg42", 100, 6.5F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 6.5F, 1, 60);
-	public static final Item M60E1 = new ItemTFGunsLMG("m60e1", 100, 7F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 7F, 1, 60);
+	public static final Item MG42 = new ItemTFGunsLMG("mg42", 100, 5.5F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 6.5F, 1, 60);
+	public static final Item M60E1 = new ItemTFGunsLMG("m60e1", 100, 6F, 1F, 6F, TFSoundEvents.MG42, 0.5F, 7F, 1, 60);
 
 	public static final Item M1A1 = new ItemTFGunsGL("m1a1", 1, 40F, 3F, 4D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 40, 40);
 	public static final Item M20 = new ItemTFGunsGL("m20", 1, 40F, 3F, 3D, 8F, TFSoundEvents.BAZOOKA, 15F, 15F, 30, 30);
@@ -216,12 +216,15 @@ public class TFItems
 
 	public static final Item SKILL_FIREFILLING = new ItemMechaSkillBase("firefilling", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_HARDSTRIKE = new ItemMechaSkillBase("hardstrike", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_FULLFIREPOWER = new ItemMechaSkillBase("fullfirepower", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ENCHANTFLAME = new ItemMechaSkillBase("enchantflame", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_1 = new ItemMechaSkillBase("additionalarmor_1", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_2 = new ItemMechaSkillBase("additionalarmor_2", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ADDITIONALARMOR_3 = new ItemMechaSkillBase("additionalarmor_3", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_ALLORNOTHING = new ItemMechaSkillBase("allornothing", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_FIREPROTECTION = new ItemMechaSkillBase("fireprotection", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ENCHANTWEAKNESS = new ItemMechaSkillBase("enchantweakness", EnumFriendSkillType.COMMON);
+	public static final Item SKILL_PROVOCATE = new ItemMechaSkillBase("provocate", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ARTILLERYCOMMAND_TURRET = new ItemMechaSkillBase("artillerycommand_turret", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_REPAIRDOUBLING = new ItemMechaSkillBase("repairdoubling", EnumFriendSkillType.COMMON);
 	public static final Item SKILL_ENCHANTSLOW = new ItemMechaSkillBase("enchantslow", EnumFriendSkillType.COMMON);

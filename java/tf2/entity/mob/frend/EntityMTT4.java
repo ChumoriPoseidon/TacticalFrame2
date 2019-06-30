@@ -112,7 +112,7 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 	@Override
 	public ItemStack getSkillUnique()
 	{
-		if (this.getMechaLevel() >= 20)
+		if (this.getMechaLevel() >= 19)
 		{
 			return new ItemStack(TFItems.SKILL_SELFHEALING);
 		}
@@ -122,7 +122,7 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 	@Override
 	public void onLivingUpdate()
 	{
-		if (this.getMechaLevel() >= 20)
+		if (this.getMechaLevel() >= 19)
 		{
 			if (this.ticksExisted % 200 == 0 && !this.world.isRemote)
 			{
@@ -136,7 +136,7 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 	public void isUpLevel()
 	{
 		super.isUpLevel();
-		if (this.getMechaLevel() == 20)
+		if (this.getMechaLevel() == 19)
 		{
 			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
 			ItemStack stack = new ItemStack(TFItems.SKILL_SELFHEALING);

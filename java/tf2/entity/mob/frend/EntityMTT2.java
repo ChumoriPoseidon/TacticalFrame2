@@ -102,7 +102,7 @@ public class EntityMTT2 extends EntityFriendMecha implements IRangedAttackMob
 
 		if (this.attackTime <= 0)
 		{
-			if (this.getMechaLevel() >= 40)
+			if (this.getMechaLevel() >= 39)
 			{
 				this.attackTime = 70;
 			}
@@ -120,7 +120,7 @@ public class EntityMTT2 extends EntityFriendMecha implements IRangedAttackMob
 	@Override
 	public ItemStack getSkillUnique()
 	{
-		if (this.getMechaLevel() >= 40)
+		if (this.getMechaLevel() >= 39)
 		{
 			return new ItemStack(TFItems.SKILL_QUICKRELOAD);
 		}
@@ -131,7 +131,7 @@ public class EntityMTT2 extends EntityFriendMecha implements IRangedAttackMob
 	public void isUpLevel()
 	{
 		super.isUpLevel();
-		if (this.getMechaLevel() == 40)
+		if (this.getMechaLevel() == 39)
 		{
 			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
 			ItemStack stack = new ItemStack(TFItems.SKILL_QUICKRELOAD);
@@ -152,7 +152,7 @@ public class EntityMTT2 extends EntityFriendMecha implements IRangedAttackMob
 			}
 		}
 
-		if (this.getMechaLevel() == 20)
+		if (this.getMechaLevel() == 19)
 		{
 			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_FIREFILLING));
 		}

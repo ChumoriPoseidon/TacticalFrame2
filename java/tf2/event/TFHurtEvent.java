@@ -231,9 +231,9 @@ public class TFHurtEvent
 				PotionEffect potion = target.getActivePotionEffect(TFPotionPlus.DISABLE_CHANCE);
 				int i = potion.getAmplifier();
 
-				double par = 5.0D - (1.0D + (double) i);
+				float par = 5.0F - (1.0F + (float) i);
 
-				if (par < target.world.rand.nextDouble() * 5.0D)
+				if (par < target.world.rand.nextFloat() * 5.0F)
 				{
 					event.setCanceled(true);
 				}
@@ -297,7 +297,10 @@ public class TFHurtEvent
 		{
 			return true;
 		}
-
+		if (var1.damageType.equals("heat"))
+		{
+			return true;
+		}
 		else
 		{
 			return false;

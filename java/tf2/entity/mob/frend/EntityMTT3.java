@@ -103,7 +103,7 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 			EntityFriendMortar bullet = new EntityFriendMortar(this.world, this);
 			bullet.setDamage(bullet.getDamage() + this.getMechaATK());
 
-			if (this.getMechaLevel() >= 40)
+			if (this.getMechaLevel() >= 19)
 			{
 				bullet.setSpread(6D);
 			}
@@ -128,7 +128,7 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 	@Override
 	public ItemStack getSkillUnique()
 	{
-		if (this.getMechaLevel() >= 20)
+		if (this.getMechaLevel() >= 19)
 		{
 			return new ItemStack(TFItems.SKILL_SPREADHOWITZER);
 		}
@@ -139,7 +139,7 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 	public void isUpLevel()
 	{
 		super.isUpLevel();
-		if (this.getMechaLevel() == 20)
+		if (this.getMechaLevel() == 19)
 		{
 			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
 			ItemStack stack = new ItemStack(TFItems.SKILL_SPREADHOWITZER);
@@ -160,7 +160,7 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 			}
 		}
 
-		if (this.getMechaLevel() == 40)
+		if (this.getMechaLevel() == 39)
 		{
 			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_ARTILLERYCOMMAND_TURRET));
 		}
