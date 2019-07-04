@@ -51,6 +51,7 @@ import tf2.entity.projectile.player.EntityFriendBullet;
 import tf2.entity.projectile.player.EntityFriendImpact;
 import tf2.entity.projectile.player.EntityFriendMortar;
 import tf2.entity.projectile.player.EntityFriendShell;
+import tf2.entity.projectile.player.EntityFriendSoundwave;
 import tf2.entity.projectile.player.EntityGrenade;
 import tf2.entity.projectile.player.EntityGrenadeHe;
 import tf2.entity.projectile.player.EntityShell;
@@ -146,6 +147,7 @@ public class RegistryHandler
 		EntityFriendBullet.registerEntity(EntityFriendBullet.class, prefix("friendbullet"), "FriendBullet", 128, 5, true);
 //		EntityFriendGrenade.registerEntity(EntityFriendGrenade.class, prefix("friendgrenade"), "FriendGrenade", 128, 1, true);
 		EntityFriendShell.registerEntity(EntityFriendShell.class, prefix("friendshell"), "FriendShell", 256, 1, true);
+		EntityFriendSoundwave.registerEntity(EntityFriendSoundwave.class, prefix("friendsoundwave"), "FriendSoundwave", 256, 1, true);
 		EntityFriendImpact.registerEntity(EntityFriendImpact.class, prefix("friendimpact"), "FriendImpact", 256, 1, true);
 		EntityFriendMortar.registerEntity(EntityFriendMortar.class, prefix("friendmortar"), "FriendMortar", 256, 1, true);
 
