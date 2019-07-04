@@ -574,6 +574,29 @@ public abstract class EntityFriendMecha extends EntityGolem
 		}
 	}
 
+	public void getUniqueSkill(int level, ItemStack stack)
+	{
+		if (this.getMechaLevel() == level && !stack.isEmpty())
+		{
+			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
+
+			ITextComponent text = new TextComponentString("[");
+			text.getStyle().setColor(TextFormatting.GREEN);
+			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
+
+			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
+			text.appendSibling(itemName);
+			text.appendText("]");
+
+			String skillText = "skill.get";
+
+			if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
+			{
+				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
+			}
+		}
+	}
+
 	@Nonnull
 	public static String getLastKnownUsername(UUID uuid)
 	{

@@ -233,7 +233,12 @@ public abstract class RenderGynoid<T extends EntityGynoid> extends RenderLiving<
 		GlStateManager.translate(0.0F, -1.0F, 0.0F);
 		this.getEntityWeaponObj().renderPart("rightHeadGear");
 		this.getEntityWeaponObj().renderPart("leftHeadGear");
-		this.getEntityWeaponObj().renderPart("gearHead");
+
+		if(entity instanceof EntityTF80G && ((EntityTF80G) entity).getMechaMode() != 0)
+		{
+			this.getEntityWeaponObj().renderPart("gearHead");
+		}
+
 		GlStateManager.popMatrix();
 	}
 
