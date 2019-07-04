@@ -52,6 +52,7 @@ import tf2.client.render.RenderGrenadeHe;
 import tf2.client.render.RenderShell;
 import tf2.client.render.RenderShield;
 import tf2.client.render.RenderShieldRiot;
+import tf2.client.render.RenderSoundwave;
 import tf2.entity.mob.enemy.EntityEnemyMTT4;
 import tf2.entity.mob.enemy.EntityTM02;
 import tf2.entity.mob.enemy.EntityTM03;
@@ -91,6 +92,7 @@ import tf2.entity.projectile.player.EntityFriendBullet;
 import tf2.entity.projectile.player.EntityFriendImpact;
 import tf2.entity.projectile.player.EntityFriendMortar;
 import tf2.entity.projectile.player.EntityFriendShell;
+import tf2.entity.projectile.player.EntityFriendSoundwave;
 import tf2.entity.projectile.player.EntityGrenade;
 import tf2.entity.projectile.player.EntityGrenadeHe;
 import tf2.entity.projectile.player.EntityShell;
@@ -129,6 +131,7 @@ public class ClientProxy extends CommonProxy
 //		RenderingRegistry.registerEntityRenderingHandler(EntityFriendGrenade.class, RenderBullet::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFriendShell.class, RenderFriendShell::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFriendImpact.class, RenderFlat::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityFriendSoundwave.class, RenderSoundwave::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBarrier.class, RenderBarrier::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFriendMortar.class, RenderBulletBig::new);
 

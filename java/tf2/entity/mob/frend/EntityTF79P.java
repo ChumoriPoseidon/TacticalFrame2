@@ -18,8 +18,9 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import tf2.TFItems;
+import tf2.TFSoundEvents;
 import tf2.entity.mob.ai.EntityAIAttackRangedFriendMecha;
-import tf2.entity.projectile.player.EntityFriendImpact;
+import tf2.entity.projectile.player.EntityFriendSoundwave;
 
 public class EntityTF79P extends EntityGynoid
 {
@@ -89,21 +90,19 @@ public class EntityTF79P extends EntityGynoid
 
 		if (this.attackTime == 0)
 		{
-			this.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 3.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-
-			float[] wideAngle = { 0, -0.9F, 0.9F};
+			this.playSound(TFSoundEvents.CUBE, 2.5F, 0.7F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+			float[] wideAngle = { 0, -0.3F, 0.3F};
 			 for (int wide = 0; wide < wideAngle.length; ++wide)
 	         {
-				 double x2 = (shootX * (MathHelper.cos(wideAngle[wide]))) - (shootX * (MathHelper.sin(wideAngle[wide])));
-	             double z2 = (shootZ * (MathHelper.sin(wideAngle[wide]))) + (shootZ * (MathHelper.cos(wideAngle[wide])));
+				 double x2 = (shootX * (MathHelper.cos(wideAngle[wide]))) - (shootZ * (MathHelper.sin(wideAngle[wide])));
+	             double z2 = (shootX * (MathHelper.sin(wideAngle[wide]))) + (shootZ * (MathHelper.cos(wideAngle[wide])));
 
-				EntityFriendImpact entityImpact = new  EntityFriendImpact(this.world, this);
+				EntityFriendSoundwave entityImpact = new  EntityFriendSoundwave(this.world, this);
 	         	entityImpact.setDamage(entityImpact.getDamage() + this.getMechaATK());
 	         	entityImpact.shoot(shootX + x2, shootY, shootZ + z2, 1.5F, 0.0F);
 	            this.world.spawnEntity(entityImpact);
 	         }
 		}
-
 
 		if (this.attackTime <= 0)
 		{
