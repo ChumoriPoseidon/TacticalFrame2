@@ -99,36 +99,7 @@ public abstract class EntityGynoid extends EntityFriendMecha implements IRangedA
 	public void readEntityFromNBT(NBTTagCompound compound)
 	{
 		super.readEntityFromNBT(compound);
-
-//		if (compound.hasKey("gynoidTrade", 99))
-//		{
-//			this.setGynoidTrade(compound.getInteger("gynoidTrade"));
-//		}
-//		if (compound.hasKey("gynoidTradeList", 99))
-//		{
-//			this.setGynoidTradeList(compound.getInteger("gynoidTradeList"));
-//		}
 	}
-
-//	public void setGynoidTrade(int mode)
-//	{
-//		this.dataManager.set(GYNOID_TRADE, Integer.valueOf(mode));
-//	}
-//
-//	public int getGynoidTrade()
-//	{
-//		return this.dataManager.get(GYNOID_TRADE);
-//	}
-//
-//	public void setGynoidTradeList(int mode)
-//	{
-//		this.dataManager.set(GYNOID_TRADE_LIST, Integer.valueOf(mode));
-//	}
-//
-//	public int getGynoidTradeList()
-//	{
-//		return this.dataManager.get(GYNOID_TRADE_LIST);
-//	}
 
 	@Override
 	protected SoundEvent getAmbientSound()
@@ -148,16 +119,6 @@ public abstract class EntityGynoid extends EntityFriendMecha implements IRangedA
 		return SoundEvents.ENTITY_PLAYER_HURT;
 	}
 
-//	public InventoryGynoidTrade getInventoryGynoidTrade()
-//	{
-//		if (this.inventoryGynoidTrade == null)
-//		{
-//			this.inventoryGynoidTrade = new InventoryGynoidTrade(this);
-//		}
-//
-//		return this.inventoryGynoidTrade;
-//	}
-
 	@Override
 	public void setSwingingArms(boolean swingingArms)
 	{
@@ -166,26 +127,23 @@ public abstract class EntityGynoid extends EntityFriendMecha implements IRangedA
 	@Override
 	public ItemStack getSkillUnique()
 	{
-//		if(this.getMechaLevel() >= 14)
-//		{
-			if (this.getMechaLevel() >= 44 && this instanceof EntityTF77B)
-			{
-				return new ItemStack(TFItems.SKILL_ARMEDFORM_ALPHA);
-			}
-			if (this.getMechaLevel() >= 44 && this instanceof EntityTF78R)
-			{
-				return new ItemStack(TFItems.SKILL_ARMEDFORM_BETA);
-			}
-			if (this.getMechaLevel() >= 44 && this instanceof EntityTF79P)
-			{
-				return new ItemStack(TFItems.SKILL_ARMEDFORM_GAMMA);
-			}
-			if (this.getMechaLevel() >= 44 && this instanceof EntityTF80G)
-			{
-				return new ItemStack(TFItems.SKILL_ARMEDFORM_DELTA);
-			}
-//			return new ItemStack(TFItems.SKILL_ARMEDFORM);
-//		}
+		if (this.getMechaLevel() >= 59 && this instanceof EntityTF77B)
+		{
+			return new ItemStack(TFItems.SKILL_ARMEDFORM_ALPHA);
+		}
+		if (this.getMechaLevel() >= 59 && this instanceof EntityTF78R)
+		{
+			return new ItemStack(TFItems.SKILL_ARMEDFORM_BETA);
+		}
+		if (this.getMechaLevel() >= 59 && this instanceof EntityTF79P)
+		{
+			return new ItemStack(TFItems.SKILL_ARMEDFORM_GAMMA);
+		}
+		if (this.getMechaLevel() >= 59 && this instanceof EntityTF80G)
+		{
+			return new ItemStack(TFItems.SKILL_ARMEDFORM_DELTA);
+		}
+
 		return null;
 	}
 }

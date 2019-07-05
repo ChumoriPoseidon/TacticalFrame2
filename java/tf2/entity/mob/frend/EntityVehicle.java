@@ -14,18 +14,18 @@ import tf2.common.PacketHandler;
 
 public abstract class EntityVehicle extends EntityFriendMecha
 {
-	public boolean serverLeftclick;
-	public boolean serverRightclick;
+	public boolean serverFrontmove;
+	public boolean serverBackmove;
+	public boolean serverLeftmove;
+	public boolean serverRightmove;
 	public boolean serverBoost;
 	public boolean serverGetoff;
 	public boolean serverShift;
 
-	public EntityVehicle(World worldIn, byte maxSlot, byte maxLevel, double defaultDamage, double upDamage,
-			double defaultArmor, double upArmor, double defaultArmorToughness, double upArmorToughness,
-			double defaultMaxHealth, double upMaxHealth, boolean canRide)
+	public EntityVehicle(World worldIn, double defaultDamage, double defaultArmor, double defaultArmorToughness, double defaultMaxHealth)
 	{
-		super(worldIn, (byte)0, (byte)0, defaultDamage, upDamage, defaultArmor, upArmor, defaultArmorToughness,
-				upArmorToughness, defaultMaxHealth, upMaxHealth, true);
+		super(worldIn, (byte)0, (byte)0, defaultDamage, 0, defaultArmor, 0, defaultArmorToughness,
+				0, defaultMaxHealth, 0, true);
 	}
 
 	@Override
@@ -109,6 +109,8 @@ public abstract class EntityVehicle extends EntityFriendMecha
 			EntityPlayer entitylivingbase = (EntityPlayer) this.getControllingPassenger();
 
 			boolean jump = TF2Core.proxy.jumped();
+			boolean front = TF2Core.proxy.frontmove();
+			boolean back = TF2Core.proxy.backmove();
 			boolean left = TF2Core.proxy.leftmove();
 			boolean right = TF2Core.proxy.rightmove();
 			boolean shift = TF2Core.proxy.shift();
@@ -119,15 +121,25 @@ public abstract class EntityVehicle extends EntityFriendMecha
 				PacketHandler.INSTANCE.sendToServer(new MessageKeyPressed(10, this.getEntityId()));
 				this.serverGetoff = true;
 			}
+			if (front)
+			{
+				PacketHandler.INSTANCE.sendToServer(new MessageKeyPressed(17, this.getEntityId()));
+				this.serverFrontmove = true;
+			}
+			if (back)
+			{
+				PacketHandler.INSTANCE.sendToServer(new MessageKeyPressed(18, this.getEntityId()));
+				this.serverBackmove = true;
+			}
 			if (left)
 			{
-				PacketHandler.INSTANCE.sendToServer(new MessageKeyPressed(11, this.getEntityId()));
-				this.serverLeftclick = true;
+				PacketHandler.INSTANCE.sendToServer(new MessageKeyPressed(15, this.getEntityId()));
+				this.serverLeftmove = true;
 			}
 			if (right)
 			{
-				PacketHandler.INSTANCE.sendToServer(new MessageKeyPressed(12, this.getEntityId()));
-				this.serverRightclick = true;
+				PacketHandler.INSTANCE.sendToServer(new MessageKeyPressed(16, this.getEntityId()));
+				this.serverRightmove = true;
 			}
 			if (jump)
 			{
@@ -139,8 +151,48 @@ public abstract class EntityVehicle extends EntityFriendMecha
 				PacketHandler.INSTANCE.sendToServer(new MessageKeyPressed(14, this.getEntityId()));
 				this.serverShift = true;
 			}
+
+			if (this.serverFrontmove)
+			{
+				this.onFrontMove(this.world, entitylivingbase);
+				this.serverFrontmove = false;
+			}
+			if (this.serverBackmove)
+			{
+				this.onBackMove(this.world, entitylivingbase);
+				this.serverBackmove = false;
+			}
+			if (this.serverLeftmove)
+			{
+				this.onLeftMove(this.world, entitylivingbase);
+				this.serverLeftmove = false;
+			}
+			if (this.serverRightmove)
+			{
+				this.onRightMove(this.world, entitylivingbase);
+				this.serverRightmove = false;
+			}
+			if (this.serverGetoff)
+			{
+				if (!this.getPassengers().isEmpty())
+				{
+					this.getPassengers().get(0).setSneaking(true);
+				}
+				this.serverGetoff = false;
+			}
+			if (this.serverBoost)
+			{
+				this.onJumped(this.world, entitylivingbase);
+				this.serverBoost = false;
+			}
 		}
 	}
+
+	public void onFrontMove(World world, EntityPlayer player)
+	{}
+
+	public void onBackMove(World world, EntityPlayer player)
+	{}
 
 	public void onLeftMove(World world, EntityPlayer player)
 	{}

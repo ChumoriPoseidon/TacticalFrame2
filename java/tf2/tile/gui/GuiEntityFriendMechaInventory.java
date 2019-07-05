@@ -72,8 +72,11 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 
 			buttonPosX = ((this.width - this.xSize) / 2) + 147;
 			buttonPosY = ((this.height - this.ySize) / 2) + 17;
-			this.buttonLevel = (GuiEntityFriendMechaInventory.ChangeButton) this.addButton(new GuiEntityFriendMechaInventory.ChangeButton(6, buttonPosX, buttonPosY));
 
+			if(this.entityMecha.getMechaLevel() < this.entityMecha.maxLevel - 1)
+			{
+				this.buttonLevel = (GuiEntityFriendMechaInventory.ChangeButton) this.addButton(new GuiEntityFriendMechaInventory.ChangeButton(6, buttonPosX, buttonPosY));
+			}
 		}
 //		if(this.entityMecha instanceof EntityGynoid)
 //		{
@@ -247,7 +250,7 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 				this.drawHoveringText(Lists.newArrayList(I18n.format("entity.mechaItem", new Object[0])), mouseX, mouseY);
 			}
 
-			if (this.isPointInRegion(148, 18, 7, 7, mouseX, mouseY))
+			if (this.isPointInRegion(148, 18, 7, 7, mouseX, mouseY) && this.entityMecha.getMechaLevel() < this.entityMecha.maxLevel - 1)
 			{
 				this.drawHoveringText(Lists.newArrayList(I18n.format("entity.mechaLevel", new Object[0])), mouseX, mouseY);
 			}

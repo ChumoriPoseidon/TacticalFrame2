@@ -574,8 +574,10 @@ public abstract class EntityFriendMecha extends EntityGolem
 		}
 	}
 
-	public void getUniqueSkill(int level, ItemStack stack)
+	public void getUniqueSkill(int level)
 	{
+		ItemStack stack = this.getSkillUnique();
+
 		if (this.getMechaLevel() == level && !stack.isEmpty())
 		{
 			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
