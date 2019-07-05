@@ -16,6 +16,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.CommonProxy;
+import tf2.client.mobrender.RenderBike;
 import tf2.client.mobrender.RenderCFR12;
 import tf2.client.mobrender.RenderEnemyMTT4;
 import tf2.client.mobrender.RenderEvent1;
@@ -67,6 +68,7 @@ import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.enemy.EntityTM41;
+import tf2.entity.mob.frend.EntityBike;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityEvent1;
 import tf2.entity.mob.frend.EntityMTT1;
@@ -194,6 +196,8 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityMTT4.class, RenderMTT4::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCFR12.class, RenderCFR12::new);
 
+		RenderingRegistry.registerEntityRenderingHandler(EntityBike.class, RenderBike::new);
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityTF77B.class, m -> new RenderTF77B(m, new ModelGynoid(), 0.455F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTF78R.class, m -> new RenderTF78R(m, new ModelGynoid(), 0.455F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTF79P.class, m -> new RenderTF79P(m, new ModelGynoid(), 0.455F));
@@ -262,6 +266,18 @@ public class ClientProxy extends CommonProxy
 	public boolean leftclick()
 	{
 		return Minecraft.getMinecraft().gameSettings.keyBindAttack.isKeyDown();
+	}
+
+	@Override
+	public boolean frontmove()
+	{
+		return Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown();
+	}
+
+	@Override
+	public boolean backmove()
+	{
+		return Minecraft.getMinecraft().gameSettings.keyBindBack.isKeyDown();
 	}
 
 	@Override

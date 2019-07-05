@@ -109,6 +109,16 @@ public class CommonProxy implements IGuiHandler
 		return false;
 	}
 
+	public boolean frontmove()
+	{
+		return false;
+	}
+
+	public boolean backmove()
+	{
+		return false;
+	}
+
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{

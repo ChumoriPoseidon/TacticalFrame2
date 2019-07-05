@@ -46,6 +46,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tf2.entity.mob.frend.EntityBike;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityFriendMecha;
 import tf2.entity.mob.frend.EntityMTT1;
@@ -70,7 +71,8 @@ public class ItemSpawnFriendMecha extends ItemBase
 			EntityTF77B.class,
 			EntityTF78R.class,
 			EntityTF79P.class,
-			EntityTF80G.class
+			EntityTF80G.class,
+			EntityBike.class
 	};
 
 	public ItemSpawnFriendMecha(String name)

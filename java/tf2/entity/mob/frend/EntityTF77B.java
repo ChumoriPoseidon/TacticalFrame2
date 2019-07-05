@@ -5,14 +5,8 @@ import java.util.List;
 import com.google.common.base.Predicates;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EntitySelectors;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import tf2.TFItems;
 import tf2.TFSoundEvents;
@@ -46,26 +40,7 @@ public class EntityTF77B extends EntityGynoid
 	public void isUpLevel()
     {
     	super.isUpLevel();
-    	if(this.getMechaLevel() == 59)
-    	{
-    		this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
-    		ItemStack stack = new ItemStack(TFItems.SKILL_ARMEDFORM_ALPHA);
-
-			ITextComponent text = new TextComponentString("[");
-			text.getStyle().setColor(TextFormatting.GREEN);
-			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
-
-			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
-	        text.appendSibling(itemName);
-	        text.appendText("]");
-
-	        String skillText = "skill.get";
-
-	        if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
-	        {
-	            this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] {this.getDisplayName() , text}));
-	        }
-    	}
+    	this.getUniqueSkill(59);
 
     	if(this.getMechaLevel() == 19)
     	{

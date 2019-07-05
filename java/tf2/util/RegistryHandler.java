@@ -26,6 +26,7 @@ import tf2.entity.mob.enemy.EntityTM26B;
 import tf2.entity.mob.enemy.EntityTM26C;
 import tf2.entity.mob.enemy.EntityTM26D;
 import tf2.entity.mob.enemy.EntityTM41;
+import tf2.entity.mob.frend.EntityBike;
 import tf2.entity.mob.frend.EntityCFR12;
 import tf2.entity.mob.frend.EntityEvent1;
 import tf2.entity.mob.frend.EntityMTT1;
@@ -195,6 +196,8 @@ public class RegistryHandler
 		registerMob(EntityMTT3.class, "MTT3", "MTT3");
 		registerMob(EntityMTT4.class, "MTT4", "MTT4");
 		registerMob(EntityCFR12.class, "CFR12", "CFR12");
+
+		registerMob(EntityBike.class, "Bike", "Bike");
 
 		registerMob(EntityTF77B.class, "TF77B", "TF77B");
 		registerMob(EntityTF78R.class, "TF78R", "TF78R");
