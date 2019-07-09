@@ -56,6 +56,12 @@ public class ContainerFriendMechaInventory  extends Container
 					    {
 							return entityPlayer == entityMecha.getOwner() ? true : false;
 					    }
+
+						@Override
+					    public int getSlotStackLimit()
+					    {
+					        return 1;
+					    }
 					});
 					break;
 
@@ -83,6 +89,12 @@ public class ContainerFriendMechaInventory  extends Container
 					    {
 							return entityPlayer == entityMecha.getOwner() ? true : false;
 					    }
+
+						@Override
+					    public int getSlotStackLimit()
+					    {
+					        return 1;
+					    }
 					});
 					break;
 
@@ -109,6 +121,12 @@ public class ContainerFriendMechaInventory  extends Container
 					    public boolean canTakeStack(EntityPlayer playerIn)
 					    {
 							return entityPlayer == entityMecha.getOwner() ? true : false;
+					    }
+
+						@Override
+					    public int getSlotStackLimit()
+					    {
+					        return 1;
 					    }
 					});
 					break;

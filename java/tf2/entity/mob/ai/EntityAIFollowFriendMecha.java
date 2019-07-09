@@ -48,6 +48,10 @@ public class EntityAIFollowFriendMecha extends EntityAIBase
      */
     public boolean shouldExecute()
     {
+    	if(this.tameable.getOwner() == null)
+    	{
+    		return false;
+    	}
         EntityLivingBase entitylivingbase = this.tameable.getOwner();
 
         if (entitylivingbase == null)

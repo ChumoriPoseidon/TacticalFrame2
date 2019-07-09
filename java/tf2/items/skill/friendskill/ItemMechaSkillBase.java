@@ -23,6 +23,7 @@ public class ItemMechaSkillBase  extends ItemSkillBase
 	{
 		super(name);
 		this.skillType = type;
+		this.maxStackSize = 8;
 	}
 
 	@Override

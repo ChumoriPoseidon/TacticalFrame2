@@ -461,9 +461,10 @@ public abstract class EntityFriendMecha extends EntityGolem
 		this.getInventoryMechaEquipment().readInventoryFromNBT(compound.getTagList(Reference.ENTITY_MECHA_EQUIPMENT, 10));
 	}
 
+	@Nullable
 	public EntityPlayer getOwner()
 	{
-		return world.getPlayerEntityByUUID(getOwnerUUID());
+		return dataManager.get(OWNER_UUID).isEmpty() ? null : world.getPlayerEntityByUUID(getOwnerUUID());
 	}
 
 	public String getOwnerName()
@@ -560,6 +561,31 @@ public abstract class EntityFriendMecha extends EntityGolem
 			{
 				text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
 			}
+
+			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
+			text.appendSibling(itemName);
+			text.appendText("]");
+
+			String skillText = "skill.get";
+
+			if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
+			{
+				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
+			}
+		}
+	}
+
+	public void getUniqueSkill(int level)
+	{
+		ItemStack stack = this.getSkillUnique();
+
+		if (this.getMechaLevel() == level && !stack.isEmpty())
+		{
+			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
+
+			ITextComponent text = new TextComponentString("[");
+			text.getStyle().setColor(TextFormatting.GREEN);
+			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
 
 			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
 			text.appendSibling(itemName);

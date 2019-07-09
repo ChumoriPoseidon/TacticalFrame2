@@ -4,16 +4,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import tf2.TFItems;
 import tf2.TFSoundEvents;
@@ -139,26 +134,7 @@ public class EntityMTT3 extends EntityFriendMecha implements IRangedAttackMob
 	public void isUpLevel()
 	{
 		super.isUpLevel();
-		if (this.getMechaLevel() == 19)
-		{
-			this.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, 0.5F, 1.0F);
-			ItemStack stack = new ItemStack(TFItems.SKILL_SPREADHOWITZER);
-
-			ITextComponent text = new TextComponentString("[");
-			text.getStyle().setColor(TextFormatting.GREEN);
-			text.getStyle().setColor(TextFormatting.LIGHT_PURPLE);
-
-			ITextComponent itemName = new TextComponentString(stack.getDisplayName());
-			text.appendSibling(itemName);
-			text.appendText("]");
-
-			String skillText = "skill.get";
-
-			if (this.getOwner() != null && this.getOwner() instanceof EntityPlayerMP)
-			{
-				this.getOwner().sendMessage(new TextComponentTranslation(skillText, new Object[] { this.getDisplayName(), text }));
-			}
-		}
+		this.getUniqueSkill(19);
 
 		if (this.getMechaLevel() == 39)
 		{

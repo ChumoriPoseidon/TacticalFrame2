@@ -460,6 +460,7 @@ entity.Bike.name=Bike Harley
 entity.Truck.name=Military Truck
 entity.Tank.name=Tank Type-90
 entity.CFR12.name=CFR-12 Type-12
+entity.Bike.name=Bike
 entity.Defence.name=Escort Target
 entity.Defence2.name=Commander
 entity.Defence3.name=Commander
