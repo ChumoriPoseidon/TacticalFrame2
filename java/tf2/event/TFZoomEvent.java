@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tf2.TFItems;
+import tf2.entity.mob.frend.EntityMobCF;
 import tf2.items.guns.ItemTFGuns;
 
 public class TFZoomEvent
@@ -124,13 +125,16 @@ public class TFZoomEvent
 						}
 					}
 					String d2 = String.format("%1$3d", iii);
-					fontrenderer.drawString(d + " /" + d1, i - 70, j - 30 + 0, 0xFFFFFF);
-					fontrenderer.drawString("x " + d2, i - 50, j - 45 + 0, 0xFFFFFF);
-					iii = 0;
-					if (gun.getBullet(itemstack) != null)
+					if(!(entityplayer.isRiding() && entityplayer.getRidingEntity() instanceof EntityMobCF))
 					{
-						RenderItem renderitem = minecraft.getRenderItem();
-						renderitem.renderItemIntoGUI(new ItemStack(gun.getBullet(itemstack)), i - 68, j - 49);
+						fontrenderer.drawString(d + " /" + d1, i - 70, j - 30 + 0, 0xFFFFFF);
+						fontrenderer.drawString("x " + d2, i - 50, j - 45 + 0, 0xFFFFFF);
+						iii = 0;
+						if (gun.getBullet(itemstack) != null)
+						{
+							RenderItem renderitem = minecraft.getRenderItem();
+							renderitem.renderItemIntoGUI(new ItemStack(gun.getBullet(itemstack)), i - 68, j - 49);
+						}
 					}
 					GlStateManager.popMatrix();
 				}

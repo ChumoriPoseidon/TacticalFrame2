@@ -1,5 +1,6 @@
 package tf2.entity.mob.frend;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,6 +14,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -62,6 +64,12 @@ public class EntityBike extends EntityVehicle
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn)
 	{
 		return SoundEvents.ENTITY_IRONGOLEM_HURT;
+	}
+
+	@Override
+	protected void playStepSound(BlockPos pos, Block blockIn)
+	{
+		this.playSound(TFSoundEvents.BIKE, 0.5F, this.speed * 1.5F);
 	}
 
 	@Override
@@ -155,18 +163,9 @@ public class EntityBike extends EntityVehicle
 	public void onLivingUpdate()
 	{
 		super.onLivingUpdate();
-//		this.rotationYaw = this.dataManager.get(ANGLE);
-		if (this.isBeingRidden() && this.canBeSteered())
-		{
-			EntityLivingBase entitylivingbase = (EntityLivingBase) this.getControllingPassenger();
-
-			if (this.canPassengerSteer())
-			{
-				this.motionX = (double)(MathHelper.sin(this.dataManager.get(ANGLE) * -0.017453292F) * (this.dataManager.get(SPEED)));
-				this.motionZ = (double)(MathHelper.cos(this.dataManager.get(ANGLE) * -0.017453292F) * (this.dataManager.get(SPEED)));
-			}
-		}
-		else
+		this.motionX = (double)(MathHelper.sin(this.dataManager.get(ANGLE) * -0.017453292F) * (this.dataManager.get(SPEED)));
+		this.motionZ = (double)(MathHelper.cos(this.dataManager.get(ANGLE) * -0.017453292F) * (this.dataManager.get(SPEED)));
+		if (!this.isBeingRidden() || !this.canBeSteered())
 		{
 			if(this.speed > 0.05F)
 			{

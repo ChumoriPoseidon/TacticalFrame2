@@ -185,6 +185,11 @@ public abstract class EntityVehicle extends EntityFriendMecha
 				this.onJumped(this.world, entitylivingbase);
 				this.serverBoost = false;
 			}
+			if (this.serverShift)
+			{
+				this.onShift(world, entitylivingbase);
+				this.serverShift = false;
+			}
 		}
 	}
 

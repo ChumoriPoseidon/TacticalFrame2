@@ -281,13 +281,17 @@ public class ItemSpawnFriendMecha extends ItemBase
 
 			if(nbt != null)
 			{
-				UUID ownerUuid = UUID.fromString(nbt.getString("tf.mechaOwner"));
-
 				entityMecha.setMechaLevel(nbt.getInteger("tf.mechaLevel"));
 				entityMecha.setMechaATK((int) (entityMecha.defaultDamage) + (int)(entityMecha.getMechaLevel() * entityMecha.upDamage));
 				entityMecha.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(entityMecha.defaultArmor + (int)(entityMecha.getMechaLevel() * entityMecha.upArmor));
 				entityMecha.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(entityMecha.defaultArmorToughness + (int)(entityMecha.getMechaLevel() * entityMecha.upArmorToughness));
-				entityMecha.setOwnerUUID(ownerUuid);
+
+				if(nbt.getBoolean("tf:mechaOwner"))
+				{
+					UUID ownerUuid = UUID.fromString(nbt.getString("tf.mechaOwner"));
+					entityMecha.setOwnerUUID(ownerUuid);
+				}
+
 				entityMecha.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(entityMecha.defaultMaxHealth + (int)(entityMecha.getMechaLevel() * entityMecha.upMaxHealth));
 				entityMecha.heal((float) (nbt.getInteger("tf.mechaHealth")));
 				if(nbt.hasKey("tf.mechaSkillA"))
@@ -432,21 +436,25 @@ public class ItemSpawnFriendMecha extends ItemBase
 
 		if (nbt != null)
 		{
-
-			UUID ownerUuid = UUID.fromString(nbt.getString("tf.mechaOwner"));
 			//EntityPlayer player = worldIn.getPlayerEntityByUUID(ownerUuid);
 
-				s = "Lv: " + (nbt.getInteger("tf.mechaLevel") + 1);
+			s = "Lv: " + (nbt.getInteger("tf.mechaLevel") + 1);
 
-				tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
+			tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
 
-				s = "HP: " + (nbt.getInteger("tf.mechaHealth") + ".0 / " + (nbt.getInteger("tf.mechaMaxHealth")) + ".0");
+			s = "HP: " + (nbt.getInteger("tf.mechaHealth") + ".0 / " + (nbt.getInteger("tf.mechaMaxHealth")) + ".0");
 
-				tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
+			tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
+
+
+			if(nbt.getBoolean("tf.mechaOwner"))
+			{
+				UUID ownerUuid = UUID.fromString(nbt.getString("tf.mechaOwner"));
 
 				s = "Owner: " + this.getLastKnownUsername(ownerUuid);
 
 				tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
+			}
 
 				if(nbt.hasKey("tf.mechaSkillA") || nbt.hasKey("tf.mechaSkillB") || nbt.hasKey("tf.mechaSkillC"))
 				{

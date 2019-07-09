@@ -132,5 +132,9 @@ public class EntityMTT4 extends EntityFriendMecha implements IRangedAttackMob
 	{
 		super.isUpLevel();
 		this.getUniqueSkill(19);
+		if (this.getMechaLevel() == 9)
+		{
+			this.getInventoryMechaEquipment().setHasSkill(new ItemStack(TFItems.SKILL_COMEBACK));
+		}
 	}
 }

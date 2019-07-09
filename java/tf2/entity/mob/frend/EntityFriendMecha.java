@@ -461,9 +461,10 @@ public abstract class EntityFriendMecha extends EntityGolem
 		this.getInventoryMechaEquipment().readInventoryFromNBT(compound.getTagList(Reference.ENTITY_MECHA_EQUIPMENT, 10));
 	}
 
+	@Nullable
 	public EntityPlayer getOwner()
 	{
-		return world.getPlayerEntityByUUID(getOwnerUUID());
+		return dataManager.get(OWNER_UUID).isEmpty() ? null : world.getPlayerEntityByUUID(getOwnerUUID());
 	}
 
 	public String getOwnerName()

@@ -12,10 +12,12 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickItem;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import tf2.TFConfig;
 import tf2.entity.mob.enemy.EntityMobTF;
+import tf2.entity.mob.frend.EntityMobCF;
 import tf2.entity.projectile.IEnemyProjectile;
 import tf2.entity.projectile.IFriendProjectile;
 import tf2.items.guns.ItemTFGuns;
@@ -35,6 +37,20 @@ public class TFLivingUpdateEvent
 		{
 			TFWorldConfigManager.saveWorldConfigFile(event.getWorld());
 			TFConfig.configChange = false;
+		}
+	}
+
+	@SubscribeEvent
+	public void onRideMobCFUseItemEvent(RightClickItem event)
+	{
+		if(event.getEntityPlayer().isRiding() && event.getEntityPlayer().getRidingEntity() instanceof EntityMobCF)
+		{
+			EntityPlayer player = event.getEntityPlayer();
+
+			if(player.getHeldItemMainhand().getItem() instanceof ItemTFGuns)
+			{
+				event.setCanceled(true);
+			}
 		}
 	}
 
