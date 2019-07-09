@@ -1,6 +1,7 @@
 package tf2.event;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -14,6 +15,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 import tf2.TFItems;
+import tf2.entity.mob.enemy.EntityEnemyMTT4;
+import tf2.entity.mob.frend.EntityEvent1;
 
 public class TFDeathEvent
 {
@@ -135,6 +138,28 @@ public class TFDeathEvent
 		{
 			keepInventory.player = player;
 			keepInventory.dropAllItems();
+		}
+	}
+
+	@SubscribeEvent
+	public void onDeathScoreEvent(LivingDeathEvent event)
+	{
+		EntityLivingBase living = event.getEntityLiving();
+
+		if (living instanceof EntityEnemyMTT4)
+		{
+			List k = living.world.getEntitiesWithinAABB(EntityEvent1.class, living.getEntityBoundingBox().grow(40.0D));
+			for (int u = 0; u < k.size(); ++u)
+			{
+				EntityEvent1 target = (EntityEvent1) k.get(u);
+
+				int targetCount = target.getCount();
+				if(targetCount > 0)
+				{
+					--target.count;
+					break;
+				}
+			}
 		}
 	}
 }

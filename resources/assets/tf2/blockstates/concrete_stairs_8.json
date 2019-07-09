@@ -2,16 +2,16 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "bottom": "tf:blocks/concrete_8",
-            "top": "tf:blocks/concrete_8",
-            "side": "tf:blocks/concrete_8"
+            "bottom": "tf2:blocks/concrete_8",
+            "top": "tf2:blocks/concrete_8",
+            "side": "tf2:blocks/concrete_8"
         },
         "model": "block/stairs",
         "transform": "forge:default-block"
     },
     "variants": {
         "normal": [{}],
-        "inventory":[{"model": "acacia_stairs","y": 0,"textures": { "all": "tf:blocks/concrete_8" }}],
+        "inventory":[{"model": "acacia_stairs","y": 0,"textures": { "all": "tf2:blocks/concrete_8" }}],
         "facing=east,half=bottom,shape=straight":  { "model": "brick_stairs" },
         "facing=west,half=bottom,shape=straight":  { "model": "brick_stairs", "y": 180, "uvlock": true },
         "facing=south,half=bottom,shape=straight": { "model": "brick_stairs", "y": 90, "uvlock": true },

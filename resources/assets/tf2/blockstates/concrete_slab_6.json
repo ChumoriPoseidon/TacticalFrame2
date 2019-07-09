@@ -2,16 +2,16 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "bottom": "tf:blocks/concrete_6",
-            "top": "tf:blocks/concrete_6",
-            "side": "tf:blocks/concrete_6"
+            "bottom": "tf2:blocks/concrete_6",
+            "top": "tf2:blocks/concrete_6",
+            "side": "tf2:blocks/concrete_6"
         },
         "model": "block/half_slab",
         "transform": "forge:default-block"
     },
     "variants": {
         "normal": [{}],
-        "inventory":[{"model": "half_slab_purpur","y": 0,"textures": { "all": "tf:blocks/concrete_6" }}],
+        "inventory":[{"model": "half_slab_purpur","y": 0,"textures": { "all": "tf2:blocks/concrete_6" }}],
         "half=bottom,variant=default": { "model": "half_slab_purpur" },
         "half=top,variant=default": { "model": "upper_slab_purpur" }
     }

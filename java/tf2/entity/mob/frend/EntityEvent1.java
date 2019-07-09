@@ -3,6 +3,7 @@ package tf2.entity.mob.frend;
 import java.util.List;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -19,17 +20,20 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
+import tf2.entity.mob.enemy.EntityEnemyMTT4;
 
 public class EntityEvent1 extends EntityMobNPC
 {
-	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.GREEN, BossInfo.Overlay.NOTCHED_6));
+	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getScoreName(), BossInfo.Color.RED, BossInfo.Overlay.NOTCHED_6));
 
 	public int count;
+	public int maxCount;
 	private static final DataParameter<Integer> COUNT = EntityDataManager.<Integer> createKey(EntityEvent1.class, DataSerializers.VARINT);
 
 	protected int eventTime2;
@@ -39,7 +43,8 @@ public class EntityEvent1 extends EntityMobNPC
 	{
 		super(worldIn);
 		this.setSize(0.6F, 1.8F);
-		this.count = 20;
+		this.count = 8;
+		this.maxCount = count;
 	}
 
 	@Override
@@ -62,9 +67,15 @@ public class EntityEvent1 extends EntityMobNPC
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.15D);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);
+	}
+
+	public ITextComponent getScoreName()
+	{
+		TextComponentString textcomponentstring = new TextComponentString(I18n.format("tf.mission.potential"));
+		return textcomponentstring;
 	}
 
 	@Override
@@ -113,6 +124,11 @@ public class EntityEvent1 extends EntityMobNPC
 		}
 
 		this.isMission();
+
+		if (this.count <= 0)
+		{
+			this.bossInfo.setVisible(false);
+		}
 	}
 
 	@Override
@@ -146,6 +162,11 @@ public class EntityEvent1 extends EntityMobNPC
 		return this.dataManager.get(COUNT);
 	}
 
+	public int getMaxCount()
+	{
+		return this.maxCount;
+	}
+
 	@Override
 	public void addTrackingPlayer(EntityPlayerMP player)
 	{
@@ -164,7 +185,7 @@ public class EntityEvent1 extends EntityMobNPC
 	protected void updateAITasks()
 	{
 		super.updateAITasks();
-		this.bossInfo.setPercent((float) this.getCount() / 20F);
+		this.bossInfo.setPercent((float) this.getCount() / this.getMaxCount());
 	}
 
 	public void isChat(String text)
@@ -182,45 +203,73 @@ public class EntityEvent1 extends EntityMobNPC
 
 	public void isMission()
 	{
-		if (this.eventTime == 100)
-		{
-			String d = I18n.translateToLocal("tf.mission1.txt1");
-			this.isChat(d);
-		}
 		if (this.eventTime == 200)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt2");
+			String d = I18n.format("tf.mission1.txt1");
 			this.isChat(d);
 		}
 		if (this.eventTime == 300)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt3");
+			String d = I18n.format("tf.mission1.txt2");
 			this.isChat(d);
 		}
 		if (this.eventTime == 400)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt4");
+			String d = I18n.format("tf.mission1.txt3");
 			this.isChat(d);
 		}
 		if (this.eventTime == 500)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt5");
+			String d = I18n.format("tf.mission1.txt4");
 			this.isChat(d);
+		}
+		if (this.eventTime == 600)
+		{
+			String d = I18n.format("tf.mission1.txt5");
+			this.isChat(d);
+		}
+
+		if (this.count > 0)
+		{
+			if (this.eventTime >= 800 && this.eventTime <= 3600)
+			{
+				if (this.ticksExisted % 200 == 0)
+				{
+					EntityEnemyMTT4 var7 = new EntityEnemyMTT4(this.world);
+					this.isSpawn(var7, 20F);
+				}
+			}
+
+			if (this.eventTime > 4000)
+			{
+				this.setDead();
+			}
 		}
 	}
 
 	public void isClear()
 	{
+		if (this.eventTime2 == 100)
+		{
+			String d = I18n.format("tf.mission1.txt6");
+			this.isChat(d);
+		}
 		if (this.eventTime2 == 200)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt17");
+			String d = I18n.format("tf.mission1.txt7");
 			this.isChat(d);
 		}
 		if (this.eventTime2 == 400)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt18");
+			String d = I18n.format("tf.mission1.txt8");
 			this.isChat(d);
-			//				List k = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(40.0D));
+		}
+		if (this.eventTime2 == 500)
+		{
+			String d = I18n.format("tf.mission1.txt9");
+			this.isChat(d);
+
+			//	List k = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(40.0D));
 			//				for (int u = 0; u < k.size(); ++u)
 			//				{
 			//					EntityPlayer playerall = (EntityPlayer) k.get(u);
@@ -228,12 +277,6 @@ public class EntityEvent1 extends EntityMobNPC
 			//					EntityItem entityitem = new EntityItem(this.world, playerall.posX, playerall.posY + 1.0F, playerall.posZ, new ItemStack(TFItems.GEM, 1, 0));
 			//					this.world.spawnEntity(entityitem);
 			//				}
-		}
-
-		if (this.eventTime2 == 600)
-		{
-			String d = I18n.translateToLocal("tf.mission1.txt19");
-			this.isChat(d);
 		}
 		if (this.eventTime2 > 600)
 		{
@@ -243,45 +286,48 @@ public class EntityEvent1 extends EntityMobNPC
 
 	protected void isSpawn(EntityLivingBase var1, float range)
 	{
-		double t = this.rand.nextDouble() * 2 * Math.PI;
-
-		var1.posX = this.posX + 0.5D + range * Math.sin(t);
-		var1.posZ = this.posZ + 0.5D + range * Math.cos(t);
-		var1.posY = this.posY + 15 + (10 * (Math.random() - 0.5));
-
-		int i = MathHelper.floor(var1.posX);
-		int j = MathHelper.floor(var1.posY);
-		int k = MathHelper.floor(var1.posZ);
-
-		BlockPos blockpos = new BlockPos(i, j, k);
-
-		if (world.isBlockLoaded(blockpos))
+		if (!this.world.isRemote)
 		{
-			boolean flag1 = false;
+			double t = this.rand.nextDouble() * 2 * Math.PI;
 
-			while (!flag1 && j > 0)
+			var1.posX = this.posX + 0.5D + range * Math.sin(t);
+			var1.posZ = this.posZ + 0.5D + range * Math.cos(t);
+			var1.posY = this.posY + 15 + (10 * (Math.random() - 0.5));
+
+			int i = MathHelper.floor(var1.posX);
+			int j = MathHelper.floor(var1.posY);
+			int k = MathHelper.floor(var1.posZ);
+
+			BlockPos blockpos = new BlockPos(i, j, k);
+
+			if (world.isBlockLoaded(blockpos))
 			{
-				BlockPos blockpos1 = blockpos.down();
-				IBlockState iblockstate = world.getBlockState(blockpos1);
+				boolean flag1 = false;
 
-				if (iblockstate.getMaterial().blocksMovement())
+				while (!flag1 && j > 0)
 				{
-					flag1 = true;
+					BlockPos blockpos1 = blockpos.down();
+					IBlockState iblockstate = world.getBlockState(blockpos1);
+
+					if (iblockstate.getMaterial().blocksMovement())
+					{
+						flag1 = true;
+					}
+					else
+					{
+						--var1.posY;
+						--j;
+						blockpos = blockpos1;
+					}
 				}
-				else
+
+				if (flag1)
 				{
-					--var1.posY;
-					--j;
-					blockpos = blockpos1;
+					var1.setPosition((double) i, (double) j, (double) k);
+					var1.setLocationAndAngles((double) i, (double) j, (double) k, this.rand.nextFloat() * 360.0F, 0.0F);
 				}
 			}
-
-			if (flag1)
-			{
-				var1.setPosition((double) i, (double) j, (double) k);
-				var1.setLocationAndAngles((double) i, (double) j, (double) k, this.rand.nextFloat() * 360.0F, 0.0F);
-			}
+			this.world.spawnEntity(var1);
 		}
-		this.world.spawnEntity(var1);
 	}
 }

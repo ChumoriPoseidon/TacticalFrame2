@@ -1,7 +1,5 @@
 package tf2.entity.mob.enemy;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -20,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import tf2.TFSoundEvents;
 import tf2.entity.mob.ai.EntityAIAttackRangedGun;
-import tf2.entity.mob.frend.EntityEvent1;
 import tf2.entity.projectile.enemy.EntityEnemyBullet;
 
 public class EntityEnemyMTT4 extends EntityMobTF implements IRangedAttackMob
@@ -35,7 +32,7 @@ public class EntityEnemyMTT4 extends EntityMobTF implements IRangedAttackMob
 	protected void initEntityAI()
 	{
 		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(1, new EntityAIAttackRangedGun(this, 1.0D, 30.0F));
+		this.tasks.addTask(1, new EntityAIAttackRangedGun(this, 1.0D, 15.0F));
 		this.tasks.addTask(2, new EntityAIWander(this, 1.0D));
 		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.tasks.addTask(4, new EntityAILookIdle(this));
@@ -68,7 +65,7 @@ public class EntityEnemyMTT4 extends EntityMobTF implements IRangedAttackMob
 		if (this.attackTime <= 30 && this.attackTime % 10 == 0)
 		{
 			EntityEnemyBullet var7 = new EntityEnemyBullet(this.world, this);
-			var7.setDamage(var7.getDamage() + 5.0D);
+			var7.setDamage(var7.getDamage() + 2.0D);
 			this.playSound(TFSoundEvents.M16, 2.3F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 			var7.shoot(var3, var8, var5, 2.0F, 3.0F);
 			this.world.spawnEntity(var7);
@@ -100,25 +97,4 @@ public class EntityEnemyMTT4 extends EntityMobTF implements IRangedAttackMob
 	@Override
 	public void setSwingingArms(boolean swingingArms)
 	{}
-
-	@Override
-	protected void onDeathUpdate()
-	{
-		if (this.deathTime == 1)
-        {
-			List k = this.world.getEntitiesWithinAABB(EntityEvent1.class, this.getEntityBoundingBox().grow(30.0D));
-			for (int u = 0; u < k.size(); ++u)
-			{
-				EntityEvent1 target = (EntityEvent1) k.get(u);
-
-				int targetCount = target.getCount();
-				if(targetCount > 0)
-				{
-					--target.count;
-					break;
-				}
-			}
-        }
-		super.onDeathUpdate();
-	}
 }
