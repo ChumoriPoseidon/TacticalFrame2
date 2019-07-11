@@ -16,6 +16,7 @@ import tf2.items.ItemCan;
 import tf2.items.ItemCanMilk;
 import tf2.items.ItemDrill;
 import tf2.items.ItemGunChip;
+import tf2.items.ItemMission;
 import tf2.items.ItemParts;
 import tf2.items.ItemPowder;
 import tf2.items.ItemShieldIron;
@@ -261,5 +262,7 @@ public class TFItems
 	public static final Item RIGIDO_BODY = new ItemRigidoBody("rigidobody",rigidoArmor, 0, EntityEquipmentSlot.CHEST);
 	public static final Item RIGIDO_LEG = new ItemRigidoLeg("rigidoleg",rigidoArmor, 0, EntityEquipmentSlot.LEGS);
 	public static final Item RIGIDO_BOOT = new ItemRigidoBoot("rigidoboot",rigidoArmor, 0, EntityEquipmentSlot.FEET);
+
+	public static final Item MISSION_1 = new ItemMission("mission_1");
 
 }
