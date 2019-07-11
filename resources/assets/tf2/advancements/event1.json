@@ -1,8 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "tf:gem",
-             "data": 0
+            "item": "tf2:mission_1"
         },
         "title": {
             "translate": "advancement.event1"
@@ -11,17 +10,13 @@
             "translate": "advancement.event1.desc"
         }
     },
-    "parent": "tf:root",
+    "parent": "tf2:root",
     "criteria": {
-        "ingot": {
-            "trigger": "minecraft:inventory_changed",
-             "conditions": {
-                "items": [{"item": "tf:gem" ,"data": 0}]
-            }
+        "event": {
+            "trigger": "tf2:event_mission_01"
         }
     },
     "rewards": {
-        "experience": 100,
-        "recipes": ["tf:mission2"]
+        "experience": 100
     }
 }

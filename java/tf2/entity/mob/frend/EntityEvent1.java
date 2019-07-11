@@ -27,6 +27,7 @@ import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 import tf2.entity.mob.enemy.EntityEnemyMTT4;
+import tf2.util.TFAdvancements;
 
 public class EntityEvent1 extends EntityMobNPC
 {
@@ -269,14 +270,13 @@ public class EntityEvent1 extends EntityMobNPC
 			String d = I18n.format("tf.mission1.txt9");
 			this.isChat(d);
 
-			//	List k = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(40.0D));
-			//				for (int u = 0; u < k.size(); ++u)
-			//				{
-			//					EntityPlayer playerall = (EntityPlayer) k.get(u);
-			//
-			//					EntityItem entityitem = new EntityItem(this.world, playerall.posX, playerall.posY + 1.0F, playerall.posZ, new ItemStack(TFItems.GEM, 1, 0));
-			//					this.world.spawnEntity(entityitem);
-			//				}
+			List<EntityPlayerMP> k = this.world.getEntitiesWithinAABB(EntityPlayerMP.class, this.getEntityBoundingBox().grow(40.0D));
+			for (int u = 0; u < k.size(); ++u)
+			{
+				EntityPlayerMP playerall = k.get(u);
+
+				TFAdvancements.MISSION_01.trigger(playerall);
+			}
 		}
 		if (this.eventTime2 > 600)
 		{
