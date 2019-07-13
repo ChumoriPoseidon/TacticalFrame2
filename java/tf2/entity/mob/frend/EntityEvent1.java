@@ -26,6 +26,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
+import tf2.TF2Core;
 import tf2.entity.mob.enemy.EntityEnemyMTT4;
 import tf2.util.TFAdvancements;
 
@@ -107,7 +108,6 @@ public class EntityEvent1 extends EntityMobNPC
 	public void onEntityUpdate()
 	{
 		super.onEntityUpdate();
-
 		if (!world.isRemote)
 		{
 			this.setCount();
@@ -125,6 +125,8 @@ public class EntityEvent1 extends EntityMobNPC
 		}
 
 		this.isMission();
+
+		this.bossInfo.setVisible(this.eventTime > 800);
 
 		if (this.count <= 0)
 		{
@@ -277,6 +279,10 @@ public class EntityEvent1 extends EntityMobNPC
 
 				TFAdvancements.MISSION_01.trigger(playerall);
 			}
+
+			TF2Core.config.getCategory("all").get("tf.config.tier0").set(true);
+			TF2Core.syncConfig();
+
 		}
 		if (this.eventTime2 > 600)
 		{
@@ -327,7 +333,19 @@ public class EntityEvent1 extends EntityMobNPC
 					var1.setLocationAndAngles((double) i, (double) j, (double) k, this.rand.nextFloat() * 360.0F, 0.0F);
 				}
 			}
-			this.world.spawnEntity(var1);
+
+
+
+			List mtt4 = this.world.getEntitiesWithinAABB(EntityEnemyMTT4.class, this.getEntityBoundingBox().grow(45.0D));
+
+			if((this.getMaxCount() - this.getCount()) + mtt4.size() < this.getMaxCount())
+			{
+				this.world.spawnEntity(var1);
+			}
+
+			System.out.println("現在いる数: " + (mtt4.size()));
+			System.out.println("残り数: " + (this.getCount()));
+			System.out.println("討伐目標数: " + (this.getMaxCount()));
 		}
 	}
 }

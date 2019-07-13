@@ -1,10 +1,13 @@
 package tf2;
 
+import net.minecraft.advancements.Advancement;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
@@ -317,5 +320,14 @@ public class CommonProxy implements IGuiHandler
 
 	public <T extends TileEntity> void setCustomTileEntitySpecialRenderer(Item itemBlock, Class<T> tileEntityClass)
 	{}
+
+	public boolean doesPlayerHaveAdvancement(EntityPlayer player, ResourceLocation advId)
+	{
+		if (player instanceof EntityPlayerMP) {
+			Advancement adv = ((EntityPlayerMP) player).getServerWorld().getAdvancementManager().getAdvancement(advId);
+			return adv != null && ((EntityPlayerMP) player).getAdvancements().getProgress(adv).isDone();
+		}
+		return false;
+	}
 
 }
