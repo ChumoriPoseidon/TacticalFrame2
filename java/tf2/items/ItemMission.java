@@ -1,21 +1,27 @@
 package tf2.items;
 
+import net.minecraft.advancements.Advancement;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import tf2.TFItems;
 import tf2.entity.mob.frend.EntityEvent1;
 
 public class ItemMission extends ItemBase
 {
-	public ItemMission(String name)
+	private final ResourceLocation resource;
+	public ItemMission(String name, ResourceLocation resourceIn)
 	{
 		super(name);
+		this.resource = resourceIn;
 		this.setMaxStackSize(1);
 	}
 
@@ -31,6 +37,20 @@ public class ItemMission extends ItemBase
 		}
 		else
 		{
+			if(player instanceof EntityPlayerMP)
+			{
+				EntityPlayerMP playerMP = (EntityPlayerMP) player;
+
+				Advancement adv = playerMP.getServerWorld().getAdvancementManager().getAdvancement(this.resource);
+
+				if(playerMP.getAdvancements().getProgress(adv).isDone())
+				{
+					playerMP.sendStatusMessage(new TextComponentTranslation("tf.mission.already", new Object[0]), true);
+
+					return EnumActionResult.FAIL;
+				}
+			}
+
 			if (!worldIn.isRemote)
 			{
 				if (itemstack.getItem() == TFItems.MISSION_1)
@@ -46,6 +66,7 @@ public class ItemMission extends ItemBase
 			{
 				itemstack.shrink(1);
 			}
+
 			return EnumActionResult.SUCCESS;
 		}
 	}
