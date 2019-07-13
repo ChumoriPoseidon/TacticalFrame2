@@ -17,7 +17,6 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -29,7 +28,7 @@ import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 import tf2.TF2Core;
 import tf2.entity.mob.enemy.EntityEnemyMTT4;
-import tf2.util.Reference;
+import tf2.util.TFAdvancements;
 
 public class EntityEvent1 extends EntityMobNPC
 {
@@ -205,10 +204,6 @@ public class EntityEvent1 extends EntityMobNPC
 		}
 	}
 
-	public static ResourceLocation prefix(String name) {
-		return new ResourceLocation(Reference.MOD_ID, name);
-	}
-
 	public void isMission()
 	{
 		if (this.eventTime == 200)
@@ -281,7 +276,7 @@ public class EntityEvent1 extends EntityMobNPC
 			for (int u = 0; u < k.size(); ++u)
 			{
 				EntityPlayerMP playerall = k.get(u);
-				this.world.getMinecraftServer().getPlayerList().getPlayerAdvancements(playerall);
+				TFAdvancements.MISSION_01.trigger(playerall);
 			}
 
 			TF2Core.config.getCategory("all").get("tf.config.tier0").set(true);
