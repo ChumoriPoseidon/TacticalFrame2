@@ -128,6 +128,32 @@ public class TFCommand extends CommandBase
             		notifyCommandListener(sender, this, "tf.commands.stat.usage", new Object[] {s, TF2Core.CONFIG.multiMission});
             	}
             }
+            else if ("tier0".equalsIgnoreCase(args[0]))
+            {
+            	if(args.length == 2)
+            	{
+	            	if (("true".equalsIgnoreCase(args[1]) || ("false".equalsIgnoreCase(args[1]))))
+	            			{
+	            		TF2Core.config.getCategory("all").get("tf.config.tier0").set(args[1]);
+	            		TF2Core.syncConfig();
+	            		notifyCommandListener(sender, this, "tf.commands.success", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier0});
+	            		TFWorldConfigManager.saveWorldConfigFile(world);
+	            	}
+	            	else
+	            	{
+	            		throw new CommandException("commands.generic.boolean.invalid", new Object[] {s1});
+	            	}
+            	}
+            	else if(args.length > 2)
+            	{
+            		throw new CommandException("tf.commands.tier.usage", new Object[0]);
+            	}
+            	else
+            	{
+            		s = "Mecha Tier.0";
+            		notifyCommandListener(sender, this, "tf.commands.stat.usage", new Object[] {s, TF2Core.CONFIG.spawnMobTMtier0});
+            	}
+            }
             else if ("tier1".equalsIgnoreCase(args[0]))
             {
             	if(args.length == 2)
@@ -225,7 +251,7 @@ public class TFCommand extends CommandBase
     {
     	if(args.length == 1)
     	{
-    		return getListOfStringsMatchingLastWord(args, new String[] {"destroy", "irongen", "multi", "tier1", "tier2", "tier3"});
+    		return getListOfStringsMatchingLastWord(args, new String[] {"destroy", "irongen", "multi", "tier0", "tier1", "tier2", "tier3"});
     	}
         if(args.length == 2)
         {

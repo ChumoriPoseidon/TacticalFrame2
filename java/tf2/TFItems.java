@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 import tf2.items.ItemAmmo;
 import tf2.items.ItemBase;
@@ -64,6 +65,7 @@ import tf2.items.skill.friendskill.ItemMechaSkillBase;
 import tf2.items.skill.friendskill.ItemMechaSkillBase.EnumFriendSkillType;
 import tf2.items.weapon.ItemCoordJump;
 import tf2.items.weapon.ItemGrenadeHe;
+import tf2.util.Reference;
 
 public class TFItems
 {
@@ -263,6 +265,6 @@ public class TFItems
 	public static final Item RIGIDO_LEG = new ItemRigidoLeg("rigidoleg",rigidoArmor, 0, EntityEquipmentSlot.LEGS);
 	public static final Item RIGIDO_BOOT = new ItemRigidoBoot("rigidoboot",rigidoArmor, 0, EntityEquipmentSlot.FEET);
 
-	public static final Item MISSION_1 = new ItemMission("mission_1");
+	public static final Item MISSION_1 = new ItemMission("mission_1",new ResourceLocation(Reference.MOD_ID, "event1"));
 
 }

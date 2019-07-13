@@ -30,6 +30,7 @@ public class TFWorldConfigManager
 		File fileWorld = new File(dirWorld, world.getWorldInfo().getWorldName() + ".tf");
 //		if (/*!fileWorld.exists() ||*/ !fileWorld.isFile())
 //		{
+		TF2Core.config.getCategory("all").get("tf.config.tier0").set(false);
 		TF2Core.config.getCategory("all").get("tf.config.tier1").set(false);
 		TF2Core.config.getCategory("all").get("tf.config.tier2").set(false);
 		TF2Core.config.getCategory("all").get("tf.config.tier3").set(false);
@@ -42,6 +43,7 @@ public class TFWorldConfigManager
 				bw.write("#TacticalFrame2 読み込み専用ファイル");	bw.newLine();
 				bw.write("#このファイルは絶対に消さないでください");	bw.newLine();
 				bw.newLine();
+				bw.write("tier0=" + String.valueOf(false));	bw.newLine();
 				bw.write("tier1=" + String.valueOf(false));	bw.newLine();
 				bw.write("tier2=" + String.valueOf(false));	bw.newLine();
 				bw.write("tier3=" + String.valueOf(false));	bw.newLine();
@@ -84,6 +86,12 @@ public class TFWorldConfigManager
 					{
 						switch(args[0])
 						{
+							case "tier0":
+								if(!args[1].equals(TF2Core.config.getCategory("all").get("tf.config.tier0").getString()))
+								{
+									change = true;
+								}
+								break;
 							case "tier1":
 								if(!args[1].equals(TF2Core.config.getCategory("all").get("tf.config.tier1").getString()))
 								{
@@ -142,6 +150,7 @@ public class TFWorldConfigManager
 			bw.write("#TacticalFrame2 読み込み専用ファイル");	bw.newLine();
 			bw.write("#このファイルは絶対に消さないでください");	bw.newLine();
 			bw.newLine();
+			bw.write("tier0=" + String.valueOf(TF2Core.config.getCategory("all").get("tf.config.tier0").getString()));	bw.newLine();
 			bw.write("tier1=" + String.valueOf(TF2Core.config.getCategory("all").get("tf.config.tier1").getString()));	bw.newLine();
 			bw.write("tier2=" + String.valueOf(TF2Core.config.getCategory("all").get("tf.config.tier2").getString()));	bw.newLine();
 			bw.write("tier3=" + String.valueOf(TF2Core.config.getCategory("all").get("tf.config.tier3").getString()));	bw.newLine();
@@ -184,6 +193,8 @@ public class TFWorldConfigManager
 					{
 						switch(args[0])
 						{
+							case "tier0":
+								TF2Core.config.getCategory("all").get("tf.config.tier0").set(Boolean.parseBoolean(args[1]));
 							case "tier1":
 								TF2Core.config.getCategory("all").get("tf.config.tier1").set(Boolean.parseBoolean(args[1]));
 								break;

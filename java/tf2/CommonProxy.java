@@ -317,5 +317,4 @@ public class CommonProxy implements IGuiHandler
 
 	public <T extends TileEntity> void setCustomTileEntitySpecialRenderer(Item itemBlock, Class<T> tileEntityClass)
 	{}
-
 }

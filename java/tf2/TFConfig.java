@@ -7,7 +7,8 @@ public class TFConfig
 
 	public static boolean configChange= false;
 
-	public boolean spawnMobTMtier1 = true;
+	public boolean spawnMobTMtier0 = false;
+	public boolean spawnMobTMtier1 = false;
 	public boolean spawnMobTMtier2 = false;
 	public boolean spawnMobTMtier3 = false;
 	public boolean blockDestroy = true;
@@ -34,6 +35,7 @@ public class TFConfig
 //		this.spawnRatetier3 = config.getInt("Type.TF Tier.3", "Mob Spawn Rate", 12, 1, 250, "Spawn Rate 1~250");
 //		this.spawnRateneter = config.getInt("Type.Nether", "Mob Spawn Rate", 18, 1, 250, "Spawn Rate 1~250");
 
+		this.spawnMobTMtier0 = config.getBoolean("tf.config.tier0", "all", true, "True if Tier.0 Mecha are allowed to spawn");
 		this.spawnMobTMtier1 = config.getBoolean("tf.config.tier1", "all", true, "True if Tier.1 Mecha are allowed to spawn");
 		this.spawnMobTMtier2 = config.getBoolean("tf.config.tier2", "all", false, "True if Tier.2 Mecha are allowed to spawn");
 		this.spawnMobTMtier3 = config.getBoolean("tf.config.tier3", "all", false, "True if Tier.3 Mecha are allowed to spawn");

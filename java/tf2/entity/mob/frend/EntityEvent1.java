@@ -17,6 +17,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -26,8 +27,9 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
+import tf2.TF2Core;
 import tf2.entity.mob.enemy.EntityEnemyMTT4;
-import tf2.util.TFAdvancements;
+import tf2.util.Reference;
 
 public class EntityEvent1 extends EntityMobNPC
 {
@@ -107,7 +109,6 @@ public class EntityEvent1 extends EntityMobNPC
 	public void onEntityUpdate()
 	{
 		super.onEntityUpdate();
-
 		if (!world.isRemote)
 		{
 			this.setCount();
@@ -125,6 +126,8 @@ public class EntityEvent1 extends EntityMobNPC
 		}
 
 		this.isMission();
+
+		this.bossInfo.setVisible(this.eventTime > 800);
 
 		if (this.count <= 0)
 		{
@@ -202,6 +205,10 @@ public class EntityEvent1 extends EntityMobNPC
 		}
 	}
 
+	public static ResourceLocation prefix(String name) {
+		return new ResourceLocation(Reference.MOD_ID, name);
+	}
+
 	public void isMission()
 	{
 		if (this.eventTime == 200)
@@ -274,9 +281,12 @@ public class EntityEvent1 extends EntityMobNPC
 			for (int u = 0; u < k.size(); ++u)
 			{
 				EntityPlayerMP playerall = k.get(u);
-
-				TFAdvancements.MISSION_01.trigger(playerall);
+				this.world.getMinecraftServer().getPlayerList().getPlayerAdvancements(playerall);
 			}
+
+			TF2Core.config.getCategory("all").get("tf.config.tier0").set(true);
+			TF2Core.syncConfig();
+
 		}
 		if (this.eventTime2 > 600)
 		{
@@ -327,7 +337,15 @@ public class EntityEvent1 extends EntityMobNPC
 					var1.setLocationAndAngles((double) i, (double) j, (double) k, this.rand.nextFloat() * 360.0F, 0.0F);
 				}
 			}
-			this.world.spawnEntity(var1);
+
+
+
+			List mtt4 = this.world.getEntitiesWithinAABB(EntityEnemyMTT4.class, this.getEntityBoundingBox().grow(45.0D));
+
+			if((this.getMaxCount() - this.getCount()) + mtt4.size() < this.getMaxCount())
+			{
+				this.world.spawnEntity(var1);
+			}
 		}
 	}
 }

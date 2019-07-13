@@ -649,6 +649,7 @@ skill.fullfirepower=Every 20 seconds, 50% chance to ShootingIII(0:10)
 skill.provocate=Change target of attack target to yourself
 
 tf.mission.potential=Enemy Power Gauge
+tf.mission.already=This mission is already completed
 
 tf.mission1.txt1=Check the content of the exam again.
 tf.mission1.txt2=The goal is to destroy 8 of our training turrets.

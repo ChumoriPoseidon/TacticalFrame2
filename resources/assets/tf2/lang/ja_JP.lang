@@ -658,6 +658,7 @@ skill.fullfirepower=20秒毎に50％の確率で射撃力上昇III(0:10)を発�
 skill.provocate=攻撃した対象のターゲットを自身に変更する
 
 tf.mission.potential=敵戦力ゲージ
+tf.mission.already=このミッションは既に完了しています
 
 tf.mission1.txt1=もう一度、試験の内容を確認する。
 tf.mission1.txt2=目標は我が社の訓練用タレット8体の撃破だ。
