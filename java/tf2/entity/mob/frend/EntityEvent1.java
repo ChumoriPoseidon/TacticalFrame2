@@ -3,6 +3,7 @@ package tf2.entity.mob.frend;
 import java.util.List;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -22,7 +23,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
@@ -76,7 +76,13 @@ public class EntityEvent1 extends EntityMobNPC
 
 	public ITextComponent getScoreName()
 	{
-		TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal("tf.mission.potential"));
+//		TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal("tf.mission.potential"));
+		TextComponentString textcomponentstring = new TextComponentString("tf.mission.potential");
+
+		if(this.world.isRemote)
+		{
+			textcomponentstring = new TextComponentString(I18n.format("tf.mission.potential"));
+		}
 		return textcomponentstring;
 	}
 
@@ -197,9 +203,9 @@ public class EntityEvent1 extends EntityMobNPC
 		for (int u = 0; u < k.size(); ++u)
 		{
 			EntityPlayer playerall = (EntityPlayer) k.get(u);
-			if (!this.world.isRemote)
+			if (this.world.isRemote)
 			{
-				playerall.sendMessage(new TextComponentTranslation(text, new Object[0]));
+				playerall.sendMessage(new TextComponentTranslation(I18n.format(text), new Object[0]));
 			}
 		}
 	}
@@ -208,28 +214,24 @@ public class EntityEvent1 extends EntityMobNPC
 	{
 		if (this.eventTime == 200)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt1");
-			this.isChat(d);
+//			String d = I18n.format("tf.mission1.txt1");
+			this.isChat("tf.mission1.txt1");
 		}
 		if (this.eventTime == 300)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt2");
-			this.isChat(d);
+			this.isChat("tf.mission1.txt2");
 		}
 		if (this.eventTime == 400)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt3");
-			this.isChat(d);
+			this.isChat("tf.mission1.txt3");
 		}
 		if (this.eventTime == 500)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt4");
-			this.isChat(d);
+			this.isChat("tf.mission1.txt4");
 		}
 		if (this.eventTime == 600)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt5");
-			this.isChat(d);
+			this.isChat("tf.mission1.txt5");
 		}
 
 		if (this.count > 0)
@@ -254,23 +256,19 @@ public class EntityEvent1 extends EntityMobNPC
 	{
 		if (this.eventTime2 == 100)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt6");
-			this.isChat(d);
+			this.isChat("tf.mission1.txt6");
 		}
 		if (this.eventTime2 == 200)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt7");
-			this.isChat(d);
+			this.isChat("tf.mission1.txt7");
 		}
 		if (this.eventTime2 == 400)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt8");
-			this.isChat(d);
+			this.isChat("tf.mission1.txt8");
 		}
 		if (this.eventTime2 == 500)
 		{
-			String d = I18n.translateToLocal("tf.mission1.txt9");
-			this.isChat(d);
+			this.isChat("tf.mission1.txt9");
 
 			List<EntityPlayerMP> k = this.world.getEntitiesWithinAABB(EntityPlayerMP.class, this.getEntityBoundingBox().grow(40.0D));
 			for (int u = 0; u < k.size(); ++u)
