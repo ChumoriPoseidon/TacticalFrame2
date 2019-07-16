@@ -23,9 +23,11 @@ import tf2.items.guns.ItemTFGuns;
 
 public class EventGunRender
 {
-	private static final FloatBuffer COLOR_BUFFER = GLAllocation.createDirectFloatBuffer(4);
+//	private static final FloatBuffer COLOR_BUFFER = GLAllocation.createDirectFloatBuffer(4);
+	@SideOnly(Side.CLIENT)
 	public static FloatBuffer setColorBuffer(float p_74521_0_, float p_74521_1_, float p_74521_2_, float p_74521_3_)
 	{
+		FloatBuffer COLOR_BUFFER = GLAllocation.createDirectFloatBuffer(4);
 		COLOR_BUFFER.clear();
 		COLOR_BUFFER.put(p_74521_0_).put(p_74521_1_).put(p_74521_2_).put(p_74521_3_);
 		COLOR_BUFFER.flip();
