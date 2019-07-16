@@ -281,16 +281,12 @@ public class ItemSpawnFriendMecha extends ItemBase
 
 			if(nbt != null)
 			{
+				UUID ownerUuid = UUID.fromString(nbt.getString("tf.mechaOwner"));
 				entityMecha.setMechaLevel(nbt.getInteger("tf.mechaLevel"));
 				entityMecha.setMechaATK((int) (entityMecha.defaultDamage) + (int)(entityMecha.getMechaLevel() * entityMecha.upDamage));
 				entityMecha.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(entityMecha.defaultArmor + (int)(entityMecha.getMechaLevel() * entityMecha.upArmor));
 				entityMecha.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(entityMecha.defaultArmorToughness + (int)(entityMecha.getMechaLevel() * entityMecha.upArmorToughness));
-
-				if(nbt.getBoolean("tf:mechaOwner"))
-				{
-					UUID ownerUuid = UUID.fromString(nbt.getString("tf.mechaOwner"));
-					entityMecha.setOwnerUUID(ownerUuid);
-				}
+				entityMecha.setOwnerUUID(ownerUuid);
 
 				entityMecha.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(entityMecha.defaultMaxHealth + (int)(entityMecha.getMechaLevel() * entityMecha.upMaxHealth));
 				entityMecha.heal((float) (nbt.getInteger("tf.mechaHealth")));
@@ -447,7 +443,7 @@ public class ItemSpawnFriendMecha extends ItemBase
 			tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
 
 
-			if(nbt.getBoolean("tf.mechaOwner"))
+			if(nbt.hasKey("tf.mechaOwner"))
 			{
 				UUID ownerUuid = UUID.fromString(nbt.getString("tf.mechaOwner"));
 
