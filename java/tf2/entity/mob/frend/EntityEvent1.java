@@ -3,7 +3,6 @@ package tf2.entity.mob.frend;
 import java.util.List;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -23,6 +22,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
@@ -76,7 +76,7 @@ public class EntityEvent1 extends EntityMobNPC
 
 	public ITextComponent getScoreName()
 	{
-		TextComponentString textcomponentstring = new TextComponentString(I18n.format("tf.mission.potential"));
+		TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal("tf.mission.potential"));
 		return textcomponentstring;
 	}
 
@@ -208,27 +208,27 @@ public class EntityEvent1 extends EntityMobNPC
 	{
 		if (this.eventTime == 200)
 		{
-			String d = I18n.format("tf.mission1.txt1");
+			String d = I18n.translateToLocal("tf.mission1.txt1");
 			this.isChat(d);
 		}
 		if (this.eventTime == 300)
 		{
-			String d = I18n.format("tf.mission1.txt2");
+			String d = I18n.translateToLocal("tf.mission1.txt2");
 			this.isChat(d);
 		}
 		if (this.eventTime == 400)
 		{
-			String d = I18n.format("tf.mission1.txt3");
+			String d = I18n.translateToLocal("tf.mission1.txt3");
 			this.isChat(d);
 		}
 		if (this.eventTime == 500)
 		{
-			String d = I18n.format("tf.mission1.txt4");
+			String d = I18n.translateToLocal("tf.mission1.txt4");
 			this.isChat(d);
 		}
 		if (this.eventTime == 600)
 		{
-			String d = I18n.format("tf.mission1.txt5");
+			String d = I18n.translateToLocal("tf.mission1.txt5");
 			this.isChat(d);
 		}
 
@@ -254,22 +254,22 @@ public class EntityEvent1 extends EntityMobNPC
 	{
 		if (this.eventTime2 == 100)
 		{
-			String d = I18n.format("tf.mission1.txt6");
+			String d = I18n.translateToLocal("tf.mission1.txt6");
 			this.isChat(d);
 		}
 		if (this.eventTime2 == 200)
 		{
-			String d = I18n.format("tf.mission1.txt7");
+			String d = I18n.translateToLocal("tf.mission1.txt7");
 			this.isChat(d);
 		}
 		if (this.eventTime2 == 400)
 		{
-			String d = I18n.format("tf.mission1.txt8");
+			String d = I18n.translateToLocal("tf.mission1.txt8");
 			this.isChat(d);
 		}
 		if (this.eventTime2 == 500)
 		{
-			String d = I18n.format("tf.mission1.txt9");
+			String d = I18n.translateToLocal("tf.mission1.txt9");
 			this.isChat(d);
 
 			List<EntityPlayerMP> k = this.world.getEntitiesWithinAABB(EntityPlayerMP.class, this.getEntityBoundingBox().grow(40.0D));
