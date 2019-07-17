@@ -3,7 +3,6 @@ package tf2.entity.mob.frend;
 import java.util.List;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -23,6 +22,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
@@ -74,17 +74,21 @@ public class EntityEvent1 extends EntityMobNPC
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);
 	}
 
-	public ITextComponent getScoreName()
-	{
-//		TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal("tf.mission.potential"));
-		TextComponentString textcomponentstring = new TextComponentString("tf.mission.potential");
+//	public ITextComponent getScoreName()
+//	{
+//		TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal(("tf.mission.potential")));
+//
+//		return textcomponentstring;
+//	}
 
-		if(this.world.isRemote)
-		{
-			textcomponentstring = new TextComponentString(I18n.format("tf.mission.potential"));
-		}
-		return textcomponentstring;
-	}
+    /**
+     * Get the formatted ChatComponent that will be used for the sender's username in chat
+     */
+    public ITextComponent getScoreName()
+    {
+        TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal(("tf.mission.potential")));
+        return textcomponentstring;
+    }
 
 	@Override
 	protected SoundEvent getAmbientSound()
@@ -199,13 +203,15 @@ public class EntityEvent1 extends EntityMobNPC
 
 	public void isChat(String text)
 	{
+		String textIn = I18n.translateToLocal(text);
 		List k = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(30.0D));
 		for (int u = 0; u < k.size(); ++u)
 		{
 			EntityPlayer playerall = (EntityPlayer) k.get(u);
-			if (this.world.isRemote)
+
+			if(!this.world.isRemote)
 			{
-				playerall.sendMessage(new TextComponentTranslation(I18n.format(text), new Object[0]));
+				playerall.sendMessage(new TextComponentTranslation(textIn, new Object[0]));
 			}
 		}
 	}

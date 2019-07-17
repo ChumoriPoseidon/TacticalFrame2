@@ -185,7 +185,7 @@ public abstract class EntityFriendMecha extends EntityGolem
 			itemstack.setTagCompound(nbt);
 		}
 
-		if (!world.isRemote)
+		if (!world.isRemote && !nbt.getString("tf.mechaOwner").isEmpty())
 		{
 			if (this.inventoryMechaEquipment != null)
 			{
@@ -349,22 +349,22 @@ public abstract class EntityFriendMecha extends EntityGolem
 					player.startRiding(this);
 					return true;
 				}
-				else if(!this.canBeingRidden && player.isSneaking() && player.getCachedUniqueIdString().equals(this.getOwnerUUID().toString()))
-				{
-					switch(this.getMechaMode())
-					{
-						case 0: this.setMechaMode((byte)1);	break;
-						case 1: this.setMechaMode((byte)2);	break;
-						case 2: this.setMechaMode((byte)0);	break;
-					}
-					this.playSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-					return true;
-				}
 				else
 				{
+					if(player.isSneaking() && player.getCachedUniqueIdString().equals(this.getOwnerUUID().toString()))
+					{
+						switch(this.getMechaMode())
+						{
+							case 0: this.setMechaMode((byte)1);	break;
+							case 1: this.setMechaMode((byte)2);	break;
+							case 2: this.setMechaMode((byte)0);	break;
+						}
+						this.playSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+						return true;
+					}
 					this.setAccessPlayer(player);
-					//if(this.getOwner() != null)
-					if(this.getOwner() != null || player.isCreative())
+					//if(this.getOwner() != null)s
+					if(this.getOwnerUUID() != null)
 					{
 						player.openGui(TF2Core.INSTANCE, TF2Core.guiTurret, this.getEntityWorld(), this.getEntityId(), 0, 0);
 					}
@@ -463,7 +463,7 @@ public abstract class EntityFriendMecha extends EntityGolem
 
 	public EntityPlayer getOwner()
 	{
-		return world.getPlayerEntityByUUID(getOwnerUUID());
+		return this.getOwnerUUID() == null ? null : world.getPlayerEntityByUUID(this.getOwnerUUID());
 	}
 
 	public String getOwnerName()
