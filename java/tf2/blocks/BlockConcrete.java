@@ -65,14 +65,14 @@ public class BlockConcrete extends Block implements IHasModel
 		return false;
 	}
 
-	//ItemStackのmetadataからIBlockStateを生成。設置時に呼ばれる。
+	//ItemStackのmetadataからIBlockStateを生成 設置時に呼ばれる
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
 		return this.getDefaultState().withProperty(METADATA, meta);
 	}
 
-	//IBlockStateからItemStackのmetadataを生成。ドロップ時とテクスチャ・モデル参照時に呼ばれる。
+	//IBlockStateからItemStackのmetadataを生成 ドロップ時とテクスチャ・モデル参照時に呼ばれる
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
@@ -85,7 +85,7 @@ public class BlockConcrete extends Block implements IHasModel
 		return state;
 	}
 
-	//初期BlockStateの生成。
+	//初期BlockStateの生成
 	@Override
 	protected BlockStateContainer createBlockState()
 	{

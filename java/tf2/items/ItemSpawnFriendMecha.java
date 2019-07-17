@@ -452,40 +452,40 @@ public class ItemSpawnFriendMecha extends ItemBase
 				tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
 			}
 
-				if(nbt.hasKey("tf.mechaSkillA") || nbt.hasKey("tf.mechaSkillB") || nbt.hasKey("tf.mechaSkillC"))
-				{
-					tooltip.add(TextFormatting.GRAY + "");
-					s = "Skill: ";
-					tooltip.add(TextFormatting.DARK_AQUA + " " + I18n.translateToLocal(s));
+			if(nbt.hasKey("tf.mechaSkillA") || nbt.hasKey("tf.mechaSkillB") || nbt.hasKey("tf.mechaSkillC"))
+			{
+				tooltip.add(TextFormatting.GRAY + "");
+				s = "Skill: ";
+				tooltip.add(TextFormatting.DARK_AQUA + " " + I18n.translateToLocal(s));
 
-					if(nbt.hasKey("tf.mechaSkillA"))
+				if(nbt.hasKey("tf.mechaSkillA"))
+				{
+					Item item = Item.REGISTRY.getObject(new ResourceLocation(nbt.getString("tf.mechaSkillA")));
+					if(item != null)
 					{
-						Item item = Item.REGISTRY.getObject(new ResourceLocation(nbt.getString("tf.mechaSkillA")));
-						if(item != null)
-						{
-							s = item.getItemStackDisplayName(new ItemStack(item));
-							tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
-						}
-					}
-					if(nbt.hasKey("tf.mechaSkillB"))
-					{
-						Item item = Item.REGISTRY.getObject(new ResourceLocation(nbt.getString("tf.mechaSkillB")));
-						if(item != null)
-						{
-							s = item.getItemStackDisplayName(new ItemStack(item));
-							tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
-						}
-					}
-					if(nbt.hasKey("tf.mechaSkillC"))
-					{
-						Item item = Item.REGISTRY.getObject(new ResourceLocation(nbt.getString("tf.mechaSkillC")));
-						if(item != null)
-						{
-							s = item.getItemStackDisplayName(new ItemStack(item));
-							tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
-						}
+						s = item.getItemStackDisplayName(new ItemStack(item));
+						tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
 					}
 				}
+				if(nbt.hasKey("tf.mechaSkillB"))
+				{
+					Item item = Item.REGISTRY.getObject(new ResourceLocation(nbt.getString("tf.mechaSkillB")));
+					if(item != null)
+					{
+						s = item.getItemStackDisplayName(new ItemStack(item));
+						tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
+					}
+				}
+				if(nbt.hasKey("tf.mechaSkillC"))
+				{
+					Item item = Item.REGISTRY.getObject(new ResourceLocation(nbt.getString("tf.mechaSkillC")));
+					if(item != null)
+					{
+						s = item.getItemStackDisplayName(new ItemStack(item));
+						tooltip.add(TextFormatting.GRAY + " " + I18n.translateToLocal(s));
+					}
+				}
+			}
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
