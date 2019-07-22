@@ -20,7 +20,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.BossInfo;
@@ -86,8 +85,8 @@ public class EntityEvent1 extends EntityMobNPC
      */
     public ITextComponent getScoreName()
     {
-        TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal(("tf.mission.potential")));
-        return textcomponentstring;
+//        TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal(("tf.mission.potential")));
+        return new TextComponentTranslation("tf.mission.potential", new Object[] {});
     }
 
 	@Override
@@ -201,7 +200,7 @@ public class EntityEvent1 extends EntityMobNPC
 		this.bossInfo.setPercent((float) this.getCount() / this.getMaxCount());
 	}
 
-	public void isChat(String text)
+	public void isChat(String text, Object... args)
 	{
 		String textIn = I18n.translateToLocal(text);
 		List k = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(30.0D));
@@ -211,8 +210,10 @@ public class EntityEvent1 extends EntityMobNPC
 
 			if(!this.world.isRemote)
 			{
-				playerall.sendMessage(new TextComponentTranslation(textIn, new Object[0]));
+				playerall.sendMessage(new TextComponentTranslation(text, args));
 			}
+//			playerall.sendMessage(new TextComponentTranslation(textIn, new Object[0]));
+
 		}
 	}
 
