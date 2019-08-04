@@ -135,7 +135,7 @@ public class EntityEvent1 extends EntityMobNPC
 
 		this.isMission();
 
-		this.bossInfo.setVisible(this.eventTime > 800);
+		this.bossInfo.setVisible(this.eventTime > 600);
 
 		if (this.count <= 0)
 		{
