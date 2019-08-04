@@ -1,5 +1,7 @@
 package tf2.entity.mob.enemy;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -13,9 +15,11 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import tf2.TF2Core;
 import tf2.TFSoundEvents;
 import tf2.entity.mob.ai.EntityAIAttackRangedGun;
 import tf2.entity.projectile.enemy.EntityEnemyBullet;
@@ -54,7 +58,11 @@ public class EntityEnemyMTT4 extends EntityMobTF implements IRangedAttackMob
 	{
 		super.entityInit();
 	}
-
+	@Nullable
+	protected ResourceLocation getLootTable()
+	{
+		return TF2Core.ENTITIES_TM06;
+	}
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase var1, float var2)
 	{

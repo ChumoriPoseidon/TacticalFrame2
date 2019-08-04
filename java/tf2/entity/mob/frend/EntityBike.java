@@ -30,7 +30,7 @@ public class EntityBike extends EntityVehicle
 
 	public EntityBike(World worldIn)
 	{
-		super(worldIn, 0.0D, 20.0D, 0.0D, 100.0D);
+		super(worldIn, 0.0D, 10.0D, 0.0D, 50.0D);
 		this.setSize(1.2F, 0.8F);
 		this.stepHeight = 1.5F;
 	}

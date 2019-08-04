@@ -72,25 +72,10 @@ public class CraftingManagerMachineStation {
 		}
 	}
 
-	private static void registerRecipes() {
+	private static void registerRecipes()
+	{
+		register("bike", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 9), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 0), 'A', TFBlocks.MACHINE_CHASSIS, 'B', new ItemStack(TFItems.PARTS, 1, 7), 'C', TFItems.DEVELOP_CHIP_0}));
 
-		/** 定形レシピ(Shaped Recipes)
-		 * 	register(par1, new ShapedOreRecipe(null, par2, par3);
-		 *
-		 *  par1(String): 他のレシピと被らない名前(レシピ内容を表すと分かりやすい)
-		 *  par2(Block or Item or ItemStack): 作り出されるアイテム
-		 *  par3(Object...): 従来同様、""で素材の配置、''とその直後のItemStack(その他Item, Block, Ingredient)で各要素
-		 *
-		 *  ex1: 縦3上から羊毛[wool]、木材[plank]、棒[stick] > 松明[torch] x8
-		 *  register("more_torch", new ShapedOreRecipe(null, new ItemStack(Blocks.TORCH, 8), new Object[] {"W", "P", "S", 'W', Blocks.WOOL, 'P', Blocks.PLANKS, 'S', Items.STICK}));
-		 *
-		 *	ex2: 十字(上 x1、中 x3、下 x1)で上に火打ち石[flint]、中に小麦(orニンジンorジャガイモ)[wheat or carrot or potato]、下にボウル[bowl] > 種[seed] x8
-		 *	register("grind_crop", new ShapedOreRecipe(null, new ItemStack(Items.WHEAT_SEEDS, 8), new Object[] {" F ", "CCC", " B ", 'F', Items.FLINT, 'C', Ingredient.fromItems(Items.WHEAT, Items.CARROT, Items.POTATO), 'B', Items.BOWL}));
-		 */
-
-//		register("gear_iron", new ShapedOreRecipe(null, new ItemStack(TFItems.GEAR_IRON), new Object[]{" A ", "A A", " A ", 'A', Items.IRON_INGOT}));
-//		register("gear_gold", new ShapedOreRecipe(null, new ItemStack(TFItems.GEAR_GOLD), new Object[]{" A ", "A A", " A ", 'A', Items.GOLD_INGOT}));
-//
 		register("cfr12", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 0), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 0), 'A', new ItemStack(TFItems.PARTS, 1, 2), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_0}));
 
 		register("mtt1", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 1), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 2), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_0}));
@@ -103,68 +88,6 @@ public class CraftingManagerMachineStation {
 		register("tf78r", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 6), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 4), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_1}));
 		register("tf79p", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 7), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 4), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_1}));
 		register("tf80g", new ShapedOreRecipe(null, new ItemStack(TFItems.SPAWNFM, 1, 8), new Object[]{" A ", "BCB", " X ", 'X', new ItemStack(TFItems.PARTS, 1, 1), 'A', new ItemStack(TFItems.PARTS, 1, 4), 'B', TFBlocks.MACHINE_CHASSIS, 'C', TFItems.DEVELOP_CHIP_1}));
-//
-//		register("scar", new ShapedOreRecipe(null, new ItemStack(TFItems.SCAR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.AK74}));
-//		register("scar_2", new ShapedOreRecipe(null, new ItemStack(TFItems.SCAR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M4A1}));
-//		register("scar_3", new ShapedOreRecipe(null, new ItemStack(TFItems.SCAR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.FAMAS}));
-//		register("scar_4", new ShapedOreRecipe(null, new ItemStack(TFItems.SCAR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.SIG550}));
-//		register("m14ebr", new ShapedOreRecipe(null, new ItemStack(TFItems.M14EBR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.AK74}));
-//		register("m14ebr_2", new ShapedOreRecipe(null, new ItemStack(TFItems.M14EBR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M4A1}));
-//		register("m14ebr_3", new ShapedOreRecipe(null, new ItemStack(TFItems.M14EBR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.FAMAS}));
-//		register("m14ebr_4", new ShapedOreRecipe(null, new ItemStack(TFItems.M14EBR), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.SIG550}));
-//
-//		register("pp19", new ShapedOreRecipe(null, new ItemStack(TFItems.PP19), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.P90}));
-//		register("ump9", new ShapedOreRecipe(null, new ItemStack(TFItems.UMP9), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.MP7}));
-//		register("m60e1", new ShapedOreRecipe(null, new ItemStack(TFItems.M60E1), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.MG42}));
-//
-//		register("pgm", new ShapedOreRecipe(null, new ItemStack(TFItems.PGM), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M82A1}));
-//
-//		register("xm2010", new ShapedOreRecipe(null, new ItemStack(TFItems.XM2010), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M200}));
-//		register("xm2010_2", new ShapedOreRecipe(null, new ItemStack(TFItems.XM2010), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.MOSINNAGANT}));
-//		register("psg1", new ShapedOreRecipe(null, new ItemStack(TFItems.PSG1), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.WA2000}));
-//		register("psg1_2", new ShapedOreRecipe(null, new ItemStack(TFItems.PSG1), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.MOSINNAGANT}));
-//
-//		register("m870", new ShapedOreRecipe(null, new ItemStack(TFItems.M870), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M1014}));
-//
-//		register("aa12", new ShapedOreRecipe(null, new ItemStack(TFItems.AA12), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M1014}));
-//		register("aa12_2", new ShapedOreRecipe(null, new ItemStack(TFItems.AA12), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.VEPR12}));
-//
-//		register("mgl140", new ShapedOreRecipe(null, new ItemStack(TFItems.MGL140), new Object[]{"AAA", "BCB", "AAA", 'A', TFItems.RIGIDO_INGOT, 'B', TFItems.LEPRE_CUBE, 'C', TFItems.M20}));
-//
-//
-//		register("aidstone_0", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 1), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_1", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 3), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_2", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 4), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_3", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 5), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_4", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 6), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_5", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 7), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_6", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 8), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_7", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 9), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_8", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 11), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_9", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 12), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_10", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 14), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//		register("aidstone_11", new ShapelessOreRecipe(null, new ItemStack(TFBlocks.AID_STONE, 1, 15), new Object[] {new ItemStack(TFBlocks.AID_STONE, 1, 0)}));
-//
-//		register("box_rifle", new ShapelessOreRecipe(null, new ItemStack(TFItems.BOX_RIFLE, 1), new Object[] {new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GUNPOWDER)}));
-//		register("box_shot", new ShapelessOreRecipe(null, new ItemStack(TFItems.BOX_SHOT, 1), new Object[] {new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GUNPOWDER), new ItemStack(Items.PAPER)}));
-//		register("box_sniper", new ShapelessOreRecipe(null, new ItemStack(TFItems.BOX_SNIPER, 1), new Object[] {new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GUNPOWDER)}));
-//		register("box_grenade", new ShapelessOreRecipe(null, new ItemStack(TFItems.BOX_GRENADE, 1), new Object[] {new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT), new ItemStack(TFBlocks.EXPLOSIVE)}));
-//
-//
-//		/** 非定形レシピ(Shapeless Recipes)
-//		 *  register(par1, new ShapelessOreRecipe(null, par2, par3);
-//		 *
-//		 * 	par1(String): 他のレシピと被らない名前(レシピ内容を表すと分かりやすい)
-//		 *  par2(Block or Item or ItemStack): 作り出されるアイテム
-//		 *  par3(Object...): 従来同様、ItemStack(その他Item, Block, Ingredient)を連続で必要な素材集
-//		 *
-//		 *  ex1: 土ブロック系[dirt] x2 > ダイヤモンド[diamond]
-//		 *  register("dirt2_to_diamond", new ShapelessOreRecipe(null, new ItemStack(Items.DIAMOND), Blocks.DIRT, Blocks.DIRT));
-//		 *
-//		 *  ex2: ゾンビ肉[rotten_flesh]とニンジン(orジャガイモ)[carrot or potato] > ゾンビ肉[rotten_flesh] x2
-//		 *  register("dup_rotten_flesh", new ShapelessOreRecipe(null, new ItemStack(Items.ROTTEN_FLESH, 2), Items.ROTTEN_FLESH, Ingredient.fromItems(Items.CARROT, Items.POTATO)));
-//		 */
-
 	}
 
 	private static void customParseJsonRecipes() {

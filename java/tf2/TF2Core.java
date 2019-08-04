@@ -46,6 +46,7 @@ import tf2.client.GunRenderSetup;
 import tf2.common.PacketHandler;
 import tf2.entity.mob.enemy.EntityTM04;
 import tf2.entity.mob.enemy.EntityTM05;
+import tf2.entity.mob.enemy.EntityTM06;
 import tf2.entity.mob.enemy.EntityTM07;
 import tf2.entity.mob.enemy.EntityTM11;
 import tf2.entity.mob.enemy.EntityTM12;
@@ -297,6 +298,8 @@ public class TF2Core {
 		{
 			if (biome != null && isSpawnableBiomeType(biome))
 			{
+				EntityRegistry.addSpawn(EntityTM06.class, TF2Core.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
+
 				EntityRegistry.addSpawn(EntityTM04.class, TF2Core.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
 				EntityRegistry.addSpawn(EntityTM05.class, TF2Core.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);
 				EntityRegistry.addSpawn(EntityTM07.class, TF2Core.CONFIG.spawnRatetier1, 1, 5, EnumCreatureType.MONSTER, biome);

@@ -24,6 +24,6 @@
         }
     },
     "rewards": {
-        "recipes": ["tf2:parts_0", "tf2:parts_1", "tf2:parts_2", "tf2:parts_4"]
+        "recipes": ["tf2:parts_0", "tf2:parts_1", "tf2:parts_2", "tf2:parts_4", "tf2:parts_7"]
     }
 }
