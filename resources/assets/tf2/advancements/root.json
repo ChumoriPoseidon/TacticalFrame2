@@ -26,7 +26,7 @@
 		}
 	},
 	"rewards": {
-        "recipes": ["tf2:workkit", "tf2:guncraft","tf2:cupola","tf2:gunpowder3"]
+        "recipes": ["tf2:workkit", "tf2:guncraft","tf2:cupola","tf2:gunpowder3", "tf2:mission1"]
     }
 
 }

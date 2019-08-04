@@ -15,12 +15,14 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import tf2.TF2Core;
 import tf2.TFSoundEvents;
 import tf2.entity.mob.ai.EntityAIAttackRangedGun;
 import tf2.entity.mob.ai.EntityAIFloating;
 import tf2.entity.mob.ai.EntityAIRandomFloat;
+import tf2.entity.projectile.enemy.EntityEnemyBullet;
 
 public class EntityTM06 extends EntityMobTF implements IRangedAttackMob
 {
@@ -50,11 +52,8 @@ public class EntityTM06 extends EntityMobTF implements IRangedAttackMob
 	{
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.3D);
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(18.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.54D);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
 	}
 
 	@Override
@@ -65,12 +64,27 @@ public class EntityTM06 extends EntityMobTF implements IRangedAttackMob
 	@Nullable
 	protected ResourceLocation getLootTable()
 	{
-		return TF2Core.ENTITIES_TM04;
+		return TF2Core.ENTITIES_TM06;
 	}
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float var2)
 	{
+		double var3 = target.posX - this.posX;
+		double var8 = target.posY - this.posY;
+		double var5 = target.posZ - this.posZ;
 
+		if (this.attackTime == 0)
+		{
+			EntityEnemyBullet var7 = new EntityEnemyBullet(this.world, this);
+			var7.setDamage(var7.getDamage() + 4.0D);
+			this.playSound(TFSoundEvents.M16, 2.3F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+			var7.shoot(var3, var8, var5, 2.0F, 3.0F);
+			this.world.spawnEntity(var7);
+		}
+		if (this.attackTime <= 0)
+		{
+			this.attackTime = 100;
+		}
 	}
 
 	public boolean isOnLadder()
@@ -126,4 +140,11 @@ public class EntityTM06 extends EntityMobTF implements IRangedAttackMob
 	@Override
 	public void setSwingingArms(boolean swingingArms)
 	{}
+
+	@Override
+	public boolean getCanSpawnHere()
+	{
+		boolean flag = TF2Core.CONFIG.spawnMobTMtier1 || TF2Core.CONFIG.spawnMobTMtier2 || TF2Core.CONFIG.spawnMobTMtier3;
+		return TF2Core.CONFIG.spawnMobTMtier0 && !flag && this.isValidLightLevel() && this.world.getDifficulty() != EnumDifficulty.PEACEFUL;
+	}
 }
