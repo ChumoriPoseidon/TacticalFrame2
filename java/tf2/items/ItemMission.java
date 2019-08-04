@@ -46,7 +46,6 @@ public class ItemMission extends ItemBase
 				if(playerMP.getAdvancements().getProgress(adv).isDone())
 				{
 					playerMP.sendStatusMessage(new TextComponentTranslation("tf.mission.already", new Object[0]), true);
-
 					return EnumActionResult.FAIL;
 				}
 			}
@@ -64,7 +63,7 @@ public class ItemMission extends ItemBase
 
 			if (!player.capabilities.isCreativeMode)
 			{
-				itemstack.shrink(1);
+				itemstack.damageItem(1, player);
 			}
 
 			return EnumActionResult.SUCCESS;
