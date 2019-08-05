@@ -4,6 +4,7 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -46,8 +47,9 @@ public class ItemMission extends ItemBase
 				if(playerMP.getAdvancements().getProgress(adv).isDone())
 				{
 					playerMP.sendStatusMessage(new TextComponentTranslation("tf.mission.already", new Object[0]), true);
-					return EnumActionResult.FAIL;
+
 				}
+				return EnumActionResult.FAIL;
 			}
 
 			if (!worldIn.isRemote)
@@ -63,9 +65,9 @@ public class ItemMission extends ItemBase
 
 			if (!player.capabilities.isCreativeMode)
 			{
-				itemstack.damageItem(1, player);
+				player.addStat(StatList.getObjectUseStats(this));
+				itemstack.shrink(1);
 			}
-
 			return EnumActionResult.SUCCESS;
 		}
 	}
