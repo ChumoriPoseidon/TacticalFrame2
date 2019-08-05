@@ -43,6 +43,7 @@ import tf2.client.mobrender.RenderTM26C;
 import tf2.client.mobrender.RenderTM26D;
 import tf2.client.mobrender.RenderTM41;
 import tf2.client.model.ModelGynoid;
+import tf2.client.model.ModelSoldier;
 import tf2.client.render.RenderAreaHeal;
 import tf2.client.render.RenderBarrier;
 import tf2.client.render.RenderBullet;
@@ -185,7 +186,7 @@ public class ClientProxy extends CommonProxy
 //		RenderingRegistry.registerEntityRenderingHandler(EntityBike.class, RenderBike::new);
 //		RenderingRegistry.registerEntityRenderingHandler(EntityTank.class, RenderTank::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityEvent1.class, m -> new RenderEvent1<>(m, new ModelBiped(), 0.625F));
-		RenderingRegistry.registerEntityRenderingHandler(EntityEvent2.class, m -> new RenderEvent2<>(m, new ModelBiped(), 0.625F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityEvent2.class, m -> new RenderEvent2<>(m, new ModelSoldier(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntitySoldier.class, m -> new RenderSoldier<>(m, new ModelSoldier(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityMercenary.class, m -> new RenderMercenary<>(m, new ModelSoldier(), 0.625F));
 //		RenderingRegistry.registerEntityRenderingHandler(EntityZunko.class, m -> new RenderZunko<>(m, new ModelSoldier(), 0.625F));

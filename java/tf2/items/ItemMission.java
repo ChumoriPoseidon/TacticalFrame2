@@ -63,7 +63,7 @@ public class ItemMission extends ItemBase
 
 			if (!player.capabilities.isCreativeMode)
 			{
-				itemstack.damageItem(1, player);
+				itemstack.shrink(1);
 			}
 
 			return EnumActionResult.SUCCESS;

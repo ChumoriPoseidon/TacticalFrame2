@@ -2,8 +2,12 @@ package tf2.entity.mob.frend;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -11,6 +15,8 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -20,16 +26,17 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import tf2.TFItems;
 import tf2.entity.mob.enemy.EntityEnemyMTT4;
 import tf2.util.TFAdvancements;
 
-public class EntityEvent2 extends EntityMobNPC
+public class EntityEvent2 extends EntityMobNPC implements IRangedAttackMob
 {
 	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getScoreName(), BossInfo.Color.RED, BossInfo.Overlay.NOTCHED_6));
 
@@ -73,12 +80,21 @@ public class EntityEvent2 extends EntityMobNPC
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);
 	}
 
-	public ITextComponent getScoreName()
+	@Override
+	@Nullable
+	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
 	{
-		TextComponentString textcomponentstring = new TextComponentString(I18n.translateToLocal("tf.mission.potential"));
-		return textcomponentstring;
+		livingdata = super.onInitialSpawn(difficulty, livingdata);
+
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(TFItems.HK416));
+		return livingdata;
 	}
 
+
+	public ITextComponent getScoreName()
+    {
+        return new TextComponentTranslation("tf.mission.potential", new Object[] {});
+    }
 	@Override
 	protected SoundEvent getAmbientSound()
 	{
@@ -126,7 +142,11 @@ public class EntityEvent2 extends EntityMobNPC
 
 		this.isMission();
 
-		if (this.count <= 0)
+		if (this.eventTime > 600 && this.count > 0)
+		{
+			this.bossInfo.setVisible(true);
+		}
+		else
 		{
 			this.bossInfo.setVisible(false);
 		}
@@ -195,10 +215,13 @@ public class EntityEvent2 extends EntityMobNPC
 		for (int u = 0; u < k.size(); ++u)
 		{
 			EntityPlayer playerall = (EntityPlayer) k.get(u);
-			if (!this.world.isRemote)
+
+			if(!this.world.isRemote)
 			{
-				playerall.sendMessage(new TextComponentTranslation(text, new Object[0]));
+				playerall.sendMessage(new TextComponentTranslation(text, args));
 			}
+//			playerall.sendMessage(new TextComponentTranslation(textIn, new Object[0]));
+
 		}
 	}
 
@@ -329,5 +352,19 @@ public class EntityEvent2 extends EntityMobNPC
 			}
 			this.world.spawnEntity(var1);
 		}
+	}
+
+	@Override
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor)
+	{
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void setSwingingArms(boolean swingingArms)
+	{
+		// TODO 自動生成されたメソッド・スタブ
+
 	}
 }

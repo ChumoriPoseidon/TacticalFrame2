@@ -1,7 +1,6 @@
 package tf2.client.mobrender;
 
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
@@ -19,11 +18,6 @@ public class RenderEvent2<T extends EntityEvent2> extends RenderLiving<T>
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
-    @Override
-    protected void preRenderCallback(EntityEvent2 entitylivingbaseIn, float partialTickTime)
-    {
-        GlStateManager.scale(0.9F, 0.9F, 0.9F);
-    }
     /**
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */

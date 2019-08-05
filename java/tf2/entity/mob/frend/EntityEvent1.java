@@ -21,7 +21,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
@@ -135,9 +134,12 @@ public class EntityEvent1 extends EntityMobNPC
 
 		this.isMission();
 
-		this.bossInfo.setVisible(this.eventTime > 600);
 
-		if (this.count <= 0)
+		if (this.eventTime > 600 && this.count > 0)
+		{
+			this.bossInfo.setVisible(true);
+		}
+		else
 		{
 			this.bossInfo.setVisible(false);
 		}
@@ -202,7 +204,6 @@ public class EntityEvent1 extends EntityMobNPC
 
 	public void isChat(String text, Object... args)
 	{
-		String textIn = I18n.translateToLocal(text);
 		List k = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(30.0D));
 		for (int u = 0; u < k.size(); ++u)
 		{
