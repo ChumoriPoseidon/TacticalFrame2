@@ -46,8 +46,9 @@ public class ItemMission extends ItemBase
 				if(playerMP.getAdvancements().getProgress(adv).isDone())
 				{
 					playerMP.sendStatusMessage(new TextComponentTranslation("tf.mission.already", new Object[0]), true);
-					return EnumActionResult.FAIL;
+
 				}
+				return EnumActionResult.FAIL;
 			}
 
 			if (!worldIn.isRemote)
@@ -65,7 +66,6 @@ public class ItemMission extends ItemBase
 			{
 				itemstack.shrink(1);
 			}
-
 			return EnumActionResult.SUCCESS;
 		}
 	}

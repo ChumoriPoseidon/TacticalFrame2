@@ -22,6 +22,7 @@ import tf2.entity.mob.frend.EntityMTT1;
 import tf2.entity.mob.frend.EntityMTT2;
 import tf2.entity.mob.frend.EntityMTT3;
 import tf2.entity.mob.frend.EntityMobCF;
+import tf2.entity.mob.frend.EntityVehicle;
 import tf2.tile.container.ContainerFriendMechaInventory;
 
 public class GuiEntityFriendMechaInventory  extends GuiContainer
@@ -61,7 +62,7 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 			}
 			else
 			{
-				buttonPosX = ((this.width - this.xSize) / 2) + 137;
+				buttonPosX = ((this.width - this.xSize) / 2) + 153;
 				buttonPosY = ((this.height - this.ySize) / 2) + 85;
 				this.buttonRide = (GuiEntityFriendMechaInventory.ChangeButton) this.addButton(new GuiEntityFriendMechaInventory.ChangeButton(1, buttonPosX, buttonPosY));
 			}
@@ -96,6 +97,20 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 		int originPosY = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(originPosX, originPosY, 0, 0, this.xSize, this.ySize);
 
+		if(!this.entityMecha.canBeingRidden)
+		{
+			this.drawTexturedModalRect((originPosX + 153), (originPosY + 85), 203, 104, 15, 10);
+		}
+		else
+		{
+			this.drawTexturedModalRect((originPosX + 137), (originPosY + 85), 184, 104, 15, 10);
+		}
+
+		if(!(this.entityMecha instanceof EntityVehicle))
+		{
+			this.drawTexturedModalRect((originPosX + 62), (originPosY + 85), 184, 4, 18, 18);
+		}
+
 		for(int i =0; i < this.entityMecha.slotSize && i < 3; i++)
 		{
 			this.drawTexturedModalRect((originPosX + 82 + (i * 18)), (originPosY + 85), 184, 4, 18, 18);
@@ -113,6 +128,10 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 		if(entityMecha instanceof EntityMTT1 || entityMecha instanceof EntityMTT2)
 		{
 			scale =15;
+		}
+		if( entityMecha instanceof EntityVehicle)
+		{
+			scale = 20;
 		}
 
 		GuiInventory.drawEntityOnScreen(entityPosX, entityPosY, scale, (float) (entityPosX - xMouse), (float) ((entityPosY / 2) - yMouse), this.entityMecha);
@@ -232,7 +251,7 @@ public class GuiEntityFriendMechaInventory  extends GuiContainer
 		{
 			if(this.entityMecha.canBeingRidden)
 			{
-				if (this.isPointInRegion(138, 86, 13, 8, mouseX, mouseY))
+				if (this.isPointInRegion(153, 86, 13, 8, mouseX, mouseY))
 				{
 					this.drawHoveringText(Lists.newArrayList(I18n.format("entity.mechaRide", new Object[0])), mouseX, mouseY);
 				}

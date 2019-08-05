@@ -3,6 +3,7 @@ package tf2.client.mobrender;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerHeldItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -16,6 +17,7 @@ public class RenderEvent2<T extends EntityEvent2> extends RenderLiving<T>
     public RenderEvent2(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
     {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
+        this.addLayer(new LayerHeldItem(this));
     }
 
     /**

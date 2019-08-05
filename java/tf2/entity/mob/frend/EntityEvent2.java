@@ -209,19 +209,16 @@ public class EntityEvent2 extends EntityMobNPC implements IRangedAttackMob
 		this.bossInfo.setPercent((float) this.getCount() / this.getMaxCount());
 	}
 
-	public void isChat(String text)
+	public void isChat(String text, Object... args)
 	{
 		List k = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(30.0D));
 		for (int u = 0; u < k.size(); ++u)
 		{
 			EntityPlayer playerall = (EntityPlayer) k.get(u);
-
 			if(!this.world.isRemote)
 			{
 				playerall.sendMessage(new TextComponentTranslation(text, args));
 			}
-//			playerall.sendMessage(new TextComponentTranslation(textIn, new Object[0]));
-
 		}
 	}
 
