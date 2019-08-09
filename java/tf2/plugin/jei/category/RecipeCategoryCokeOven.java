@@ -24,6 +24,8 @@ public class RecipeCategoryCokeOven<RecipeWrapperCokeOven> implements IRecipeCat
 	protected static final int inputSlot = 0;
 	protected static final int fuelSlot = 1;
 	protected static final int outputSlot = 2;
+	protected static final int outputSlot_coaltar = 3;
+	protected static final int outputSlot_wasteoil = 4;
 
 	protected final ResourceLocation backgroundLocation = new ResourceLocation(Reference.MOD_ID, "textures/gui/container/cokeoven.png");
 	protected final IDrawable flame;
@@ -81,6 +83,12 @@ public class RecipeCategoryCokeOven<RecipeWrapperCokeOven> implements IRecipeCat
 		guiItemStackGroup.set(inputSlot, inputs.get(0));
 		List<List<ItemStack>> outputs = ingredients.getOutputs(VanillaTypes.ITEM);
 		guiItemStackGroup.set(outputSlot, outputs.get(0));
+
+		guiItemStackGroup.init(outputSlot_coaltar, false, 54, 58);
+		guiItemStackGroup.init(outputSlot_wasteoil, false, 72, 58);
+
+		guiItemStackGroup.set(outputSlot_coaltar, outputs.get(1));
+		guiItemStackGroup.set(outputSlot_wasteoil, outputs.get(2));
 	}
 
 	@Override
