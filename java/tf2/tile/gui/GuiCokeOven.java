@@ -45,27 +45,27 @@ public class GuiCokeOven extends GuiContainer {
 		int y = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
 
-		int i1 = this.tileEntity.getCookProgressScaled1(18);
+		int i1 = this.tileEntity.getProcessProgressScaled(0, 18);
 		this.drawTexturedModalRect(x + 16, y + 38, 176, 0, i1 + 1, 4);
-		i1 = this.tileEntity.getCookProgressScaled2(18);
+		i1 = this.tileEntity.getProcessProgressScaled(1, 18);
 		this.drawTexturedModalRect(x + 34, y + 38, 176, 4, i1 + 1, 4);
-		i1 = this.tileEntity.getCookProgressScaled3(18);
+		i1 = this.tileEntity.getProcessProgressScaled(2, 18);
 		this.drawTexturedModalRect(x + 52, y + 38, 176, 8, i1 + 1, 4);
-		i1 = this.tileEntity.getCookProgressScaled4(18);
+		i1 = this.tileEntity.getProcessProgressScaled(3, 18);
 		this.drawTexturedModalRect(x + 70, y + 38, 176, 12, i1 + 1, 4);
 
-		i1 = this.tileEntity.getCookProgressScaled5(18);
+		i1 = this.tileEntity.getProcessProgressScaled(4, 18);
 		this.drawTexturedModalRect(x + 16, y + 60, 176, 16, i1 + 1, 4);
-		i1 = this.tileEntity.getCookProgressScaled6(18);
+		i1 = this.tileEntity.getProcessProgressScaled(5, 18);
 		this.drawTexturedModalRect(x + 34, y + 60, 176, 20, i1 + 1, 4);
-		i1 = this.tileEntity.getCookProgressScaled7(18);
+		i1 = this.tileEntity.getProcessProgressScaled(6, 18);
 		this.drawTexturedModalRect(x + 52, y + 60, 176, 24, i1 + 1, 4);
-		i1 = this.tileEntity.getCookProgressScaled8(18);
+		i1 = this.tileEntity.getProcessProgressScaled(7, 18);
 		this.drawTexturedModalRect(x + 70, y + 60, 176, 28, i1 + 1, 4);
 
-		i1 = this.tileEntity.getStackProgressScaled1(54);
+		i1 = this.tileEntity.getOilProgressScaled(54);
 		this.drawTexturedModalRect(x + 16, y + 78, 176, 32, i1 + 1, 9);
-		i1 = this.tileEntity.getStackProgressScaled2(54);
+		i1 = this.tileEntity.getTarProgressScaled(54);
 		this.drawTexturedModalRect(x + 16, y + 87, 176, 41, i1 + 1, 9);
 	}
 }

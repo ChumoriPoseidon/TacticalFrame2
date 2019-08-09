@@ -63,15 +63,15 @@ public class GuiBioGenerator extends GuiContainer
 
 		if (this.tileEntity.isBurning())
 		{
-			i1 = this.tileEntity.getBurnTimeRemainingScaled(23);
+			i1 = this.tileEntity.getBurnTimeRemainingScaled(0, 23);
 			this.drawTexturedModalRect(x + 25, y + 49 - i1, 176, 22 - i1, 18, i1 + 1);
-			i1 = this.tileEntity.getBurnTimeRemainingScaled2(23);
+			i1 = this.tileEntity.getBurnTimeRemainingScaled(1, 23);
 			this.drawTexturedModalRect(x + 43, y + 49 - i1, 176, 22 - i1, 18, i1 + 1);
-			i1 = this.tileEntity.getBurnTimeRemainingScaled3(23);
+			i1 = this.tileEntity.getBurnTimeRemainingScaled(2, 23);
 			this.drawTexturedModalRect(x + 61, y + 49 - i1, 176, 22 - i1, 18, i1 + 1);
 		}
 
-		i1 = this.tileEntity.getCookProgressScaled(58);
+		i1 = this.tileEntity.getProcessProgressScaled(58);
 		this.drawTexturedModalRect(x + 98, y + 14 + 58 - i1, 176, 23 + 58 - i1, 13, i1 + 1);
 	}
 }
